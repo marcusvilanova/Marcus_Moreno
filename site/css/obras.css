@@ -1,0 +1,455 @@
+/* Criações cênicas (o palco): as obras, o botão assistir, o vídeo dentro da obra, sinopses e capítulos.
+   Depende dos tokens de base.css; carregado antes de secoes.css. */
+
+/* ---------- II · criações (o palco) ---------- */
+
+.criacoes {
+  /* a luz quente do alto do palco começa um pouco abaixo da borda, para não fazer emenda com a seção de cima */
+  background:
+    /* nas bordas, o marrom das seções vizinhas se desfaz no preto do palco apagado, sem emenda */
+    linear-gradient(to bottom, #1c140f, transparent 45vh),
+    linear-gradient(to top, #1c140f, transparent 45vh),
+    radial-gradient(ellipse 60% 40% at 50% 0%, rgb(214 198 171 / 0.05), transparent 70%),
+    var(--palco);
+}
+/* as Criações são o palco apagado: um preto quente, mais fundo que o marrom das outras seções escuras */
+.criacoes { --palco: #0f0c0a; }
+
+.obra {
+  display: grid;
+  gap: 1.6rem;
+  margin-bottom: var(--respiro);
+}
+.obra:last-child { margin-bottom: 0; }
+
+.obra__ano {
+  font-family: var(--serif);
+  font-weight: var(--peso-numeral);
+  font-size: clamp(3.4rem, 7.2vw, 7.4rem);
+  line-height: 0.85;
+  letter-spacing: 0.01em;
+  color: var(--destaque-claro);
+  font-variant-numeric: lining-nums;
+}
+.obra__ano span { font-size: 0.45em; color: var(--tinta-escura); }
+
+.obra__titulo {
+  font-weight: var(--peso-titulo);
+  font-size: var(--fs-obra);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  margin: 0.7rem 0 1rem;
+}
+.obra__meta {
+  font-family: var(--grotesca);
+  font-stretch: 80%;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tinta-escura);
+  line-height: 1.5;
+}
+.obra__sinopse { margin-top: 1.2rem; font-size: 1.15rem; max-width: 26em; }
+.obra__selo {
+  margin-top: 1.2rem;
+  padding-left: 0.9rem;
+  border-left: 1px solid var(--destaque-claro);
+  font-style: italic;
+  max-width: 24em;
+  line-height: 1.35;
+}
+/* sinopse completa e ficha técnica: fechadas por padrão, abrem como um caderno */
+.obra__mais {
+  margin-top: 1.4rem;
+  max-width: 34em;
+  border-top: 1px solid rgb(242 238 230 / 0.16);
+}
+.obra__mais summary {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.9rem 0;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--grotesca);
+  font-stretch: 75%;
+  font-size: var(--fs-rotulo);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--tinta-escura);
+  transition: color 0.3s ease;
+}
+.obra__mais summary::-webkit-details-marker { display: none; }
+.obra__mais summary::before {
+  content: "+";
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  line-height: 1;
+  letter-spacing: 0;
+  color: var(--destaque-claro);
+  transition: transform 0.5s var(--curva);
+}
+.obra__mais[open] summary::before { transform: rotate(45deg); }
+
+/* com a ficha aberta, a imagem acompanha a leitura em vez de ficar para trás */
+@media (min-width: 900px) {
+  .obra:has(.obra__mais[open]) { align-items: start; }
+  .obra:has(.obra__mais[open]) :is(.obra__midia, .obra__triptico, .obra__par, .obra__sobreposta) { position: sticky; top: 12vh; }
+}
+.obra__mais summary:hover, .obra__mais summary:focus-visible { color: var(--cal); }
+
+.obra__mais-corpo { padding: 0.4rem 0 1.4rem; font-size: 1.05rem; line-height: 1.55; }
+.obra__mais-corpo > p + p { margin-top: 0.9em; }
+.obra__mais[open] .obra__mais-corpo { animation: abrir-caderno 0.7s var(--curva); }
+@keyframes abrir-caderno { from { opacity: 0; transform: translateY(-0.4rem); } }
+
+.obra__epigrafe {
+  margin: 1.4rem 0 0;
+  padding-left: 1rem;
+  border-left: 1px solid var(--destaque-claro);
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+.obra__epigrafe cite {
+  display: block;
+  margin-top: 0.4rem;
+  font-style: normal;
+  font-family: var(--grotesca);
+  font-stretch: 75%;
+  font-size: var(--fs-rotulo);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--tinta-escura);
+}
+
+.creditos {
+  display: grid;
+  grid-template-columns: minmax(7rem, 2fr) 3fr;
+  gap: 0.45rem 1rem;
+  margin-top: 1.4rem;
+  font-size: 0.98rem;
+  line-height: 1.35;
+}
+.creditos dt {
+  font-family: var(--grotesca);
+  font-stretch: 75%;
+  font-size: var(--fs-rotulo);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tinta-escura);
+  padding-top: 0.2em;
+}
+.capitulos li span { grid-column: 2; font-style: normal; color: var(--tinta-escura); }
+
+.capitulos {
+  margin-top: 1.6rem;
+  counter-reset: cap;
+  font-size: 1.05rem;
+  line-height: 1.45;
+}
+.capitulos li { counter-increment: cap; display: grid; grid-template-columns: 2.2rem 1fr; font-style: italic; }
+.capitulos li::before {
+  content: counter(cap, upper-roman);
+  font-style: normal;
+  font-family: var(--grotesca);
+  font-stretch: 75%;
+  font-size: var(--fs-rotulo);
+  letter-spacing: 0.1em;
+  color: var(--destaque-claro);
+  padding-top: 0.35em;
+}
+
+/* botão assistir: um círculo de luz */
+.tocar {
+  position: relative;
+  margin-top: 1.8rem;
+  display: inline-flex; align-items: center; gap: 0.9rem;
+  font-family: var(--grotesca);
+  font-stretch: 75%;
+  font-weight: 400;
+  font-size: var(--fs-rotulo);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.tocar::before {
+  content: "";
+  width: 2.9rem; height: 2.9rem;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  transition: background-color 0.4s ease, transform 0.6s var(--curva);
+}
+.tocar::after {
+  content: "";
+  position: absolute;
+  left: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  border-style: solid;
+  border-width: 0.32rem 0 0.32rem 0.55rem;
+  border-color: transparent transparent transparent currentColor;
+  transition: border-color 0.4s ease;
+}
+.tocar:hover::before, .tocar:focus-visible::before { background-color: var(--cal); transform: scale(1.12); }
+.tocar:hover::after, .tocar:focus-visible::after { border-left-color: var(--nanquim); }
+
+.obra__ver { display: block; width: 100%; cursor: pointer; overflow: hidden; }
+
+/* o vídeo toca dentro da obra, no lugar da foto; a tela acende como um refletor */
+.obra [hidden] { display: none !important; }
+.obra__tela {
+  position: relative;
+  align-self: start;
+  aspect-ratio: 16 / 9;
+  scroll-margin-top: 5rem; /* não fica atrás do topo fixo */
+  background: #000;
+  box-shadow: 0 2rem 4rem rgb(0 0 0 / 0.5);
+  animation: acender-tela 0.9s ease both;
+}
+.obra__tela iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+@keyframes acender-tela { from { opacity: 0; transform: scale(0.985); } }
+
+/* enquanto toca, o triângulo do botão vira o quadrado de parar */
+.obra.is-tocando .tocar::after {
+  border: 0;
+  width: 0.55rem;
+  height: 0.55rem;
+  left: 1.18rem;
+  background: currentColor;
+}
+.obra.is-tocando .tocar:hover::after, .obra.is-tocando .tocar:focus-visible::after { background: var(--nanquim); }
+
+.obra__triptico, .obra__par { display: grid; gap: 1rem; }
+
+@media (min-width: 900px) {
+  .obra { grid-template-columns: repeat(12, 1fr); column-gap: 1.5rem; align-items: end; }
+
+  .obra--ausencia .obra__midia { grid-column: 5 / 13; grid-row: 1; }
+  .obra--ausencia .obra__texto { grid-column: 1 / 5; grid-row: 1; padding-bottom: 1rem; }
+
+  /* o tríptico fica travado na tela enquanto o texto (capítulos, ficha) desce ao lado */
+  .obra--flor { align-items: start; }
+  .obra--flor .obra__texto { grid-column: 1 / 5; }
+  .obra--flor .obra__triptico {
+    grid-column: 6 / 13;
+    position: sticky;
+    top: 5.5rem;
+    grid-template-columns: 1.1fr 1fr;
+    grid-template-rows: auto auto;
+    align-items: start;
+  }
+  .obra__triptico figure:first-child { grid-row: 1 / 3; }
+  .obra__triptico figure:nth-child(2) { margin-top: 18%; }
+
+  .obra--estudo .obra__par { grid-column: 1 / 8; grid-template-columns: 1fr 1.15fr; align-items: end; }
+  .obra--estudo .obra__par figure:nth-child(2) { margin-bottom: 22%; }
+  .obra--estudo .obra__texto { grid-column: 9 / 13; padding-bottom: 2rem; }
+
+  .obra--instante { align-items: start; }
+  .obra--instante .obra__sobreposta { grid-column: 1 / 9; position: sticky; top: 12vh; }
+  .obra--instante .obra__texto { grid-column: 9 / 13; padding-bottom: 4rem; }
+
+  .obra--cinema { grid-template-columns: repeat(12, 1fr); }
+  .obra--cinema .expande { grid-column: 1 / -1; }
+  .obra__texto--linha {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 2fr 5fr 4fr auto;
+    align-items: baseline;
+    column-gap: 1.5rem;
+  }
+  .obra__texto--linha .obra__titulo { margin: 0; }
+  .obra__texto--linha .tocar { margin: 0; align-self: center; }
+
+  .obra--brotar .obra__midia { grid-column: 2 / 6; }
+  .obra--brotar .obra__texto { grid-column: 7 / 11; }
+
+  .obra--sempre .obra__midia { grid-column: 6 / 13; grid-row: 1; }
+  .obra--sempre .obra__texto { grid-column: 1 / 5; grid-row: 1; padding-bottom: 1rem; }
+
+  .obra--ceu .obra__texto { grid-column: 1 / 4; padding-bottom: 2rem; }
+  .obra--ceu .obra__par { grid-column: 4 / 13; grid-template-columns: 0.75fr 1.25fr; align-items: start; }
+  .obra--ceu .obra__par figure:nth-child(2) { margin-top: 30%; }
+}
+
+.obra__sobreposta { position: relative; }
+
+
+/* ---------- obra em tela cheia: a foto ocupa toda a largura e a altura da tela, o texto fica por cima ---------- */
+
+.secao > .obra--tela-cheia {
+  position: relative;
+  display: block;
+  max-width: none;
+  width: 100vw;
+  height: 100vh;
+  height: 100svh;
+  margin-left: calc(50% - 50vw);
+  margin-right: 0;
+  overflow: hidden;
+}
+.obra--tela-cheia .obra__midia { position: absolute; inset: 0; margin: 0; }
+.obra--tela-cheia .obra__ver { height: 100%; }
+.obra--tela-cheia .obra__midia img { width: 100%; height: 100%; object-fit: cover; object-position: 55% 50%; }
+
+/* sombra da esquerda e de baixo, só o bastante para o texto respirar sobre a foto */
+.obra--tela-cheia::after {
+  content: "";
+  position: absolute; inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(to right, rgb(28 20 15 / 0.8), rgb(28 20 15 / 0.25) 45%, transparent 70%),
+    linear-gradient(to top, rgb(28 20 15 / 0.65), transparent 40%);
+  transition: opacity 0.6s ease;
+}
+.obra--tela-cheia .obra__texto {
+  position: absolute;
+  z-index: 3;
+  left: var(--margem);
+  bottom: clamp(2.5rem, 9vh, 6.5rem);
+  width: min(34rem, calc(100vw - 2 * var(--margem)));
+  padding: 0;
+}
+
+/* tocando: o vídeo acende na mesma tela, com folga para o topo e para o botão de fechar */
+.obra--tela-cheia .obra__tela {
+  position: absolute;
+  inset: 5.5rem var(--margem) 7rem;
+  align-self: stretch; /* sem isto, o alinhamento ao topo das outras obras encolhe o vídeo a zero */
+  z-index: 4;
+  aspect-ratio: auto;
+  box-shadow: none;
+}
+.obra--tela-cheia.is-tocando::after { opacity: 0; }
+.obra--tela-cheia.is-tocando .obra__texto { bottom: 1.6rem; }
+.obra--tela-cheia.is-tocando .obra__texto > :not(.tocar) { opacity: 0; visibility: hidden; }
+.obra--tela-cheia.is-tocando .tocar { margin-top: 0; }
+.obra--tela-cheia .video-youtube--obra { top: auto; bottom: -2.6rem; left: auto; right: 0; margin: 0; }
+
+
+/* ---------- quadro que cresce (Entre-espaço) ----------
+   O quadro do filme começa muito pequeno, inteiro, com o título acima, como a tela vista do fundo da sala;
+   com a rolagem, a tela para e ele cresce até tomar a tela inteira. É a imagem toda que cresce (não um recorte),
+   então desde o início se vê o rosto e a mata. O movimento é ligado pelo js/imersao.js (classe .is-viva e
+   a variável --q, de 0 a 1). Sem ele, o quadro fica de ponta a ponta, parado. */
+
+.expande {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  --s0: 0.13;                       /* tamanho inicial: 13% da tela */
+  --h0: calc(100svh * var(--s0));    /* altura do quadro pequeno */
+  --cy: 62svh;                       /* altura do centro do quadro pequeno */
+}
+.expande__palco { position: relative; }
+.expande__titulo { display: none; }
+.expande__quadro { margin: 0; }
+.expande__quadro img { display: block; width: 100%; height: auto; }
+
+.expande.is-viva { height: 250vh; height: 250svh; }
+.expande.is-viva .expande__palco {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  overflow: clip;
+}
+.expande.is-viva .expande__quadro {
+  position: absolute;
+  inset: 0;
+  /* o quadro inteiro, encolhido e um pouco abaixo do meio; cresce e sobe até ocupar a tela */
+  transform-origin: 50% 50%;
+  transform:
+    translateY(calc((var(--cy) - 50svh) * (1 - var(--q, 0))))
+    scale(calc(var(--s0) + (1 - var(--s0)) * var(--q, 0)));
+  will-change: transform;
+}
+.expande.is-viva .obra__ver { height: 100%; }
+.expande.is-viva .expande__quadro img {
+  height: 100%;
+  object-fit: cover;
+  object-position: 53% 42%;
+}
+
+.expande.is-viva .expande__titulo {
+  display: grid;
+  justify-items: center;
+  gap: 0.9rem;
+  position: absolute;
+  left: var(--margem);
+  right: var(--margem);
+  bottom: calc(100svh - var(--cy) + var(--h0) / 2 + 2rem);
+  z-index: 2;
+  margin: 0;
+  text-align: center;
+  font-family: var(--serif);
+  font-weight: var(--peso-titulo);
+  font-size: clamp(2.3rem, 5.4vw, 5.8rem);
+  line-height: 0.95;
+  color: var(--kraft);
+  /* o título sobe junto com a borda de cima do quadro, como se a imagem o empurrasse para fora, e se apaga */
+  opacity: calc(1 - var(--q, 0) * 3.5);
+  transform: translateY(calc(var(--q, 0) * (var(--h0) / 2 - var(--cy))));
+  pointer-events: none;
+}
+.expande__titulo em { font-style: italic; }
+.expande__titulo .rotulo { color: var(--destaque-claro); }
+
+/* tocando: o vídeo acende no palco, com folga para o topo do site */
+.expande .obra__tela {
+  position: absolute;
+  inset: 5.5rem var(--margem) 2rem;
+  z-index: 4;
+  aspect-ratio: auto;
+  align-self: stretch;
+  box-shadow: none;
+}
+.expande:not(.is-viva) .obra__tela { inset: 0; }
+.expande:not(.is-viva) .expande__palco:has(.obra__tela) { aspect-ratio: 2000 / 836; }
+.obra.is-tocando .expande__titulo { opacity: 0; }
+
+@media (max-width: 899px) {
+  .expande { --s0: 0.3; --cy: 62svh; }
+}
+
+/* ---------- o preto das fotos se funde com o palco ----------
+   Onde a foto é mais escura que o fundo da seção, aparece o fundo: a imagem deixa de ser uma caixa preta sobre o marrom. */
+.criacoes .obra .tinta { mix-blend-mode: lighten; }
+
+/* ---------- saídas sem borda reta ---------- */
+
+/* Entre-espaço: no último trecho da rolagem, o quadro se desfaz num desfoque e escurece até virar o palco,
+   como na cena de Instante-já (--p vem do js/imersao.js, de 0 a 1) */
+.expande.is-viva { height: 290vh; height: 290svh; --fim: clamp(0, (var(--p, 0) - 0.8) / 0.2, 1); }
+.expande.is-viva .expande__quadro { filter: blur(calc(var(--fim) * 24px)); }
+.expande.is-viva .expande__palco::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: var(--palco);
+  opacity: var(--fim);
+}
+.obra.is-tocando .expande__quadro { filter: none; }
+.obra.is-tocando .expande__palco::after { opacity: 0; }
+
+/* Sempre mais que um: a foto surge do palco em cima e volta para ele embaixo; ao sair da tela, se desfaz em desfoque */
+.obra--tela-cheia::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(to bottom, var(--palco), transparent 22%, transparent 80%, var(--palco));
+  transition: opacity 0.6s ease;
+}
+.obra--tela-cheia.is-tocando::before { opacity: 0; }
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .js .obra--tela-cheia .obra__midia { animation: sair-em-desfoque linear both; animation-timeline: view(); animation-range: exit 15% exit 95%; }
+  }
+}
+@keyframes sair-em-desfoque { to { filter: blur(22px) brightness(0.55); } }

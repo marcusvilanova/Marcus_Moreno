@@ -1,0 +1,156 @@
+/* Marcus Moreno · galerias laterais (Entrevistas-performativas e Trajetória)
+   Em qualquer tela, a tela para e a faixa anda para o lado enquanto a pessoa rola para baixo (.is-presa, ligada pelo main.js);
+   só para quem pede movimento reduzido a faixa fica parada e desliza com o dedo, um item por vez.
+   O Entreato usa o mesmo movimento, com estilo próprio em entreato.css. */
+
+/* a galeria ocupa a largura inteira da tela, mesmo dentro de uma seção com margens */
+.secao > .lateral {
+  max-width: none;
+  width: 100vw;
+  margin: clamp(3rem, 7vw, 6rem) 0 0 calc(50% - 50vw);
+}
+.lateral { position: relative; --fio-lateral: color-mix(in srgb, var(--nanquim) 18%, transparent); }
+
+.lateral__palco { display: flex; flex-direction: column; justify-content: center; gap: 2.2rem; padding: 1rem 0; }
+
+.lateral__faixa {
+  display: flex;
+  align-items: center;
+  gap: clamp(2.5rem, 6vw, 7rem);
+  padding: 0 var(--margem);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+.lateral__faixa::-webkit-scrollbar { display: none; }
+
+/* a abertura de cada faixa: um rótulo e uma frase */
+.lateral__abre { flex: none; width: min(21rem, 78vw); display: grid; gap: 1.2rem; scroll-snap-align: start; }
+.lateral__abre > .rotulo:first-child { color: var(--destaque); }
+.lateral__frase { font-family: var(--serif); font-weight: var(--peso-titulo); font-size: var(--fs-grande); line-height: 1.12; }
+.lateral__frase em { font-style: italic; }
+.lateral__dica { display: inline-flex; align-items: center; gap: 0.9rem; color: var(--tinta-clara); }
+.lateral__dica i { width: 3.5rem; height: 1px; background: currentColor; position: relative; }
+.lateral__dica i::after {
+  content: ""; position: absolute; right: 0; top: -3px; width: 7px; height: 7px;
+  border-top: 1px solid currentColor; border-right: 1px solid currentColor; transform: rotate(45deg);
+}
+.lateral__dica-rolar { display: none; }
+.lateral.is-presa .lateral__dica-rolar { display: inline; }
+.lateral.is-presa .lateral__dica-deslizar { display: none; }
+
+/* rodapé: contador e linha de progresso */
+.lateral__pe {
+  display: flex; align-items: center; gap: 1.4rem;
+  padding: 0 var(--margem);
+  font-family: var(--grotesca); font-stretch: 75%; font-size: var(--fs-rotulo); letter-spacing: 0.18em;
+  color: var(--tinta-clara);
+}
+.lateral__contador { font-variant-numeric: tabular-nums; }
+.lateral__progresso { position: relative; flex: 1; max-width: 22rem; height: 1px; background: var(--fio-lateral); }
+.lateral__progresso span { position: absolute; inset: 0; background: var(--destaque); transform: scaleX(var(--p, 0)); transform-origin: left; }
+
+/* com movimento (computador e celular): a tela para e a faixa anda */
+.lateral.is-presa .lateral__palco { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; overflow: clip; padding: 5.5rem 0 2.2rem; }
+.lateral.is-presa .lateral__faixa { overflow: visible; scroll-snap-type: none; width: max-content; padding-right: 16vw; will-change: transform; }
+
+
+/* ---------- Entrevistas-performativas: cada conversa é um quadro do vídeo ---------- */
+
+.conversas { display: flex; align-items: flex-start; gap: clamp(2rem, 4.5vw, 5rem); }
+.conversa { flex: none; scroll-snap-align: center; }
+.lateral.is-presa .conversa:nth-child(even) { margin-top: 9vh; }
+
+.conversa__botao {
+  display: block; /* o nome precisa ficar solto no botão (a rede lê dali), então nada de grid aqui */
+  text-align: left;
+  font-family: var(--serif);
+  font-weight: var(--peso-titulo);
+  font-size: clamp(1.9rem, 3vw, 2.9rem);
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.4s ease;
+}
+.conversa__quadro { position: relative; display: block; overflow: hidden; margin-bottom: 1.1rem; background: var(--kraft); }
+.conversa__quadro img { display: block; height: min(50vh, 30rem); width: auto; max-width: none; }
+
+/* um círculo de luz sobre o quadro, como o botão assistir das obras */
+.conversa__quadro::before, .conversa__quadro::after { content: ""; position: absolute; z-index: 2; top: 50%; left: 50%; pointer-events: none; }
+.conversa__quadro::before {
+  width: 4.2rem; height: 4.2rem; margin: -2.1rem 0 0 -2.1rem;
+  border: 1px solid var(--cal); border-radius: 50%;
+  transition: transform 0.6s var(--curva), background-color 0.4s ease;
+}
+.conversa__quadro::after {
+  margin: -0.45rem 0 0 -0.25rem;
+  border-style: solid; border-width: 0.45rem 0 0.45rem 0.75rem;
+  border-color: transparent transparent transparent var(--cal);
+  transition: border-color 0.4s ease;
+}
+.conversa__botao:hover .conversa__quadro::before, .conversa__botao:focus-visible .conversa__quadro::before { transform: scale(1.15); background-color: var(--cal); }
+.conversa__botao:hover .conversa__quadro::after, .conversa__botao:focus-visible .conversa__quadro::after { border-left-color: var(--nanquim); }
+.conversa__botao:hover .tinta, .conversa__botao:focus-visible .tinta, .conversa.is-ativo .tinta { filter: none; }
+
+.conversa__n { display: block; margin-bottom: 0.6rem; font-family: var(--grotesca); font-stretch: 75%; font-size: var(--fs-rotulo); letter-spacing: 0.18em; color: var(--destaque); }
+.conversa__com { font-style: italic; font-size: 0.5em; color: var(--tinta-clara); margin-right: 0.15em; }
+.conversa__botao:hover, .conversa__botao:focus-visible, .conversa.is-ativo .conversa__botao { color: var(--destaque); }
+.conversa__botao:focus-visible { outline: 1px solid var(--destaque); outline-offset: 6px; }
+
+
+/* ---------- Trajetória: os anos passam numa linha traçada à mão ---------- */
+
+.marcos {
+  --ano: clamp(2.8rem, 4.2vw, 4.4rem); /* anos discretos: marcam o tempo sem gritar */
+  position: relative;
+  display: flex;
+  align-self: center;
+}
+/* a linha atravessa todos os anos, logo abaixo dos números */
+.marcos::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  top: calc(var(--ano) + 1.1rem);
+  height: 7px;
+  background: var(--destaque);
+  -webkit-mask: var(--traco-h) 0 0 / 100% 100% no-repeat;
+  mask: var(--traco-h) 0 0 / 100% 100% no-repeat;
+}
+.marco { flex: none; width: min(21rem, 76vw); scroll-snap-align: start; }
+.marco__ano {
+  display: block;
+  font-family: var(--serif);
+  font-weight: var(--peso-numeral);
+  font-size: var(--ano);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: color-mix(in srgb, var(--destaque) 72%, var(--linho));
+  font-variant-numeric: lining-nums;
+  white-space: nowrap;
+}
+.marco__ano i { font-style: italic; font-size: 0.5em; color: var(--tinta-clara); margin-left: 0.2em; }
+.marco p {
+  position: relative;
+  margin-top: 1.1rem;
+  padding: 1.6rem clamp(1.5rem, 3.5vw, 3.5rem) 0 0;
+  max-width: 21rem;
+  line-height: 1.5;
+}
+/* o ponto de cada ano sobre a linha */
+.marco p::before {
+  content: "";
+  position: absolute; left: 0; top: -0.05rem;
+  width: 0.65rem; height: 0.65rem; border-radius: 50%;
+  background: var(--linho); border: 1px solid var(--destaque);
+}
+.marcos__foto { flex: none; scroll-snap-align: center; }
+.marcos__foto img { display: block; height: min(56vh, 34rem); width: auto; max-width: none; }
+
+/* celular: cada item cabe inteiro na tela */
+@media (max-width: 899px) {
+  .lateral__palco { gap: 1.6rem; }
+  .conversa__quadro img { width: 82vw; height: auto; }
+  .marcos__foto img { width: 86vw; height: auto; }
+  .conversa__quadro::before { width: 3.4rem; height: 3.4rem; margin: -1.7rem 0 0 -1.7rem; }
+}

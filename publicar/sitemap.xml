@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- AO PUBLICAR: troque SEU-DOMINIO pelo endereço do site (veja PUBLICAR.md) -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://SEU-DOMINIO/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/es.html</loc></url>
+  <url><loc>https://SEU-DOMINIO/en.html</loc></url>
+  <url><loc>https://SEU-DOMINIO/programadores.html</loc></url>
+</urlset>

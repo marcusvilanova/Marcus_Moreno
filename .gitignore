@@ -1,0 +1,12 @@
+# fotos originais e materiais de trabalho que não vão para o repositório
+Fotos/
+prancha-capa.jpg
+.claude/
+
+# arquivos temporários
+__pycache__/
+*.pyc
+site/teste-*
+.DS_Store
+Thumbs.db
+.vercel

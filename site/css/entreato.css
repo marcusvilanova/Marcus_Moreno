@@ -1,0 +1,124 @@
+/* Marcus Moreno · Entreato
+   Uma galeria entre as Criações cênicas e os Encontros Efêmeros.
+   Em qualquer tela a tela para e a faixa de fotos anda para o lado com a rolagem (.is-presa, ligada pelo main.js);
+   só para quem pede movimento reduzido a faixa fica parada e desliza com o dedo, foto a foto. */
+
+.entreato {
+  --alto: clamp(22rem, calc(100svh - 14rem), 52rem); /* altura das fotos verticais */
+  position: relative;
+  background: var(--palco);
+  color: var(--cal);
+}
+
+.entreato__palco {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  padding: 6.5rem 0 2.2rem;
+}
+
+.entreato__faixa {
+  display: flex;
+  align-items: center;
+  gap: clamp(2.5rem, 6vw, 7rem);
+  padding: 0 var(--margem);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+.entreato__faixa::-webkit-scrollbar { display: none; }
+
+/* abertura da faixa: o título do intervalo */
+.entreato__abre {
+  flex: none;
+  width: min(26rem, 78vw);
+  scroll-snap-align: start;
+  display: grid;
+  gap: 1.4rem;
+}
+.entreato__rotulo { color: var(--destaque-claro); }
+.entreato__titulo {
+  font-family: var(--serif);
+  font-weight: var(--peso-titulo);
+  font-size: var(--fs-titulo);
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+}
+.entreato__titulo em { font-style: italic; }
+.entreato__texto { max-width: 22rem; line-height: 1.5; color: var(--tinta-escura); }
+.entreato__dica { display: inline-flex; align-items: center; gap: 0.9rem; color: var(--tinta-escura); }
+.entreato__dica i { width: 3.5rem; height: 1px; background: currentColor; position: relative; }
+.entreato__dica i::after {
+  content: ""; position: absolute; right: 0; top: -3px;
+  width: 7px; height: 7px;
+  border-top: 1px solid currentColor; border-right: 1px solid currentColor;
+  transform: rotate(45deg);
+}
+.entreato__dica-rolar { display: none; }
+.entreato.is-presa .entreato__dica-rolar { display: inline; }
+.entreato.is-presa .entreato__dica-deslizar { display: none; }
+
+/* cada foto: verticais na altura cheia, horizontais um pouco mais baixas, alternando em cima e embaixo */
+.entreato__foto {
+  flex: none;
+  scroll-snap-align: center;
+  display: grid;
+  gap: 0.8rem;
+}
+.entreato__moldura { overflow: hidden; background: var(--umbria); }
+.entreato__moldura img { display: block; width: auto; height: var(--alto); max-width: none; }
+.entreato__foto--h .entreato__moldura img { height: calc(var(--alto) * 0.8); }
+.entreato__foto--h { align-self: flex-start; }
+.entreato__foto--baixo { align-self: flex-end; }
+.entreato__foto .legenda { color: var(--tinta-escura); }
+.entreato__foto .legenda cite { font-style: italic; color: var(--cal); }
+.entreato__n { color: var(--destaque-claro); margin-right: 0.5em; font-variant-numeric: tabular-nums; }
+
+/* rodapé: contador e linha de progresso */
+.entreato__pe {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  padding: 0 var(--margem);
+  font-family: var(--grotesca);
+  font-stretch: 75%;
+  font-size: var(--fs-rotulo);
+  letter-spacing: 0.18em;
+  color: var(--tinta-escura);
+}
+.entreato__contador { font-variant-numeric: tabular-nums; }
+.entreato__progresso { position: relative; flex: 1; max-width: 22rem; height: 1px; background: color-mix(in srgb, var(--cal) 22%, transparent); }
+.entreato__progresso span {
+  position: absolute; inset: 0;
+  background: var(--destaque-claro);
+  transform: scaleX(var(--p, 0));
+  transform-origin: left;
+}
+
+/* com movimento (computador e celular): a tela para e a faixa anda */
+.entreato.is-presa .entreato__palco {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  overflow: clip; /* o navegador não consegue empurrar a faixa por dentro (ver o foco pelo teclado no main.js) */
+}
+.entreato.is-presa .entreato__faixa {
+  overflow: visible;
+  scroll-snap-type: none;
+  width: max-content;
+  padding-right: 18vw;
+  will-change: transform;
+}
+
+@media (max-width: 899px) {
+  .entreato { --alto: min(62svh, 34rem); }
+  .entreato__palco { padding-top: 5.5rem; }
+  /* no celular, cada foto cabe inteira na tela */
+  .entreato__foto--h .entreato__moldura img { width: 86vw; height: auto; }
+  .entreato__foto--v .entreato__moldura img { height: min(var(--alto), 120vw); }
+  .entreato__foto--h, .entreato__foto--baixo { align-self: center; }
+}

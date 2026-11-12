@@ -1,0 +1,723 @@
+/* Seções do site · depende dos tokens de base.css */
+
+/* ---------- I · sobre ---------- */
+
+.sobre__grade { display: grid; gap: 2.5rem; }
+.sobre__texto p + p { margin-top: 1.1em; }
+.sobre__texto { max-width: 36em; }
+
+.capitular::first-letter {
+  float: left;
+  font-size: 5.4em;
+  line-height: 0.78;
+  padding: 0.06em 0.08em 0 0;
+  color: var(--destaque);
+  font-weight: var(--peso-titulo);
+}
+[data-tone="dark"] .capitular::first-letter { color: var(--destaque-claro); }
+
+.sobre__margem { border-top: 1px solid var(--nanquim); padding-top: 1rem; }
+.sobre__margem .rotulo { color: var(--destaque); margin: 0 0 0.8rem; }
+.sobre__margem .rotulo:not(:first-child) { margin-top: 2rem; }
+.ficha { display: grid; gap: 0.15rem; }
+.ficha dt {
+  font-family: var(--grotesca); font-stretch: 75%; font-size: var(--fs-rotulo);
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--tinta-clara);
+  margin-top: 0.7rem;
+}
+.ficha dd, .ficha__hoje { font-style: italic; line-height: 1.3; }
+
+@media (min-width: 900px) {
+  .sobre__grade { grid-template-columns: repeat(12, 1fr); column-gap: 1.5rem; align-items: start; }
+  .sobre__retrato { grid-column: 1 / 6; position: sticky; top: 14vh; }
+  .sobre__texto { grid-column: 6 / 13; }
+  .sobre__margem { grid-column: 6 / 13; }
+}
+@media (min-width: 1240px) {
+  .sobre__retrato { grid-column: 1 / 5; }
+  .sobre__texto { grid-column: 5 / 11; padding-left: 1.5rem; }
+  .sobre__margem { grid-column: 11 / 13; grid-row: 1; }
+}
+
+/* ---------- III · entrevistas e a rede ---------- */
+
+.entrevistas__grade { display: grid; gap: 3rem; margin-bottom: clamp(3rem, 7vw, 6rem); }
+.entrevistas__texto p + p { margin-top: 1.1em; }
+.entrevistas__texto { max-width: 34em; }
+
+.rede { max-width: 1040px; margin: 0 auto; }
+.rede__svg { width: 100%; height: auto; overflow: visible; }
+.rede__ida { stroke: var(--nanquim); stroke-width: 1.4; stroke-linecap: round; fill: none; opacity: 0.6; transition: stroke 0.3s ease, opacity 0.3s ease; }
+.rede__ida.is-ativo { stroke: var(--destaque); opacity: 1; }
+.rede__volta { stroke: var(--destaque); stroke-width: 2; fill: none; stroke-dasharray: 0.5 7; stroke-linecap: round; }
+.rede__no { fill: var(--linho); stroke: var(--nanquim); stroke-width: 1; transition: r 0.4s var(--curva), fill 0.4s ease; }
+.rede__centro { fill: var(--nanquim); }
+.rede__nome {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 23px;
+  fill: var(--nanquim);
+  transition: fill 0.3s ease;
+}
+@media (max-width: 640px) {
+  .rede__nome { font-size: 38px; }
+  .rede__marcus { font-size: 20px; }
+}
+.rede__marcus {
+  font-family: var(--grotesca);
+  font-stretch: 75%;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  fill: var(--nanquim);
+}
+.rede__grupo.is-ativo .rede__no { fill: var(--destaque); stroke: var(--destaque); }
+.rede__grupo.is-ativo .rede__nome { fill: var(--destaque); }
+
+.js .rede .rede__ida { stroke-dasharray: 1 2; stroke-dashoffset: 1.01; transition: stroke-dashoffset 2.4s var(--curva); }
+.js .rede.is-in .rede__ida { stroke-dashoffset: 0; }
+.js .rede .rede__volta { opacity: 0; transition: opacity 1.2s ease 1.6s; }
+.js .rede.is-in .rede__volta { opacity: 1; }
+
+.rede__legenda { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem 2rem; margin-top: 1.5rem; }
+.rede__chave {
+  display: inline-flex; align-items: center; gap: 0.7rem;
+  font-family: var(--grotesca); font-stretch: 75%; font-size: var(--fs-rotulo);
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--tinta-clara);
+}
+.rede__chave::before { content: ""; width: 2.2rem; height: 0; border-top: 1px solid var(--nanquim); }
+.rede__chave--volta::before { border-top: 1.5px dotted var(--destaque); }
+.rede__chave--efemero::before { border-top: 1px dashed var(--grafite); }
+
+/* encontros efêmeros: um anel de fora, traço longo e leve */
+.rede__efemero { stroke: var(--grafite); stroke-width: 1.1; stroke-dasharray: 8 6; fill: none; opacity: 0.5; transition: opacity 0.3s ease, stroke 0.3s ease; }
+.rede__efemero.is-ativo { stroke: var(--destaque); opacity: 1; }
+.rede__no--efemero { fill: var(--linho); stroke: var(--grafite); }
+.rede__nome--efemero { font-size: 20px; fill: var(--grafite); }
+.js .rede .rede__efemero { opacity: 0; transition: opacity 1.4s ease 2.2s; }
+.js .rede.is-in .rede__efemero { opacity: 0.5; }
+.js .rede.is-in .rede__efemero.is-ativo { opacity: 1; transition-delay: 0s; }
+@media (max-width: 640px) { .rede__nome--efemero { font-size: 32px; } }
+
+/* III · encontros efêmeros */
+.efemeros__intro { display: grid; gap: 1.2rem; margin-bottom: clamp(2.5rem, 6vw, 4.5rem); max-width: 40em; }
+.efemeros__frase { font-size: var(--fs-grande); line-height: 1.22; font-weight: var(--peso-titulo); font-style: italic; }
+.lista-video__sub { display: block; font-size: 0.4em; font-style: italic; color: var(--tinta-clara); letter-spacing: 0; margin-top: 0.3rem; }
+
+@media (min-width: 900px) {
+  .entrevistas__grade { grid-template-columns: repeat(12, 1fr); column-gap: 1.5rem; row-gap: 4rem; }
+  .entrevistas__texto { grid-column: 1 / 8; }
+  .rede { grid-column: 1 / -1; width: 100%; }
+}
+
+.lista-video { counter-reset: ent; border-bottom: 1px solid color-mix(in srgb, var(--nanquim) 30%, transparent); }
+.lista-video li { counter-increment: ent; border-top: 1px solid color-mix(in srgb, var(--nanquim) 30%, transparent); }
+.lista-video__item {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 3rem auto 1fr auto;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  text-align: left;
+  font-size: clamp(1.8rem, 4.2vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  transition: color 0.3s ease;
+}
+.lista-video__item::before {
+  content: counter(ent, decimal-leading-zero);
+  font-family: var(--grotesca); font-stretch: 75%; font-size: 0.75rem; letter-spacing: 0.12em;
+  color: var(--tinta-clara);
+}
+.lista-video__item::after {
+  content: "assistir";
+  font-family: var(--grotesca); font-stretch: 75%; font-size: var(--fs-rotulo);
+  letter-spacing: 0.2em; text-transform: uppercase;
+  opacity: 0; transform: translateX(-1rem);
+  transition: opacity 0.4s ease, transform 0.6s var(--curva);
+}
+.lista-video__com { font-style: italic; font-size: 0.42em; color: var(--tinta-clara); }
+.lista-video__item:hover, .lista-video__item:focus-visible, .lista-video li.is-ativo .lista-video__item { color: var(--destaque); }
+.lista-video__item:hover::after, .lista-video__item:focus-visible::after { opacity: 1; transform: none; }
+
+@media (max-width: 640px) {
+  .lista-video__item { grid-template-columns: 2.2rem 1fr; }
+  .lista-video__com { display: none; }
+  .lista-video__item::after { display: none; }
+  .lista-video__sub { grid-column: 2; } /* o subtítulo fica sob o nome, não na coluna estreita do número */
+}
+
+/* miniaturas: só nas telas sem mouse, onde o quadro que aparece ao passar o mouse não existe */
+.lista-video__mini { display: none; }
+@media (max-width: 899px), (hover: none), (pointer: coarse) {
+  .lista-video__palco li[data-quadro] {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) clamp(5.5rem, 26vw, 10rem);
+    column-gap: 1rem;
+    align-items: center;
+  }
+  .lista-video__mini {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    cursor: pointer;
+    filter: grayscale(0.88) sepia(0.2) contrast(1.04);
+    transition: filter 0.6s ease;
+  }
+  .lista-video__palco li.is-ativo .lista-video__mini, .lista-video__mini:hover { filter: none; }
+}
+
+/* quadro do vídeo: surge à direita, na altura da linha sob o mouse.
+   Entra em sépia e ganha a cor original um instante depois: a cor no encontro. */
+.lista-video__palco { position: relative; }
+.quadro { display: none; }
+
+@media (min-width: 900px) and (hover: hover) and (pointer: fine) {
+  .lista-video__item::after { display: none; }
+
+  .quadro {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    width: min(34%, 30rem);
+    aspect-ratio: 16 / 9;
+    margin: 0;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(var(--quadro-y, 0px));
+    transition: opacity 0.4s ease, transform 0.7s var(--curva);
+    box-shadow: 0 1.6rem 3rem rgb(18 16 14 / 0.22);
+  }
+  .quadro.is-visivel { opacity: 1; }
+
+  .quadro img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    filter: grayscale(0.88) sepia(0.2) contrast(1.04);
+    transition: opacity 0.45s ease, filter 0.4s ease;
+  }
+  .quadro img.is-ativa { opacity: 1; }
+  .quadro.is-visivel img.is-ativa { filter: none; transition: opacity 0.45s ease, filter 1.2s ease 0.5s; }
+
+  /* círculo de "assistir", o mesmo dos botões das obras */
+  .quadro::before, .quadro::after { content: ""; position: absolute; z-index: 2; top: 50%; left: 50%; }
+  .quadro::before {
+    width: 3.4rem; height: 3.4rem;
+    margin: -1.7rem 0 0 -1.7rem;
+    border: 1px solid var(--cal);
+    border-radius: 50%;
+    background: rgb(18 16 14 / 0.32);
+  }
+  .quadro::after {
+    margin: -0.4rem 0 0 -0.22rem;
+    border-style: solid;
+    border-width: 0.4rem 0 0.4rem 0.7rem;
+    border-color: transparent transparent transparent var(--cal);
+  }
+}
+
+/* ---------- IV · danças de presente ---------- */
+
+.presente[data-tone="dark"] { background: var(--umbria); --cobre: var(--umbria); }
+
+.presente__grade { display: grid; gap: 2.5rem; margin-bottom: clamp(3rem, 8vw, 7rem); }
+.presente__intro {
+  font-size: var(--fs-grande);
+  line-height: 1.28;
+  font-style: italic;
+  max-width: 22em;
+}
+@media (min-width: 900px) {
+  .presente__grade { grid-template-columns: repeat(12, 1fr); column-gap: 1.5rem; align-items: end; }
+  .presente__imagem { grid-column: 1 / 6; }
+  .presente__intro { grid-column: 7 / 13; }
+}
+
+.dedicatorias li { border-top: 1px solid rgb(242 238 230 / 0.18); }
+.dedicatorias li:last-child { border-bottom: 1px solid rgb(242 238 230 / 0.18); }
+.dedicatoria {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 1.2rem;
+  width: 100%;
+  padding: clamp(1rem, 2.4vw, 2rem) 0;
+  text-align: left;
+}
+.dedicatoria__para { font-style: italic; font-size: 1.2rem; color: var(--destaque-claro); }
+.dedicatoria__nome {
+  font-size: clamp(2.2rem, 6.4vw, 6.4rem);
+  line-height: 1;
+  letter-spacing: -0.025em;
+  transition: transform 0.8s var(--curva), color 0.3s ease;
+}
+.dedicatoria--tres .dedicatoria__nome { font-size: clamp(1.7rem, 3.6vw, 3.6rem); max-width: 18em; text-wrap: balance; }
+.dedicatoria:hover .dedicatoria__nome, .dedicatoria:focus-visible .dedicatoria__nome { transform: translateX(1.2rem); color: var(--destaque-claro); font-style: italic; }
+
+@media (min-width: 900px) {
+  .dedicatorias li:nth-child(even) .dedicatoria { justify-content: flex-end; text-align: right; }
+}
+
+/* ---------- V · curadoria ---------- */
+
+.curadoria__grade { display: grid; gap: 3rem; }
+.curadoria__lista li {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 1.4rem 0 1.6rem;
+  border-top: 1px solid color-mix(in srgb, var(--nanquim) 45%, transparent);
+}
+.curadoria__ano {
+  font-family: var(--grotesca); font-stretch: 75%; font-size: var(--fs-rotulo);
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--umbria);
+}
+.curadoria__lista h3 {
+  font-weight: var(--peso-titulo);
+  font-size: clamp(2rem, 4.2vw, 4rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin: 0.4rem 0 0.5rem;
+}
+.curadoria__lista p { font-style: italic; }
+
+@media (min-width: 900px) {
+  .curadoria__grade { grid-template-columns: repeat(12, 1fr); column-gap: 1.5rem; align-items: start; }
+  .curadoria__lista { grid-column: 1 / 8; }
+  .curadoria__imagem { grid-column: 9 / 13; position: sticky; top: 14vh; }
+}
+
+/* ---------- VI · textos ---------- */
+
+/* a dissertação abre a seção, como a capa de um livro */
+.tese {
+  display: grid;
+  gap: 1rem 3rem;
+  padding: clamp(3rem, 7vw, 6rem) 0 clamp(3.5rem, 8vw, 7rem);
+}
+.tese__rotulo { color: var(--destaque); }
+.tese__titulo {
+  font-family: var(--serif);
+  font-weight: var(--peso-titulo);
+  font-size: var(--fs-titulo);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+.tese__titulo cite { font-style: normal; }
+.tese__titulo em { font-style: italic; }
+.tese__sub { font-family: var(--serif); font-style: italic; font-size: var(--fs-grande); line-height: 1.15; color: var(--tinta-clara); }
+.tese__ficha { display: grid; grid-template-columns: auto 1fr; gap: 0.45rem 1.4rem; align-self: end; padding-top: 1.2rem; border-top: 1px solid color-mix(in srgb, var(--nanquim) 25%, transparent); }
+.tese__ficha dt { font-family: var(--grotesca); font-stretch: 75%; font-size: var(--fs-rotulo); letter-spacing: 0.16em; text-transform: uppercase; color: var(--tinta-clara); padding-top: 0.25rem; }
+.tese__ficha dd { line-height: 1.4; }
+
+/* os outros textos, em três grupos: o nome do grupo na margem, a lista ao lado */
+.textos__grupos { display: grid; gap: clamp(3rem, 6vw, 5rem); }
+.textos__grupo { display: grid; gap: 1.4rem; }
+.textos__grupo-titulo { font-family: var(--serif); font-weight: var(--peso-titulo); font-size: var(--fs-grande); line-height: 1; }
+.textos__grupo-nota { margin-top: 0.6rem; max-width: 18rem; font-size: 0.98rem; line-height: 1.45; color: var(--tinta-clara); }
+
+.biblio { border-bottom: 1px solid color-mix(in srgb, var(--nanquim) 25%, transparent); }
+.biblio__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 4.2rem 1fr;
+  gap: 0.35rem 1.4rem;
+  padding: 1.4rem 0;
+  border-top: 1px solid color-mix(in srgb, var(--nanquim) 25%, transparent);
+  transition: background-color 0.4s ease;
+}
+.biblio__item:hover { background: color-mix(in srgb, var(--kraft) 35%, transparent); }
+.biblio__ano {
+  grid-row: 1 / 4;
+  font-family: var(--serif); font-weight: var(--peso-numeral);
+  font-size: 2.2rem; line-height: 1; color: var(--destaque); font-variant-numeric: lining-nums;
+}
+/* o título na frente; onde saiu e com quem, pequeno, embaixo */
+.biblio__nome { font-family: var(--serif); font-size: clamp(1.35rem, 1vw + 1.05rem, 1.75rem); line-height: 1.2; max-width: 30em; }
+.biblio__nome cite { font-style: italic; }
+.biblio__onde {
+  font-family: var(--grotesca); font-stretch: 75%; font-size: var(--fs-rotulo);
+  letter-spacing: 0.14em; text-transform: uppercase; line-height: 1.6; color: var(--tinta-clara);
+}
+.biblio__onde cite { font-style: normal; }
+.biblio__com { text-transform: none; letter-spacing: 0.02em; font-family: var(--serif); font-stretch: 100%; font-style: italic; font-size: 1.35em; color: var(--nanquim); }
+
+/* textos publicados na internet: a linha inteira leva ao texto, numa aba nova */
+.biblio__item--link { cursor: pointer; }
+.biblio__titulo { text-decoration: underline; text-decoration-thickness: 1px; text-decoration-color: color-mix(in srgb, currentColor 30%, transparent); text-underline-offset: 0.18em; transition: text-decoration-color 0.4s ease, color 0.4s ease; }
+.biblio__titulo::after { content: ""; position: absolute; inset: 0; }
+.biblio__titulo:focus-visible { outline: none; }
+.biblio__item--link:has(.biblio__titulo:focus-visible) { outline: 1px solid var(--destaque); outline-offset: 4px; }
+.biblio__item--link:hover .biblio__titulo { color: var(--destaque); text-decoration-color: var(--destaque); }
+.biblio__ler {
+  grid-column: 2; justify-self: start;
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  margin-top: 0.3rem;
+  font-family: var(--grotesca); font-stretch: 75%; font-size: var(--fs-rotulo);
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--destaque);
+}
+.biblio__ler::after { content: ""; width: 1.6rem; height: 1px; background: currentColor; transform-origin: left; transform: scaleX(0.6); transition: transform 0.6s var(--curva); }
+.biblio__item--link:hover .biblio__ler::after { transform: scaleX(1); }
+
+@media (min-width: 900px) {
+  .tese { grid-template-columns: 7fr 5fr; }
+  .tese__rotulo, .tese__titulo, .tese__sub { grid-column: 1; }
+  .tese__ficha { grid-column: 2; grid-row: 1 / 4; }
+  .textos__grupo { grid-template-columns: 3fr 9fr; column-gap: 1.5rem; align-items: start; }
+  .textos__grupo-cabeca { position: sticky; top: 6rem; padding-top: 1.4rem; }
+  .biblio__item { grid-template-columns: 6rem 1fr; padding: 1.6rem 1rem 1.6rem 0; }
+}
+
+/* ---------- VII · trajetória ---------- */
+
+.trajetoria__intl {
+  margin-top: 3rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid color-mix(in srgb, var(--nanquim) 25%, transparent);
+  font-style: italic;
+}
+.trajetoria__intl .rotulo { display: block; font-style: normal; color: var(--destaque); margin-bottom: 0.5rem; }
+
+/* ---------- VIII · imprensa ---------- */
+
+.imprensa { padding-top: 0; }
+.imprensa__grade { display: grid; gap: 2rem; }
+.imprensa .rotulo { color: var(--destaque); margin-bottom: 1rem; }
+.premios li {
+  display: grid; gap: 0.2rem;
+  padding: 1rem 0;
+  border-top: 1px solid color-mix(in srgb, var(--nanquim) 25%, transparent);
+}
+.premios cite { font-size: var(--fs-grande); line-height: 1.1; }
+.premios span { font-family: var(--grotesca); font-stretch: 80%; font-size: 0.8rem; letter-spacing: 0.06em; color: var(--tinta-clara); }
+/* a frase da crítica, grande e fina, como epígrafe da seção */
+.imprensa__citacao { margin: 0 0 clamp(3rem, 7vw, 5.5rem); max-width: 22em; }
+.imprensa__citacao blockquote {
+  margin: 0;
+  font-size: clamp(2.2rem, 5vw, 4.6rem);
+  font-weight: var(--peso-titulo);
+  font-style: italic;
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+}
+.imprensa__citacao figcaption {
+  margin-top: 1.2rem;
+  font-family: var(--grotesca);
+  font-stretch: 75%;
+  font-size: var(--fs-rotulo);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tinta-clara);
+}
+.imprensa__citacao figcaption cite { font-family: var(--serif); font-size: 1.25em; letter-spacing: 0; text-transform: none; }
+
+.clipping li {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 0.2rem 1.2rem;
+  padding: 1rem 0;
+  border-top: 1px solid color-mix(in srgb, var(--nanquim) 25%, transparent);
+}
+.clipping__data {
+  grid-row: 1 / 3;
+  font-family: var(--grotesca);
+  font-stretch: 75%;
+  font-size: var(--fs-rotulo);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--destaque);
+  padding-top: 0.45em;
+}
+.clipping__titulo { font-size: 1.3rem; line-height: 1.2; font-weight: var(--peso-titulo); }
+.clipping__veiculo { font-style: italic; color: var(--tinta-clara); font-size: 1rem; }
+
+@media (min-width: 900px) {
+  .imprensa__grade { grid-template-columns: 7fr 4fr; column-gap: clamp(2rem, 5vw, 5rem); }
+}
+
+/* ---------- IX · contato ---------- */
+
+/* o fim do site em preto profundo: depois do palco marrom, a sala se apaga */
+.contato, .colofao { --palco: var(--fim); }
+
+.contato { overflow: hidden; min-height: 100vh; }
+.contato__fundo {
+  position: absolute; top: 0; right: 0;
+  width: min(55vw, 760px); height: 100%;
+  max-width: none;
+  object-fit: cover;
+  opacity: 0.42;
+  filter: grayscale(1);
+  -webkit-mask-image: linear-gradient(to left, #000 30%, transparent);
+  mask-image: linear-gradient(to left, #000 30%, transparent);
+  pointer-events: none;
+}
+.contato > :not(.contato__fundo) { position: relative; }
+.contato .cabeca::after { display: none; }
+.contato__titulo { font-size: var(--fs-titulo); font-style: italic; }
+
+.contato__grade { display: grid; gap: 2.4rem; }
+/* letras do contato menores que o corpo do site: é uma ficha, não um texto para ler */
+.contato__grade { font-size: clamp(0.98rem, 0.2vw + 0.92rem, 1.08rem); line-height: 1.5; }
+.produtor { display: grid; gap: 0.25rem; align-content: start; }
+.produtor .rotulo { color: var(--destaque-claro); margin-bottom: 0.6rem; }
+.produtor__nome { font-size: clamp(1.3rem, 1.5vw, 1.75rem); line-height: 1.1; }
+.produtor__casa { font-style: italic; color: var(--tinta-escura); margin-bottom: 0.7rem; }
+
+.produtor a, .contato__insta {
+  text-decoration: none;
+  width: fit-content;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+  transition: background-size 0.6s var(--curva), color 0.3s ease;
+}
+.produtor a:hover, .produtor a:focus-visible, .contato__insta:hover, .contato__insta:focus-visible {
+  background-size: 100% 1px;
+  color: var(--destaque-claro);
+}
+.contato__insta { font-size: clamp(1.25rem, 1.4vw, 1.6rem); font-style: italic; display: grid; gap: 0.6rem; }
+.contato__insta .rotulo { font-style: normal; color: var(--destaque-claro); }
+.contato__redes { display: grid; gap: 1rem; align-content: start; }
+.contato__pessoal { width: fit-content; font-style: italic; color: var(--tinta-escura); text-decoration: none; }
+.contato__pessoal span {
+  margin-left: 0.4rem;
+  font-family: var(--grotesca); font-stretch: 75%; font-style: normal;
+  font-size: var(--fs-rotulo); letter-spacing: 0.14em; text-transform: uppercase;
+}
+.contato__pessoal:hover, .contato__pessoal:focus-visible { color: var(--destaque-claro); }
+
+@media (min-width: 900px) {
+  .contato__grade { grid-template-columns: repeat(3, 1fr); column-gap: 1.5rem; }
+}
+
+.contato__kit {
+  display: grid; gap: 0.4rem; width: fit-content;
+  padding-top: 1.4rem; border-top: 1px solid color-mix(in srgb, var(--cal) 25%, transparent);
+  font-family: var(--serif); font-style: italic; font-size: 1.15rem; text-decoration: none;
+}
+.contato__kit .rotulo { font-style: normal; color: var(--destaque-claro); }
+.contato__kit:hover, .contato__kit:focus-visible { color: var(--destaque-claro); }
+
+/* ---------- colofão ---------- */
+
+.colofao {
+  display: grid;
+  gap: 1.2rem;
+  padding: 2.5rem var(--margem) 3rem;
+  border-top: 1px solid rgb(242 238 230 / 0.14);
+  font-size: 0.92rem;
+  color: var(--tinta-escura);
+}
+.colofao .rotulo { display: block; color: var(--destaque-claro); margin-bottom: 0.3rem; }
+.colofao__assinatura { display: flex; flex-direction: column; gap: 0.8rem; }
+.colofao__assinatura .nome-tinta { width: 9.5rem; color: var(--destaque-claro); }
+@media (min-width: 900px) {
+  .colofao { grid-template-columns: 6fr 4fr 2fr; column-gap: 1.5rem; align-items: end; }
+  .colofao__assinatura { align-items: flex-end; text-align: right; }
+}
+
+/* ---------- telões: trechos dos vídeos de Marcus como fundo de seção ----------
+   Como as projeções de vídeo no fundo do palco: atrás do texto, um trecho da própria obra de que a seção fala,
+   em sépia e em câmera lenta (ferramentas/gerar-teloes.py), parado na tela enquanto o texto passa por cima.
+   Um véu da cor da seção deixa o texto legível; nas bordas, a imagem surge do papel e volta para ele.
+   Antes de o vídeo tocar (e sempre, para quem pede movimento reduzido) fica um quadro parado do mesmo trecho. */
+
+.epigrafe:has(> .telao) { position: relative; }
+.epigrafe:has(> .telao), .secao:has(> .telao) { isolation: isolate; }
+.telao {
+  --borda: clamp(4rem, 14vh, 10rem);
+  --veu: 70%;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+.secao > .telao { max-width: none; margin: 0; }
+/* a epígrafe é uma coluna centrada: o telão sai dela e vai de uma borda à outra da tela */
+.epigrafe > .telao { left: calc(50% - 50vw); right: auto; width: 100vw; }
+/* o quadro fica parado na tela enquanto a seção passa; numa seção mais baixa que a tela, encolhe até caber nela */
+.telao__quadro {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: min(100svh, 100%);
+}
+.telao__quadro > img, .telao__quadro > video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--foco, 50% 50%);
+}
+/* quando o vídeo começa a tocar, ele acende devagar por cima do quadro parado */
+.telao__quadro > video { opacity: 0; transition: opacity 1.6s ease; }
+.telao__quadro > video.is-tocando { opacity: 1; }
+/* o véu da cor da seção sobre a imagem e, nas bordas, a cor cheia: a imagem surge do papel e volta para ele */
+.telao::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: color-mix(in srgb, var(--cobre) var(--veu), transparent);
+  background-image: linear-gradient(to bottom, var(--cobre), transparent var(--borda), transparent calc(100% - var(--borda)), var(--cobre));
+}
+/* o véu é mais forte onde o trecho é quase todo palco escuro, ou quase todo parede branca */
+.presente > .telao { --veu: 78%; }
+.efemeros > .telao, .imprensa > .telao { --veu: 60%; }
+/* a epígrafe é o próprio palco escuro de Instante-já: véu leve, para a linha de luz brilhar atrás da frase */
+/* sem véu: o vídeo aparece nítido; a frase se lê pelo halo escuro em volta das letras */
+.epigrafe > .telao { --veu: 0%; }
+.epigrafe[data-tone="dark"] { --destaque: var(--destaque-claro); --tinta-clara: var(--tinta-escura); }
+.epigrafe[data-tone="dark"] .agora { border-top-color: rgb(242 238 230 / 0.22); }
+/* um halo da cor do palco em volta das letras: a frase se destaca da linha de luz quando passa por ela */
+.epigrafe[data-tone="dark"] { text-shadow: 0 0 1.2rem rgb(28 20 15 / 0.9); }
+.epigrafe[data-tone="dark"] .epigrafe__frase { text-shadow: 0 0 2.4rem rgb(28 20 15 / 0.9); }
+/* sobre a imagem, o texto secundário e o bistre escurecem um pouco, para a leitura não depender da parte da imagem que está atrás */
+[data-tone="light"]:has(> .telao) { --tinta-clara: #3a332d; --destaque: #463124; }
+.presente:has(> .telao) .dedicatoria__para { color: var(--kraft); }
+
+/* ---------- player ---------- */
+
+.player {
+  width: min(94vw, 1240px);
+  max-width: none;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--cal);
+  overflow: visible;
+}
+.player::backdrop { background: rgb(18 16 14 / 0.94); }
+.player__topo {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
+  margin-bottom: 0.9rem;
+}
+.player__titulo { flex: 1; font-style: italic; font-size: 1.3rem; }
+
+/* saída de emergência: o mesmo vídeo no YouTube, se o player não carregar */
+.video-youtube {
+  font-family: var(--grotesca);
+  font-stretch: 75%;
+  font-size: var(--fs-rotulo);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--tinta-escura);
+  transition: color 0.3s ease;
+}
+.video-youtube::after { content: " ↗"; letter-spacing: 0; }
+.video-youtube:hover, .video-youtube:focus-visible { color: var(--destaque-claro); }
+/* na obra, o link fica logo abaixo do vídeo */
+.video-youtube--obra { position: absolute; top: 100%; left: 0; margin-top: 0.8rem; }
+.player__fechar {
+  font-family: var(--grotesca); font-stretch: 75%; font-size: var(--fs-rotulo);
+  letter-spacing: 0.2em; text-transform: uppercase;
+}
+.player__fechar:hover { color: var(--destaque-claro); }
+.player__tela { position: relative; aspect-ratio: 16 / 9; background: #000; }
+.player__tela iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* ---------- movimento reduzido ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  /* sem movimento: a capa mostra só a primeira foto, parada, e o mural do Acervo não anda */
+  .abertura__escrita { animation: none !important; clip-path: none !important; }
+  .js .revela .tinta, .js .revela figcaption { animation: none !important; clip-path: none !important; transform: none !important; opacity: 1 !important; transition: none !important; }
+  .js .revela::before { display: none; }
+  .cena__img, .cena__legenda { animation: none !important; }
+  .js .cena:not(:first-child) { display: none; }
+  .mural__trilho { animation: none !important; }
+  .abertura__fio { display: none; }
+}
+
+/* ---------- Sobre: a primeira frase vem grande; o resto da biografia abre em "Ler mais" ---------- */
+.sobre__lead { font-size: clamp(1.4rem, 1.9vw, 1.85rem); line-height: 1.32; }
+.sobre__mais { margin-top: 1.6rem; border-top: 1px solid color-mix(in srgb, var(--nanquim) 28%, transparent); }
+.sobre__mais summary {
+  display: flex; align-items: center; gap: 0.8rem;
+  padding: 0.9rem 0;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--grotesca);
+  font-stretch: 75%;
+  font-size: var(--fs-rotulo);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--destaque);
+  transition: color 0.3s ease;
+}
+.sobre__mais summary::-webkit-details-marker { display: none; }
+.sobre__mais summary::before { content: "+"; font-family: var(--serif); font-size: 1.4rem; line-height: 1; letter-spacing: 0; transition: transform 0.5s var(--curva); }
+.sobre__mais[open] summary::before { transform: rotate(45deg); }
+.sobre__mais summary:hover, .sobre__mais summary:focus-visible { color: var(--nanquim); }
+.sobre__fechar, .sobre__mais[open] .sobre__abrir { display: none; }
+.sobre__mais[open] .sobre__fechar { display: inline; }
+.sobre__mais > p:first-of-type { margin-top: 0.4rem; }
+@media (min-width: 1200px) {
+  .sobre__retrato { grid-column: 1 / 6; }
+  .sobre__texto { grid-column: 6 / 11; }
+}
+
+/* ---------- a assinatura à mão fecha o site como o abriu: o nome se escreve de novo no rodapé ---------- */
+.colofao__nome {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: min(72vw, 30rem);
+  aspect-ratio: 1420 / 175;
+  margin: 1.5rem 0 2.5rem;
+  background: var(--kraft);
+  -webkit-mask: url("../assets/marca/nome-tinta.svg") no-repeat center / contain;
+  mask: url("../assets/marca/nome-tinta.svg") no-repeat center / contain;
+}
+.js .colofao__nome { clip-path: inset(0 100% 0 0); }
+.js .colofao__nome.is-escrita { animation: escrever-nome 2.6s cubic-bezier(0.45, 0.05, 0.35, 1) 0.2s forwards; }
+
+/* no celular, os nomes da rede de afetos ficam maiores */
+@media (max-width: 640px) {
+  .rede__nome { font-size: 42px; }
+  .rede__nome--efemero { font-size: 36px; }
+  .rede__marcus { font-size: 27px; }
+}
+
+/* ---------- a luz sobe: do escuro para o papel (o inverso do blecaute) ----------
+   O começo da seção clara ainda guarda a cor da seção escura que veio antes e clareia aos poucos. */
+.efemeros, .curadoria { --antes: var(--palco); padding-top: calc(var(--respiro) + 22vh); }
+.curadoria { --antes: var(--umbria); }
+.efemeros::before, .curadoria::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: calc(var(--respiro) * 0.5 + 22vh);
+  pointer-events: none;
+  background: linear-gradient(to bottom, var(--antes), color-mix(in srgb, var(--antes) 62%, transparent) 30%, color-mix(in srgb, var(--antes) 26%, transparent) 62%, transparent);
+}
+
+/* na epígrafe, em telas largas, o quadro do vídeo aparece inteiro (antes a altura era cortada e Marcus ficava sem cabeça).
+   O escuro do vídeo é a própria cor do palco, então as laterais se desfazem no fundo da seção. */
+@media (min-aspect-ratio: 143/100) {
+  .epigrafe .telao__quadro > img, .epigrafe .telao__quadro > video { object-fit: contain; object-position: 50% 50%; }
+  .epigrafe .telao__quadro::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--palco) calc(50% - 71vh), transparent calc(50% - 46vh), transparent calc(50% + 46vh), var(--palco) calc(50% + 71vh));
+  }
+}
+
+/* do papel para o escuro: o fim do Sobre já cai na cor do palco, para a capa não começar numa linha reta */
+.sobre::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: var(--respiro);
+  pointer-events: none;
+  background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--palco) 55%, transparent) 55%, var(--palco));
+}
+.lista-video__sub { font-size: max(0.4em, 0.85rem); }

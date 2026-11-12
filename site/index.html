@@ -1,0 +1,975 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Marcus Moreno · Dança</title>
+  <meta name="description" content="Marcus Moreno, artista da dança. Criações cênicas, entrevistas-performativas, Danças de Presente, curadoria, textos e trajetória.">
+  <meta name="theme-color" content="#1c140f">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Marcus Moreno · Dança">
+  <meta property="og:description" content="Improvisação, temporalidades e redes de afetos.">
+  <!-- AO PUBLICAR: troque "assets/marca/compartilhar.jpg" pelo endereço completo (https://seu-dominio/assets/marca/compartilhar.jpg),
+       senão o WhatsApp e o Instagram mostram o link sem a foto. Veja PUBLICAR.md. -->
+  <meta property="og:image" content="assets/marca/compartilhar.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Marcus Moreno de costas num palco, diante de uma vara de refletores acesos, com o nome escrito à mão.">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="assets/fontes/cormorant-garamond.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/fontes.css">
+  <link rel="icon" href="assets/marca/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/marca/apple-touch-icon.png">
+  <link rel="alternate" hreflang="es" href="es.html">
+  <link rel="alternate" hreflang="en" href="en.html">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/obras.css">
+  <link rel="stylesheet" href="css/secoes.css">
+  <link rel="stylesheet" href="css/acervo.css">
+  <link rel="stylesheet" href="css/laterais.css">
+  <link rel="stylesheet" href="css/entreato.css">
+  <link rel="stylesheet" href="css/imersao.css">
+  <script>document.documentElement.classList.add('js');
+    // entrada: sobre o vídeo das Danças de Presente, o nome se escreve e a pessoa entra pelo botão (uma vez por visita;
+    // não aparece em links de seção). Para ver de novo, abra o site com ?entrada no fim do endereço. Ver js/imersao.js.
+    try { if ((!sessionStorage.getItem('mm-carregou') && !location.hash) || /[?&]entrada(&|=|$)/.test(location.search)) document.documentElement.classList.add('com-carregamento'); } catch (e) {}
+    // garantia: se o código do site não carregar, a entrada se abre sozinha em 10 segundos
+    setTimeout(function () { if (!document.documentElement.hasAttribute('data-entrada')) document.documentElement.classList.remove('com-carregamento'); }, 10000);</script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"Marcus Moreno","alternateName":"Marcus Vinicius Moreno Nascimento","jobTitle":"Artista da dança","sameAs":["https://instagram.com/marcusmoreno_danca"]}
+  </script>
+</head>
+<body>
+  <!-- ENTRADA · sobre o vídeo das Danças de Presente, o nome de Marcus se escreve à mão; depois aparecem dois botões: entrar com som ou em silêncio -->
+  <div class="carregando" hidden>
+    <img class="carregando__quadro" src="assets/img/teloes/presente-key.webp" width="960" height="536" alt="" loading="lazy">
+    <span class="carregando__nome" role="img" aria-label="Marcus Moreno"></span>
+    <div class="carregando__entradas">
+      <button class="carregando__entrar" type="button" data-som>Entrar com som</button>
+      <button class="carregando__entrar carregando__entrar--silencio" type="button">Entrar em silêncio</button>
+    </div>
+  </div>
+  <a class="skip" href="#sobre">Ir para o conteúdo</a>
+  <div class="blecaute" aria-hidden="true"></div>
+  <!-- água: distorção que só atua na foto sob o mouse, e só enquanto o mouse se move (ver main.js) -->
+  <svg class="filtros" width="0" height="0" aria-hidden="true" focusable="false">
+    <filter id="agua" x="-4%" y="-4%" width="108%" height="108%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.024" numOctaves="2" seed="5" result="ruido"/>
+      <feDisplacementMap in="SourceGraphic" in2="ruido" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
+
+  <!-- Cabeçalho: nome, seção atual e índice -->
+  <header class="topo" data-tone="light">
+    <a class="topo__nome" href="#sobre" aria-label="Marcus Moreno"><span class="nome-tinta" aria-hidden="true"></span></a>
+    <p class="topo__secao" aria-hidden="true"><span class="topo__num"></span> <span class="topo__titulo"></span></p>
+    <div class="topo__acoes">
+      <a class="topo__contato" href="#contato">Contato</a>
+      <button class="topo__letra" type="button" data-passo="0" aria-label="Aumentar o tamanho da letra" title="Tamanho da letra">A<span>a</span></button>
+      <button class="topo__som" type="button" aria-pressed="false" title="Música gerada na hora, nunca igual"><span class="topo__ondas" aria-hidden="true"><i></i><i></i><i></i></span>Som</button>
+      <button class="topo__indice" type="button" aria-expanded="false" aria-controls="indice">Índice</button>
+    </div>
+  </header>
+
+  <nav class="indice" id="indice" aria-label="Índice" hidden>
+    <ol class="indice__lista">
+      <li><a href="#sobre"><span>I</span>Sobre</a></li>
+      <li><a href="#criacoes"><span>II</span>Criações cênicas</a></li>
+      <li><a href="#entreato"><span>·</span>Entreato</a></li>
+      <li><a href="#efemeros"><span>III</span>Encontros Efêmeros</a></li>
+      <li><a href="#entrevistas"><span>IV</span>Entrevistas-performativas</a></li>
+      <li><a href="#presente"><span>V</span>Danças de Presente</a></li>
+      <li><a href="#curadoria"><span>VI</span>Projetos curatoriais</a></li>
+      <li><a href="#textos"><span>VII</span>Textos</a></li>
+      <li><a href="#trajetoria"><span>VIII</span>Trajetória</a></li>
+      <li><a href="#imprensa"><span>IX</span>Na imprensa</a></li>
+      <li><a href="#acervo"><span>·</span>Acervo</a></li>
+      <li><a href="#contato"><span>X</span>Contato</a></li>
+      <li><a href="programadores.html"><span>·</span>Para programadores</a></li>
+      <li><a href="es.html" hreflang="es" lang="es"><span>ES</span>Español</a></li>
+      <li><a href="en.html" hreflang="en" lang="en"><span>EN</span>English</a></li>
+    </ol>
+    <p class="indice__pe">Estudos do presente</p>
+  </nav>
+
+  <main>
+    <h1 class="sr">Marcus Moreno</h1>
+
+    <!-- I · SOBRE -->
+    <section class="secao sobre" id="sobre" data-tone="light" data-num="I" data-title="Sobre">
+      <header class="cabeca">
+        <span class="cabeca__num" aria-hidden="true">I</span>
+        <h2 class="cabeca__titulo">Sobre</h2>
+      </header>
+
+      <div class="sobre__grade">
+        <figure class="sobre__retrato revela">
+          <img class="tinta" src="assets/img/retrato-25.webp" srcset="assets/img/retrato-25-1000.webp 1000w, assets/img/retrato-25.webp 1280w" sizes="(min-width: 900px) 38vw, 100vw" width="1280" height="853" loading="lazy" alt="Marcus Moreno de perfil, diante de uma janela de venezianas, mãos erguidas à altura do rosto.">
+        </figure>
+
+        <div class="sobre__texto">
+          <p class="capitular sobre__lead">Marcus Moreno é mestre em Artes da Cena pela Unicamp. Bacharel em Comunicação das Artes do Corpo, tem especialização em Técnica Klauss Vianna (PUC-SP) e licenciatura em Teatro pela Universidade Anhembi Morumbi. Transita por campos poéticos buscando investigar as temporalidades, a improvisação cênica e a criação de redes de afetos.</p>
+          <details class="sobre__mais">
+            <summary><span class="sobre__abrir">Ler mais</span><span class="sobre__fechar">Recolher</span></summary>
+          <p>Desde 2012 realiza criações cênicas buscando sempre se associar a outros parceiros, tendo desenvolvido diferentes projetos que envolvem a produção de obras e eventos culturais, além de ações formativas e de mediação de público. Dentre suas criações cênicas estão <em>A Imagem como Ausência</em> (ProAC/2013), <em>A Flor da Lua</em> (Residência Artística Casa das Caldeiras/2016), <em>Estudo para o Encontro</em> (ProAC/2017), <em>Instante-já</em> (Fomento à Dança/2019), criado em parceria com a artista uruguaia Andrea Arobba e indicado ao Prêmio APCA-Dança nas categorias Espetáculo/Estreia e Prêmio Técnico pela criação de luz e espaço cênico; <em>Entre-espaço onde tudo existe</em> (videodança concebida em parceria com Pri Magalhães/Nome Filmes) e <em>Sempre mais que um</em>, ambas produzidas com apoio do Fomento à Dança em 2022; e <em>Onde Houver Céu</em>, também indicada ao Prêmio APCA.</p>
+          <p>Desde 2016 desenvolve os Encontros Efêmeros, criando trabalhos de improvisação com artistas da cena contemporânea. Em 2022, por meio de pesquisa desenvolvida no PPG Artes da Cena da Unicamp, criou, em conjunto com Marisa Lambert e Mariana Molinos, as Entrevistas-performativas, uma série audiovisual sobre improvisação e afeto gravada com artistas como Zélia Monteiro, Mariana Muniz, Key Sawao, Alex Ratton, Wellington Duarte e Vera Sala. É membro integrante do Grupo Prática como Pesquisa: processos de produção da cena contemporânea (PPGAC | IA Unicamp). Conduziu workshops, residências artísticas e palestras em diferentes espaços culturais.</p>
+          <p>Atuando no campo da gestão cultural, trabalhou na Secretaria Municipal de Cultura de São Paulo (2009-2017), tendo sido responsável, nos últimos quatro anos, pela coordenação do Programa Municipal de Fomento à Dança para a Cidade de São Paulo; fez parte do projeto de criação e implantação do Centro de Referência da Dança e da curadoria do Circuito Municipal de Cultura. Participou de encontros de gestão em eventos internacionais como Festival Danzalborde (CL), FIDCU (UY) e EGA (AR). Atuou no programa de Formação para o Interior das Oficinas Culturais do Estado de São Paulo (2017-2019), foi programador cultural da Oficina Cultural Oswald de Andrade de 2020 a 2024, integrou a Gerência de Articulação e Difusão das Fábricas de Cultura e atualmente é Assessor de Planejamento Estratégico do Instituto Poiesis.</p>
+          </details>
+        </div>
+
+        <aside class="sobre__margem" aria-label="Formação">
+          <h3 class="rotulo">Formação</h3>
+          <dl class="ficha">
+            <dt>Mestrado</dt><dd>Artes da Cena · Unicamp</dd>
+            <dt>Especialização</dt><dd>Técnica Klauss Vianna · PUC-SP</dd>
+            <dt>Bacharelado</dt><dd>Comunicação das Artes do Corpo</dd>
+            <dt>Licenciatura</dt><dd>Teatro · Anhembi Morumbi</dd>
+          </dl>
+          <h3 class="rotulo">Hoje</h3>
+          <p class="ficha__hoje">Assessor de Planejamento Estratégico do Instituto Poiesis</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="abertura" id="inicio" data-tone="dark" data-topo="foto" data-num="" data-title="">
+      <!-- ABERTURA · sete fotos em tela cheia que se fundem umas nas outras, em duotom.
+           Para trocar ou acrescentar uma, copie um <figure class="cena"> e ajuste --i (a ordem) e o enquadramento
+           (--obj no computador, --obj-m no celular); com outro número de fotos, ajuste --ciclo em css/base.css.
+           Foto dos refletores (quarta cena): créditos e obra a confirmar com o Marcus (arquivo original FVP_8603). -->
+      <div class="abertura__cena" aria-hidden="true">
+        <figure class="cena" style="--i: 0; --obj: 50% 100%; --obj-m: 32% 50%"><img class="cena__img" src="assets/img/capa-ceu.webp" srcset="assets/img/capa-ceu-1000.webp 1000w, assets/img/capa-ceu.webp 2000w" sizes="100vw" width="2000" height="1333" loading="lazy" alt=""><figcaption class="legenda cena__legenda"><cite>Onde Houver Céu</cite> · Foto Silvia Machado</figcaption></figure>
+        <figure class="cena" style="--i: 1; --obj: 50% 50%; --obj-m: 52% 50%"><img class="cena__img" src="assets/img/capa-sempre.webp" width="960" height="720" loading="lazy" alt=""><figcaption class="legenda cena__legenda"><cite>Sempre mais que um</cite> · Quadro do vídeo</figcaption></figure>
+        <figure class="cena" style="--i: 2; --obj: 50% 40%; --obj-m: 50% 50%"><img class="cena__img" loading="lazy" src="assets/img/capa-blur.webp" width="1000" height="667" alt=""><figcaption class="legenda cena__legenda"><cite>Instante-já</cite> · Foto Silvia Machado</figcaption></figure>
+        <figure class="cena" style="--i: 3; --obj: 50% 50%; --obj-m: 46% 50%"><img class="cena__img" src="assets/img/capa-refletores.webp" srcset="assets/img/capa-refletores-1000.webp 1000w, assets/img/capa-refletores.webp 2000w" sizes="100vw" width="2000" height="1330" loading="lazy" alt=""></figure>
+        <figure class="cena" style="--i: 4; --obj: 60% 50%; --obj-m: 68% 50%"><img class="cena__img" src="assets/img/capa-ausencia.webp" srcset="assets/img/capa-ausencia-1000.webp 1000w, assets/img/capa-ausencia.webp 2000w" sizes="100vw" width="2000" height="1268" loading="lazy" alt=""><figcaption class="legenda cena__legenda"><cite>A Imagem como Ausência</cite> · Foto Silvia Machado</figcaption></figure>
+        <figure class="cena" style="--i: 5; --obj: 50% 12%; --obj-m: 74% 50%"><img class="cena__img" src="assets/img/capa-caldeiras.webp" width="960" height="640" loading="lazy" alt=""><figcaption class="legenda cena__legenda"><cite>A Flor da Lua</cite> · Casa das Caldeiras</figcaption></figure>
+        <figure class="cena" style="--i: 6; --obj: 50% 55%; --obj-m: 52% 50%"><img class="cena__img" src="assets/img/capa-instante.webp" srcset="assets/img/capa-instante-1000.webp 1000w, assets/img/capa-instante.webp 2000w" sizes="100vw" width="2000" height="1333" loading="lazy" alt=""><figcaption class="legenda cena__legenda"><cite>Instante-já</cite> · Foto Silvia Machado</figcaption></figure>
+      </div>
+      <span class="abertura__fio" aria-hidden="true"></span>
+    </section>
+
+    <!-- Epígrafe -->
+    <section class="epigrafe" data-tone="dark" data-num="" data-title="">
+      <!-- telão: trecho de <cite>Instante-já</cite>, a linha de luz no chão do palco (ferramentas/gerar-teloes.py). A epígrafe é escura, como o palco -->
+      <div class="telao" aria-hidden="true" data-video="assets/video/instante-linha.mp4"><div class="telao__quadro" style="--foco: 58% 100%"><img src="assets/img/teloes/instante-linha.webp" width="1600" height="1124" alt="" loading="lazy"></div></div>
+      <p class="epigrafe__lead rotulo">Investigar</p>
+      <p class="epigrafe__frase">
+        <span>as temporalidades,</span>
+        <span>a improvisação cênica</span>
+        <span>e a criação de <em>redes de afetos</em></span>
+      </p>
+
+      <!-- Agora: atualizar a cada projeto. Fonte: Instagram e linktree do Marcus, nov. 2026. -->
+      <aside class="agora" aria-label="Agora">
+        <p class="rotulo agora__rotulo">Agora</p>
+        <!-- a lista é preenchida a partir de js/agenda.js: atualize lá, não aqui -->
+        <ul class="agora__lista" data-agenda>
+          <li><span class="agora__tipo">Residência artística · 14 out — 13 dez 2026</span><p><cite>Imagens da Memória: Espirais em Movimento</cite>, com Marcus Moreno, Maria Fernanda Machado e Raony Iaconis</p></li>
+          <li><span class="agora__tipo">Em desenvolvimento</span><p><cite>Onde se Possa Dançar</cite>, projeto contemplado pela 39ª edição do Fomento à Dança</p></li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- II · CRIAÇÕES CÊNICAS ─ o palco, o claro-escuro -->
+    <section class="secao criacoes" id="criacoes" data-tone="dark" data-num="II" data-title="Criações cênicas">
+      <header class="cabeca">
+        <span class="cabeca__num" aria-hidden="true">II</span>
+        <h2 class="cabeca__titulo">Criações <em>cênicas</em></h2>
+        <p class="cabeca__nota">2013 — 2024</p>
+      </header>
+
+      <article class="obra obra--ausencia" id="obra-ausencia">
+        <figure class="obra__midia revela">
+          <button class="obra__ver" type="button" data-video="8Wuyt81Asps" data-start="12" data-titulo="A Imagem como Ausência">
+            <img class="tinta" src="assets/img/quadros/ausencia.webp" srcset="assets/img/quadros/ausencia-800.webp 900w, assets/img/quadros/ausencia.webp 1704w" sizes="(min-width: 900px) 60vw, 100vw" width="1136" height="720" loading="lazy" alt="No palco escuro, um retângulo de papel iluminado; diante dele, pequena, a silhueta de Marcus caminhando.">
+            <span class="sr">Assistir ao vídeo de A Imagem como Ausência</span>
+          </button>
+          <figcaption class="legenda">Quadro do vídeo · Registro Doctela</figcaption>
+        </figure>
+        <div class="obra__texto">
+          <p class="obra__ano">2013</p>
+          <h3 class="obra__titulo">A Imagem como Ausência</h3>
+          <p class="obra__meta">ProAC · Primeiras Obras</p>
+          <p class="obra__sinopse">O ponto de partida para esta criação é o da tela em branco, o espaço de acontecimento que está prestes a ser preenchido.</p>
+          <p class="obra__selo">Estreia entre os destaques do ano na retrospectiva da crítica Helena Katz, <cite>O Estado de S. Paulo</cite></p>
+          <details class="obra__mais">
+            <summary>Sinopse e ficha técnica</summary>
+            <div class="obra__mais-corpo">
+              <p>Como um pintor que inicia sua obra com uma primeira marca de tinta sobre o quadro, a dança aqui vem do impulso interno vital, do movimento do corpo.</p>
+              <p>O desejo de promover reflexões sobre espaços vazios na construção de imagens teve início com a discussão sobre a qualidade das sensações proposta por Alberto Manguel, em seu livro <cite>Lendo Imagens</cite>, e se intensificou a partir do contato com as obras do pintor Jackson Pollock, conhecido por subverter o suporte e permitir a queda da tinta com a tela esticada no chão.</p>
+              <p>Estimulada pela ação de ‘pintar pintando’, percorrida pela forma, pela cor, pela abstração e sua capacidade de tornar-se movimento, a composição foi se constituindo com a urgência e o imediatismo de dançar. ‘Escorrer’, ‘respingar’, ‘(des)manchar’, ‘(des)controlar’ são alguns verbos de ação que serviram como mote para criar uma série de pequenas improvisações. <cite>A Imagem como Ausência</cite> propõe refletir sobre a presença do que não é necessariamente visto ou dito, num espaço em que o corpo se constitui pela sua própria ação e busca seu modo de fazer dança.</p>
+              <p>Obra criada em 2013 com apoio do Edital ProAC de Primeiras Obras de Criação em Temporada de Dança.</p>
+              <dl class="creditos">
+                <dt>Criação e interpretação</dt><dd>Marcus Moreno</dd>
+                <dt>Orientação artística</dt><dd>Key Sawao</dd>
+                <dt>Figurino</dt><dd>Thais Franco</dd>
+                <dt>Luz</dt><dd>Calu Zabel</dd>
+                <dt>Espaço cênico</dt><dd>Marcus Moreno</dd>
+                <dt>Música</dt><dd>Movimentos da Suíte em Sol Maior de Bach</dd>
+                <dt>Fotos</dt><dd>Silvia Machado</dd>
+                <dt>Design gráfico</dt><dd>Paula Viana</dd>
+                <dt>Registro em vídeo</dt><dd>Doctela</dd>
+                <dt>Produção executiva</dt><dd>Cristiane Klein</dd>
+                <dt>Direção de produção</dt><dd>Dionísio Produção</dd>
+              </dl>
+            </div>
+          </details>
+          <button class="tocar" type="button" data-video="8Wuyt81Asps" data-start="12" data-titulo="A Imagem como Ausência">Assistir</button>
+        </div>
+      </article>
+
+      <article class="obra obra--flor" id="obra-flor">
+        <div class="obra__texto">
+          <p class="obra__ano">2016</p>
+          <h3 class="obra__titulo">A Flor da Lua</h3>
+          <p class="obra__meta">Residência Artística Casa das Caldeiras · solo · estreia no Sesc Campinas</p>
+          <p class="obra__sinopse">Esta peça foi criada em capítulos breves. Tal como a flor da lua nasce e perdura por uma única noite, a dança se expande a caminho do encerro.</p>
+          <ol class="capitulos" aria-label="Capítulos">
+            <li>Prólogo. <span>Do desejo de seguir dançando. Daquilo que antecede o desejo. Pólen.</span></li>
+            <li>Universo em expansão. <span>Semente.</span></li>
+            <li>Sobre um modo de acolher. <span>Preparo constante. Instante. Folhagem.</span></li>
+            <li>Para insistir em brotar</li>
+            <li>Orla escura de uma floresta ao meu redor</li>
+            <li>Espera. Calma. Canção.</li>
+            <li>A Flor da Lua. Um instante-já.</li>
+            <li>Mirrar. Esgotar. Desvanecer.</li>
+            <li>Amanhecer.</li>
+          </ol>
+          <details class="obra__mais">
+            <summary>Sinopse e ficha técnica</summary>
+            <div class="obra__mais-corpo">
+              <p>O ponto de partida para a criação deste trabalho é a passagem do tempo. Por meio da metáfora da flor da lua, e inspiração na obra da artista e ilustradora botânica Margaret Mee, a dança vai se constituindo a partir do instante presente.</p>
+              <p>Criado dentro do Programa de Residência Artística da Casa das Caldeiras (SP), o solo <cite>A Flor da Lua</cite> estreou em 2016 no Sesc Campinas, e circulou por festivais e mostras como Tiradentes em Cena (MG), Dança nas Bordas (SP) e Ciclo Solos al Mediodía (Montevidéu, UY). Em 2019, com apoio do Programa de Fomento à Dança, teve ampla difusão em diferentes espaços da cidade de São Paulo.</p>
+              <dl class="creditos">
+                <dt>Concepção e dança</dt><dd>Marcus Moreno</dd>
+                <dt>Música original</dt><dd>Manuel Pessôa de Lima</dd>
+                <dt>Luz original</dt><dd>Calu Zabel</dd>
+                <dt>Adaptação e operação de luz</dt><dd>Dida Genofre</dd>
+                <dt>Fotos</dt><dd>Silvia Machado, Claudia Magalhães e Danilo Patzdorf</dd>
+                <dt>Registro em vídeo</dt><dd>NOME Filmes</dd>
+                <dt>Assessoria de imprensa</dt><dd>Elaine Calux</dd>
+                <dt>Mídias sociais</dt><dd>Juliana Vinagre</dd>
+                <dt>Produção executiva</dt><dd>Cristiane Klein</dd>
+                <dt>Coordenação de produção</dt><dd>Dionísio Produção</dd>
+              </dl>
+            </div>
+          </details>
+          <button class="tocar" type="button" data-video="6iJhSnkjBm4" data-titulo="A Flor da Lua">Assistir</button>
+        </div>
+        <div class="obra__triptico">
+          <figure class="revela">
+            <img class="tinta" src="assets/img/flor-da-lua-patzdorf.webp" srcset="assets/img/flor-da-lua-patzdorf-1000.webp 1000w, assets/img/flor-da-lua-patzdorf.webp 1333w" sizes="(min-width: 900px) 28vw, 100vw" width="1333" height="2000" loading="lazy" alt="Marcus em palco escuro, tronco inclinado e um braço estendido em linha reta, refletores ao fundo.">
+            <figcaption class="legenda">Foto Danilo Patzdorf</figcaption>
+          </figure>
+          <figure class="revela">
+            <img class="tinta" src="assets/img/flor-casa-caldeiras.webp" width="960" height="640" loading="lazy" alt="Silhueta contra luz âmbar na Casa das Caldeiras, plateia sentada à esquerda.">
+            <figcaption class="legenda">Casa das Caldeiras</figcaption>
+          </figure>
+          <figure class="revela">
+            <img class="tinta" src="assets/img/flor-mario-de-andrade.webp" srcset="assets/img/flor-mario-de-andrade-1000.webp 1000w, assets/img/flor-mario-de-andrade.webp 2000w" sizes="(min-width: 900px) 28vw, 100vw" width="2000" height="1333" loading="lazy" alt="Marcus dança descalço no terraço da Biblioteca Mário de Andrade, entre árvores e prédios.">
+            <figcaption class="legenda">Biblioteca Mário de Andrade · Foto Claudia Magalhães</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="obra obra--estudo" id="obra-estudo">
+        <div class="obra__par">
+          <figure class="revela">
+            <img class="tinta" src="assets/img/estudo-encontro-2.webp" srcset="assets/img/estudo-encontro-2-1000.webp 1000w, assets/img/estudo-encontro-2.webp 1333w" sizes="(min-width: 900px) 26vw, 60vw" width="1333" height="2000" loading="lazy" alt="Marcus encostado em uma parede de concreto, cabeça inclinada, luz lateral no chão.">
+          </figure>
+          <figure class="revela">
+            <img class="tinta" src="assets/img/estudo-encontro-1.webp" width="975" height="975" loading="lazy" alt="Marcus em torção, braço sobre a cabeça, diante de parede de concreto.">
+            <figcaption class="legenda">Fotos Silvia Machado</figcaption>
+          </figure>
+        </div>
+        <div class="obra__texto">
+          <p class="obra__ano">2017</p>
+          <h3 class="obra__titulo">Estudo para o Encontro</h3>
+          <p class="obra__meta">ProAC · Edital nº 04/2016</p>
+          <p class="obra__sinopse">Este trabalho surge de temas corporais concretos para a criação de imagens sensoriais.</p>
+          <details class="obra__mais">
+            <summary>Sinopse e ficha técnica</summary>
+            <div class="obra__mais-corpo">
+              <p>A partir de combinações do corpo e de suas singularidades, dança, música e luz se reúnem para a invenção de encontros possíveis.</p>
+              <p>Obra criada com apoio do Edital ProAC nº 04/2016, Concurso de Apoio a Projetos de Produção de Espetáculo Inédito e Temporada de Dança no Estado de São Paulo.</p>
+              <dl class="creditos">
+                <dt>Concepção e dança</dt><dd>Marcus Moreno</dd>
+                <dt>Música e dança</dt><dd>Moisés Mendoza Baião</dd>
+                <dt>Colaboração cênica</dt><dd>Key Sawao</dd>
+                <dt>Luz</dt><dd>Calu Zabel</dd>
+                <dt>Figurino</dt><dd>Marcus Moreno</dd>
+                <dt>Fotos</dt><dd>Silvia Machado</dd>
+                <dt>Registro em vídeo</dt><dd>Márcia Alves e Lienio Medeiros</dd>
+                <dt>Produção executiva</dt><dd>Cristiane Klein</dd>
+                <dt>Direção de produção</dt><dd>Dionísio Produção</dd>
+              </dl>
+            </div>
+          </details>
+          <button class="tocar" type="button" data-video="dIDL_3DrXDo" data-titulo="Estudo para o Encontro">Assistir</button>
+        </div>
+      </article>
+
+      <!-- CENA · Instante-já: a foto do corpo borrado ocupa a tela e as três perguntas de Marcus aparecem uma de cada vez,
+           no ritmo da rolagem; a cada pergunta a luz abre um pouco mais (ver js/imersao.js) -->
+      <div class="cena-instante" data-cena-instante>
+        <div class="cena-instante__palco">
+          <img class="cena-instante__foto" src="assets/img/instante-ja-2.webp" width="1000" height="667" loading="lazy" alt="Corpo nu da cintura para cima, borrado pelo movimento contra fundo claro.">
+          <div class="cena-instante__escuro" aria-hidden="true"></div>
+          <p class="rotulo cena-instante__rotulo"><cite>Instante-já</cite> · 2019</p>
+          <ol class="cena-instante__perguntas">
+            <li>Como captar o instante de um <em>acontecimento</em>?</li>
+            <li>Quais imagens se constroem <em>neste instante</em>?</li>
+            <li>É possível dançar uma imagem antes mesmo de conseguir <em>nomeá-la</em>?</li>
+          </ol>
+          <p class="cena-instante__credito legenda">Foto Silvia Machado</p>
+        </div>
+      </div>
+
+      <article class="obra obra--instante" id="obra-instante">
+        <div class="obra__sobreposta">
+          <figure class="obra__fundo revela">
+            <img class="tinta" src="assets/img/instante-ja-1.webp" srcset="assets/img/instante-ja-1-1000.webp 1000w, assets/img/instante-ja-1.webp 2000w" sizes="(min-width: 900px) 62vw, 100vw" width="2000" height="1333" loading="lazy" alt="Marcus em palco cinza, raquete de pingue-pongue na mão, olhando para a bola no alto.">
+            <figcaption class="legenda">Foto Silvia Machado</figcaption>
+          </figure>
+        </div>
+        <div class="obra__texto">
+          <p class="obra__ano">2019 <span>/ 2022</span></p>
+          <h3 class="obra__titulo">Instante-já</h3>
+          <p class="obra__meta">Fomento à Dança · criação com Andrea Arobba (UY)</p>
+          <p class="obra__selo">Indicado ao Prêmio APCA-Dança 2019: Estreia do ano e Prêmio Técnico (luz e espaço cênico de Hernandes de Oliveira)</p>
+          <details class="obra__mais">
+            <summary>Sinopse e ficha técnica</summary>
+            <div class="obra__mais-corpo">
+              <p>Tudo o que acontece no cérebro se inicia a partir de células conhecidas como neurônios. De um neurônio para outro há, em muitos casos, pequenos vãos, preenchidos por substâncias químicas liberadas a cada disparo de um impulso elétrico. São eles que influenciam a produção de imagens provenientes dos sentidos humanos e do fluxo dos nossos pensamentos.</p>
+              <p>Estes foram alguns disparadores para a criação de <cite>instante-já</cite>, nome que tem inspiração na obra <cite>Água Viva</cite> da escritora Clarice Lispector, nas poéticas que refletem sobre a passagem do tempo e que, neste contexto, são contaminadas por ideias relativas à percepção, memória e produção de imagens, presentes no universo das ciências cognitivas. O curso deste desejo de dançar o instante-já se aprofundou a partir do encontro de Marcus Moreno com a artista uruguaia Andrea Arobba, por meio da imersão em materiais criativos levantados ao longo de uma residência artística realizada no Centro de Referência da Dança (CRDSP). Este é um trabalho que tem sua origem no encontro: com o tempo, com o espaço, com diferentes corpos, com maneiras distintas de fazer dança. Um solo construído por muitas presenças, em muitos instantes.</p>
+              <p>Obra criada em 2019 com apoio do Programa Municipal de Fomento à Dança para a Cidade de São Paulo, Secretaria Municipal de Cultura.</p>
+              <blockquote class="obra__epigrafe">O ar é o não lugar onde tudo vai existir <cite>Clarice Lispector</cite></blockquote>
+              <dl class="creditos">
+                <dt>Concepção e dança</dt><dd>Marcus Moreno</dd>
+                <dt>Colaboração artística</dt><dd>Andrea Arobba (GEN)</dd>
+                <dt>Criação de luz e espaço cênico</dt><dd>Hernandes de Oliveira</dd>
+                <dt>Trilha sonora original</dt><dd>Antonio Porto</dd>
+                <dt>Pesquisadores convidados do Ciclo Presentificar</dt><dd>Ivan Hegen, Jussara Miller, Paula Petreca, Virgínia Souza e André Cravo</dd>
+                <dt>Fotos</dt><dd>Silvia Machado</dd>
+                <dt>Design gráfico</dt><dd>Ruth Alvarez</dd>
+                <dt>Registro em vídeo</dt><dd>Nome Filmes</dd>
+                <dt>Assessoria de imprensa</dt><dd>Elaine Calux</dd>
+                <dt>Audiodescrição</dt><dd>Daniella Forchetti · Música e Movimento</dd>
+                <dt>Assistente de produção e mídias sociais</dt><dd>Juliana Vinagre</dd>
+                <dt>Produção executiva</dt><dd>Cristiane Klein</dd>
+                <dt>Direção de produção</dt><dd>Dionísio Produção</dd>
+              </dl>
+            </div>
+          </details>
+          <button class="tocar" type="button" data-video="bwpxBs99I4M" data-titulo="Instante-já">Assistir</button>
+        </div>
+      </article>
+
+      <article class="obra obra--cinema" id="obra-cinema">
+        <!-- o quadro do filme começa pequeno no centro, como a tela vista do fundo da sala, e cresce com a rolagem
+             até tomar a tela inteira (ver js/imersao.js, "quadro que cresce"). Sem movimento, fica de ponta a ponta, parado. -->
+        <div class="expande" data-expande>
+          <div class="expande__palco">
+            <p class="expande__titulo" aria-hidden="true"><span class="rotulo">Videodança · 2021</span>Entre-espaço <em>onde tudo existe</em></p>
+            <figure class="obra__faixa expande__quadro">
+              <button class="obra__ver" type="button" data-video="m-qB_rqaMXo" data-titulo="Entre-espaço onde tudo existe">
+                <img class="tinta" src="assets/img/entre-espaco-still.webp" srcset="assets/img/entre-espaco-still-1000.webp 1000w, assets/img/entre-espaco-still.webp 2000w, assets/img/entre-espaco-still-2880.webp 2880w" sizes="(max-aspect-ratio: 239/100) 239vh, 100vw" width="2000" height="836" loading="lazy" alt="Rosto de Marcus em primeiro plano, mata e céu nublado ao fundo.">
+                <span class="sr">Assistir ao vídeo de Entre-espaço onde tudo existe</span>
+              </button>
+            </figure>
+          </div>
+        </div>
+        <div class="obra__texto obra__texto--linha">
+          <p class="obra__ano">2021</p>
+          <h3 class="obra__titulo">Entre-espaço onde tudo existe</h3>
+          <p class="obra__meta">Videodança · com Pri Magalhães / Nome Filmes · Fomento à Dança</p>
+          <button class="tocar" type="button" data-video="m-qB_rqaMXo" data-titulo="Entre-espaço onde tudo existe">Assistir</button>
+        </div>
+      </article>
+
+      <article class="obra obra--brotar" id="obra-brotar">
+        <figure class="obra__midia revela">
+          <button class="obra__ver" type="button" data-video="Vtriv1TdLco" data-titulo="Para insistir em brotar">
+            <img class="tinta" src="assets/img/para-insistir-em-brotar.webp" width="480" height="270" loading="lazy" alt="Marcus dança sobre uma laje, a cidade de São Paulo ao fundo.">
+            <span class="sr">Assistir ao vídeo de Para insistir em brotar</span>
+          </button>
+        </figure>
+        <div class="obra__texto">
+          <p class="obra__ano">2021</p>
+          <h3 class="obra__titulo">Para insistir em brotar</h3>
+          <p class="obra__meta">Videodança</p>
+          <p class="obra__sinopse">O título retoma um dos capítulos de <em>A Flor da Lua</em>.</p>
+          <button class="tocar" type="button" data-video="Vtriv1TdLco" data-titulo="Para insistir em brotar">Assistir</button>
+        </div>
+      </article>
+
+      <!-- obra--tela-cheia: a foto ocupa a tela inteira e o texto fica por cima (pode ser usado em outra obra) -->
+      <article class="obra obra--sempre obra--tela-cheia" id="obra-sempre">
+        <figure class="obra__midia revela">
+          <button class="obra__ver" type="button" data-video="ejixmU_3cXk" data-titulo="Sempre mais que um">
+            <img class="tinta" src="assets/img/sempre-mais-que-um.webp" width="960" height="720" loading="lazy" sizes="100vw" alt="Fotografia de longa exposição: vários corpos em movimento se sobrepõem num palco escuro.">
+            <span class="sr">Assistir ao vídeo de Sempre mais que um</span>
+          </button>
+        </figure>
+        <div class="obra__texto">
+          <p class="obra__ano">2023</p>
+          <h3 class="obra__titulo">Sempre mais que um</h3>
+          <p class="obra__meta">Fomento à Dança</p>
+          <button class="tocar" type="button" data-video="ejixmU_3cXk" data-titulo="Sempre mais que um">Assistir</button>
+        </div>
+      </article>
+
+      <article class="obra obra--ceu" id="obra-ceu">
+        <div class="obra__texto">
+          <p class="obra__ano">2024</p>
+          <h3 class="obra__titulo">Onde Houver Céu</h3>
+          <p class="obra__selo">Indicado ao Prêmio APCA</p>
+          <button class="tocar" type="button" data-video="7Ws8Uslqozw" data-titulo="Onde Houver Céu">Assistir</button>
+        </div>
+        <div class="obra__par obra__par--ceu">
+          <figure class="revela">
+            <img class="tinta" src="assets/img/onde-houver-ceu-1.webp" srcset="assets/img/onde-houver-ceu-1-1000.webp 1000w, assets/img/onde-houver-ceu-1.webp 1333w" sizes="(min-width: 900px) 28vw, 70vw" width="1333" height="2000" loading="lazy" alt="Marcus de costas, braços abertos, sobre um chão coberto de folhagem; outros intérpretes ao fundo.">
+          </figure>
+          <figure class="revela">
+            <img class="tinta" src="assets/img/onde-houver-ceu-2.webp" srcset="assets/img/onde-houver-ceu-2-1000.webp 1000w, assets/img/onde-houver-ceu-2.webp 2000w" sizes="(min-width: 900px) 40vw, 100vw" width="2000" height="1333" loading="lazy" alt="Marcus deitado de lado no chão de folhagem, apoiado nas mãos, olhar rente ao solo.">
+            <figcaption class="legenda">Fotos Silvia Machado</figcaption>
+          </figure>
+        </div>
+      </article>
+    </section>
+
+    <!-- ENTREATO · galeria em rolagem lateral
+         Em qualquer tela, a tela fica parada e a faixa de fotos anda para o lado enquanto se rola a página.
+         Só para quem pede movimento reduzido a faixa fica parada e desliza com o dedo.
+         Para trocar uma foto, copie um <figure class="entreato__foto"> e ajuste o arquivo, o tamanho e a legenda;
+         use entreato__foto--v para fotos verticais e entreato__foto--h para horizontais. -->
+    <section class="entreato" id="entreato" data-lateral data-tone="dark" data-num="" data-title="" aria-labelledby="entreato-titulo">
+      <div class="entreato__palco">
+        <div class="entreato__faixa" data-lateral-faixa>
+          <div class="entreato__abre">
+            <p class="rotulo entreato__rotulo">Intervalo entre as obras</p>
+            <h2 class="entreato__titulo" id="entreato-titulo">Entre<em>ato</em></h2>
+            <p class="entreato__texto">Fotografias de cena, de ensaio e de rua. O corpo em lugares: biblioteca, parede, caldeira, laje, folhagem, palco.</p>
+            <p class="rotulo entreato__dica" aria-hidden="true"><span class="entreato__dica-rolar">Role a página</span><span class="entreato__dica-deslizar">Deslize</span> <i></i></p>
+          </div>
+          <figure data-lateral-item class="entreato__foto entreato__foto--h">
+            <div class="entreato__moldura"><img class="tinta" src="assets/img/flor-mario-de-andrade.webp" srcset="assets/img/flor-mario-de-andrade-1000.webp 1000w, assets/img/flor-mario-de-andrade.webp 2000w" sizes="90vh" width="2000" height="1333" loading="lazy" alt="Marcus dança descalço no terraço da Biblioteca Mário de Andrade, entre árvores e prédios."></div>
+            <figcaption class="legenda"><span class="entreato__n">01</span> <cite>A Flor da Lua</cite> · Biblioteca Mário de Andrade · Foto Claudia Magalhães</figcaption>
+          </figure>
+          <figure data-lateral-item class="entreato__foto entreato__foto--v">
+            <div class="entreato__moldura"><img class="tinta" src="assets/img/estudo-encontro-2.webp" srcset="assets/img/estudo-encontro-2-1000.webp 1000w, assets/img/estudo-encontro-2.webp 1333w" sizes="45vh" width="1333" height="2000" loading="lazy" alt="Marcus encostado em uma parede de concreto, cabeça inclinada, luz lateral no chão."></div>
+            <figcaption class="legenda"><span class="entreato__n">02</span> <cite>Estudo para o Encontro</cite> · Foto Silvia Machado</figcaption>
+          </figure>
+          <figure data-lateral-item class="entreato__foto entreato__foto--h entreato__foto--baixo">
+            <div class="entreato__moldura"><img class="tinta" src="assets/img/flor-casa-caldeiras.webp" width="960" height="640" loading="lazy" alt="Silhueta contra luz âmbar na Casa das Caldeiras, plateia sentada à esquerda."></div>
+            <figcaption class="legenda"><span class="entreato__n">03</span> <cite>A Flor da Lua</cite> · Casa das Caldeiras</figcaption>
+          </figure>
+          <figure data-lateral-item class="entreato__foto entreato__foto--v">
+            <div class="entreato__moldura"><img class="tinta" src="assets/img/retrato-07.webp" width="853" height="1280" loading="lazy" alt="Marcus agachado à beira de um espelho d’água, torcendo um pano branco, plantas ao fundo."></div>
+            <figcaption class="legenda"><span class="entreato__n">04</span> Retrato · 2025</figcaption>
+          </figure>
+          <figure data-lateral-item class="entreato__foto entreato__foto--h">
+            <div class="entreato__moldura"><img class="tinta" src="assets/img/img-1639.webp" srcset="assets/img/img-1639-1000.webp 1000w, assets/img/img-1639.webp 2000w" sizes="90vh" width="2000" height="1307" loading="lazy" alt="Marcus com um braço erguido ao céu sobre uma laje, São Paulo e uma torre de antena ao fundo."></div>
+            <figcaption class="legenda"><span class="entreato__n">05</span> Laje · São Paulo</figcaption>
+          </figure>
+          <figure data-lateral-item class="entreato__foto entreato__foto--v">
+            <div class="entreato__moldura"><img class="tinta" src="assets/img/onde-houver-ceu-1.webp" srcset="assets/img/onde-houver-ceu-1-1000.webp 1000w, assets/img/onde-houver-ceu-1.webp 1333w" sizes="45vh" width="1333" height="2000" loading="lazy" alt="Marcus de costas, braços abertos, sobre um chão coberto de folhagem; outros intérpretes ao fundo."></div>
+            <figcaption class="legenda"><span class="entreato__n">06</span> <cite>Onde Houver Céu</cite> · Foto Silvia Machado</figcaption>
+          </figure>
+          <figure data-lateral-item class="entreato__foto entreato__foto--h entreato__foto--baixo">
+            <div class="entreato__moldura"><img class="tinta" src="assets/img/retrato-25.webp" srcset="assets/img/retrato-25-1000.webp 1000w, assets/img/retrato-25.webp 1280w" sizes="90vh" width="1280" height="853" loading="lazy" alt="Marcus Moreno de perfil, diante de uma janela de venezianas, mãos erguidas à altura do rosto."></div>
+            <figcaption class="legenda"><span class="entreato__n">07</span> Retrato · 2025</figcaption>
+          </figure>
+          <figure data-lateral-item class="entreato__foto entreato__foto--h">
+            <div class="entreato__moldura"><img class="tinta" src="assets/img/fvp-8603.webp" srcset="assets/img/fvp-8603-1000.webp 1000w, assets/img/fvp-8603.webp 2000w" sizes="90vh" width="2000" height="1330" loading="lazy" alt="Marcus de costas num palco, mãos unidas, olhando uma vara de refletores acesos."></div>
+            <figcaption class="legenda"><span class="entreato__n">08</span> Palco · Refletores acesos</figcaption>
+          </figure>
+        </div>
+        <div class="entreato__pe" aria-hidden="true">
+          <span class="entreato__contador" data-lateral-contador>01 / 08</span>
+          <span class="entreato__progresso" data-lateral-progresso><span></span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- III · ENCONTROS EFÊMEROS ─ improvisações a dois, desde 2016 -->
+    <section class="secao efemeros" id="efemeros" data-tone="light" data-num="III" data-title="Encontros Efêmeros">
+      <!-- telão: trecho do <cite>Encontro para contemplar o vento</cite>, com Cora Laszlo, em sépia e câmera lenta (ferramentas/gerar-teloes.py) -->
+      <div class="telao" aria-hidden="true" data-video="assets/video/encontro-vento.mp4"><div class="telao__quadro" style="--foco: 52% 55%"><img src="assets/img/teloes/encontro-vento.webp" width="960" height="540" alt="" loading="lazy"></div></div>
+      <header class="cabeca cabeca--espelho">
+        <span class="cabeca__num" aria-hidden="true">III</span>
+        <h2 class="cabeca__titulo">Encontros <em>Efêmeros</em></h2>
+        <p class="cabeca__nota">Desde 2016</p>
+      </header>
+
+      <div class="efemeros__intro">
+        <p class="efemeros__frase">Este é um procedimento de partilha que tem como principal objetivo reconhecer afetos e modos de criação em dança.</p>
+        <p>A partir de uma ideia lançada, os dois artistas dividem a cena em um encontro inédito, construindo juntos a dança deste dia.</p>
+      </div>
+
+      <div class="lista-video__palco">
+        <ol class="lista-video" data-efemeros>
+          <li data-pessoa="cora" data-quadro="assets/img/quadros/efemero-cora.webp"><button class="lista-video__item" type="button" data-video="5xQ4a2cmItM" data-start="1343" data-titulo="Encontros Efêmeros: Marcus Moreno + Cora Laszlo · Encontro para contemplar o vento"><span class="lista-video__com">+</span> Cora Laszlo <span class="lista-video__sub">Encontro para contemplar o vento</span></button></li>
+          <li data-pessoa="patricia" data-quadro="assets/img/quadros/efemero-patricia.webp"><button class="lista-video__item" type="button" data-video="mSVXEeCJtak" data-start="356" data-titulo="Encontros Efêmeros: Marcus Moreno + Patrícia Árabe"><span class="lista-video__com">+</span> Patrícia Árabe</button></li>
+          <li data-pessoa="jose-artur" data-quadro="assets/img/quadros/efemero-jose-artur.webp"><button class="lista-video__item" type="button" data-video="MUSrxQCvAzc" data-start="16" data-titulo="Encontros Efêmeros: Marcus Moreno + José Artur Campos"><span class="lista-video__com">+</span> José Artur Campos</button></li>
+          <li data-pessoa="marcio" data-quadro="assets/img/quadros/efemero-marcio.webp"><button class="lista-video__item" type="button" data-video="BS4TVR6UXvo" data-start="331" data-titulo="Encontros Efêmeros: Marcus Moreno + Márcio Greyk"><span class="lista-video__com">+</span> Márcio Greyk</button></li>
+          <li data-pessoa="alex" data-quadro="assets/img/quadros/efemero-alex.webp"><button class="lista-video__item" type="button" data-video="g3cO501wIUE" data-start="2" data-titulo="Encontros Efêmeros: Marcus Moreno + Alex Ratton"><span class="lista-video__com">+</span> Alex Ratton</button></li>
+          <li data-pessoa="rafaela" data-quadro="assets/img/quadros/efemero-rafaela.webp"><button class="lista-video__item" type="button" data-video="RpqCcdeJHao" data-start="1" data-titulo="Encontros Efêmeros: Marcus Moreno + Rafaela Sahyoun"><span class="lista-video__com">+</span> Rafaela Sahyoun</button></li>
+        </ol>
+        <figure class="quadro" aria-hidden="true"><img alt="" width="960" height="540"></figure>
+      </div>
+    </section>
+
+    <!-- IV · ENTREVISTAS-PERFORMATIVAS ─ a rede -->
+    <section class="secao entrevistas" id="entrevistas" data-tone="light" data-num="IV" data-title="Entrevistas-performativas">
+      <header class="cabeca">
+        <span class="cabeca__num" aria-hidden="true">IV</span>
+        <h2 class="cabeca__titulo">Entrevistas-<em>performativas</em></h2>
+        <p class="cabeca__nota">Série em vídeo · conversas-dançadas</p>
+      </header>
+
+      <div class="entrevistas__grade">
+        <div class="entrevistas__texto">
+          <p class="capitular">As entrevistas-performativas, que podem ser descritas também como conversas-dançadas, são eventos que intuem a criação de um espaço voltado à troca de saberes pela experiência do convívio, decorrente de ações simples (previamente organizadas, mas abertas à imprevisibilidade) que apontam para o despertar de um campo de singularidade e partilha.</p>
+          <p>São encontros pautados em uma metodologia fluida e em permanente transformação, que oportunizam formas de escuta e contato mais aproximados, envolvendo o artista convidado em uma experiência estética, em trocas que incluem nas dinâmicas de interação e de discussão conhecimentos que sejam da ordem do sensível.</p>
+          <p>Este procedimento vem sendo desenvolvido por Marcus Moreno nos últimos anos a partir de proposição de Marisa Lambert, que o orientou no Mestrado em Artes da Cena na Unicamp.</p>
+        </div>
+
+        <figure class="rede" aria-hidden="true">
+          <svg class="rede__svg" viewBox="-40 -30 880 660"></svg>
+          <figcaption class="rede__legenda">
+            <span class="rede__chave rede__chave--ida">entrevista-performativa</span>
+            <span class="rede__chave rede__chave--volta">dança de presente</span>
+            <span class="rede__chave rede__chave--efemero">encontro efêmero</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- as conversas: uma galeria que anda para o lado com a rolagem (ver js/main.js, galerias laterais).
+           Para acrescentar uma entrevista, copie um <li class="conversa">, troque pessoa, quadro, vídeo e nome,
+           e ajuste o total no contador. A rede de afetos acima se redesenha sozinha a partir desta lista. -->
+      <div class="lateral lateral--conversas" data-lateral>
+        <div class="lateral__palco">
+          <div class="lateral__faixa" data-lateral-faixa>
+            <div class="lateral__abre">
+              <p class="rotulo">A série</p>
+              <p class="lateral__frase">Seis conversas-<em>dançadas</em> com artistas da cena contemporânea.</p>
+              <p class="rotulo lateral__dica" aria-hidden="true"><span class="lateral__dica-rolar">Role a página</span><span class="lateral__dica-deslizar">Deslize</span> <i></i></p>
+            </div>
+            <ol class="conversas" data-rede>
+              <li class="conversa" data-pessoa="zelia" data-quadro="assets/img/quadros/entrevista-zelia.webp" data-lateral-item>
+                <button class="conversa__botao" type="button" data-video="jd_U6hWVAxY" data-titulo="Entrevista-performativa com Zélia Monteiro"><span class="conversa__quadro"><img class="tinta" src="assets/img/quadros/entrevista-zelia.webp" width="960" height="540" loading="lazy" alt=""></span><span class="conversa__n">01</span><span class="conversa__com">com</span> Zélia Monteiro</button>
+              </li>
+              <li class="conversa" data-pessoa="key" data-quadro="assets/img/quadros/entrevista-key.webp" data-lateral-item>
+                <button class="conversa__botao" type="button" data-video="lXd31e4e4DI" data-titulo="Entrevista-performativa com Key Sawao"><span class="conversa__quadro"><img class="tinta" src="assets/img/quadros/entrevista-key.webp" width="960" height="540" loading="lazy" alt=""></span><span class="conversa__n">02</span><span class="conversa__com">com</span> Key Sawao</button>
+              </li>
+              <li class="conversa" data-pessoa="vera" data-quadro="assets/img/quadros/entrevista-vera.webp" data-lateral-item>
+                <button class="conversa__botao" type="button" data-video="5UkvPAkzwQQ" data-titulo="Entrevista-performativa com Vera Sala"><span class="conversa__quadro"><img class="tinta" src="assets/img/quadros/entrevista-vera.webp" width="960" height="540" loading="lazy" alt=""></span><span class="conversa__n">03</span><span class="conversa__com">com</span> Vera Sala</button>
+              </li>
+              <li class="conversa" data-pessoa="mariana" data-quadro="assets/img/quadros/entrevista-mariana.webp" data-lateral-item>
+                <button class="conversa__botao" type="button" data-video="azvbrgBYgow" data-start="1" data-titulo="Entrevista-performativa com Mariana Muniz"><span class="conversa__quadro"><img class="tinta" src="assets/img/quadros/entrevista-mariana.webp" width="960" height="540" loading="lazy" alt=""></span><span class="conversa__n">04</span><span class="conversa__com">com</span> Mariana Muniz</button>
+              </li>
+              <li class="conversa" data-pessoa="wellington" data-quadro="assets/img/quadros/entrevista-wellington.webp" data-lateral-item>
+                <button class="conversa__botao" type="button" data-video="UQLYlQUCsjA" data-titulo="Entrevista-performativa com Wellington Duarte"><span class="conversa__quadro"><img class="tinta" src="assets/img/quadros/entrevista-wellington.webp" width="960" height="540" loading="lazy" alt=""></span><span class="conversa__n">05</span><span class="conversa__com">com</span> Wellington Duarte</button>
+              </li>
+              <li class="conversa" data-pessoa="alex" data-quadro="assets/img/quadros/entrevista-alex.webp" data-lateral-item>
+                <button class="conversa__botao" type="button" data-video="k5sz9-4NUl4" data-titulo="Entrevista-performativa com Alex Ratton"><span class="conversa__quadro"><img class="tinta" src="assets/img/quadros/entrevista-alex.webp" width="960" height="540" loading="lazy" alt=""></span><span class="conversa__n">06</span><span class="conversa__com">com</span> Alex Ratton</button>
+              </li>
+            </ol>
+          </div>
+          <div class="lateral__pe" aria-hidden="true">
+            <span class="lateral__contador" data-lateral-contador>01 / 06</span>
+            <span class="lateral__progresso" data-lateral-progresso><span></span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- V · DANÇAS DE PRESENTE ─ dedicatórias -->
+    <section class="secao presente" id="presente" data-tone="dark" data-num="V" data-title="Danças de Presente">
+      <!-- telão: trecho de <cite>Danças de Presente: para Key Sawao</cite>, em sépia e câmera lenta (ferramentas/gerar-teloes.py) -->
+      <div class="telao" aria-hidden="true" data-video="assets/video/presente-key.mp4"><div class="telao__quadro" style="--foco: 55% 40%"><img src="assets/img/teloes/presente-key.webp" width="960" height="536" alt="" loading="lazy"></div></div>
+      <header class="cabeca cabeca--espelho">
+        <span class="cabeca__num" aria-hidden="true">V</span>
+        <h2 class="cabeca__titulo">Danças de <em>Presente</em></h2>
+      </header>
+
+      <div class="presente__grade">
+        <figure class="presente__imagem revela">
+          <img class="tinta" src="assets/img/retrato-24.webp" srcset="assets/img/retrato-24-1000.webp 1000w, assets/img/retrato-24.webp 1280w" sizes="(min-width: 900px) 40vw, 100vw" width="1280" height="853" loading="lazy" alt="Marcus de olhos marejados, palmas das mãos unidas diante do rosto.">
+        </figure>
+        <p class="presente__intro">Com o anseio pelo agradecimento, esta série de improvisações foram criadas como desdobramentos das memórias vindas das entrevistas-performativas, bem como de encontros anteriores a ela, de seu processo de elaboração e daquilo que cada um desses artistas entrevistados me inspira e atravessa meu mover.</p>
+      </div>
+
+      <ul class="dedicatorias">
+        <li><button class="dedicatoria" type="button" data-video="E3VUumx556c" data-titulo="Danças de Presente: para Key Sawao"><span class="dedicatoria__para">para</span> <span class="dedicatoria__nome">Key Sawao</span></button></li>
+        <li><button class="dedicatoria" type="button" data-video="fzdqepjCysw" data-titulo="Danças de Presente: para Zélia Monteiro"><span class="dedicatoria__para">para</span> <span class="dedicatoria__nome">Zélia Monteiro</span></button></li>
+        <li><button class="dedicatoria" type="button" data-video="rA19Jr8Q-ls" data-titulo="Danças de Presente: para Vera Sala"><span class="dedicatoria__para">para</span> <span class="dedicatoria__nome">Vera Sala</span></button></li>
+        <li><button class="dedicatoria dedicatoria--tres" type="button" data-video="CyFW0b5kaVI" data-titulo="Danças de Presente: para Alex Ratton, Wellington Duarte e Mariana Muniz"><span class="dedicatoria__para">para</span> <span class="dedicatoria__nome">Alex Ratton, Wellington Duarte e Mariana Muniz</span></button></li>
+      </ul>
+    </section>
+
+    <!-- VI · PROJETOS CURATORIAIS -->
+    <section class="secao curadoria" id="curadoria" data-tone="concrete" data-num="VI" data-title="Projetos curatoriais">
+      <header class="cabeca">
+        <span class="cabeca__num" aria-hidden="true">VI</span>
+        <h2 class="cabeca__titulo">Projetos <em>curatoriais</em></h2>
+      </header>
+
+      <div class="curadoria__grade">
+        <ol class="curadoria__lista">
+          <li class="revela">
+            <span class="curadoria__ano">2019</span>
+            <h3>Geopoéticas do Sul</h3>
+            <p>Encontro Latino-americano de Gestores de Dança</p>
+          </li>
+          <li class="revela">
+            <span class="curadoria__ano">2022</span>
+            <h3>Solos Brasileiros</h3>
+            <p>Danças para Villa-Lobos</p>
+          </li>
+          <li class="revela">
+            <span class="curadoria__ano">2023 · 2025</span>
+            <h3>muDANÇA</h3>
+            <p>Mostra Universitária</p>
+          </li>
+          <li class="revela">
+            <span class="curadoria__ano">SMC · SP</span>
+            <h3>Circuito Municipal de Cultura</h3>
+            <p>Curadoria junto à Secretaria Municipal de Cultura de São Paulo</p>
+          </li>
+        </ol>
+        <figure class="curadoria__imagem revela">
+          <img class="tinta" src="assets/img/img-1639.webp" srcset="assets/img/img-1639-1000.webp 1000w, assets/img/img-1639.webp 2000w" sizes="(min-width: 900px) 40vw, 100vw" width="2000" height="1307" loading="lazy" alt="Marcus com um braço erguido ao céu sobre uma laje, São Paulo e uma torre de antena ao fundo.">
+        </figure>
+      </div>
+      <!-- Registros, textos e imagens de cada projeto entram aqui. -->
+    </section>
+
+    <!-- VII · TEXTOS ─ dissertação e escritos -->
+    <section class="secao textos" id="textos" data-tone="light" data-num="VII" data-title="Textos">
+      <header class="cabeca cabeca--espelho">
+        <span class="cabeca__num" aria-hidden="true">VII</span>
+        <h2 class="cabeca__titulo">Textos</h2>
+      </header>
+
+      <!-- a dissertação abre a seção; os demais textos vêm em três grupos (pesquisa, crítica, gestão).
+           Para acrescentar um texto, copie um <li class="biblio__item"> no grupo certo. Com link na internet,
+           use biblio__item--link, o <a class="biblio__titulo"> e o "Ler o texto" (veja os exemplos). -->
+      <article class="tese">
+        <p class="rotulo tese__rotulo">Dissertação de mestrado · 2025</p>
+        <h3 class="tese__titulo"><cite>Estudos do <em>presente</em></cite></h3>
+        <p class="tese__sub">afeto e improvisação cênica</p>
+        <dl class="tese__ficha">
+          <dt>Programa</dt><dd>Pós-Graduação em Artes da Cena, Instituto de Artes</dd>
+          <dt>Universidade</dt><dd>Universidade Estadual de Campinas (Unicamp)</dd>
+          <dt>Orientação</dt><dd>Marisa Lambert</dd>
+        </dl>
+      </article>
+
+      <div class="textos__grupos">
+        <section class="textos__grupo" aria-labelledby="textos-pesquisa">
+          <header class="textos__grupo-cabeca">
+            <h3 class="textos__grupo-titulo" id="textos-pesquisa">Pesquisa</h3>
+            <p class="textos__grupo-nota">Artigos e anais da pesquisa em improvisação e na Técnica Klauss Vianna.</p>
+          </header>
+          <ol class="biblio">
+            <li class="biblio__item biblio__item--link">
+              <span class="biblio__ano">2022</span>
+              <p class="biblio__nome"><a class="biblio__titulo" href="https://www.revistatkv.art.br/ed10/10.4322/revistatkv-v2n10-13" target="_blank" rel="noopener"><cite>Corpo, encontro em devir</cite></a></p>
+              <p class="biblio__onde">Artigo · Revista TKV, nº 10 · São Paulo</p>
+              <span class="biblio__ler" aria-hidden="true">Ler o texto</span>
+            </li>
+            <li class="biblio__item">
+              <span class="biblio__ano">2020</span>
+              <p class="biblio__nome"><cite>Pistas para perceber acontecimentos</cite></p>
+              <p class="biblio__onde">Anais · Seminário de Pesquisa do PPG Artes da Cena · Campinas</p>
+            </li>
+            <li class="biblio__item biblio__item--link">
+              <span class="biblio__ano">2019</span>
+              <p class="biblio__nome"><a class="biblio__titulo" href="https://www.olharesceliahelena.com.br/index.php/olhares/article/view/116" target="_blank" rel="noopener"><cite>Memória, imaginação e improvisação na técnica Klauss Vianna</cite></a></p>
+              <p class="biblio__onde">Artigo · <cite>Olhares</cite>, Revista da ESACH, v. 6, p. 14-23 · <span class="biblio__com">com Jussara Miller</span></p>
+              <span class="biblio__ler" aria-hidden="true">Ler o texto</span>
+            </li>
+          </ol>
+        </section>
+        <section class="textos__grupo" aria-labelledby="textos-critica">
+          <header class="textos__grupo-cabeca">
+            <h3 class="textos__grupo-titulo" id="textos-critica">Crítica e reflexão</h3>
+            <p class="textos__grupo-nota">Textos sobre dança para o Portal MUD e para a Criticatividade.</p>
+          </header>
+          <ol class="biblio">
+              <li class="biblio__item biblio__item--link">
+                <span class="biblio__ano">2019</span>
+                <p class="biblio__nome"><a class="biblio__titulo" href="https://portalmud.com.br/portal/museu-da-danca/quem-foi-umberto-da-silva/" target="_blank" rel="noopener"><cite>Quem foi Umberto da Silva?</cite></a></p>
+                <p class="biblio__onde">Portal MUD · São Paulo · <span class="biblio__com">com Elaine Calux</span></p>
+                <span class="biblio__ler" aria-hidden="true">Ler o texto</span>
+              </li>
+              <li class="biblio__item">
+                <span class="biblio__ano">2019</span>
+                <p class="biblio__nome"><cite>Dança que se transforma no corpo do outro</cite></p>
+                <p class="biblio__onde">Crítica de dança · Criticatividade · São Paulo</p>
+              </li>
+              <li class="biblio__item biblio__item--link">
+                <span class="biblio__ano">2018</span>
+                <p class="biblio__nome"><a class="biblio__titulo" href="https://portalmud.com.br/portal/laboratorio-da-danca/vamos-falar-de-danca-contemporanea/" target="_blank" rel="noopener"><cite>Vamos falar de dança contemporânea?</cite></a></p>
+                <p class="biblio__onde">Portal MUD · São Paulo</p>
+                <span class="biblio__ler" aria-hidden="true">Ler o texto</span>
+              </li>
+              <li class="biblio__item biblio__item--link">
+                <span class="biblio__ano">2018</span>
+                <p class="biblio__nome"><a class="biblio__titulo" href="https://portalmud.com.br/portal/calendario-da-danca/entre-linhas-que-se-desenrolam-em-fluxo-continuo/" target="_blank" rel="noopener"><cite>ENTRE: linhas que se desenrolam em fluxo contínuo</cite></a></p>
+                <p class="biblio__onde">Portal MUD · São Paulo</p>
+                <span class="biblio__ler" aria-hidden="true">Ler o texto</span>
+              </li>
+              <li class="biblio__item biblio__item--link">
+                <span class="biblio__ano">2018</span>
+                <p class="biblio__nome"><a class="biblio__titulo" href="https://portalmud.com.br/portal/calendario-da-danca/o-que-faz-viver/" target="_blank" rel="noopener"><cite>O que faz viver</cite></a></p>
+                <p class="biblio__onde">Portal MUD · São Paulo</p>
+                <span class="biblio__ler" aria-hidden="true">Ler o texto</span>
+              </li>
+          </ol>
+        </section>
+        <section class="textos__grupo" aria-labelledby="textos-gestao">
+          <header class="textos__grupo-cabeca">
+            <h3 class="textos__grupo-titulo" id="textos-gestao">Gestão cultural</h3>
+            <p class="textos__grupo-nota">Da experiência na Secretaria Municipal de Cultura de São Paulo.</p>
+          </header>
+          <ol class="biblio">
+              <li class="biblio__item">
+                <span class="biblio__ano">2015</span>
+                <p class="biblio__nome"><cite>Núcleo de Fomentos Culturais: uma experiência de gestão pública de direito à cultura</cite></p>
+                <p class="biblio__onde">Artigo · Casa de Rui Barbosa · Rio de Janeiro · <span class="biblio__com">com K. G. Fontalva e C. A. M. Gomes</span></p>
+              </li>
+              <li class="biblio__item">
+                <span class="biblio__ano">2014</span>
+                <p class="biblio__nome"><cite>Percursos, Fluxos e Criações: Mapeamento de Dados Fomento à Dança 5 Anos</cite></p>
+                <p class="biblio__onde">Livro · Imprensa Oficial · São Paulo · <span class="biblio__com">com Elaine Calux</span></p>
+              </li>
+          </ol>
+        </section>
+      </div>
+    </section>
+
+    <!-- VIII · TRAJETÓRIA -->
+    <section class="secao trajetoria" id="trajetoria" data-tone="light" data-num="VIII" data-title="Trajetória">
+      <header class="cabeca">
+        <span class="cabeca__num" aria-hidden="true">VIII</span>
+        <h2 class="cabeca__titulo">Trajetória</h2>
+      </header>
+
+      <!-- a linha do tempo anda para o lado com a rolagem (ver js/main.js, galerias laterais).
+           Para acrescentar um ano, copie um <li class="marco"> e ajuste o total no contador. -->
+      <div class="lateral lateral--marcos" data-lateral>
+        <div class="lateral__palco">
+          <div class="lateral__faixa" data-lateral-faixa>
+            <div class="lateral__abre">
+              <p class="rotulo">De 2009 até hoje</p>
+              <p class="lateral__frase">Criação, gestão e pesquisa, <em>um ano depois do outro</em>.</p>
+              <p class="rotulo lateral__dica" aria-hidden="true"><span class="lateral__dica-rolar">Role a página</span><span class="lateral__dica-deslizar">Deslize</span> <i></i></p>
+            </div>
+            <ol class="marcos">
+              <li class="marco" data-lateral-item><span class="marco__ano">2009<i>–2017</i></span><p>Secretaria Municipal de Cultura de São Paulo. Coordena o Programa Municipal de Fomento à Dança nos últimos quatro anos; integra a criação e implantação do Centro de Referência da Dança e a curadoria do Circuito Municipal de Cultura.</p></li>
+              <li class="marco" data-lateral-item><span class="marco__ano">2012</span><p>Início das criações cênicas.</p></li>
+              <li class="marco" data-lateral-item><span class="marco__ano">2016</span><p>Começam os Encontros Efêmeros, trabalhos de improvisação com artistas da cena contemporânea.</p></li>
+              <li class="marco" data-lateral-item><span class="marco__ano">2017<i>–2019</i></span><p>Programa de Formação para o Interior, Oficinas Culturais do Estado de São Paulo.</p></li>
+              <li class="marco" data-lateral-item><span class="marco__ano">2020<i>–2024</i></span><p>Programador cultural da Oficina Cultural Oswald de Andrade.</p></li>
+              <li class="marco" data-lateral-item><span class="marco__ano">2022</span><p>Cria as Entrevistas-performativas com Marisa Lambert e Mariana Molinos, no PPG Artes da Cena da Unicamp.</p></li>
+              <li class="marco" data-lateral-item><span class="marco__ano">2025</span><p>Mestre em Artes da Cena pela Unicamp com a dissertação <cite>Estudos do presente: afeto e improvisação cênica</cite>.</p></li>
+              <li class="marco" data-lateral-item><span class="marco__ano">Hoje</span><p>Assessor de Planejamento Estratégico do Instituto Poiesis. Integrou a Gerência de Articulação e Difusão das Fábricas de Cultura.</p></li>
+            </ol>
+            <figure class="marcos__foto revela">
+              <img class="tinta" src="assets/img/fvp-8603.webp" srcset="assets/img/fvp-8603-1000.webp 1000w, assets/img/fvp-8603.webp 2000w" sizes="(min-width: 900px) 60vh, 90vw" width="2000" height="1330" loading="lazy" alt="Marcus de costas num palco, mãos unidas, olhando uma vara de refletores acesos.">
+            </figure>
+          </div>
+          <div class="lateral__pe" aria-hidden="true">
+            <span class="lateral__contador" data-lateral-contador>01 / 08</span>
+            <span class="lateral__progresso" data-lateral-progresso><span></span></span>
+          </div>
+        </div>
+      </div>
+      <p class="trajetoria__intl"><span class="rotulo">Encontros internacionais de gestão</span> Festival Danzalborde (Chile) · FIDCU (Uruguai) · EGA (Argentina)</p>
+    </section>
+
+    <!-- IX · NA IMPRENSA -->
+    <section class="secao imprensa" id="imprensa" data-tone="light" data-num="IX" data-title="Na imprensa">
+      <!-- telão: trecho de <cite>Instante-já</cite>, em sépia e câmera lenta (ferramentas/gerar-teloes.py) -->
+      <div class="telao" aria-hidden="true" data-video="assets/video/instante-ja.mp4"><div class="telao__quadro" style="--foco: 50% 60%"><img src="assets/img/teloes/instante-ja.webp" width="960" height="540" alt="" loading="lazy"></div></div>
+      <header class="cabeca cabeca--espelho">
+        <span class="cabeca__num" aria-hidden="true">IX</span>
+        <h2 class="cabeca__titulo">Na <em>imprensa</em></h2>
+      </header>
+      <figure class="imprensa__citacao">
+        <blockquote>“o mundo não é lugar, ele é tempo”</blockquote>
+        <figcaption>Henrique Rochelle sobre <cite>Instante-já</cite> · Crítica de Minuto, Criticatividade</figcaption>
+      </figure>
+
+      <div class="imprensa__grade">
+        <div>
+          <h3 class="rotulo">Matérias e críticas</h3>
+          <!-- Quando os links estiverem reunidos, cada título pode virar <a href="...">. Fonte: página de imprensa do site antigo. -->
+          <ol class="clipping">
+            <li><span class="clipping__data">dez 2019</span><p class="clipping__titulo">Última apresentação de <cite>instante-já</cite>, de Marcus Moreno, no Cacilda Becker</p><span class="clipping__veiculo">Elaine Calux · release, 12 de dezembro</span></li>
+            <li><span class="clipping__data">dez 2019</span><p class="clipping__titulo">Marcus Moreno encerra circulação de <cite>instante-já</cite> no Cacilda Becker</p><span class="clipping__veiculo">Elaine Calux · release, 5 de dezembro</span></li>
+            <li><span class="clipping__data">2019</span><p class="clipping__titulo">Crítica de Minuto sobre <cite>Instante-já</cite></p><span class="clipping__veiculo">Henrique Rochelle · Criticatividade</span></li>
+            <li><span class="clipping__data">2019</span><p class="clipping__titulo">Marcus Moreno e Andrea Arobba investigam a dimensão “instante-já”</p><span class="clipping__veiculo">veículo a confirmar</span></li>
+            <li><span class="clipping__data">2019</span><p class="clipping__titulo">Clarice Lispector inspira <cite>instante-já</cite>, novo solo de Marcus Moreno</p><span class="clipping__veiculo">Conectedance</span></li>
+            <li><span class="clipping__data">jul 2019</span><p class="clipping__titulo"><cite>Instante-já</cite> no roteiro de dança, 5 a 11 de julho</p><span class="clipping__veiculo">Guia Folha · Folha de S.Paulo</span></li>
+            <li><span class="clipping__data">2019</span><p class="clipping__titulo"><cite>Instante-já</cite> na agenda de dança</p><span class="clipping__veiculo">Portal MUD</span></li>
+            <li><span class="clipping__data">2013</span><p class="clipping__titulo"><cite>A Imagem como Ausência</cite> entre os destaques do ano, na retrospectiva da crítica Helena Katz</p><span class="clipping__veiculo">O Estado de S. Paulo</span></li>
+          </ol>
+        </div>
+        <div>
+          <h3 class="rotulo">Indicações</h3>
+          <ul class="premios">
+            <li><cite>Instante-já</cite> <span>Prêmio APCA-Dança 2019 · Estreia do ano</span></li>
+            <li><cite>Instante-já</cite> <span>Prêmio APCA-Dança 2019 · Prêmio Técnico, luz e espaço cênico de Hernandes de Oliveira</span></li>
+            <li><cite>Onde Houver Céu</cite> <span>Prêmio APCA</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACERVO · o mural das obras, antes do Contato: como o agradecimento no fim de um espetáculo,
+         quando todo o elenco volta ao palco junto. As imagens e a ordem saem de ferramentas/gerar-mural.py. -->
+    <section class="acervo" id="acervo" data-tone="dark" data-topo="foto" data-num="" data-title="" aria-labelledby="acervo-titulo">
+      <h2 class="sr" id="acervo-titulo">Acervo</h2>
+      <p class="rotulo acervo__rotulo" aria-hidden="true">Acervo</p>
+      <!-- MURAL:INICIO · gerado por ferramentas/gerar-mural.py; para mudar, edite lá e rode de novo -->
+      <div class="mural" aria-hidden="true">
+        <div class="mural__faixa" style="--duracao: 130s">
+          <div class="mural__trilho">
+            <a class="mural__peca" href="#obra-ausencia" tabindex="-1"><img src="assets/img/mural/imagem-como-ausencia.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2013 <cite>A Imagem como Ausência</cite></span></a>
+            <button class="mural__peca" type="button" tabindex="-1" data-video="5xQ4a2cmItM" data-start="1343" data-titulo="Encontros Efêmeros: Marcus Moreno + Cora Laszlo · Encontro para contemplar o vento"><img src="assets/img/mural/efemero-cora.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Encontro Efêmero <cite>com Cora Laszlo</cite></span></button>
+            <a class="mural__peca" href="#obra-flor" tabindex="-1"><img src="assets/img/mural/flor-da-lua-patzdorf.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2016 <cite>A Flor da Lua</cite></span></a>
+            <button class="mural__peca" type="button" tabindex="-1" data-video="jd_U6hWVAxY" data-titulo="Entrevista-performativa com Zélia Monteiro"><img src="assets/img/mural/entrevista-zelia.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Entrevista <cite>com Zélia Monteiro</cite></span></button>
+            <a class="mural__peca" href="#obra-instante" tabindex="-1"><img src="assets/img/mural/instante-ja-1.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2019 <cite>Instante-já</cite></span></a>
+            <button class="mural__peca" type="button" tabindex="-1" data-video="mSVXEeCJtak" data-start="356" data-titulo="Encontros Efêmeros: Marcus Moreno + Patrícia Árabe"><img src="assets/img/mural/efemero-patricia.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Encontro Efêmero <cite>com Patrícia Árabe</cite></span></button>
+            <a class="mural__peca" href="#obra-ceu" tabindex="-1"><img src="assets/img/mural/onde-houver-ceu-1.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2024 <cite>Onde Houver Céu</cite></span></a>
+            <button class="mural__peca" type="button" tabindex="-1" data-video="lXd31e4e4DI" data-titulo="Entrevista-performativa com Key Sawao"><img src="assets/img/mural/entrevista-key.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Entrevista <cite>com Key Sawao</cite></span></button>
+            <a class="mural__peca" href="#sobre" tabindex="-1"><img src="assets/img/mural/retrato-25.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Retrato · 2025</span></a>
+            <button class="mural__peca" type="button" tabindex="-1" data-video="MUSrxQCvAzc" data-start="16" data-titulo="Encontros Efêmeros: Marcus Moreno + José Artur Campos"><img src="assets/img/mural/efemero-jose-artur.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Encontro Efêmero <cite>com José Artur Campos</cite></span></button>
+            <a class="mural__peca" href="#obra-sempre" tabindex="-1"><img src="assets/img/mural/sempre-mais-que-um.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2023 <cite>Sempre mais que um</cite></span></a>
+            <a class="mural__peca" href="#obra-ausencia" tabindex="-1"><img src="assets/img/mural/imagem-como-ausencia.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2013 <cite>A Imagem como Ausência</cite></span></a>
+            <button class="mural__peca" type="button" tabindex="-1" data-video="5xQ4a2cmItM" data-start="1343" data-titulo="Encontros Efêmeros: Marcus Moreno + Cora Laszlo · Encontro para contemplar o vento"><img src="assets/img/mural/efemero-cora.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Encontro Efêmero <cite>com Cora Laszlo</cite></span></button>
+            <a class="mural__peca" href="#obra-flor" tabindex="-1"><img src="assets/img/mural/flor-da-lua-patzdorf.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2016 <cite>A Flor da Lua</cite></span></a>
+            <button class="mural__peca" type="button" tabindex="-1" data-video="jd_U6hWVAxY" data-titulo="Entrevista-performativa com Zélia Monteiro"><img src="assets/img/mural/entrevista-zelia.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Entrevista <cite>com Zélia Monteiro</cite></span></button>
+            <a class="mural__peca" href="#obra-instante" tabindex="-1"><img src="assets/img/mural/instante-ja-1.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2019 <cite>Instante-já</cite></span></a>
+            <button class="mural__peca" type="button" tabindex="-1" data-video="mSVXEeCJtak" data-start="356" data-titulo="Encontros Efêmeros: Marcus Moreno + Patrícia Árabe"><img src="assets/img/mural/efemero-patricia.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Encontro Efêmero <cite>com Patrícia Árabe</cite></span></button>
+            <a class="mural__peca" href="#obra-ceu" tabindex="-1"><img src="assets/img/mural/onde-houver-ceu-1.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2024 <cite>Onde Houver Céu</cite></span></a>
+            <button class="mural__peca" type="button" tabindex="-1" data-video="lXd31e4e4DI" data-titulo="Entrevista-performativa com Key Sawao"><img src="assets/img/mural/entrevista-key.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Entrevista <cite>com Key Sawao</cite></span></button>
+            <a class="mural__peca" href="#sobre" tabindex="-1"><img src="assets/img/mural/retrato-25.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Retrato · 2025</span></a>
+            <button class="mural__peca" type="button" tabindex="-1" data-video="MUSrxQCvAzc" data-start="16" data-titulo="Encontros Efêmeros: Marcus Moreno + José Artur Campos"><img src="assets/img/mural/efemero-jose-artur.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Encontro Efêmero <cite>com José Artur Campos</cite></span></button>
+            <a class="mural__peca" href="#obra-sempre" tabindex="-1"><img src="assets/img/mural/sempre-mais-que-um.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2023 <cite>Sempre mais que um</cite></span></a>
+          </div>
+        </div>
+        <div class="mural__faixa mural__faixa--volta" style="--duracao: 150s">
+          <div class="mural__trilho">
+            <a class="mural__peca" href="#obra-estudo" tabindex="-1"><img src="assets/img/mural/estudo-encontro-2.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2017 <cite>Estudo para o Encontro</cite></span></a>
+            <button class="mural__peca" type="button" tabindex="-1" data-video="5UkvPAkzwQQ" data-titulo="Entrevista-performativa com Vera Sala"><img src="assets/img/mural/entrevista-vera.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Entrevista <cite>com Vera Sala</cite></span></button>
+            <a class="mural__peca" href="#obra-flor" tabindex="-1"><img src="assets/img/mural/flor-mario-de-andrade.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2016 <cite>A Flor da Lua</cite></span></a>
+            <button class="mural__peca" type="button" tabindex="-1" data-video="BS4TVR6UXvo" data-start="331" data-titulo="Encontros Efêmeros: Marcus Moreno + Márcio Greyk"><img src="assets/img/mural/efemero-marcio.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Encontro Efêmero <cite>com Márcio Greyk</cite></span></button>
+            <a class="mural__peca" href="#obra-cinema" tabindex="-1"><img src="assets/img/mural/entre-espaco-still.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2021 <cite>Entre-espaço onde tudo existe</cite></span></a>
+            <button class="mural__peca" type="button" tabindex="-1" data-video="azvbrgBYgow" data-start="1" data-titulo="Entrevista-performativa com Mariana Muniz"><img src="assets/img/mural/entrevista-mariana.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Entrevista <cite>com Mariana Muniz</cite></span></button>
+            <a class="mural__peca" href="#entreato" tabindex="-1"><img src="assets/img/mural/retrato-07.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Retrato · 2025</span></a>
+            <button class="mural__peca" type="button" tabindex="-1" data-video="g3cO501wIUE" data-start="2" data-titulo="Encontros Efêmeros: Marcus Moreno + Alex Ratton"><img src="assets/img/mural/efemero-alex.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Encontro Efêmero <cite>com Alex Ratton</cite></span></button>
+            <a class="mural__peca" href="#trajetoria" tabindex="-1"><img src="assets/img/mural/fvp-8603.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Palco</span></a>
+            <a class="mural__peca" href="#obra-brotar" tabindex="-1"><img src="assets/img/mural/para-insistir-em-brotar.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2021 <cite>Para insistir em brotar</cite></span></a>
+            <a class="mural__peca" href="#obra-estudo" tabindex="-1"><img src="assets/img/mural/estudo-encontro-2.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2017 <cite>Estudo para o Encontro</cite></span></a>
+            <button class="mural__peca" type="button" tabindex="-1" data-video="5UkvPAkzwQQ" data-titulo="Entrevista-performativa com Vera Sala"><img src="assets/img/mural/entrevista-vera.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Entrevista <cite>com Vera Sala</cite></span></button>
+            <a class="mural__peca" href="#obra-flor" tabindex="-1"><img src="assets/img/mural/flor-mario-de-andrade.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2016 <cite>A Flor da Lua</cite></span></a>
+            <button class="mural__peca" type="button" tabindex="-1" data-video="BS4TVR6UXvo" data-start="331" data-titulo="Encontros Efêmeros: Marcus Moreno + Márcio Greyk"><img src="assets/img/mural/efemero-marcio.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Encontro Efêmero <cite>com Márcio Greyk</cite></span></button>
+            <a class="mural__peca" href="#obra-cinema" tabindex="-1"><img src="assets/img/mural/entre-espaco-still.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2021 <cite>Entre-espaço onde tudo existe</cite></span></a>
+            <button class="mural__peca" type="button" tabindex="-1" data-video="azvbrgBYgow" data-start="1" data-titulo="Entrevista-performativa com Mariana Muniz"><img src="assets/img/mural/entrevista-mariana.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Entrevista <cite>com Mariana Muniz</cite></span></button>
+            <a class="mural__peca" href="#entreato" tabindex="-1"><img src="assets/img/mural/retrato-07.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Retrato · 2025</span></a>
+            <button class="mural__peca" type="button" tabindex="-1" data-video="g3cO501wIUE" data-start="2" data-titulo="Encontros Efêmeros: Marcus Moreno + Alex Ratton"><img src="assets/img/mural/efemero-alex.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Encontro Efêmero <cite>com Alex Ratton</cite></span></button>
+            <a class="mural__peca" href="#trajetoria" tabindex="-1"><img src="assets/img/mural/fvp-8603.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Palco</span></a>
+            <a class="mural__peca" href="#obra-brotar" tabindex="-1"><img src="assets/img/mural/para-insistir-em-brotar.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2021 <cite>Para insistir em brotar</cite></span></a>
+          </div>
+        </div>
+        <div class="mural__faixa" style="--duracao: 140s">
+          <div class="mural__trilho">
+            <a class="mural__peca" href="#obra-instante" tabindex="-1"><img src="assets/img/mural/instante-ja-2.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2019 <cite>Instante-já</cite></span></a>
+            <button class="mural__peca" type="button" tabindex="-1" data-video="UQLYlQUCsjA" data-titulo="Entrevista-performativa com Wellington Duarte"><img src="assets/img/mural/entrevista-wellington.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Entrevista <cite>com Wellington Duarte</cite></span></button>
+            <a class="mural__peca" href="#obra-flor" tabindex="-1"><img src="assets/img/mural/flor-casa-caldeiras.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2016 <cite>A Flor da Lua</cite></span></a>
+            <button class="mural__peca" type="button" tabindex="-1" data-video="RpqCcdeJHao" data-start="1" data-titulo="Encontros Efêmeros: Marcus Moreno + Rafaela Sahyoun"><img src="assets/img/mural/efemero-rafaela.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Encontro Efêmero <cite>com Rafaela Sahyoun</cite></span></button>
+            <a class="mural__peca" href="#obra-ceu" tabindex="-1"><img src="assets/img/mural/onde-houver-ceu-2.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2024 <cite>Onde Houver Céu</cite></span></a>
+            <button class="mural__peca" type="button" tabindex="-1" data-video="k5sz9-4NUl4" data-titulo="Entrevista-performativa com Alex Ratton"><img src="assets/img/mural/entrevista-alex.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Entrevista <cite>com Alex Ratton</cite></span></button>
+            <a class="mural__peca" href="#obra-estudo" tabindex="-1"><img src="assets/img/mural/estudo-encontro-1.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2017 <cite>Estudo para o Encontro</cite></span></a>
+            <a class="mural__peca" href="#curadoria" tabindex="-1"><img src="assets/img/mural/img-1639.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Marcus Moreno</span></a>
+            <a class="mural__peca" href="#presente" tabindex="-1"><img src="assets/img/mural/retrato-24.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda"><cite>Danças de Presente</cite></span></a>
+            <a class="mural__peca" href="#contato" tabindex="-1"><img src="assets/img/mural/fvp-8547.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Palco</span></a>
+            <a class="mural__peca" href="#obra-instante" tabindex="-1"><img src="assets/img/mural/instante-ja-2.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2019 <cite>Instante-já</cite></span></a>
+            <button class="mural__peca" type="button" tabindex="-1" data-video="UQLYlQUCsjA" data-titulo="Entrevista-performativa com Wellington Duarte"><img src="assets/img/mural/entrevista-wellington.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Entrevista <cite>com Wellington Duarte</cite></span></button>
+            <a class="mural__peca" href="#obra-flor" tabindex="-1"><img src="assets/img/mural/flor-casa-caldeiras.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2016 <cite>A Flor da Lua</cite></span></a>
+            <button class="mural__peca" type="button" tabindex="-1" data-video="RpqCcdeJHao" data-start="1" data-titulo="Encontros Efêmeros: Marcus Moreno + Rafaela Sahyoun"><img src="assets/img/mural/efemero-rafaela.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Encontro Efêmero <cite>com Rafaela Sahyoun</cite></span></button>
+            <a class="mural__peca" href="#obra-ceu" tabindex="-1"><img src="assets/img/mural/onde-houver-ceu-2.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2024 <cite>Onde Houver Céu</cite></span></a>
+            <button class="mural__peca" type="button" tabindex="-1" data-video="k5sz9-4NUl4" data-titulo="Entrevista-performativa com Alex Ratton"><img src="assets/img/mural/entrevista-alex.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Entrevista <cite>com Alex Ratton</cite></span></button>
+            <a class="mural__peca" href="#obra-estudo" tabindex="-1"><img src="assets/img/mural/estudo-encontro-1.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2017 <cite>Estudo para o Encontro</cite></span></a>
+            <a class="mural__peca" href="#curadoria" tabindex="-1"><img src="assets/img/mural/img-1639.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Marcus Moreno</span></a>
+            <a class="mural__peca" href="#presente" tabindex="-1"><img src="assets/img/mural/retrato-24.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda"><cite>Danças de Presente</cite></span></a>
+            <a class="mural__peca" href="#contato" tabindex="-1"><img src="assets/img/mural/fvp-8547.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Palco</span></a>
+          </div>
+        </div>
+      </div>
+      <!-- MURAL:FIM -->
+    </section>
+
+    <!-- X · CONTATO -->
+    <section class="secao contato" id="contato" data-tone="dark" data-num="X" data-title="Contato">
+      <img class="contato__fundo" src="assets/img/fvp-8547.webp" srcset="assets/img/fvp-8547-1000.webp 1000w, assets/img/fvp-8547.webp 1330w" sizes="50vw" width="1330" height="2000" loading="lazy" alt="">
+      <header class="cabeca">
+        <span class="cabeca__num" aria-hidden="true">X</span>
+        <h2 class="cabeca__titulo contato__titulo">Contato</h2>
+      </header>
+
+      <div class="contato__grade">
+        <address class="produtor">
+          <p class="rotulo">Produção</p>
+          <p class="produtor__nome">Junior Cecon</p>
+          <p class="produtor__casa">Plural Produtora</p>
+          <a href="tel:+5511951579773">(11) 95157-9773</a>
+          <a href="mailto:contato@pluralprodutora.com.br">contato@pluralprodutora.com.br</a>
+          <a href="https://instagram.com/pluralprodutora" rel="noopener" target="_blank">@pluralprodutora</a>
+        </address>
+        <address class="produtor">
+          <p class="rotulo">Produção</p>
+          <p class="produtor__nome">Cristiane Klein</p>
+          <p class="produtor__casa">Dionísio Produção</p>
+          <a href="tel:+5511992903037">(11) 99290-3037</a>
+          <a href="mailto:cristiane@dionisio.net.br">cristiane@dionisio.net.br</a>
+        </address>
+        <div class="contato__redes">
+          <a class="contato__insta" href="https://instagram.com/marcusmoreno_danca" rel="noopener" target="_blank"><span class="rotulo">Instagram</span> @marcusmoreno_danca</a>
+          <a class="contato__pessoal" href="https://instagram.com/_marcusmoreno" rel="noopener" target="_blank">@_marcusmoreno <span>perfil pessoal</span></a>
+        </div>
+        <a class="contato__kit" href="programadores.html"><span class="rotulo">Para programadores e imprensa</span> Release, fotos em alta e vídeos</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="colofao" data-tone="dark">
+    <p class="colofao__nome" role="img" aria-label="Marcus Moreno"></p>
+    <p><span class="rotulo">Fotografias</span> Silvia Machado (<cite>A Imagem como Ausência</cite>, <cite>A Flor da Lua</cite>, <cite>Estudo para o Encontro</cite>, <cite>Instante-já</cite>, <cite>Onde Houver Céu</cite>) · Danilo Patzdorf e Claudia Magalhães (<cite>A Flor da Lua</cite>). Quadros e trechos de vídeo: canal de Marcus Moreno no YouTube. Demais créditos a confirmar.</p>
+    <p><span class="rotulo">Composição</span> Cormorant Garamond e Archivo · <a href="conceito.html">Caderno de conceito</a></p>
+    <p class="colofao__linguas"><a href="es.html" hreflang="es" lang="es">Español</a> · <a href="en.html" hreflang="en" lang="en">English</a></p>
+    <p class="colofao__assinatura"><span>© <span data-ano>2026</span> Marcus Moreno</span></p>
+  </footer>
+
+  <dialog class="player" aria-label="Vídeo">
+    <div class="player__topo">
+      <p class="player__titulo"></p>
+      <a class="video-youtube" href="#" target="_blank" rel="noopener">Abrir no YouTube</a>
+      <button class="player__fechar" type="button">Fechar</button>
+    </div>
+    <div class="player__tela"></div>
+  </dialog>
+
+  <script src="js/agenda.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/mouse.js" defer></script>
+  <script src="js/som.js" defer></script>
+  <script src="js/imersao.js" defer></script>
+</body>
+</html>

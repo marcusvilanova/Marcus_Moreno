@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Página não encontrada · Marcus Moreno</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#1c140f">
+  <!-- Os endereços começam com "/" porque esta página aparece em qualquer endereço errado do site.
+       Isso pressupõe o site na raiz do domínio (https://seu-dominio/). Veja PUBLICAR.md. -->
+  <link rel="icon" href="/assets/marca/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/marca/apple-touch-icon.png">
+  <link rel="stylesheet" href="/css/fontes.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <style>
+    .perdido {
+      min-height: 100svh;
+      display: grid;
+      align-content: center;
+      gap: 2.2rem;
+      padding: 6rem var(--margem);
+    }
+    .perdido__nome { width: min(34rem, 82vw); color: var(--kraft); }
+    .perdido__nome .abertura__escrita { animation: none; clip-path: none; }
+    .perdido__titulo {
+      font-family: var(--serif);
+      font-weight: var(--peso-titulo);
+      font-size: var(--fs-titulo);
+      line-height: 0.95;
+    }
+    .perdido__titulo em { font-style: italic; }
+    .perdido__texto { max-width: 28rem; color: var(--tinta-escura); }
+    .perdido__voltar {
+      justify-self: start;
+      display: inline-flex; align-items: center; gap: 0.9rem;
+      color: var(--destaque-claro);
+      text-decoration: none;
+    }
+    .perdido__voltar::before { content: ""; width: 2.6rem; height: 1px; background: currentColor; transition: width 0.6s var(--curva); }
+    .perdido__voltar:hover::before, .perdido__voltar:focus-visible::before { width: 4rem; }
+  </style>
+</head>
+<body data-tone="dark">
+  <main class="perdido">
+    <a class="perdido__nome" href="/" aria-label="Marcus Moreno, página inicial"><span class="abertura__escrita" aria-hidden="true" style="-webkit-mask-image: url('/assets/marca/nome-tinta.svg'); mask-image: url('/assets/marca/nome-tinta.svg');"></span></a>
+    <h1 class="perdido__titulo">Esta página <em>não está aqui</em></h1>
+    <p class="perdido__texto">O endereço pode ter mudado ou estar escrito de outro jeito. O que você procura deve estar na página inicial.</p>
+    <a class="perdido__voltar rotulo" href="/">Voltar ao início</a>
+  </main>
+</body>
+</html>

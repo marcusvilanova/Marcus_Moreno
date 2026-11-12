@@ -1,0 +1,7 @@
+# Marcus Moreno · dança
+# O caderno de conceito (conceito.html) é material de trabalho e não deve aparecer nas buscas.
+User-agent: *
+Disallow: /conceito.html
+
+# AO PUBLICAR: troque SEU-DOMINIO pelo endereço do site (veja PUBLICAR.md)
+Sitemap: https://SEU-DOMINIO/sitemap.xml

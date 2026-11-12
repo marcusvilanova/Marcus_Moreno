@@ -1,0 +1,88 @@
+/* Marcus Moreno · material para programadores, festivais e imprensa (programadores.html, es.html, en.html)
+   Página de papel, como um caderno de difusão. Na impressão (e no PDF do release), só o que importa. */
+
+.kit { max-width: var(--maximo); margin: 0 auto; padding: 0 var(--margem) var(--respiro); }
+
+.kit__topo {
+  /* em telas estreitas, os idiomas descem para uma segunda linha em vez de empurrar a página para o lado */
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.7rem 1rem;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--nanquim) 20%, transparent);
+}
+.kit__voltar { display: inline-flex; align-items: center; gap: 0.7rem; font-family: var(--serif); font-style: italic; font-size: 1.2rem; text-decoration: none; }
+/* a assinatura à mão (classe nome-tinta, do base.css) leva de volta ao site */
+.kit__voltar .nome-tinta { width: 11rem; }
+.kit__idiomas { display: flex; gap: 1.2rem; }
+.kit__idiomas a { text-decoration: none; color: var(--tinta-clara); }
+.kit__idiomas a[aria-current] { color: var(--destaque); border-bottom: 1px solid currentColor; }
+
+.kit__abre { padding: clamp(4rem, 10vw, 8rem) 0 clamp(3rem, 6vw, 5rem); display: grid; gap: 1.6rem; }
+.kit__abre .rotulo { color: var(--destaque); }
+.kit__titulo { font-family: var(--serif); font-weight: var(--peso-titulo); font-size: var(--fs-titulo); line-height: 0.92; letter-spacing: -0.02em; }
+.kit__titulo em { font-style: italic; }
+.kit__intro { max-width: 34rem; font-size: var(--fs-corpo); line-height: 1.5; }
+
+/* downloads: três cartões em linha, cada um com o peso do arquivo */
+.kit__baixar { display: grid; gap: 1px; background: color-mix(in srgb, var(--nanquim) 18%, transparent); border: 1px solid color-mix(in srgb, var(--nanquim) 18%, transparent); margin-bottom: var(--respiro); }
+.kit__arquivo {
+  display: grid; gap: 0.5rem; align-content: start;
+  padding: 1.6rem 1.4rem;
+  background: var(--linho);
+  text-decoration: none;
+  transition: background-color 0.4s ease;
+}
+.kit__arquivo:hover, .kit__arquivo:focus-visible { background: var(--cal); }
+.kit__arquivo strong { font-family: var(--serif); font-weight: 400; font-size: 1.6rem; line-height: 1.1; }
+.kit__arquivo span { font-family: var(--grotesca); font-stretch: 75%; font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--tinta-clara); }
+.kit__arquivo span::after { content: " ↓"; color: var(--destaque); }
+
+.kit__bloco { display: grid; gap: 1.6rem; padding: 3rem 0; border-top: 1px solid color-mix(in srgb, var(--nanquim) 20%, transparent); }
+.kit__bloco > h2 { font-family: var(--serif); font-weight: var(--peso-titulo); font-size: var(--fs-grande); }
+.kit__release { max-width: 44em; font-size: var(--fs-corpo); line-height: 1.6; }
+.kit__release p + p { margin-top: 1em; }
+
+.kit__obras { border-bottom: 1px solid color-mix(in srgb, var(--nanquim) 20%, transparent); }
+.kit__obra { display: grid; grid-template-columns: 5rem 1fr; gap: 0.3rem 1.5rem; padding: 1.5rem 0; border-top: 1px solid color-mix(in srgb, var(--nanquim) 14%, transparent); }
+.kit__ano { grid-row: 1 / 4; font-family: var(--serif); font-weight: var(--peso-numeral); font-size: 2.4rem; line-height: 0.95; color: var(--destaque); font-variant-numeric: lining-nums; }
+.kit__nome { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1.6rem; line-height: 1.1; }
+.kit__formato { font-family: var(--grotesca); font-stretch: 75%; font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--tinta-clara); }
+.kit__sinopse { max-width: 40em; line-height: 1.5; }
+.kit__video { grid-column: 2; justify-self: start; margin-top: 0.4rem; display: inline-flex; align-items: center; gap: 0.6rem; color: var(--destaque); text-decoration: none; }
+.kit__video::after { content: ""; width: 1.6rem; height: 1px; background: currentColor; transform: scaleX(0.6); transform-origin: left; transition: transform 0.6s var(--curva); }
+.kit__video:hover::after, .kit__video:focus-visible::after { transform: scaleX(1); }
+.kit__nota { max-width: 40em; color: var(--tinta-clara); font-style: italic; }
+
+.kit__contatos { display: grid; gap: 2rem; }
+.kit__contato { display: grid; gap: 0.3rem; font-style: normal; }
+.kit__contato .rotulo { color: var(--destaque); }
+.kit__contato strong { font-family: var(--serif); font-weight: 400; font-size: 1.5rem; }
+.kit__contato a { width: fit-content; }
+.kit__creditos { color: var(--tinta-clara); font-size: 0.95rem; max-width: 44em; }
+
+@media (min-width: 900px) {
+  .kit__baixar { grid-template-columns: repeat(3, 1fr); }
+  .kit__bloco { grid-template-columns: 3fr 9fr; }
+  .kit__bloco > h2 { grid-column: 1; }
+  .kit__bloco > :not(h2) { grid-column: 2; }
+  .kit__obra { grid-template-columns: 6rem 1fr auto; align-items: baseline; }
+  .kit__video { grid-column: 3; grid-row: 1; margin: 0; }
+  .kit__contatos { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* impressão e PDF: sem navegação nem downloads, papel branco, links visíveis */
+@media print {
+  @page { size: A4; margin: 16mm 16mm 18mm; }
+  body, body[data-tone] { background: #fff !important; color: #000; }
+  .kit__bloco > h2 { break-after: avoid; }
+  body::after { display: none !important; }
+  .kit { padding: 0; max-width: none; }
+  .kit__topo, .kit__baixar, .kit__idiomas { display: none !important; }
+  .kit__abre { padding: 0 0 8mm; }
+  .kit__titulo { font-size: 30pt; }
+  .kit__bloco { padding: 6mm 0; grid-template-columns: 1fr; break-inside: auto; }
+  .kit__bloco > * { grid-column: 1 !important; }
+  .kit__obra { break-inside: avoid; grid-template-columns: 18mm 1fr; padding: 3mm 0; }
+  .kit__video { grid-column: 2 !important; grid-row: auto !important; }
+  .kit__video::after { content: " " attr(href); width: auto; height: auto; background: none; transform: none; font-size: 8pt; color: #555; text-transform: none; letter-spacing: 0; }
+  .kit__contatos { grid-template-columns: repeat(3, 1fr); }
+}
