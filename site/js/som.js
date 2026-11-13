@@ -12,7 +12,9 @@
   if (!botao) return;
   if (!Contexto) { botao.hidden = true; return; }
 
-  const VOLUME = 0.8;
+  // telefone e tablet: o alto-falante pequeno não reproduz os graves; ali o som sobe uma oitava e ganha volume
+  const TELEFONE = matchMedia('(pointer: coarse)').matches;
+  const VOLUME = TELEFONE ? 1 : 0.8;
   // ré dórico sem o fá e o si: nenhuma nota briga com outra
   const NOTAS = [146.83, 164.81, 196.0, 220.0, 261.63, 293.66, 329.63, 392.0];
   // frequência de corte do filtro conforme o tom da seção
@@ -46,7 +48,7 @@
   let cena = CENAS.padrao;
   let corpoGrave = null;
 
-  const brilhoAtual = () => BRILHO[topo && topo.dataset.tone] || 3000;
+  const brilhoAtual = () => Math.max(TELEFONE ? 2400 : 0, BRILHO[topo && topo.dataset.tone] || 3000);
   const sorteio = (min, max) => min + Math.random() * (max - min);
 
   /* ---------- a sala: um eco longo, feito de ruído que se apaga ---------- */
@@ -88,7 +90,10 @@
     corpoGrave = corpo;
     respirar(corpo.gain, 0.06, 0.025);
     // os dois rés batem a cada 5 segundos, como uma respiração lenta
-    [[73.42, 1, 'sine'], [73.62, 0.5, 'sine'], [110, 0.35, 'sine'], [146.83, 0.08, 'triangle']].forEach(([freq, nivel, tipo]) => {
+    const parciais = [[73.42, 1, 'sine'], [73.62, 0.5, 'sine'], [110, 0.35, 'sine'], [146.83, 0.08, 'triangle']];
+    // no telefone, o mesmo ré duas e três oitavas acima, para a base da música ser ouvida
+    if (TELEFONE) parciais.push([220, 0.3, 'sine'], [293.66, 0.16, 'sine'], [440, 0.07, 'sine']);
+    parciais.forEach(([freq, nivel, tipo]) => {
       const o = oscilador(freq, tipo);
       const g = ctx.createGain();
       g.gain.value = nivel;
@@ -134,9 +139,9 @@
     ultima = i;
     const sorte = Math.random();
     const oitava = sorte < cena.graves ? 0.5 : (sorte > 1 - cena.agudas ? 2 : 1);
-    const freq = NOTAS[i] * oitava;
+    const freq = NOTAS[i] * oitava * (TELEFONE ? 2 : 1);
     const duracao = sorteio(5, 9);
-    const pico = sorteio(0.045, 0.085);
+    const pico = sorteio(0.045, 0.085) * (TELEFONE ? 2.2 : 1);
 
     const envelope = ctx.createGain();
     envelope.gain.setValueAtTime(0, quando);
@@ -204,11 +209,35 @@
     saida.gain.setTargetAtTime(alvo, ctx.currentTime, segundos / 3);
   }
 
+  // iPhone e iPad: com a chave lateral no silencioso, o som gerado pelo site fica mudo.
+  // Avisar o sistema de que isto é música (e, nos mais antigos, tocar um áudio vazio em repetição) faz o som sair.
+  const IOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  let vazio = null;
+  function destravarIOS(ligar) {
+    if (!IOS) return;
+    try { if (navigator.audioSession) navigator.audioSession.type = ligar ? 'playback' : 'auto'; } catch (e) { /* sistema antigo: segue pelo áudio vazio */ }
+    if (!vazio) {
+      // um décimo de segundo de silêncio, em WAV
+      const n = 800;
+      const bytes = new Uint8Array(44 + n).fill(128, 44);
+      const dv = new DataView(bytes.buffer);
+      [[0, 0x52494646], [8, 0x57415645], [12, 0x666d7420], [36, 0x64617461]].forEach(([pos, v]) => dv.setUint32(pos, v));
+      dv.setUint32(4, 36 + n, true); dv.setUint32(16, 16, true); dv.setUint16(20, 1, true); dv.setUint16(22, 1, true);
+      dv.setUint32(24, 8000, true); dv.setUint32(28, 8000, true); dv.setUint16(32, 1, true); dv.setUint16(34, 8, true); dv.setUint32(40, n, true);
+      vazio = new Audio(URL.createObjectURL(new Blob([bytes], { type: 'audio/wav' })));
+      vazio.loop = true;
+      vazio.setAttribute('playsinline', '');
+    }
+    if (ligar) vazio.play().catch(() => {});
+    else vazio.pause();
+  }
+
   function alternar() {
     botao.classList.remove('is-convite');
     ligado = !ligado;
     botao.setAttribute('aria-pressed', String(ligado));
     if (!ctx) montar();
+    destravarIOS(ligado);
     clearTimeout(espera);
     if (ligado) {
       ctx.resume();
