@@ -721,3 +721,10 @@
   background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--palco) 55%, transparent) 55%, var(--palco));
 }
 .lista-video__sub { font-size: max(0.4em, 0.85rem); }
+
+/* epígrafe: o vídeo rola junto com a seção (não fica parado na tela) e os cartazes do Agora começam
+   abaixo da linha de luz, que fica por volta de 62% da altura da tela: a luz nunca passa atrás deles */
+.epigrafe:has(> .telao) .telao__quadro { position: absolute; inset: 0 0 auto; height: 100vh; height: 100svh; }
+.epigrafe:has(> .telao) { display: grid; grid-template-rows: auto minmax(auto, calc(76svh - var(--respiro) - 2.6rem)) auto; }
+.epigrafe:has(> .telao) .epigrafe__frase { align-self: start; }
+.epigrafe:has(> .telao) .agora { margin-top: 1.5rem; }
