@@ -60,8 +60,7 @@ class Telao:
 TELOES = [
     # Epígrafe (seção escura): no ritmo original, e com a linha de luz erguida para correr atrás da frase
     # (em 1080p, mais largo e nítido: é o primeiro vídeo que aparece, logo depois da capa)
-    Telao("instante-ja-linha-1080.mp4", "instante-linha", sombra=PALCO, luz=LINHO, lentidao=1.0, curva=1.15, abaixo=0.25,
-          largura=1600, desfoque=0, qualidade=20, rastro="1", limpeza="hqdn3d=3:2:4:3"),
+    # (o vídeo da epígrafe é gerado à parte, em alta qualidade: ferramentas/gerar-telao-epigrafe.py)
     # Encontros Efêmeros: mais perto do círculo de luz
     Telao("encontro-vento.mp4", "encontro-vento", recorte=(243, 194, 794, 446)),
     # Danças de Presente (seção escura): sem as faixas pretas dos lados

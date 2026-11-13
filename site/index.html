@@ -18,6 +18,7 @@
   <meta property="og:locale" content="pt_BR">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="assets/fontes/cormorant-garamond.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fontes/archivo.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/fontes.css">
   <link rel="icon" href="assets/marca/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/marca/apple-touch-icon.png">
@@ -43,7 +44,7 @@
 <body>
   <!-- ENTRADA · sobre o vídeo das Danças de Presente, o nome de Marcus se escreve à mão; depois aparecem dois botões: entrar com som ou em silêncio -->
   <div class="carregando" hidden>
-    <img class="carregando__quadro" src="assets/img/teloes/presente-key.webp" width="960" height="536" alt="" loading="lazy">
+    <img class="carregando__quadro" src="assets/img/teloes/presente-key.webp" width="960" height="536" alt="" fetchpriority="high" decoding="async">
     <span class="carregando__nome" role="img" aria-label="Marcus Moreno"></span>
     <div class="carregando__entradas">
       <button class="carregando__entrar" type="button" data-som>Entrar com som</button>
@@ -105,7 +106,7 @@
 
       <div class="sobre__grade">
         <figure class="sobre__retrato revela">
-          <img class="tinta" src="assets/img/retrato-25.webp" srcset="assets/img/retrato-25-1000.webp 1000w, assets/img/retrato-25.webp 1280w" sizes="(min-width: 900px) 38vw, 100vw" width="1280" height="853" loading="lazy" alt="Marcus Moreno de perfil, diante de uma janela de venezianas, mãos erguidas à altura do rosto.">
+          <img class="tinta" src="assets/img/retrato-25.webp" srcset="assets/img/retrato-25-1000.webp 1000w, assets/img/retrato-25.webp 1280w" sizes="(min-width: 900px) 38vw, 100vw" width="1280" height="853" loading="lazy" alt="Marcus Moreno de perfil, diante de uma janela de venezianas, mãos erguidas à altura do rosto." decoding="async">
         </figure>
 
         <div class="sobre__texto">
@@ -138,13 +139,13 @@
            (--obj no computador, --obj-m no celular); com outro número de fotos, ajuste --ciclo em css/base.css.
            Foto dos refletores (quarta cena): créditos e obra a confirmar com o Marcus (arquivo original FVP_8603). -->
       <div class="abertura__cena" aria-hidden="true">
-        <figure class="cena" style="--i: 0; --obj: 50% 100%; --obj-m: 32% 50%"><img class="cena__img" src="assets/img/capa-ceu.webp" srcset="assets/img/capa-ceu-1000.webp 1000w, assets/img/capa-ceu.webp 2000w" sizes="100vw" width="2000" height="1333" loading="lazy" alt=""><figcaption class="legenda cena__legenda"><cite>Onde Houver Céu</cite> · Foto Silvia Machado</figcaption></figure>
-        <figure class="cena" style="--i: 1; --obj: 50% 50%; --obj-m: 52% 50%"><img class="cena__img" src="assets/img/capa-sempre.webp" width="960" height="720" loading="lazy" alt=""><figcaption class="legenda cena__legenda"><cite>Sempre mais que um</cite> · Quadro do vídeo</figcaption></figure>
-        <figure class="cena" style="--i: 2; --obj: 50% 40%; --obj-m: 50% 50%"><img class="cena__img" loading="lazy" src="assets/img/capa-blur.webp" width="1000" height="667" alt=""><figcaption class="legenda cena__legenda"><cite>Instante-já</cite> · Foto Silvia Machado</figcaption></figure>
-        <figure class="cena" style="--i: 3; --obj: 50% 50%; --obj-m: 46% 50%"><img class="cena__img" src="assets/img/capa-refletores.webp" srcset="assets/img/capa-refletores-1000.webp 1000w, assets/img/capa-refletores.webp 2000w" sizes="100vw" width="2000" height="1330" loading="lazy" alt=""></figure>
-        <figure class="cena" style="--i: 4; --obj: 60% 50%; --obj-m: 68% 50%"><img class="cena__img" src="assets/img/capa-ausencia.webp" srcset="assets/img/capa-ausencia-1000.webp 1000w, assets/img/capa-ausencia.webp 2000w" sizes="100vw" width="2000" height="1268" loading="lazy" alt=""><figcaption class="legenda cena__legenda"><cite>A Imagem como Ausência</cite> · Foto Silvia Machado</figcaption></figure>
-        <figure class="cena" style="--i: 5; --obj: 50% 12%; --obj-m: 74% 50%"><img class="cena__img" src="assets/img/capa-caldeiras.webp" width="960" height="640" loading="lazy" alt=""><figcaption class="legenda cena__legenda"><cite>A Flor da Lua</cite> · Casa das Caldeiras</figcaption></figure>
-        <figure class="cena" style="--i: 6; --obj: 50% 55%; --obj-m: 52% 50%"><img class="cena__img" src="assets/img/capa-instante.webp" srcset="assets/img/capa-instante-1000.webp 1000w, assets/img/capa-instante.webp 2000w" sizes="100vw" width="2000" height="1333" loading="lazy" alt=""><figcaption class="legenda cena__legenda"><cite>Instante-já</cite> · Foto Silvia Machado</figcaption></figure>
+        <figure class="cena" style="--i: 0; --obj: 50% 100%; --obj-m: 32% 50%"><img class="cena__img" src="assets/img/capa-ceu.webp" srcset="assets/img/capa-ceu-1000.webp 1000w, assets/img/capa-ceu.webp 2000w" sizes="100vw" width="2000" height="1333" loading="lazy" alt="" decoding="async"><figcaption class="legenda cena__legenda"><cite>Onde Houver Céu</cite> · Foto Silvia Machado</figcaption></figure>
+        <figure class="cena" style="--i: 1; --obj: 50% 50%; --obj-m: 52% 50%"><img class="cena__img" src="assets/img/capa-sempre.webp" width="960" height="720" loading="lazy" alt="" decoding="async"><figcaption class="legenda cena__legenda"><cite>Sempre mais que um</cite> · Quadro do vídeo</figcaption></figure>
+        <figure class="cena" style="--i: 2; --obj: 50% 40%; --obj-m: 50% 50%"><img class="cena__img" loading="lazy" src="assets/img/capa-blur.webp" width="1000" height="667" alt="" decoding="async"><figcaption class="legenda cena__legenda"><cite>Instante-já</cite> · Foto Silvia Machado</figcaption></figure>
+        <figure class="cena" style="--i: 3; --obj: 50% 50%; --obj-m: 46% 50%"><img class="cena__img" src="assets/img/capa-refletores.webp" srcset="assets/img/capa-refletores-1000.webp 1000w, assets/img/capa-refletores.webp 2000w" sizes="100vw" width="2000" height="1330" loading="lazy" alt="" decoding="async"></figure>
+        <figure class="cena" style="--i: 4; --obj: 60% 50%; --obj-m: 68% 50%"><img class="cena__img" src="assets/img/capa-ausencia.webp" srcset="assets/img/capa-ausencia-1000.webp 1000w, assets/img/capa-ausencia.webp 2000w" sizes="100vw" width="2000" height="1268" loading="lazy" alt="" decoding="async"><figcaption class="legenda cena__legenda"><cite>A Imagem como Ausência</cite> · Foto Silvia Machado</figcaption></figure>
+        <figure class="cena" style="--i: 5; --obj: 50% 12%; --obj-m: 74% 50%"><img class="cena__img" src="assets/img/capa-caldeiras.webp" width="960" height="640" loading="lazy" alt="" decoding="async"><figcaption class="legenda cena__legenda"><cite>A Flor da Lua</cite> · Casa das Caldeiras</figcaption></figure>
+        <figure class="cena" style="--i: 6; --obj: 50% 55%; --obj-m: 52% 50%"><img class="cena__img" src="assets/img/capa-instante.webp" srcset="assets/img/capa-instante-1000.webp 1000w, assets/img/capa-instante.webp 2000w" sizes="100vw" width="2000" height="1333" loading="lazy" alt="" decoding="async"><figcaption class="legenda cena__legenda"><cite>Instante-já</cite> · Foto Silvia Machado</figcaption></figure>
       </div>
       <span class="abertura__fio" aria-hidden="true"></span>
     </section>
@@ -152,7 +153,7 @@
     <!-- Epígrafe -->
     <section class="epigrafe" data-tone="dark" data-num="" data-title="">
       <!-- telão: trecho de <cite>Instante-já</cite>, a linha de luz no chão do palco (ferramentas/gerar-teloes.py). A epígrafe é escura, como o palco -->
-      <div class="telao" aria-hidden="true" data-video="assets/video/instante-linha.mp4"><div class="telao__quadro" style="--foco: 58% 100%"><img src="assets/img/teloes/instante-linha.webp" width="1600" height="1124" alt="" loading="lazy"></div></div>
+      <div class="telao" aria-hidden="true" data-video="assets/video/instante-linha.mp4" data-video-menor="assets/video/instante-linha-960.mp4"><div class="telao__quadro" style="--foco: 58% 100%"><img src="assets/img/teloes/instante-linha.webp" width="1280" height="900" alt="" loading="lazy" decoding="async"></div></div>
       <p class="epigrafe__lead rotulo">Investigar</p>
       <p class="epigrafe__frase">
         <span>as temporalidades,</span>
@@ -182,7 +183,7 @@
       <article class="obra obra--ausencia" id="obra-ausencia">
         <figure class="obra__midia revela">
           <button class="obra__ver" type="button" data-video="8Wuyt81Asps" data-start="12" data-titulo="A Imagem como Ausência">
-            <img class="tinta" src="assets/img/quadros/ausencia.webp" srcset="assets/img/quadros/ausencia-800.webp 900w, assets/img/quadros/ausencia.webp 1704w" sizes="(min-width: 900px) 60vw, 100vw" width="1136" height="720" loading="lazy" alt="No palco escuro, um retângulo de papel iluminado; diante dele, pequena, a silhueta de Marcus caminhando.">
+            <img class="tinta" src="assets/img/quadros/ausencia.webp" srcset="assets/img/quadros/ausencia-800.webp 900w, assets/img/quadros/ausencia.webp 1704w" sizes="(min-width: 900px) 60vw, 100vw" width="1136" height="720" loading="lazy" alt="No palco escuro, um retângulo de papel iluminado; diante dele, pequena, a silhueta de Marcus caminhando." decoding="async">
             <span class="sr">Assistir ao vídeo de A Imagem como Ausência</span>
           </button>
           <figcaption class="legenda">Quadro do vídeo · Registro Doctela</figcaption>
@@ -259,15 +260,15 @@
         </div>
         <div class="obra__triptico">
           <figure class="revela">
-            <img class="tinta" src="assets/img/flor-da-lua-patzdorf.webp" srcset="assets/img/flor-da-lua-patzdorf-1000.webp 1000w, assets/img/flor-da-lua-patzdorf.webp 1333w" sizes="(min-width: 900px) 28vw, 100vw" width="1333" height="2000" loading="lazy" alt="Marcus em palco escuro, tronco inclinado e um braço estendido em linha reta, refletores ao fundo.">
+            <img class="tinta" src="assets/img/flor-da-lua-patzdorf.webp" srcset="assets/img/flor-da-lua-patzdorf-1000.webp 1000w, assets/img/flor-da-lua-patzdorf.webp 1333w" sizes="(min-width: 900px) 28vw, 100vw" width="1333" height="2000" loading="lazy" alt="Marcus em palco escuro, tronco inclinado e um braço estendido em linha reta, refletores ao fundo." decoding="async">
             <figcaption class="legenda">Foto Danilo Patzdorf</figcaption>
           </figure>
           <figure class="revela">
-            <img class="tinta" src="assets/img/flor-casa-caldeiras.webp" width="960" height="640" loading="lazy" alt="Silhueta contra luz âmbar na Casa das Caldeiras, plateia sentada à esquerda.">
+            <img class="tinta" src="assets/img/flor-casa-caldeiras.webp" width="960" height="640" loading="lazy" alt="Silhueta contra luz âmbar na Casa das Caldeiras, plateia sentada à esquerda." decoding="async">
             <figcaption class="legenda">Casa das Caldeiras</figcaption>
           </figure>
           <figure class="revela">
-            <img class="tinta" src="assets/img/flor-mario-de-andrade.webp" srcset="assets/img/flor-mario-de-andrade-1000.webp 1000w, assets/img/flor-mario-de-andrade.webp 2000w" sizes="(min-width: 900px) 28vw, 100vw" width="2000" height="1333" loading="lazy" alt="Marcus dança descalço no terraço da Biblioteca Mário de Andrade, entre árvores e prédios.">
+            <img class="tinta" src="assets/img/flor-mario-de-andrade.webp" srcset="assets/img/flor-mario-de-andrade-1000.webp 1000w, assets/img/flor-mario-de-andrade.webp 2000w" sizes="(min-width: 900px) 28vw, 100vw" width="2000" height="1333" loading="lazy" alt="Marcus dança descalço no terraço da Biblioteca Mário de Andrade, entre árvores e prédios." decoding="async">
             <figcaption class="legenda">Biblioteca Mário de Andrade · Foto Claudia Magalhães</figcaption>
           </figure>
         </div>
@@ -276,10 +277,10 @@
       <article class="obra obra--estudo" id="obra-estudo">
         <div class="obra__par">
           <figure class="revela">
-            <img class="tinta" src="assets/img/estudo-encontro-2.webp" srcset="assets/img/estudo-encontro-2-1000.webp 1000w, assets/img/estudo-encontro-2.webp 1333w" sizes="(min-width: 900px) 26vw, 60vw" width="1333" height="2000" loading="lazy" alt="Marcus encostado em uma parede de concreto, cabeça inclinada, luz lateral no chão.">
+            <img class="tinta" src="assets/img/estudo-encontro-2.webp" srcset="assets/img/estudo-encontro-2-1000.webp 1000w, assets/img/estudo-encontro-2.webp 1333w" sizes="(min-width: 900px) 26vw, 60vw" width="1333" height="2000" loading="lazy" alt="Marcus encostado em uma parede de concreto, cabeça inclinada, luz lateral no chão." decoding="async">
           </figure>
           <figure class="revela">
-            <img class="tinta" src="assets/img/estudo-encontro-1.webp" width="975" height="975" loading="lazy" alt="Marcus em torção, braço sobre a cabeça, diante de parede de concreto.">
+            <img class="tinta" src="assets/img/estudo-encontro-1.webp" width="975" height="975" loading="lazy" alt="Marcus em torção, braço sobre a cabeça, diante de parede de concreto." decoding="async">
             <figcaption class="legenda">Fotos Silvia Machado</figcaption>
           </figure>
         </div>
@@ -314,7 +315,7 @@
            no ritmo da rolagem; a cada pergunta a luz abre um pouco mais (ver js/imersao.js) -->
       <div class="cena-instante" data-cena-instante>
         <div class="cena-instante__palco">
-          <img class="cena-instante__foto" src="assets/img/instante-ja-2.webp" width="1000" height="667" loading="lazy" alt="Corpo nu da cintura para cima, borrado pelo movimento contra fundo claro.">
+          <img class="cena-instante__foto" src="assets/img/instante-ja-2.webp" width="1000" height="667" loading="lazy" alt="Corpo nu da cintura para cima, borrado pelo movimento contra fundo claro." decoding="async">
           <div class="cena-instante__escuro" aria-hidden="true"></div>
           <p class="rotulo cena-instante__rotulo"><cite>Instante-já</cite> · 2019</p>
           <ol class="cena-instante__perguntas">
@@ -329,7 +330,7 @@
       <article class="obra obra--instante" id="obra-instante">
         <div class="obra__sobreposta">
           <figure class="obra__fundo revela">
-            <img class="tinta" src="assets/img/instante-ja-1.webp" srcset="assets/img/instante-ja-1-1000.webp 1000w, assets/img/instante-ja-1.webp 2000w" sizes="(min-width: 900px) 62vw, 100vw" width="2000" height="1333" loading="lazy" alt="Marcus em palco cinza, raquete de pingue-pongue na mão, olhando para a bola no alto.">
+            <img class="tinta" src="assets/img/instante-ja-1.webp" srcset="assets/img/instante-ja-1-1000.webp 1000w, assets/img/instante-ja-1.webp 2000w" sizes="(min-width: 900px) 62vw, 100vw" width="2000" height="1333" loading="lazy" alt="Marcus em palco cinza, raquete de pingue-pongue na mão, olhando para a bola no alto." decoding="async">
             <figcaption class="legenda">Foto Silvia Machado</figcaption>
           </figure>
         </div>
@@ -374,7 +375,7 @@
             <p class="expande__titulo" aria-hidden="true"><span class="rotulo">Videodança · 2021</span>Entre-espaço <em>onde tudo existe</em></p>
             <figure class="obra__faixa expande__quadro">
               <button class="obra__ver" type="button" data-video="m-qB_rqaMXo" data-titulo="Entre-espaço onde tudo existe">
-                <img class="tinta" src="assets/img/entre-espaco-still.webp" srcset="assets/img/entre-espaco-still-1000.webp 1000w, assets/img/entre-espaco-still.webp 2000w, assets/img/entre-espaco-still-2880.webp 2880w" sizes="(max-aspect-ratio: 239/100) 239vh, 100vw" width="2000" height="836" loading="lazy" alt="Rosto de Marcus em primeiro plano, mata e céu nublado ao fundo.">
+                <img class="tinta" src="assets/img/entre-espaco-still.webp" srcset="assets/img/entre-espaco-still-1000.webp 1000w, assets/img/entre-espaco-still.webp 2000w, assets/img/entre-espaco-still-2880.webp 2880w" sizes="(max-aspect-ratio: 239/100) 239vh, 100vw" width="2000" height="836" loading="lazy" alt="Rosto de Marcus em primeiro plano, mata e céu nublado ao fundo." decoding="async">
                 <span class="sr">Assistir ao vídeo de Entre-espaço onde tudo existe</span>
               </button>
             </figure>
@@ -391,7 +392,7 @@
       <article class="obra obra--brotar" id="obra-brotar">
         <figure class="obra__midia revela">
           <button class="obra__ver" type="button" data-video="Vtriv1TdLco" data-titulo="Para insistir em brotar">
-            <img class="tinta" src="assets/img/para-insistir-em-brotar.webp" width="480" height="270" loading="lazy" alt="Marcus dança sobre uma laje, a cidade de São Paulo ao fundo.">
+            <img class="tinta" src="assets/img/para-insistir-em-brotar.webp" width="480" height="270" loading="lazy" alt="Marcus dança sobre uma laje, a cidade de São Paulo ao fundo." decoding="async">
             <span class="sr">Assistir ao vídeo de Para insistir em brotar</span>
           </button>
         </figure>
@@ -408,7 +409,7 @@
       <article class="obra obra--sempre obra--tela-cheia" id="obra-sempre">
         <figure class="obra__midia revela">
           <button class="obra__ver" type="button" data-video="ejixmU_3cXk" data-titulo="Sempre mais que um">
-            <img class="tinta" src="assets/img/sempre-mais-que-um.webp" width="960" height="720" loading="lazy" sizes="100vw" alt="Fotografia de longa exposição: vários corpos em movimento se sobrepõem num palco escuro.">
+            <img class="tinta" src="assets/img/sempre-mais-que-um.webp" width="960" height="720" loading="lazy" sizes="100vw" alt="Fotografia de longa exposição: vários corpos em movimento se sobrepõem num palco escuro." decoding="async">
             <span class="sr">Assistir ao vídeo de Sempre mais que um</span>
           </button>
         </figure>
@@ -429,10 +430,10 @@
         </div>
         <div class="obra__par obra__par--ceu">
           <figure class="revela">
-            <img class="tinta" src="assets/img/onde-houver-ceu-1.webp" srcset="assets/img/onde-houver-ceu-1-1000.webp 1000w, assets/img/onde-houver-ceu-1.webp 1333w" sizes="(min-width: 900px) 28vw, 70vw" width="1333" height="2000" loading="lazy" alt="Marcus de costas, braços abertos, sobre um chão coberto de folhagem; outros intérpretes ao fundo.">
+            <img class="tinta" src="assets/img/onde-houver-ceu-1.webp" srcset="assets/img/onde-houver-ceu-1-1000.webp 1000w, assets/img/onde-houver-ceu-1.webp 1333w" sizes="(min-width: 900px) 28vw, 70vw" width="1333" height="2000" loading="lazy" alt="Marcus de costas, braços abertos, sobre um chão coberto de folhagem; outros intérpretes ao fundo." decoding="async">
           </figure>
           <figure class="revela">
-            <img class="tinta" src="assets/img/onde-houver-ceu-2.webp" srcset="assets/img/onde-houver-ceu-2-1000.webp 1000w, assets/img/onde-houver-ceu-2.webp 2000w" sizes="(min-width: 900px) 40vw, 100vw" width="2000" height="1333" loading="lazy" alt="Marcus deitado de lado no chão de folhagem, apoiado nas mãos, olhar rente ao solo.">
+            <img class="tinta" src="assets/img/onde-houver-ceu-2.webp" srcset="assets/img/onde-houver-ceu-2-1000.webp 1000w, assets/img/onde-houver-ceu-2.webp 2000w" sizes="(min-width: 900px) 40vw, 100vw" width="2000" height="1333" loading="lazy" alt="Marcus deitado de lado no chão de folhagem, apoiado nas mãos, olhar rente ao solo." decoding="async">
             <figcaption class="legenda">Fotos Silvia Machado</figcaption>
           </figure>
         </div>
@@ -454,35 +455,35 @@
             <p class="rotulo entreato__dica" aria-hidden="true"><span class="entreato__dica-rolar">Role a página</span><span class="entreato__dica-deslizar">Deslize</span> <i></i></p>
           </div>
           <figure data-lateral-item class="entreato__foto entreato__foto--h">
-            <div class="entreato__moldura"><img class="tinta" src="assets/img/flor-mario-de-andrade.webp" srcset="assets/img/flor-mario-de-andrade-1000.webp 1000w, assets/img/flor-mario-de-andrade.webp 2000w" sizes="90vh" width="2000" height="1333" loading="lazy" alt="Marcus dança descalço no terraço da Biblioteca Mário de Andrade, entre árvores e prédios."></div>
+            <div class="entreato__moldura"><img class="tinta" src="assets/img/flor-mario-de-andrade.webp" srcset="assets/img/flor-mario-de-andrade-1000.webp 1000w, assets/img/flor-mario-de-andrade.webp 2000w" sizes="90vh" width="2000" height="1333" loading="lazy" alt="Marcus dança descalço no terraço da Biblioteca Mário de Andrade, entre árvores e prédios." decoding="async"></div>
             <figcaption class="legenda"><span class="entreato__n">01</span> <cite>A Flor da Lua</cite> · Biblioteca Mário de Andrade · Foto Claudia Magalhães</figcaption>
           </figure>
           <figure data-lateral-item class="entreato__foto entreato__foto--v">
-            <div class="entreato__moldura"><img class="tinta" src="assets/img/estudo-encontro-2.webp" srcset="assets/img/estudo-encontro-2-1000.webp 1000w, assets/img/estudo-encontro-2.webp 1333w" sizes="45vh" width="1333" height="2000" loading="lazy" alt="Marcus encostado em uma parede de concreto, cabeça inclinada, luz lateral no chão."></div>
+            <div class="entreato__moldura"><img class="tinta" src="assets/img/estudo-encontro-2.webp" srcset="assets/img/estudo-encontro-2-1000.webp 1000w, assets/img/estudo-encontro-2.webp 1333w" sizes="45vh" width="1333" height="2000" loading="lazy" alt="Marcus encostado em uma parede de concreto, cabeça inclinada, luz lateral no chão." decoding="async"></div>
             <figcaption class="legenda"><span class="entreato__n">02</span> <cite>Estudo para o Encontro</cite> · Foto Silvia Machado</figcaption>
           </figure>
           <figure data-lateral-item class="entreato__foto entreato__foto--h entreato__foto--baixo">
-            <div class="entreato__moldura"><img class="tinta" src="assets/img/flor-casa-caldeiras.webp" width="960" height="640" loading="lazy" alt="Silhueta contra luz âmbar na Casa das Caldeiras, plateia sentada à esquerda."></div>
+            <div class="entreato__moldura"><img class="tinta" src="assets/img/flor-casa-caldeiras.webp" width="960" height="640" loading="lazy" alt="Silhueta contra luz âmbar na Casa das Caldeiras, plateia sentada à esquerda." decoding="async"></div>
             <figcaption class="legenda"><span class="entreato__n">03</span> <cite>A Flor da Lua</cite> · Casa das Caldeiras</figcaption>
           </figure>
           <figure data-lateral-item class="entreato__foto entreato__foto--v">
-            <div class="entreato__moldura"><img class="tinta" src="assets/img/retrato-07.webp" width="853" height="1280" loading="lazy" alt="Marcus agachado à beira de um espelho d’água, torcendo um pano branco, plantas ao fundo."></div>
+            <div class="entreato__moldura"><img class="tinta" src="assets/img/retrato-07.webp" width="853" height="1280" loading="lazy" alt="Marcus agachado à beira de um espelho d’água, torcendo um pano branco, plantas ao fundo." decoding="async"></div>
             <figcaption class="legenda"><span class="entreato__n">04</span> Retrato · 2025</figcaption>
           </figure>
           <figure data-lateral-item class="entreato__foto entreato__foto--h">
-            <div class="entreato__moldura"><img class="tinta" src="assets/img/img-1639.webp" srcset="assets/img/img-1639-1000.webp 1000w, assets/img/img-1639.webp 2000w" sizes="90vh" width="2000" height="1307" loading="lazy" alt="Marcus com um braço erguido ao céu sobre uma laje, São Paulo e uma torre de antena ao fundo."></div>
+            <div class="entreato__moldura"><img class="tinta" src="assets/img/img-1639.webp" srcset="assets/img/img-1639-1000.webp 1000w, assets/img/img-1639.webp 2000w" sizes="90vh" width="2000" height="1307" loading="lazy" alt="Marcus com um braço erguido ao céu sobre uma laje, São Paulo e uma torre de antena ao fundo." decoding="async"></div>
             <figcaption class="legenda"><span class="entreato__n">05</span> Laje · São Paulo</figcaption>
           </figure>
           <figure data-lateral-item class="entreato__foto entreato__foto--v">
-            <div class="entreato__moldura"><img class="tinta" src="assets/img/onde-houver-ceu-1.webp" srcset="assets/img/onde-houver-ceu-1-1000.webp 1000w, assets/img/onde-houver-ceu-1.webp 1333w" sizes="45vh" width="1333" height="2000" loading="lazy" alt="Marcus de costas, braços abertos, sobre um chão coberto de folhagem; outros intérpretes ao fundo."></div>
+            <div class="entreato__moldura"><img class="tinta" src="assets/img/onde-houver-ceu-1.webp" srcset="assets/img/onde-houver-ceu-1-1000.webp 1000w, assets/img/onde-houver-ceu-1.webp 1333w" sizes="45vh" width="1333" height="2000" loading="lazy" alt="Marcus de costas, braços abertos, sobre um chão coberto de folhagem; outros intérpretes ao fundo." decoding="async"></div>
             <figcaption class="legenda"><span class="entreato__n">06</span> <cite>Onde Houver Céu</cite> · Foto Silvia Machado</figcaption>
           </figure>
           <figure data-lateral-item class="entreato__foto entreato__foto--h entreato__foto--baixo">
-            <div class="entreato__moldura"><img class="tinta" src="assets/img/retrato-25.webp" srcset="assets/img/retrato-25-1000.webp 1000w, assets/img/retrato-25.webp 1280w" sizes="90vh" width="1280" height="853" loading="lazy" alt="Marcus Moreno de perfil, diante de uma janela de venezianas, mãos erguidas à altura do rosto."></div>
+            <div class="entreato__moldura"><img class="tinta" src="assets/img/retrato-25.webp" srcset="assets/img/retrato-25-1000.webp 1000w, assets/img/retrato-25.webp 1280w" sizes="90vh" width="1280" height="853" loading="lazy" alt="Marcus Moreno de perfil, diante de uma janela de venezianas, mãos erguidas à altura do rosto." decoding="async"></div>
             <figcaption class="legenda"><span class="entreato__n">07</span> Retrato · 2025</figcaption>
           </figure>
           <figure data-lateral-item class="entreato__foto entreato__foto--h">
-            <div class="entreato__moldura"><img class="tinta" src="assets/img/fvp-8603.webp" srcset="assets/img/fvp-8603-1000.webp 1000w, assets/img/fvp-8603.webp 2000w" sizes="90vh" width="2000" height="1330" loading="lazy" alt="Marcus de costas num palco, mãos unidas, olhando uma vara de refletores acesos."></div>
+            <div class="entreato__moldura"><img class="tinta" src="assets/img/fvp-8603.webp" srcset="assets/img/fvp-8603-1000.webp 1000w, assets/img/fvp-8603.webp 2000w" sizes="90vh" width="2000" height="1330" loading="lazy" alt="Marcus de costas num palco, mãos unidas, olhando uma vara de refletores acesos." decoding="async"></div>
             <figcaption class="legenda"><span class="entreato__n">08</span> Palco · Refletores acesos</figcaption>
           </figure>
         </div>
@@ -496,7 +497,7 @@
     <!-- III · ENCONTROS EFÊMEROS ─ improvisações a dois, desde 2016 -->
     <section class="secao efemeros" id="efemeros" data-tone="light" data-num="III" data-title="Encontros Efêmeros">
       <!-- telão: trecho do <cite>Encontro para contemplar o vento</cite>, com Cora Laszlo, em sépia e câmera lenta (ferramentas/gerar-teloes.py) -->
-      <div class="telao" aria-hidden="true" data-video="assets/video/encontro-vento.mp4"><div class="telao__quadro" style="--foco: 52% 55%"><img src="assets/img/teloes/encontro-vento.webp" width="960" height="540" alt="" loading="lazy"></div></div>
+      <div class="telao" aria-hidden="true" data-video="assets/video/encontro-vento.mp4"><div class="telao__quadro" style="--foco: 52% 55%"><img src="assets/img/teloes/encontro-vento.webp" width="960" height="540" alt="" loading="lazy" decoding="async"></div></div>
       <header class="cabeca cabeca--espelho">
         <span class="cabeca__num" aria-hidden="true">III</span>
         <h2 class="cabeca__titulo">Encontros <em>Efêmeros</em></h2>
@@ -517,7 +518,7 @@
           <li data-pessoa="alex" data-quadro="assets/img/quadros/efemero-alex.webp"><button class="lista-video__item" type="button" data-video="g3cO501wIUE" data-start="2" data-titulo="Encontros Efêmeros: Marcus Moreno + Alex Ratton"><span class="lista-video__com">+</span> Alex Ratton</button></li>
           <li data-pessoa="rafaela" data-quadro="assets/img/quadros/efemero-rafaela.webp"><button class="lista-video__item" type="button" data-video="RpqCcdeJHao" data-start="1" data-titulo="Encontros Efêmeros: Marcus Moreno + Rafaela Sahyoun"><span class="lista-video__com">+</span> Rafaela Sahyoun</button></li>
         </ol>
-        <figure class="quadro" aria-hidden="true"><img alt="" width="960" height="540"></figure>
+        <figure class="quadro" aria-hidden="true"><img alt="" width="960" height="540" decoding="async"></figure>
       </div>
     </section>
 
@@ -559,22 +560,22 @@
             </div>
             <ol class="conversas" data-rede>
               <li class="conversa" data-pessoa="zelia" data-quadro="assets/img/quadros/entrevista-zelia.webp" data-lateral-item>
-                <button class="conversa__botao" type="button" data-video="jd_U6hWVAxY" data-titulo="Entrevista-performativa com Zélia Monteiro"><span class="conversa__quadro"><img class="tinta" src="assets/img/quadros/entrevista-zelia.webp" width="960" height="540" loading="lazy" alt=""></span><span class="conversa__n">01</span><span class="conversa__com">com</span> Zélia Monteiro</button>
+                <button class="conversa__botao" type="button" data-video="jd_U6hWVAxY" data-titulo="Entrevista-performativa com Zélia Monteiro"><span class="conversa__quadro"><img class="tinta" src="assets/img/quadros/entrevista-zelia.webp" width="960" height="540" loading="lazy" alt="" decoding="async"></span><span class="conversa__n">01</span><span class="conversa__com">com</span> Zélia Monteiro</button>
               </li>
               <li class="conversa" data-pessoa="key" data-quadro="assets/img/quadros/entrevista-key.webp" data-lateral-item>
-                <button class="conversa__botao" type="button" data-video="lXd31e4e4DI" data-titulo="Entrevista-performativa com Key Sawao"><span class="conversa__quadro"><img class="tinta" src="assets/img/quadros/entrevista-key.webp" width="960" height="540" loading="lazy" alt=""></span><span class="conversa__n">02</span><span class="conversa__com">com</span> Key Sawao</button>
+                <button class="conversa__botao" type="button" data-video="lXd31e4e4DI" data-titulo="Entrevista-performativa com Key Sawao"><span class="conversa__quadro"><img class="tinta" src="assets/img/quadros/entrevista-key.webp" width="960" height="540" loading="lazy" alt="" decoding="async"></span><span class="conversa__n">02</span><span class="conversa__com">com</span> Key Sawao</button>
               </li>
               <li class="conversa" data-pessoa="vera" data-quadro="assets/img/quadros/entrevista-vera.webp" data-lateral-item>
-                <button class="conversa__botao" type="button" data-video="5UkvPAkzwQQ" data-titulo="Entrevista-performativa com Vera Sala"><span class="conversa__quadro"><img class="tinta" src="assets/img/quadros/entrevista-vera.webp" width="960" height="540" loading="lazy" alt=""></span><span class="conversa__n">03</span><span class="conversa__com">com</span> Vera Sala</button>
+                <button class="conversa__botao" type="button" data-video="5UkvPAkzwQQ" data-titulo="Entrevista-performativa com Vera Sala"><span class="conversa__quadro"><img class="tinta" src="assets/img/quadros/entrevista-vera.webp" width="960" height="540" loading="lazy" alt="" decoding="async"></span><span class="conversa__n">03</span><span class="conversa__com">com</span> Vera Sala</button>
               </li>
               <li class="conversa" data-pessoa="mariana" data-quadro="assets/img/quadros/entrevista-mariana.webp" data-lateral-item>
-                <button class="conversa__botao" type="button" data-video="azvbrgBYgow" data-start="1" data-titulo="Entrevista-performativa com Mariana Muniz"><span class="conversa__quadro"><img class="tinta" src="assets/img/quadros/entrevista-mariana.webp" width="960" height="540" loading="lazy" alt=""></span><span class="conversa__n">04</span><span class="conversa__com">com</span> Mariana Muniz</button>
+                <button class="conversa__botao" type="button" data-video="azvbrgBYgow" data-start="1" data-titulo="Entrevista-performativa com Mariana Muniz"><span class="conversa__quadro"><img class="tinta" src="assets/img/quadros/entrevista-mariana.webp" width="960" height="540" loading="lazy" alt="" decoding="async"></span><span class="conversa__n">04</span><span class="conversa__com">com</span> Mariana Muniz</button>
               </li>
               <li class="conversa" data-pessoa="wellington" data-quadro="assets/img/quadros/entrevista-wellington.webp" data-lateral-item>
-                <button class="conversa__botao" type="button" data-video="UQLYlQUCsjA" data-titulo="Entrevista-performativa com Wellington Duarte"><span class="conversa__quadro"><img class="tinta" src="assets/img/quadros/entrevista-wellington.webp" width="960" height="540" loading="lazy" alt=""></span><span class="conversa__n">05</span><span class="conversa__com">com</span> Wellington Duarte</button>
+                <button class="conversa__botao" type="button" data-video="UQLYlQUCsjA" data-titulo="Entrevista-performativa com Wellington Duarte"><span class="conversa__quadro"><img class="tinta" src="assets/img/quadros/entrevista-wellington.webp" width="960" height="540" loading="lazy" alt="" decoding="async"></span><span class="conversa__n">05</span><span class="conversa__com">com</span> Wellington Duarte</button>
               </li>
               <li class="conversa" data-pessoa="alex" data-quadro="assets/img/quadros/entrevista-alex.webp" data-lateral-item>
-                <button class="conversa__botao" type="button" data-video="k5sz9-4NUl4" data-titulo="Entrevista-performativa com Alex Ratton"><span class="conversa__quadro"><img class="tinta" src="assets/img/quadros/entrevista-alex.webp" width="960" height="540" loading="lazy" alt=""></span><span class="conversa__n">06</span><span class="conversa__com">com</span> Alex Ratton</button>
+                <button class="conversa__botao" type="button" data-video="k5sz9-4NUl4" data-titulo="Entrevista-performativa com Alex Ratton"><span class="conversa__quadro"><img class="tinta" src="assets/img/quadros/entrevista-alex.webp" width="960" height="540" loading="lazy" alt="" decoding="async"></span><span class="conversa__n">06</span><span class="conversa__com">com</span> Alex Ratton</button>
               </li>
             </ol>
           </div>
@@ -589,7 +590,7 @@
     <!-- V · DANÇAS DE PRESENTE ─ dedicatórias -->
     <section class="secao presente" id="presente" data-tone="dark" data-num="V" data-title="Danças de Presente">
       <!-- telão: trecho de <cite>Danças de Presente: para Key Sawao</cite>, em sépia e câmera lenta (ferramentas/gerar-teloes.py) -->
-      <div class="telao" aria-hidden="true" data-video="assets/video/presente-key.mp4"><div class="telao__quadro" style="--foco: 55% 40%"><img src="assets/img/teloes/presente-key.webp" width="960" height="536" alt="" loading="lazy"></div></div>
+      <div class="telao" aria-hidden="true" data-video="assets/video/presente-key.mp4"><div class="telao__quadro" style="--foco: 55% 40%"><img src="assets/img/teloes/presente-key.webp" width="960" height="536" alt="" loading="lazy" decoding="async"></div></div>
       <header class="cabeca cabeca--espelho">
         <span class="cabeca__num" aria-hidden="true">V</span>
         <h2 class="cabeca__titulo">Danças de <em>Presente</em></h2>
@@ -597,7 +598,7 @@
 
       <div class="presente__grade">
         <figure class="presente__imagem revela">
-          <img class="tinta" src="assets/img/retrato-24.webp" srcset="assets/img/retrato-24-1000.webp 1000w, assets/img/retrato-24.webp 1280w" sizes="(min-width: 900px) 40vw, 100vw" width="1280" height="853" loading="lazy" alt="Marcus de olhos marejados, palmas das mãos unidas diante do rosto.">
+          <img class="tinta" src="assets/img/retrato-24.webp" srcset="assets/img/retrato-24-1000.webp 1000w, assets/img/retrato-24.webp 1280w" sizes="(min-width: 900px) 40vw, 100vw" width="1280" height="853" loading="lazy" alt="Marcus de olhos marejados, palmas das mãos unidas diante do rosto." decoding="async">
         </figure>
         <p class="presente__intro">Com o anseio pelo agradecimento, esta série de improvisações foram criadas como desdobramentos das memórias vindas das entrevistas-performativas, bem como de encontros anteriores a ela, de seu processo de elaboração e daquilo que cada um desses artistas entrevistados me inspira e atravessa meu mover.</p>
       </div>
@@ -641,7 +642,7 @@
           </li>
         </ol>
         <figure class="curadoria__imagem revela">
-          <img class="tinta" src="assets/img/img-1639.webp" srcset="assets/img/img-1639-1000.webp 1000w, assets/img/img-1639.webp 2000w" sizes="(min-width: 900px) 40vw, 100vw" width="2000" height="1307" loading="lazy" alt="Marcus com um braço erguido ao céu sobre uma laje, São Paulo e uma torre de antena ao fundo.">
+          <img class="tinta" src="assets/img/img-1639.webp" srcset="assets/img/img-1639-1000.webp 1000w, assets/img/img-1639.webp 2000w" sizes="(min-width: 900px) 40vw, 100vw" width="2000" height="1307" loading="lazy" alt="Marcus com um braço erguido ao céu sobre uma laje, São Paulo e uma torre de antena ao fundo." decoding="async">
         </figure>
       </div>
       <!-- Registros, textos e imagens de cada projeto entram aqui. -->
@@ -780,7 +781,7 @@
               <li class="marco" data-lateral-item><span class="marco__ano">Hoje</span><p>Assessor de Planejamento Estratégico do Instituto Poiesis. Integrou a Gerência de Articulação e Difusão das Fábricas de Cultura.</p></li>
             </ol>
             <figure class="marcos__foto revela">
-              <img class="tinta" src="assets/img/fvp-8603.webp" srcset="assets/img/fvp-8603-1000.webp 1000w, assets/img/fvp-8603.webp 2000w" sizes="(min-width: 900px) 60vh, 90vw" width="2000" height="1330" loading="lazy" alt="Marcus de costas num palco, mãos unidas, olhando uma vara de refletores acesos.">
+              <img class="tinta" src="assets/img/fvp-8603.webp" srcset="assets/img/fvp-8603-1000.webp 1000w, assets/img/fvp-8603.webp 2000w" sizes="(min-width: 900px) 60vh, 90vw" width="2000" height="1330" loading="lazy" alt="Marcus de costas num palco, mãos unidas, olhando uma vara de refletores acesos." decoding="async">
             </figure>
           </div>
           <div class="lateral__pe" aria-hidden="true">
@@ -795,7 +796,7 @@
     <!-- IX · NA IMPRENSA -->
     <section class="secao imprensa" id="imprensa" data-tone="light" data-num="IX" data-title="Na imprensa">
       <!-- telão: trecho de <cite>Instante-já</cite>, em sépia e câmera lenta (ferramentas/gerar-teloes.py) -->
-      <div class="telao" aria-hidden="true" data-video="assets/video/instante-ja.mp4"><div class="telao__quadro" style="--foco: 50% 60%"><img src="assets/img/teloes/instante-ja.webp" width="960" height="540" alt="" loading="lazy"></div></div>
+      <div class="telao" aria-hidden="true" data-video="assets/video/instante-ja.mp4"><div class="telao__quadro" style="--foco: 50% 60%"><img src="assets/img/teloes/instante-ja.webp" width="960" height="540" alt="" loading="lazy" decoding="async"></div></div>
       <header class="cabeca cabeca--espelho">
         <span class="cabeca__num" aria-hidden="true">IX</span>
         <h2 class="cabeca__titulo">Na <em>imprensa</em></h2>
@@ -918,7 +919,7 @@
 
     <!-- X · CONTATO -->
     <section class="secao contato" id="contato" data-tone="dark" data-num="X" data-title="Contato">
-      <img class="contato__fundo" src="assets/img/fvp-8547.webp" srcset="assets/img/fvp-8547-1000.webp 1000w, assets/img/fvp-8547.webp 1330w" sizes="50vw" width="1330" height="2000" loading="lazy" alt="">
+      <img class="contato__fundo" src="assets/img/fvp-8547.webp" srcset="assets/img/fvp-8547-1000.webp 1000w, assets/img/fvp-8547.webp 1330w" sizes="50vw" width="1330" height="2000" loading="lazy" alt="" decoding="async">
       <header class="cabeca">
         <span class="cabeca__num" aria-hidden="true">X</span>
         <h2 class="cabeca__titulo contato__titulo">Contato</h2>

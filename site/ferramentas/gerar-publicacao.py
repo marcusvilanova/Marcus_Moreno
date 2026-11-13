@@ -7,6 +7,7 @@
 # Para publicar também o caderno de conceito:   python ferramentas/gerar-publicacao.py --com-conceito
 #
 # Edite sempre a pasta "site" e gere de novo; a pasta "publicar" é apagada e refeita a cada vez.
+import hashlib
 import re
 import shutil
 import sys
@@ -90,10 +91,12 @@ def principal(com_conceito: bool) -> None:
 
     # página inicial apontando para os arquivos juntos
     pagina = (SITE / "index.html").read_text(encoding="utf-8")
+    # a versão muda quando os estilos ou o código mudam: quem já visitou recebe os arquivos novos
+    versao = hashlib.md5((css + js).encode("utf-8")).hexdigest()[:8]
     pagina = re.sub(r'  <link rel="stylesheet" href="css/fontes\.css">\n(?:.*\n)*?  <link rel="stylesheet" href="css/imersao\.css">\n',
-                    '  <link rel="stylesheet" href="css/site.min.css">\n', pagina, count=1)
+                    f'  <link rel="stylesheet" href="css/site.min.css?v={versao}">\n', pagina, count=1)
     pagina = re.sub(r'  <script src="js/agenda\.js" defer></script>\n(?:  <script src="js/\w+\.js" defer></script>\n)+',
-                    '  <script src="js/site.min.js" defer></script>\n', pagina, count=1)
+                    f'  <script src="js/site.min.js?v={versao}" defer></script>\n', pagina, count=1)
     if not com_conceito:
         pagina = pagina.replace(' · <a href="conceito.html">Caderno de conceito</a>', "")
     assert "css/site.min.css" in pagina and "js/site.min.js" in pagina, "não achei os links para trocar no index.html"

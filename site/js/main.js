@@ -612,6 +612,45 @@
     new IntersectionObserver(([e]) => capa.classList.toggle('is-visivel', e.isIntersecting), { threshold: 0.2 }).observe(capa);
   }
 
+  // carregamento adiantado: as fotos são buscadas antes de chegarem à tela.
+  // 1. por perto: o que está a até duas telas de distância começa a baixar na hora;
+  // 2. com calma: depois que a página abre, o resto vai chegando em ordem, uma foto por vez,
+  //    para estar pronto quando a pessoa rolar (não vale para quem pede economia de dados).
+  function iniciarPreCarga() {
+    const fotos = [...document.querySelectorAll('img[loading="lazy"]')];
+    if (!fotos.length || !('IntersectionObserver' in window)) return;
+    const buscar = (img) => { if (img.loading === 'lazy') img.loading = 'eager'; };
+    // o bloco de cada foto: galerias, capa e mural carregam inteiros; as demais, pela moldura
+    const blocoDe = (img) => img.closest('[data-lateral], .abertura, .acervo, .telao') || img.closest('figure, li') || img.parentElement;
+    const porBloco = new Map();
+    fotos.forEach((img) => { const b = blocoDe(img); porBloco.set(b, [...(porBloco.get(b) || []), img]); });
+    const perto = new IntersectionObserver((entradas) => {
+      entradas.forEach((e) => {
+        if (!e.isIntersecting) return;
+        perto.unobserve(e.target);
+        porBloco.get(e.target).forEach(buscar);
+      });
+    }, { rootMargin: '200% 0px' });
+    porBloco.forEach((_, bloco) => perto.observe(bloco));
+
+    const conexao = navigator.connection;
+    if (conexao && (conexao.saveData || /2g/.test(conexao.effectiveType || ''))) return;
+    function proxima() {
+      // só as fotos que existem nesta tela (as escondidas no celular ou no computador ficam de fora)
+      const img = fotos.find((f) => f.loading === 'lazy' && f.getClientRects().length);
+      if (!img) return;
+      let seguiu = false;
+      const seguir = () => { if (!seguiu) { seguiu = true; setTimeout(proxima, 120); } };
+      img.addEventListener('load', seguir, { once: true });
+      img.addEventListener('error', seguir, { once: true });
+      setTimeout(seguir, 8000);
+      buscar(img);
+    }
+    const comecar = () => setTimeout(proxima, 2500);
+    if (document.readyState === 'complete') comecar();
+    else addEventListener('load', comecar, { once: true });
+  }
+
   // Aa: cada toque aumenta a letra um passo; depois do maior, volta ao tamanho de origem.
   // A escolha fica guardada neste navegador para as próximas visitas.
   function iniciarLetra() {
@@ -645,6 +684,7 @@
   iniciarLaterais();
   iniciarAcervo();
   iniciarCapa();
+  iniciarPreCarga();
   iniciarLetra();
 
   const ano = document.querySelector('[data-ano]');

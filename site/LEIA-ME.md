@@ -56,3 +56,4 @@ Para ver os vídeos dentro do site no seu computador, dê dois cliques em `abrir
 - `404.html`, `robots.txt`, `sitemap.xml` · para a publicação (ver `PUBLICAR.md`)
 
 As fotos originais continuam em `../Fotos`.
+- **Desempenho:** as fotos começam a baixar duas telas antes de aparecerem e o resto chega aos poucos depois que a página abre (`iniciarPreCarga`, em `js/main.js`); os vídeos de fundo também baixam antes (`js/imersao.js`). O vídeo da epígrafe é gerado à parte, em alta qualidade, por `python ferramentas/gerar-telao-epigrafe.py`. O tempo que o navegador guarda cada arquivo está no `vercel.json`.

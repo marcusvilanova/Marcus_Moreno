@@ -138,11 +138,13 @@
   function iniciarTeloes() {
     const teloes = document.querySelectorAll('.telao[data-video]');
     if (reduzMovimento || !teloes.length || !('IntersectionObserver' in window)) return;
+    // em telas pequenas, a versão menor do vídeo, quando existe
+    const fonte = (telao) => (innerWidth <= 800 && telao.dataset.videoMenor) || telao.dataset.video;
     const olhar = new IntersectionObserver((entradas) => {
       entradas.forEach(({ target, isIntersecting }) => {
         let video = target.querySelector('video');
         if (isIntersecting && !video) {
-          video = criarVideo(target.dataset.video);
+          video = criarVideo(fonte(target));
           target.querySelector('.telao__quadro').append(video);
         }
         if (!video) return;
@@ -151,7 +153,15 @@
         else video.pause();
       });
     }, { rootMargin: '30% 0px' });
-    teloes.forEach((telao) => olhar.observe(telao));
+    // o vídeo começa a baixar duas telas antes de a seção aparecer, para já estar pronto na chegada
+    const adiantar = new IntersectionObserver((entradas, obs) => {
+      entradas.forEach(({ target, isIntersecting }) => {
+        if (!isIntersecting) return;
+        obs.unobserve(target);
+        if (!target.querySelector('video')) target.querySelector('.telao__quadro').append(criarVideo(fonte(target)));
+      });
+    }, { rootMargin: '200% 0px' });
+    teloes.forEach((telao) => { adiantar.observe(telao); olhar.observe(telao); });
   }
 
   /* ---------- 5 · assinatura do rodapé ---------- */
