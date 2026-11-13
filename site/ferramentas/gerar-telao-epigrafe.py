@@ -1,7 +1,8 @@
 # Gera o vídeo de fundo da epígrafe em alta qualidade (a linha de luz de Instante-já), separado dos outros telões
 # porque a cena é muito escura e pede um tratamento próprio:
 #   - a origem é o trecho em 1080p baixado do YouTube sem recompressão (formato 270, 17:20 a 17:46);
-#   - a limpeza de granulado é feita no tempo (a câmera é fixa), em 16 bits, sem borrar a figura;
+#   - a limpeza de granulado é leve e em 16 bits: forte no tempo, ela deixava rastro no corpo em movimento;
+#     depois, um realce de contorno (cas) devolve a nitidez que a compressão do YouTube tirou;
 #   - o fundo vai exatamente para a cor do palco e as luzes para a cor do papel, sem véu por cima.
 # Saídas: assets/video/instante-linha.mp4 (1920 px), instante-linha-960.mp4 (celular) e o quadro parado.
 #
@@ -37,7 +38,7 @@ def gerar(destino: Path, largura: int, crf: int) -> None:
     escala = f"scale={largura}:-2:flags=lanczos," if largura != 1920 else ""
     filtros = (
         f"[0:v]trim=start={INICIO}:end={FIM},setpts=PTS-STARTPTS,fps=24,scale=in_range=tv:out_range=pc,format=gray16le,"
-        f"atadenoise=0a=0.3:0b=0.6:s=15,hqdn3d=2:0:4:0,pad=iw:trunc(ih*1.25/2)*2:0:0:black,format=gbrp16le,{tons()},split=2[a][b];"
+        f"hqdn3d=3:0:1.5:0,atadenoise=0a=0.2:0b=0.4:s=5,cas=0.7,pad=iw:trunc(ih*1.25/2)*2:0:0:black,format=gbrp16le,{tons()},split=2[a][b];"
         f"[a]trim=start={EMENDA}:end={total:.2f},setpts=PTS-STARTPTS,fps=24[corpo];"
         f"[b]trim=start=0:end={EMENDA},setpts=PTS-STARTPTS,fps=24[comeco];"
         f"[corpo][comeco]xfade=transition=fade:duration={EMENDA}:offset={total - 2 * EMENDA:.2f},"
