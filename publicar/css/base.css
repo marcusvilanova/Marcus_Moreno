@@ -313,9 +313,9 @@ h1, h2, h3,
 /* ---------- cenas ----------
    Cada foto fica 6 s. Nos 2 s de passagem, a que sai e a que entra se sobrepõem em clareamento
    (o mais claro de cada uma prevalece), como dupla exposição: os corpos de uma aparecem dentro da outra.
-   Sete fotos formam um ciclo de 42 s. Para outro número, ajuste --ciclo (fotos × 6 s)
+   Seis fotos formam um ciclo de 36 s. Para outro número, ajuste --ciclo (fotos × 6 s)
    e as porcentagens dos keyframes (2 s, 6 s e 8 s em relação ao ciclo; a legenda, 2,4 s a 6,3 s). */
-.abertura { --cena-dur: 6s; --ciclo: 42s; }
+.abertura { --cena-dur: 6s; --ciclo: 36s; }
 .abertura__cena { z-index: 0; isolation: isolate; }
 
 .cena { position: absolute; inset: 0; margin: 0; }
@@ -369,15 +369,15 @@ h1, h2, h3,
 }
 @keyframes cena-fusao {
   0%      { opacity: 0; transform: scale(1.08); filter: blur(6px); animation-timing-function: ease-in-out; }
-  4.762%  { opacity: 1; filter: blur(0); }
-  14.286% { opacity: 1; filter: blur(0); animation-timing-function: ease-in-out; }
-  19.048% { opacity: 0; transform: scale(1); filter: blur(6px); }
+  5.556%  { opacity: 1; filter: blur(0); }
+  16.667% { opacity: 1; filter: blur(0); animation-timing-function: ease-in-out; }
+  22.222% { opacity: 0; transform: scale(1); filter: blur(6px); }
   100%    { opacity: 0; transform: scale(1); filter: blur(6px); }
 }
 @keyframes cena-legenda {
-  0%, 5.714%       { opacity: 0; }
-  7.143%, 13.571%  { opacity: 1; }
-  15%, 100%        { opacity: 0; }
+  0%, 6.667%       { opacity: 0; }
+  8.333%, 15.833%  { opacity: 1; }
+  17.5%, 100%      { opacity: 0; }
 }
 
 /* assinatura MM: linha contínua */
