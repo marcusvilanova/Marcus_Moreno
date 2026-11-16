@@ -278,18 +278,18 @@ h1, h2, h3,
 
 .indice__lista li { border-top: 1px solid rgb(242 238 230 / 0.14); }
 .indice__lista a {
-  display: grid;
-  grid-template-columns: 4.5rem 1fr;
-  align-items: baseline;
+  display: block;
   padding: 0.35rem 0;
-  font-size: clamp(1.8rem, 4.6vw, 3.6rem);
+  font-size: clamp(1.3rem, 2.3vw, 2rem);
   line-height: 1.15;
   text-decoration: none;
   transition: color 0.3s ease, padding 0.5s var(--curva);
 }
+/* só as siglas ES e EN ficam ao lado do título */
 .indice__lista span {
+  display: inline-block;
+  min-width: 2.6rem;
   font-family: var(--grotesca);
-  font-stretch: 75%;
   font-size: 0.8rem;
   letter-spacing: 0.18em;
   color: var(--destaque-claro);
