@@ -29,7 +29,7 @@
 .lateral__abre { flex: none; width: min(21rem, 78vw); display: grid; gap: 1.2rem; scroll-snap-align: start; }
 .lateral__abre > .rotulo:first-child { color: var(--destaque); }
 .lateral__frase { font-family: var(--serif); font-weight: var(--peso-titulo); font-size: var(--fs-grande); line-height: 1.12; }
-.lateral__frase em { font-style: italic; }
+.lateral__frase em { font-style: normal; }
 .lateral__dica { display: inline-flex; align-items: center; gap: 0.9rem; color: var(--tinta-clara); }
 .lateral__dica i { width: 3.5rem; height: 1px; background: currentColor; position: relative; }
 .lateral__dica i::after {
@@ -93,7 +93,7 @@
 .conversa__botao:hover .tinta, .conversa__botao:focus-visible .tinta, .conversa.is-ativo .tinta { filter: none; }
 
 .conversa__n { display: block; margin-bottom: 0.6rem; font-family: var(--grotesca); font-stretch: 75%; font-size: var(--fs-rotulo); letter-spacing: 0.18em; color: var(--destaque); }
-.conversa__com { font-style: italic; font-size: 0.5em; color: var(--tinta-clara); margin-right: 0.15em; }
+.conversa__com { font-style: normal; font-size: 0.5em; color: var(--tinta-clara); margin-right: 0.15em; }
 .conversa__botao:hover, .conversa__botao:focus-visible, .conversa.is-ativo .conversa__botao { color: var(--destaque); }
 .conversa__botao:focus-visible { outline: 1px solid var(--destaque); outline-offset: 6px; }
 
@@ -129,7 +129,7 @@
   font-variant-numeric: lining-nums;
   white-space: nowrap;
 }
-.marco__ano i { font-style: italic; font-size: 0.5em; color: var(--tinta-clara); margin-left: 0.2em; }
+.marco__ano i { font-style: normal; font-size: 0.5em; color: var(--tinta-clara); margin-left: 0.2em; }
 .marco p {
   position: relative;
   margin-top: 1.1rem;

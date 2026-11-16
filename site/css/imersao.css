@@ -149,7 +149,7 @@
   color: var(--cal);
   text-shadow: 0 0 2.5rem rgb(43 32 25 / 0.7);
 }
-.cena-instante__perguntas em { font-style: italic; color: var(--kraft); }
+.cena-instante__perguntas em { font-style: normal; color: var(--kraft); }
 
 /* com movimento: a tela para, e a rolagem passa as perguntas uma a uma sobre a foto */
 .cena-instante.is-viva { height: 340vh; } /* cerca de três telas para as três perguntas, e o fim da cena */

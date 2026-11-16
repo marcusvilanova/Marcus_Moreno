@@ -46,7 +46,7 @@
   line-height: 0.9;
   letter-spacing: -0.01em;
 }
-.entreato__titulo em { font-style: italic; }
+.entreato__titulo em { font-style: normal; }
 .entreato__texto { max-width: 22rem; line-height: 1.5; color: var(--tinta-escura); }
 .entreato__dica { display: inline-flex; align-items: center; gap: 0.9rem; color: var(--tinta-escura); }
 .entreato__dica i { width: 3.5rem; height: 1px; background: currentColor; position: relative; }
@@ -73,7 +73,7 @@
 .entreato__foto--h { align-self: flex-start; }
 .entreato__foto--baixo { align-self: flex-end; }
 .entreato__foto .legenda { color: var(--tinta-escura); }
-.entreato__foto .legenda cite { font-style: italic; color: var(--cal); }
+.entreato__foto .legenda cite { font-style: normal; color: var(--cal); }
 .entreato__n { color: var(--destaque-claro); margin-right: 0.5em; font-variant-numeric: tabular-nums; }
 
 /* rodapé: contador e linha de progresso */

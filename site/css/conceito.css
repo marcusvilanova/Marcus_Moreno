@@ -19,7 +19,7 @@
   line-height: 0.86;
   letter-spacing: -0.035em;
 }
-.caderno__sub { font-size: var(--fs-grande); font-style: italic; color: var(--tinta-escura); max-width: 22em; }
+.caderno__sub { font-size: var(--fs-grande); font-style: normal; color: var(--tinta-escura); max-width: 22em; }
 .caderno__voltar { color: var(--cal); width: fit-content; }
 
 .caderno__corpo { max-width: 1180px; margin: 0 auto; padding: 0 var(--margem); }
@@ -40,18 +40,18 @@
 }
 .folha h2 {
   font-weight: var(--peso-titulo);
-  font-size: clamp(2.2rem, 5vw, 4.4rem);
+  font-size: clamp(2rem, 4.4vw, 3.8rem);
   line-height: 0.95;
   letter-spacing: -0.02em;
 }
 .folha__texto p + p { margin-top: 1em; }
 .folha__texto, .folha__intro { max-width: 36em; }
-.folha__intro { font-style: italic; }
+.folha__intro { font-style: normal; }
 .folha__nota {
   margin-top: 1.4rem;
   padding-left: 1rem;
   border-left: 1px solid var(--destaque);
-  font-style: italic;
+  font-style: normal;
   font-size: 1rem;
   max-width: 34em;
 }
@@ -78,7 +78,7 @@
   margin-top: 2.5rem;
   font-weight: var(--peso-titulo);
   font-size: var(--fs-grande);
-  font-style: italic;
+  font-style: normal;
   display: flex; align-items: baseline; gap: 1rem;
 }
 .camada span {
@@ -134,7 +134,7 @@
   line-height: 1.3;
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--nanquim) 12%, transparent);
 }
-.paleta li span { font-size: 1.5rem; font-style: italic; }
+.paleta li span { font-size: 1.5rem; font-style: normal; }
 .paleta code { font-family: var(--grotesca); font-stretch: 75%; letter-spacing: 0.1em; font-size: 0.72rem; }
 .paleta--escura { color: var(--cal) !important; }
 
@@ -146,7 +146,7 @@
 
 /* gestos */
 .gestos { display: grid; gap: 0.4rem 2rem; }
-.gestos dt { font-style: italic; font-size: 1.3rem; padding-top: 1.1rem; border-top: 1px solid color-mix(in srgb, var(--nanquim) 22%, transparent); }
+.gestos dt { font-style: normal; font-size: 1.3rem; padding-top: 1.1rem; border-top: 1px solid color-mix(in srgb, var(--nanquim) 22%, transparent); }
 .gestos dd { margin: 0 0 0.6rem; max-width: 38em; }
 @media (min-width: 900px) {
   .gestos { grid-template-columns: 16rem 1fr; }

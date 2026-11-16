@@ -25,8 +25,8 @@
   --grotesca: "Tenor Sans", "Helvetica Neue", Arial, sans-serif;
 
   --fs-nome: clamp(4.2rem, 15.5vw, 17rem);
-  --fs-titulo: clamp(2.2rem, 5.2vw, 5.4rem);
-  --fs-obra: clamp(1.75rem, 3.2vw, 3.3rem);
+  --fs-titulo: clamp(2rem, 4.5vw, 4.7rem);
+  --fs-obra: clamp(1.55rem, 2.9vw, 2.9rem);
   --fs-grande: clamp(1.25rem, 1.9vw, 1.8rem);
   --fs-corpo: clamp(1.06rem, 0.2vw + 1rem, 1.16rem);
   --fs-rotulo: 0.78rem;   /* rótulos, legendas, datas: cerca de 11 px no computador, 12 no celular e no tablet */
@@ -74,7 +74,7 @@ img { display: block; max-width: 100%; height: auto; }
 figure { margin: 0; }
 p, h1, h2, h3, ol, ul, dl, dd { margin: 0; }
 ol, ul { padding: 0; list-style: none; }
-cite { font-style: italic; }
+cite { font-style: normal; }
 address { font-style: normal; }
 button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
 a { color: inherit; }
@@ -97,6 +97,9 @@ a { color: inherit; }
   transform: translateY(-200%);
 }
 .skip:focus { transform: none; }
+
+/* sem itálico em nenhum lugar do site: a ênfase fica na cor, não na inclinação */
+em, i, cite, dfn, address, var { font-style: normal; }
 
 /* voz dos títulos: Tenor Sans */
 h1, h2, h3,
@@ -166,7 +169,7 @@ h1, h2, h3,
   align-items: center;
   gap: 0.7rem;
   font-family: var(--serif);
-  font-style: italic;
+  font-style: normal;
   font-weight: var(--peso-texto);
   font-size: 1.25rem;
   text-decoration: none;
@@ -239,7 +242,7 @@ h1, h2, h3,
   right: 0;
   white-space: nowrap;
   font-family: var(--serif);
-  font-style: italic;
+  font-style: normal;
   font-size: 0.95rem;
   letter-spacing: 0.01em;
   text-transform: none;
@@ -281,7 +284,7 @@ h1, h2, h3,
   display: block;
   font-family: var(--grotesca);
   padding: 0.35rem 0;
-  font-size: clamp(1.3rem, 2.3vw, 2rem);
+  font-size: clamp(1.2rem, 2vw, 1.75rem);
   line-height: 1.15;
   text-decoration: none;
   transition: color 0.3s ease, padding 0.5s var(--curva);
@@ -295,8 +298,8 @@ h1, h2, h3,
   letter-spacing: 0.18em;
   color: var(--destaque-claro);
 }
-.indice__lista a:hover, .indice__lista a:focus-visible { color: var(--destaque-claro); padding-left: 1.2rem; font-style: italic; }
-.indice__pe { margin-top: 2rem; font-style: italic; color: var(--tinta-escura); }
+.indice__lista a:hover, .indice__lista a:focus-visible { color: var(--destaque-claro); padding-left: 1.2rem; font-style: normal; }
+.indice__pe { margin-top: 2rem; font-style: normal; color: var(--tinta-escura); }
 
 /* ---------- abertura: fotos em tela cheia que se fundem umas nas outras ---------- */
 
@@ -437,7 +440,7 @@ h1, h2, h3,
 }
 .epigrafe__lead { color: var(--destaque); margin-bottom: 1.6rem; }
 .epigrafe__frase {
-  font-size: clamp(1.6rem, 4vw, 4.1rem);
+  font-size: clamp(1.4rem, 3.4vw, 3.5rem);
   line-height: 1.06;
   letter-spacing: -0.02em;
 }
@@ -472,7 +475,7 @@ h1, h2, h3,
   color: var(--tinta-clara);
 }
 .agora__lista p { font-size: 1.12rem; line-height: 1.25; font-weight: var(--peso-titulo); max-width: 26em; }
-.agora__lista cite { font-style: italic; }
+.agora__lista cite { font-style: normal; }
 @media (min-width: 900px) {
   .agora { grid-template-columns: 8rem 1fr; }
   .agora__lista { grid-template-columns: 1fr 1fr; }
@@ -523,7 +526,7 @@ h1, h2, h3,
   line-height: 0.9;
   letter-spacing: -0.03em;
 }
-.cabeca__titulo em { font-style: italic; }
+.cabeca__titulo em { font-style: normal; }
 .cabeca__nota {
   grid-column: 1;
   margin-top: 1rem;
@@ -740,7 +743,7 @@ figure:has(> img.tinta), .obra__ver { overflow: hidden; }
 /* ---------- telas muito grandes (monitores 2K e 4K, TVs) ----------
    Acima de 1920 px, a medida de base cresce junto com a tela: letras, margens e a largura máxima do conteúdo
    (em rem) acompanham, em vez de o site virar uma coluna pequena no meio de uma tela enorme. */
-html { --escala: 1; font-size: calc(max(87.5%, 0.73vw) * var(--escala)); }
+html { --escala: 1; font-size: calc(max(80%, 0.67vw) * var(--escala)); }
 :root { --maximo: 92.5rem; }
 
 /* ---------- toque: botões e links com área de toque de pelo menos 44 px, sem mudar o desenho ---------- */
@@ -809,7 +812,7 @@ html { --escala: 1; font-size: calc(max(87.5%, 0.73vw) * var(--escala)); }
   border-bottom: 1px solid rgb(214 198 171 / 0.22);
 }
 .agora__cartaz .agora__titulo { margin: auto 0 0; max-width: 14em; font-size: clamp(1.45rem, 2.1vw, 1.95rem); line-height: 1.1; font-weight: var(--peso-titulo); }
-.agora__cartaz .agora__titulo cite { font-style: italic; }
+.agora__cartaz .agora__titulo cite { font-style: normal; }
 .agora__cartaz .agora__detalhe { margin: 0 0 auto; max-width: 24em; font-size: 0.98rem; line-height: 1.4; color: var(--tinta-escura); }
 .agora__cartaz .agora__quando {
   margin: 0;

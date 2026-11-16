@@ -25,7 +25,7 @@
   letter-spacing: 0.14em; text-transform: uppercase; color: var(--tinta-clara);
   margin-top: 0.7rem;
 }
-.ficha dd, .ficha__hoje { font-style: italic; line-height: 1.3; }
+.ficha dd, .ficha__hoje { font-style: normal; line-height: 1.3; }
 
 @media (min-width: 900px) {
   .sobre__grade { grid-template-columns: repeat(12, 1fr); column-gap: 1.5rem; align-items: start; }
@@ -54,7 +54,7 @@
 .rede__centro { fill: var(--nanquim); }
 .rede__nome {
   font-family: var(--serif);
-  font-style: italic;
+  font-style: normal;
   font-size: 23px;
   fill: var(--nanquim);
   transition: fill 0.3s ease;
@@ -101,8 +101,8 @@
 
 /* III · encontros efêmeros */
 .efemeros__intro { display: grid; gap: 1.2rem; margin-bottom: clamp(2.5rem, 6vw, 4.5rem); max-width: 40em; }
-.efemeros__frase { font-size: var(--fs-grande); line-height: 1.22; font-weight: var(--peso-titulo); font-style: italic; }
-.lista-video__sub { display: block; font-size: 0.4em; font-style: italic; color: var(--tinta-clara); letter-spacing: 0; margin-top: 0.3rem; }
+.efemeros__frase { font-size: var(--fs-grande); line-height: 1.22; font-weight: var(--peso-titulo); font-style: normal; }
+.lista-video__sub { display: block; font-size: 0.4em; font-style: normal; color: var(--tinta-clara); letter-spacing: 0; margin-top: 0.3rem; }
 
 @media (min-width: 900px) {
   .entrevistas__grade { grid-template-columns: repeat(12, 1fr); column-gap: 1.5rem; row-gap: 4rem; }
@@ -137,7 +137,7 @@
   opacity: 0; transform: translateX(-1rem);
   transition: opacity 0.4s ease, transform 0.6s var(--curva);
 }
-.lista-video__com { font-style: italic; font-size: 0.42em; color: var(--tinta-clara); }
+.lista-video__com { font-style: normal; font-size: 0.42em; color: var(--tinta-clara); }
 .lista-video__item:hover, .lista-video__item:focus-visible, .lista-video li.is-ativo .lista-video__item { color: var(--destaque); }
 .lista-video__item:hover::after, .lista-video__item:focus-visible::after { opacity: 1; transform: none; }
 
@@ -233,7 +233,7 @@
 .presente__intro {
   font-size: var(--fs-grande);
   line-height: 1.28;
-  font-style: italic;
+  font-style: normal;
   max-width: 22em;
 }
 @media (min-width: 900px) {
@@ -250,7 +250,7 @@
   padding: clamp(1rem, 2.4vw, 2rem) 0;
   text-align: left;
 }
-.dedicatoria__para { font-style: italic; font-size: 1.2rem; color: var(--destaque-claro); }
+.dedicatoria__para { font-style: normal; font-size: 1.2rem; color: var(--destaque-claro); }
 .dedicatoria__nome {
   font-size: clamp(2.2rem, 6.4vw, 6.4rem);
   line-height: 1;
@@ -258,7 +258,7 @@
   transition: transform 0.8s var(--curva), color 0.3s ease;
 }
 .dedicatoria--tres .dedicatoria__nome { font-size: clamp(1.7rem, 3.6vw, 3.6rem); max-width: 18em; text-wrap: balance; }
-.dedicatoria:hover .dedicatoria__nome, .dedicatoria:focus-visible .dedicatoria__nome { transform: translateX(1.2rem); color: var(--destaque-claro); font-style: italic; }
+.dedicatoria:hover .dedicatoria__nome, .dedicatoria:focus-visible .dedicatoria__nome { transform: translateX(1.2rem); color: var(--destaque-claro); font-style: normal; }
 
 @media (min-width: 900px) {
   .dedicatorias li:nth-child(even) .dedicatoria { justify-content: flex-end; text-align: right; }
@@ -284,7 +284,7 @@
   letter-spacing: -0.02em;
   margin: 0.4rem 0 0.5rem;
 }
-.curadoria__lista p { font-style: italic; }
+.curadoria__lista p { font-style: normal; }
 
 @media (min-width: 900px) {
   .curadoria__grade { grid-template-columns: repeat(12, 1fr); column-gap: 1.5rem; align-items: start; }
@@ -309,8 +309,8 @@
   letter-spacing: -0.02em;
 }
 .tese__titulo cite { font-style: normal; }
-.tese__titulo em { font-style: italic; }
-.tese__sub { font-family: var(--serif); font-style: italic; font-size: var(--fs-grande); line-height: 1.15; color: var(--tinta-clara); }
+.tese__titulo em { font-style: normal; }
+.tese__sub { font-family: var(--serif); font-style: normal; font-size: var(--fs-grande); line-height: 1.15; color: var(--tinta-clara); }
 .tese__ficha { display: grid; grid-template-columns: auto 1fr; gap: 0.45rem 1.4rem; align-self: end; padding-top: 1.2rem; border-top: 1px solid color-mix(in srgb, var(--nanquim) 25%, transparent); }
 .tese__ficha dt { font-family: var(--grotesca); font-stretch: 75%; font-size: var(--fs-rotulo); letter-spacing: 0.16em; text-transform: uppercase; color: var(--tinta-clara); padding-top: 0.25rem; }
 .tese__ficha dd { line-height: 1.4; }
@@ -339,13 +339,13 @@
 }
 /* o título na frente; onde saiu e com quem, pequeno, embaixo */
 .biblio__nome { font-family: var(--serif); font-size: clamp(1.35rem, 1vw + 1.05rem, 1.75rem); line-height: 1.2; max-width: 30em; }
-.biblio__nome cite { font-style: italic; }
+.biblio__nome cite { font-style: normal; }
 .biblio__onde {
   font-family: var(--grotesca); font-stretch: 75%; font-size: var(--fs-rotulo);
   letter-spacing: 0.14em; text-transform: uppercase; line-height: 1.6; color: var(--tinta-clara);
 }
 .biblio__onde cite { font-style: normal; }
-.biblio__com { text-transform: none; letter-spacing: 0.02em; font-family: var(--serif); font-stretch: 100%; font-style: italic; font-size: 1.35em; color: var(--nanquim); }
+.biblio__com { text-transform: none; letter-spacing: 0.02em; font-family: var(--serif); font-stretch: 100%; font-style: normal; font-size: 1.35em; color: var(--nanquim); }
 
 /* textos publicados na internet: a linha inteira leva ao texto, numa aba nova */
 .biblio__item--link { cursor: pointer; }
@@ -379,7 +379,7 @@
   margin-top: 3rem;
   padding-top: 1.2rem;
   border-top: 1px solid color-mix(in srgb, var(--nanquim) 25%, transparent);
-  font-style: italic;
+  font-style: normal;
 }
 .trajetoria__intl .rotulo { display: block; font-style: normal; color: var(--destaque); margin-bottom: 0.5rem; }
 
@@ -401,7 +401,7 @@
   margin: 0;
   font-size: clamp(2.2rem, 5vw, 4.6rem);
   font-weight: var(--peso-titulo);
-  font-style: italic;
+  font-style: normal;
   line-height: 1.02;
   letter-spacing: -0.015em;
 }
@@ -434,7 +434,7 @@
   padding-top: 0.45em;
 }
 .clipping__titulo { font-size: 1.3rem; line-height: 1.2; font-weight: var(--peso-titulo); }
-.clipping__veiculo { font-style: italic; color: var(--tinta-clara); font-size: 1rem; }
+.clipping__veiculo { font-style: normal; color: var(--tinta-clara); font-size: 1rem; }
 
 @media (min-width: 900px) {
   .imprensa__grade { grid-template-columns: 7fr 4fr; column-gap: clamp(2rem, 5vw, 5rem); }
@@ -459,7 +459,7 @@
 }
 .contato > :not(.contato__fundo) { position: relative; }
 .contato .cabeca::after { display: none; }
-.contato__titulo { font-size: var(--fs-titulo); font-style: italic; }
+.contato__titulo { font-size: var(--fs-titulo); font-style: normal; }
 
 .contato__grade { display: grid; gap: 2.4rem; }
 /* letras do contato menores que o corpo do site: é uma ficha, não um texto para ler */
@@ -467,7 +467,7 @@
 .produtor { display: grid; gap: 0.25rem; align-content: start; }
 .produtor .rotulo { color: var(--destaque-claro); margin-bottom: 0.6rem; }
 .produtor__nome { font-size: clamp(1.3rem, 1.5vw, 1.75rem); line-height: 1.1; }
-.produtor__casa { font-style: italic; color: var(--tinta-escura); margin-bottom: 0.7rem; }
+.produtor__casa { font-style: normal; color: var(--tinta-escura); margin-bottom: 0.7rem; }
 
 .produtor a, .contato__insta {
   text-decoration: none;
@@ -479,10 +479,10 @@
   background-size: 100% 1px;
   color: var(--destaque-claro);
 }
-.contato__insta { font-size: clamp(1.25rem, 1.4vw, 1.6rem); font-style: italic; display: grid; gap: 0.6rem; }
+.contato__insta { font-size: clamp(1.25rem, 1.4vw, 1.6rem); font-style: normal; display: grid; gap: 0.6rem; }
 .contato__insta .rotulo { font-style: normal; color: var(--destaque-claro); }
 .contato__redes { display: grid; gap: 1rem; align-content: start; }
-.contato__pessoal { width: fit-content; font-style: italic; color: var(--tinta-escura); text-decoration: none; }
+.contato__pessoal { width: fit-content; font-style: normal; color: var(--tinta-escura); text-decoration: none; }
 .contato__pessoal span {
   margin-left: 0.4rem;
   font-family: var(--grotesca); font-stretch: 75%; font-style: normal;
@@ -497,7 +497,7 @@
 .contato__kit {
   display: grid; gap: 0.4rem; width: fit-content;
   padding-top: 1.4rem; border-top: 1px solid color-mix(in srgb, var(--cal) 25%, transparent);
-  font-family: var(--serif); font-style: italic; font-size: 1.15rem; text-decoration: none;
+  font-family: var(--serif); font-style: normal; font-size: 1.15rem; text-decoration: none;
 }
 .contato__kit .rotulo { font-style: normal; color: var(--destaque-claro); }
 .contato__kit:hover, .contato__kit:focus-visible { color: var(--destaque-claro); }
@@ -597,7 +597,7 @@
   display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
   margin-bottom: 0.9rem;
 }
-.player__titulo { flex: 1; font-style: italic; font-size: 1.3rem; }
+.player__titulo { flex: 1; font-style: normal; font-size: 1.3rem; }
 
 /* saída de emergência: o mesmo vídeo no YouTube, se o player não carregar */
 .video-youtube {
@@ -733,5 +733,5 @@
   display: grid;
   grid-template-rows: auto minmax(auto, calc(76svh - var(--topo-epigrafe) - 2.6rem)) auto;
 }
-.epigrafe:has(> .telao) .epigrafe__frase { align-self: start; font-size: clamp(1.6rem, min(4vw, 7svh), 4.1rem); }
+.epigrafe:has(> .telao) .epigrafe__frase { align-self: start; font-size: clamp(1.4rem, min(3.4vw, 6svh), 3.5rem); }
 .epigrafe:has(> .telao) .agora { margin-top: 1.5rem; }

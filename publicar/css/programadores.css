@@ -9,7 +9,7 @@
   padding: 1.4rem 0;
   border-bottom: 1px solid color-mix(in srgb, var(--nanquim) 20%, transparent);
 }
-.kit__voltar { display: inline-flex; align-items: center; gap: 0.7rem; font-family: var(--serif); font-style: italic; font-size: 1.2rem; text-decoration: none; }
+.kit__voltar { display: inline-flex; align-items: center; gap: 0.7rem; font-family: var(--serif); font-style: normal; font-size: 1.2rem; text-decoration: none; }
 /* a assinatura à mão (classe nome-tinta, do base.css) leva de volta ao site */
 .kit__voltar .nome-tinta { width: 11rem; }
 .kit__idiomas { display: flex; gap: 1.2rem; }
@@ -19,7 +19,7 @@
 .kit__abre { padding: clamp(4rem, 10vw, 8rem) 0 clamp(3rem, 6vw, 5rem); display: grid; gap: 1.6rem; }
 .kit__abre .rotulo { color: var(--destaque); }
 .kit__titulo { font-family: var(--serif); font-weight: var(--peso-titulo); font-size: var(--fs-titulo); line-height: 0.92; letter-spacing: -0.02em; }
-.kit__titulo em { font-style: italic; }
+.kit__titulo em { font-style: normal; }
 .kit__intro { max-width: 34rem; font-size: var(--fs-corpo); line-height: 1.5; }
 
 /* downloads: três cartões em linha, cada um com o peso do arquivo */
@@ -44,13 +44,13 @@
 .kit__obras { border-bottom: 1px solid color-mix(in srgb, var(--nanquim) 20%, transparent); }
 .kit__obra { display: grid; grid-template-columns: 5rem 1fr; gap: 0.3rem 1.5rem; padding: 1.5rem 0; border-top: 1px solid color-mix(in srgb, var(--nanquim) 14%, transparent); }
 .kit__ano { grid-row: 1 / 4; font-family: var(--serif); font-weight: var(--peso-numeral); font-size: 2.4rem; line-height: 0.95; color: var(--destaque); font-variant-numeric: lining-nums; }
-.kit__nome { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1.6rem; line-height: 1.1; }
+.kit__nome { font-family: var(--serif); font-style: normal; font-weight: 400; font-size: 1.6rem; line-height: 1.1; }
 .kit__formato { font-family: var(--grotesca); font-stretch: 75%; font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--tinta-clara); }
 .kit__sinopse { max-width: 40em; line-height: 1.5; }
 .kit__video { grid-column: 2; justify-self: start; margin-top: 0.4rem; display: inline-flex; align-items: center; gap: 0.6rem; color: var(--destaque); text-decoration: none; }
 .kit__video::after { content: ""; width: 1.6rem; height: 1px; background: currentColor; transform: scaleX(0.6); transform-origin: left; transition: transform 0.6s var(--curva); }
 .kit__video:hover::after, .kit__video:focus-visible::after { transform: scaleX(1); }
-.kit__nota { max-width: 40em; color: var(--tinta-clara); font-style: italic; }
+.kit__nota { max-width: 40em; color: var(--tinta-clara); font-style: normal; }
 
 .kit__contatos { display: grid; gap: 2rem; }
 .kit__contato { display: grid; gap: 0.3rem; font-style: normal; }
