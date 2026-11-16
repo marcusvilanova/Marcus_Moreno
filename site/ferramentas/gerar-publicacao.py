@@ -18,8 +18,8 @@ SAIDA = SITE.parent / "publicar"
 MARCA = ".gerada-por-gerar-publicacao"
 
 # na ordem em que a página inicial os carrega
-CSS_DA_CAPA = ["fontes", "base", "obras", "secoes", "acervo", "laterais", "entreato", "imersao"]
-JS_DA_CAPA = ["agenda", "main", "mouse", "som", "imersao"]
+CSS_DA_CAPA = ["fontes", "base", "obras", "secoes", "acervo", "laterais", "entreato", "percurso", "imersao"]
+JS_DA_CAPA = ["agenda", "main", "mouse", "som", "imersao", "percurso"]
 # arquivos de estilo que outras páginas (programadores, es, en, 404) continuam usando soltos
 CSS_SOLTOS = {"fontes", "base", "programadores"}
 
@@ -109,7 +109,7 @@ def principal(com_conceito: bool) -> None:
 
     print(f"Pronto: {SAIDA}")
     print(f"  estilos da página inicial: {len(CSS_DA_CAPA)} arquivos -> 1 ({(SAIDA / 'css' / 'site.min.css').stat().st_size // 1024} KB)")
-    print(f"  código: 5 arquivos -> 1 ({(SAIDA / 'js' / 'site.min.js').stat().st_size // 1024} KB)")
+    print(f"  código: {len(JS_DA_CAPA)} arquivos -> 1 ({(SAIDA / 'js' / 'site.min.js').stat().st_size // 1024} KB)")
     print(f"  pasta inteira: {tamanho(SAIDA):.1f} MB" + ("" if com_conceito else " (sem o caderno de conceito)"))
 
 

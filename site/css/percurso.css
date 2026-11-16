@@ -1,0 +1,140 @@
+/* Percurso entre as páginas (js/percurso.js): a faixa "A seguir" no fim de cada página,
+   as duas portas da página inicial, as descrições do Índice e a troca de página como a luz da plateia. */
+
+/* ---------- A seguir: o próximo ato ---------- */
+
+.seguir {
+  background: var(--palco);
+  color: var(--cal);
+  padding: clamp(3rem, 7vw, 6rem) var(--margem) clamp(2rem, 4vw, 3rem);
+  border-top: 1px solid rgb(242 238 230 / 0.12);
+}
+.seguir__proxima {
+  max-width: var(--maximo);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(8rem, 22vw, 17rem);
+  align-items: end;
+  gap: clamp(1.5rem, 5vw, 5rem);
+  text-decoration: none;
+  color: inherit;
+}
+.seguir__texto { display: grid; gap: 0.9rem; min-width: 0; }
+.seguir__rotulo { color: var(--destaque-claro); }
+.seguir__titulo {
+  font-size: var(--fs-titulo);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  transition: color 0.4s ease, transform 0.6s var(--curva);
+}
+.seguir__linha { color: var(--tinta-escura); max-width: 32em; }
+.seguir__imagem {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  filter: sepia(0.55) saturate(0.7) brightness(0.85);
+  transition: filter 0.6s ease, transform 0.8s var(--curva);
+}
+.seguir__proxima:hover .seguir__titulo, .seguir__proxima:focus-visible .seguir__titulo { color: var(--destaque-claro); transform: translateX(0.4rem); }
+.seguir__proxima:hover .seguir__imagem, .seguir__proxima:focus-visible .seguir__imagem { filter: none; transform: scale(1.02); }
+.seguir__proxima:focus-visible { outline: 1px solid var(--destaque-claro); outline-offset: 0.6rem; }
+
+.seguir__outros {
+  max-width: var(--maximo);
+  margin: clamp(2rem, 4vw, 3rem) auto 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgb(242 238 230 / 0.12);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.8rem 2rem;
+  font-family: var(--grotesca);
+  font-size: var(--fs-rotulo);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--tinta-escura);
+}
+.seguir__anterior, .seguir__todas { color: var(--cal); text-decoration: none; }
+.seguir__todas { background: none; border: 0; padding: 0; font: inherit; letter-spacing: inherit; text-transform: inherit; cursor: pointer; }
+.seguir__anterior:hover, .seguir__todas:hover,
+.seguir__anterior:focus-visible, .seguir__todas:focus-visible { color: var(--destaque-claro); }
+
+@media (max-width: 600px) {
+  .seguir__proxima { grid-template-columns: minmax(0, 1fr) 6.5rem; gap: 1.2rem; }
+  .seguir__outros { justify-content: flex-start; }
+  .seguir__posicao { order: -1; width: 100%; }
+}
+
+/* ---------- página inicial: percorrer tudo ou ir direto ---------- */
+
+.portas {
+  background: var(--palco);
+  color: var(--cal);
+  padding: clamp(3rem, 7vw, 6rem) var(--margem) clamp(4rem, 8vw, 7rem);
+}
+.portas > * { max-width: var(--maximo); margin-left: auto; margin-right: auto; }
+.portas__percorrer {
+  display: grid;
+  gap: 0.9rem;
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  border-bottom: 1px solid rgb(242 238 230 / 0.14);
+  text-decoration: none;
+  color: inherit;
+}
+.portas__rotulo { color: var(--destaque-claro); }
+.portas__titulo { font-size: var(--fs-titulo); line-height: 1; transition: color 0.4s ease, transform 0.6s var(--curva); }
+.portas__titulo::after { content: " →"; color: var(--destaque-claro); }
+.portas__linha { color: var(--tinta-escura); }
+.portas__percorrer:hover .portas__titulo, .portas__percorrer:focus-visible .portas__titulo { color: var(--destaque-claro); transform: translateX(0.4rem); }
+
+.portas__mapa { margin-top: clamp(2rem, 4vw, 3rem); }
+.portas__lista {
+  list-style: none;
+  margin: 1.2rem auto 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+  gap: 0 clamp(1.5rem, 3vw, 3rem);
+}
+.portas__item {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.9rem 0;
+  border-top: 1px solid rgb(242 238 230 / 0.12);
+  text-decoration: none;
+  color: inherit;
+}
+.portas__nome { font-size: clamp(1.05rem, 1.5vw, 1.3rem); transition: color 0.3s ease; }
+.portas__desc { font-size: 0.9rem; color: var(--tinta-escura); }
+.portas__item:hover .portas__nome, .portas__item:focus-visible .portas__nome { color: var(--destaque-claro); }
+
+/* ---------- Índice: a página atual e uma linha sobre cada seção ---------- */
+
+.indice__linha {
+  display: block;
+  margin-top: 0.15rem;
+  font-family: var(--grotesca);
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  color: var(--tinta-escura);
+}
+.indice__lista a[aria-current="page"] { color: var(--destaque-claro); padding-left: 1.2rem; box-shadow: inset 1px 0 0 var(--destaque-claro); }
+.topo__posicao { margin-left: 0.8em; opacity: 0.6; }
+.topo__posicao::before { content: "· "; }
+
+/* ---------- troca de página: a luz baixa e sobe, como na plateia ---------- */
+
+@view-transition { navigation: auto; }
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition { background-color: var(--palco); }
+  ::view-transition-old(root) { animation: apagar-pagina 0.32s ease-in both; }
+  ::view-transition-new(root) { animation: acender-pagina 0.55s ease-out 0.2s both; }
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+}
+@keyframes apagar-pagina { to { opacity: 0; } }
+@keyframes acender-pagina { from { opacity: 0; } }

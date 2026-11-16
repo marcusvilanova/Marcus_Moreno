@@ -251,6 +251,25 @@
 
   botao.addEventListener('click', alternar);
 
+  /* ---------- entre páginas: quem ligou o som, reencontra o som ---------- */
+  // o navegador só deixa tocar depois de um gesto em cada página: o som volta no primeiro clique, toque ou tecla
+  const MEMORIA = 'mm-som';
+  botao.addEventListener('click', () => {
+    try { sessionStorage.setItem(MEMORIA, ligado ? '1' : '0'); } catch (e) { /* sem memória: cada página começa em silêncio */ }
+  });
+  let lembrado = false;
+  try { lembrado = sessionStorage.getItem(MEMORIA) === '1'; } catch (e) { /* sem memória */ }
+  if (lembrado) {
+    botao.classList.add('is-convite');
+    const retomar = (evento) => {
+      ['click', 'keydown', 'touchend'].forEach((tipo) => removeEventListener(tipo, retomar, true));
+      botao.classList.remove('is-convite');
+      if (ligado || botao.contains(evento.target)) return; // o próprio botão já decide
+      alternar();
+    };
+    ['click', 'keydown', 'touchend'].forEach((tipo) => addEventListener(tipo, retomar, { capture: true }));
+  }
+
   /* ---------- a cena muda com a seção que está no meio da tela ---------- */
 
   if ('IntersectionObserver' in window) {
