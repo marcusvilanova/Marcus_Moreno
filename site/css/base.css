@@ -18,10 +18,10 @@
   --tinta-clara: #5c554e;   /* texto secundário sobre papel */
   --tinta-escura: #b8aea2;  /* texto secundário sobre escuro */
 
-  --serif: "Cormorant Garamond", Garamond, "Times New Roman", serif;
+  --serif: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
   --peso-titulo: 300;   /* fino, de alto contraste */
-  --peso-texto: 400;   /* texto corrido: o peso normal da Cormorant, mais delicado */
-  --peso-numeral: 300;  /* anos e números grandes: Cormorant fina, algarismos alinhados */    /* o texto corrido precisa de corpo para ler bem */
+  --peso-texto: 400;   /* texto corrido: o peso normal da Bodoni Moda */
+  --peso-numeral: 400;  /* anos e números grandes: Bodoni Moda, algarismos alinhados */    /* o texto corrido precisa de corpo para ler bem */
   --grotesca: "Archivo", "Helvetica Neue", Arial, sans-serif;
 
   --fs-nome: clamp(4.2rem, 15.5vw, 17rem);
@@ -98,7 +98,7 @@ a { color: inherit; }
 }
 .skip:focus { transform: none; }
 
-/* voz dos títulos: Cormorant fina em todo texto de exibição */
+/* voz dos títulos: Bodoni Moda (o contraste alto dá o traço fino nos tamanhos grandes) */
 h1, h2, h3,
 .epigrafe__frase, .indice__lista a, .lista-video__item, .dedicatoria__nome,
 .presente__intro, .premios cite, .produtor__nome, .contato__insta,

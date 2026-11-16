@@ -1,10 +1,10 @@
 # Gera o mural do Acervo (antes do Contato): recorta cada imagem no mesmo formato (4:5), em assets/img/mural/,
-# e escreve as três faixas no index.html, entre <!-- MURAL:INICIO --> e <!-- MURAL:FIM -->.
+# e escreve as três faixas no acervo.html, entre <!-- MURAL:INICIO --> e <!-- MURAL:FIM -->.
 #
 # Uso, de dentro da pasta site:   python ferramentas/gerar-mural.py
 # Para trocar, tirar ou reordenar imagens, edite a lista FAIXAS abaixo e rode de novo.
 # Cada peça: (arquivo em assets/img, ponto de foco x e y de 0 a 1, destino, legenda)
-#   destino "#obra-flor" vira um link para a obra; destino ("video", id, início, título) abre o vídeo.
+#   destino "#obra-flor" vira um link para a obra (criacoes.html#obra-flor, na sua página); destino ("video", id, início, título) abre o vídeo.
 from html import escape
 from pathlib import Path
 
@@ -78,6 +78,12 @@ def recortar(arquivo: str, fx: float, fy: float) -> str:
     return nome
 
 
+def pagina_do_destino(destino: str) -> str:
+    """Cada seção tem a sua página: #obra-flor vai para criacoes.html#obra-flor, #sobre para sobre.html."""
+    alvo = destino.lstrip("#")
+    return f"criacoes.html#{alvo}" if alvo.startswith("obra-") else f"{alvo}.html"
+
+
 def peca(nome: str, destino, legenda: str, indice: int) -> str:
     # o mural fica no fim da página: as imagens só carregam quando a pessoa se aproxima (ver iniciarAcervo no main.js)
     img = f'<img src="assets/img/mural/{nome}" width="{LARGURA}" height="{ALTURA}" alt="" loading="lazy" decoding="async">'
@@ -87,7 +93,7 @@ def peca(nome: str, destino, legenda: str, indice: int) -> str:
         inicio_attr = f' data-start="{inicio}"' if inicio else ""
         return (f'<button class="mural__peca" type="button" tabindex="-1" data-video="{id_video}"{inicio_attr} '
                 f'data-titulo="{escape(titulo)}">{img}{rotulo}</button>')
-    return f'<a class="mural__peca" href="{destino}" tabindex="-1">{img}{rotulo}</a>'
+    return f'<a class="mural__peca" href="{pagina_do_destino(destino)}" tabindex="-1">{img}{rotulo}</a>'
 
 
 def principal() -> None:
@@ -114,7 +120,7 @@ def principal() -> None:
 
     bloco = ("<!-- MURAL:INICIO · gerado por ferramentas/gerar-mural.py; para mudar, edite lá e rode de novo -->\n"
              '      <div class="mural" aria-hidden="true">\n' + "\n".join(faixas_html) + "\n      </div>\n      <!-- MURAL:FIM -->")
-    index = SITE / "index.html"
+    index = SITE / "acervo.html"
     texto = index.read_text(encoding="utf-8")
     inicio = texto.index("<!-- MURAL:INICIO")
     fim = texto.index("<!-- MURAL:FIM -->") + len("<!-- MURAL:FIM -->")

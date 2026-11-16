@@ -7,7 +7,19 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en.html"/>
   </url>
+  <url><loc>https://SEU-DOMINIO/sobre.html</loc></url>
+  <url><loc>https://SEU-DOMINIO/criacoes.html</loc></url>
+  <url><loc>https://SEU-DOMINIO/entreato.html</loc></url>
+  <url><loc>https://SEU-DOMINIO/efemeros.html</loc></url>
+  <url><loc>https://SEU-DOMINIO/entrevistas.html</loc></url>
+  <url><loc>https://SEU-DOMINIO/presente.html</loc></url>
+  <url><loc>https://SEU-DOMINIO/curadoria.html</loc></url>
+  <url><loc>https://SEU-DOMINIO/textos.html</loc></url>
+  <url><loc>https://SEU-DOMINIO/trajetoria.html</loc></url>
+  <url><loc>https://SEU-DOMINIO/imprensa.html</loc></url>
+  <url><loc>https://SEU-DOMINIO/acervo.html</loc></url>
+  <url><loc>https://SEU-DOMINIO/contato.html</loc></url>
+  <url><loc>https://SEU-DOMINIO/programadores.html</loc></url>
   <url><loc>https://SEU-DOMINIO/es.html</loc></url>
   <url><loc>https://SEU-DOMINIO/en.html</loc></url>
-  <url><loc>https://SEU-DOMINIO/programadores.html</loc></url>
 </urlset>

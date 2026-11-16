@@ -1,18 +1,19 @@
 # Site Marcus Moreno · Estudos do presente
 
-Site estático: abra `index.html` no navegador. O conceito de arte está em `conceito.html`.
+Site estático: abra `index.html` no navegador. O site é dividido em páginas, uma por seção (ver “Páginas” abaixo). O conceito de arte está em `conceito.html`.
 Para colocar no ar, siga o checklist em `PUBLICAR.md`: edite sempre esta pasta e gere a versão de publicação com `python ferramentas/gerar-publicacao.py` (ela sai na pasta `publicar`, ao lado desta).
 
 ## Ver com os vídeos funcionando
 
-Aberto direto do disco (dois cliques no `index.html`), o YouTube recusa o player e mostra “Erro 153”, porque exige saber o endereço da página. Nesse caso o site abre cada vídeo numa aba do YouTube.
+Aberto direto do disco (dois cliques em `index.html`), o YouTube recusa o player e mostra “Erro 153”, porque exige saber o endereço da página. Nesse caso o site abre cada vídeo numa aba do YouTube.
 
 Para ver os vídeos dentro do site no seu computador, dê dois cliques em `abrir-site.bat` (precisa do Python). Ele abre o site em `http://localhost:8000`; feche a janela preta para encerrar. Publicado num endereço web, os vídeos tocam normalmente, sem nada disso.
 
 ## Onde editar
 
-- **Textos e obras:** tudo está em `index.html`, em português, com comentários marcando cada seção (I a X).
-- **Acervo (o mural antes do Contato):** as imagens, a ordem, os links e as legendas ficam em `ferramentas/gerar-mural.py`. Para trocar, tirar ou acrescentar uma imagem, edite a lista `FAIXAS` e rode `python ferramentas/gerar-mural.py`: ele recorta tudo no mesmo formato em `assets/img/mural/` e reescreve o mural no `index.html`. A velocidade de cada faixa está em `DURACOES`.
+- **Páginas:** cada seção tem o seu arquivo: `index.html` (capa e epígrafe), `sobre.html`, `criacoes.html` (com a cena de Instante-já), `entreato.html`, `efemeros.html`, `entrevistas.html`, `presente.html`, `curadoria.html`, `textos.html`, `trajetoria.html`, `imprensa.html`, `acervo.html` e `contato.html`. Os textos e as obras ficam em português, cada um na página da sua seção. O menu (Índice) e os links entre seções são feitos à mão: ao criar uma página nova, adicione-a ao índice em todas as páginas.
+- **Fonte:** a Bodoni Moda (os títulos e o texto corrido) e a Archivo (rótulos pequenos). Os arquivos estão em `assets/fontes/`.
+- **Acervo (o mural antes do Contato, em `acervo.html`):** as imagens, a ordem, os links e as legendas ficam em `ferramentas/gerar-mural.py`. Para trocar, tirar ou acrescentar uma imagem, edite a lista `FAIXAS` e rode `python ferramentas/gerar-mural.py`: ele recorta tudo no mesmo formato em `assets/img/mural/` e reescreve o mural no `index.html`. A velocidade de cada faixa está em `DURACOES`.
 - **Nova obra:** copie um bloco `<article class="obra ...">` dentro da seção `#criacoes` e troque ano, título, fotos e o código do vídeo do YouTube (`data-video`, os 11 caracteres depois de `v=`).
 - **Nova entrevista:** copie um `<li class="conversa">` na lista `data-rede` (a galeria lateral das Entrevistas) e troque pessoa, quadro (pasta `assets/img/quadros/`), vídeo e nome. Ajuste o total no contador (`01 / 06`). O diagrama da rede é redesenhado sozinho a partir dessa lista.
 - **Trajetória:** cada ano é um `<li class="marco">` na galeria lateral da seção; para acrescentar, copie um e ajuste o total no contador.

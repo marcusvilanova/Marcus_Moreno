@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sobre · Marcus Moreno</title>
+  <meta name="description" content="Marcus Moreno, artista da dança. Criações cênicas, entrevistas-performativas, Danças de Presente, curadoria, textos e trajetória.">
+  <meta name="theme-color" content="#1c140f">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Marcus Moreno · Dança">
+  <meta property="og:description" content="Improvisação, temporalidades e redes de afetos.">
+  <!-- AO PUBLICAR: troque "assets/marca/compartilhar.jpg" pelo endereço completo (https://seu-dominio/assets/marca/compartilhar.jpg),
+       senão o WhatsApp e o Instagram mostram o link sem a foto. Veja PUBLICAR.md. -->
+  <meta property="og:image" content="assets/marca/compartilhar.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Marcus Moreno de costas num palco, diante de uma vara de refletores acesos, com o nome escrito à mão.">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="assets/fontes/bodoni-moda.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fontes/archivo.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/fontes.css">
+  <link rel="icon" href="assets/marca/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/marca/apple-touch-icon.png">
+  <link rel="alternate" hreflang="es" href="es.html">
+  <link rel="alternate" hreflang="en" href="en.html">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/obras.css">
+  <link rel="stylesheet" href="css/secoes.css">
+  <link rel="stylesheet" href="css/acervo.css">
+  <link rel="stylesheet" href="css/laterais.css">
+  <link rel="stylesheet" href="css/entreato.css">
+  <link rel="stylesheet" href="css/imersao.css">
+  <script>document.documentElement.classList.add('js');
+    // entrada: sobre o vídeo das Danças de Presente, o nome se escreve e a pessoa entra pelo botão (uma vez por visita;
+    // não aparece em links de seção). Para ver de novo, abra o site com ?entrada no fim do endereço. Ver js/imersao.js.
+    try { if ((!sessionStorage.getItem('mm-carregou') && !location.hash) || /[?&]entrada(&|=|$)/.test(location.search)) document.documentElement.classList.add('com-carregamento'); } catch (e) {}
+    // garantia: se o código do site não carregar, a entrada se abre sozinha em 10 segundos
+    setTimeout(function () { if (!document.documentElement.hasAttribute('data-entrada')) document.documentElement.classList.remove('com-carregamento'); }, 10000);</script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"Marcus Moreno","alternateName":"Marcus Vinicius Moreno Nascimento","jobTitle":"Artista da dança","sameAs":["https://instagram.com/marcusmoreno_danca"]}
+  </script>
+</head><body>
+  <!-- ENTRADA · sobre o vídeo das Danças de Presente, o nome de Marcus se escreve à mão; depois aparecem dois botões: entrar com som ou em silêncio -->
+  <div class="carregando" hidden>
+    <img class="carregando__quadro" src="assets/img/teloes/presente-key.webp" width="960" height="536" alt="" fetchpriority="high" decoding="async">
+    <span class="carregando__nome" role="img" aria-label="Marcus Moreno"></span>
+    <div class="carregando__entradas">
+      <button class="carregando__entrar" type="button" data-som>Entrar com som</button>
+      <button class="carregando__entrar carregando__entrar--silencio" type="button">Entrar em silêncio</button>
+    </div>
+  </div>
+  <a class="skip" href="#conteudo">Ir para o conteúdo</a>
+  <div class="blecaute" aria-hidden="true"></div>
+  <!-- água: distorção que só atua na foto sob o mouse, e só enquanto o mouse se move (ver main.js) -->
+  <svg class="filtros" width="0" height="0" aria-hidden="true" focusable="false">
+    <filter id="agua" x="-4%" y="-4%" width="108%" height="108%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.024" numOctaves="2" seed="5" result="ruido"/>
+      <feDisplacementMap in="SourceGraphic" in2="ruido" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
+
+  <!-- Cabeçalho: nome, seção atual e índice -->
+  <header class="topo" data-tone="light">
+    <a class="topo__nome" href="index.html" aria-label="Marcus Moreno"><span class="nome-tinta" aria-hidden="true"></span></a>
+    <p class="topo__secao" aria-hidden="true"><span class="topo__num"></span> <span class="topo__titulo"></span></p>
+    <div class="topo__acoes">
+      <a class="topo__contato" href="contato.html">Contato</a>
+      <button class="topo__letra" type="button" data-passo="0" aria-label="Aumentar o tamanho da letra" title="Tamanho da letra">A<span>a</span></button>
+      <button class="topo__som" type="button" aria-pressed="false" title="Música gerada na hora, nunca igual"><span class="topo__ondas" aria-hidden="true"><i></i><i></i><i></i></span>Som</button>
+      <button class="topo__indice" type="button" aria-expanded="false" aria-controls="indice">Índice</button>
+    </div>
+  </header>
+
+  <nav class="indice" id="indice" aria-label="Índice" hidden>
+    <ol class="indice__lista">
+      <li><a href="#sobre"><span>I</span>Sobre</a></li>
+      <li><a href="criacoes.html"><span>II</span>Criações cênicas</a></li>
+      <li><a href="entreato.html"><span>·</span>Entreato</a></li>
+      <li><a href="efemeros.html"><span>III</span>Encontros Efêmeros</a></li>
+      <li><a href="entrevistas.html"><span>IV</span>Entrevistas-performativas</a></li>
+      <li><a href="presente.html"><span>V</span>Danças de Presente</a></li>
+      <li><a href="curadoria.html"><span>VI</span>Projetos curatoriais</a></li>
+      <li><a href="textos.html"><span>VII</span>Textos</a></li>
+      <li><a href="trajetoria.html"><span>VIII</span>Trajetória</a></li>
+      <li><a href="imprensa.html"><span>IX</span>Na imprensa</a></li>
+      <li><a href="acervo.html"><span>·</span>Acervo</a></li>
+      <li><a href="contato.html"><span>X</span>Contato</a></li>
+      <li><a href="programadores.html"><span>·</span>Para programadores</a></li>
+      <li><a href="es.html" hreflang="es" lang="es"><span>ES</span>Español</a></li>
+      <li><a href="en.html" hreflang="en" lang="en"><span>EN</span>English</a></li>
+    </ol>
+    <p class="indice__pe">Estudos do presente</p>
+  </nav>
+
+  <main id="conteudo">
+    <h1 class="sr">Marcus Moreno</h1>
+
+<!-- I · SOBRE -->
+
+    <section class="secao sobre" id="sobre" data-tone="light" data-num="I" data-title="Sobre">
+      <header class="cabeca">
+        <span class="cabeca__num" aria-hidden="true">I</span>
+        <h2 class="cabeca__titulo">Sobre</h2>
+      </header>
+
+      <div class="sobre__grade">
+        <figure class="sobre__retrato revela">
+          <img class="tinta" src="assets/img/retrato-25.webp" srcset="assets/img/retrato-25-1000.webp 1000w, assets/img/retrato-25.webp 1280w" sizes="(min-width: 900px) 38vw, 100vw" width="1280" height="853" loading="lazy" alt="Marcus Moreno de perfil, diante de uma janela de venezianas, mãos erguidas à altura do rosto." decoding="async">
+        </figure>
+
+        <div class="sobre__texto">
+          <p class="capitular sobre__lead">Marcus Moreno é mestre em Artes da Cena pela Unicamp. Bacharel em Comunicação das Artes do Corpo, tem especialização em Técnica Klauss Vianna (PUC-SP) e licenciatura em Teatro pela Universidade Anhembi Morumbi. Transita por campos poéticos buscando investigar as temporalidades, a improvisação cênica e a criação de redes de afetos.</p>
+          <details class="sobre__mais">
+            <summary><span class="sobre__abrir">Ler mais</span><span class="sobre__fechar">Recolher</span></summary>
+          <p>Desde 2012 realiza criações cênicas buscando sempre se associar a outros parceiros, tendo desenvolvido diferentes projetos que envolvem a produção de obras e eventos culturais, além de ações formativas e de mediação de público. Dentre suas criações cênicas estão <em>A Imagem como Ausência</em> (ProAC/2013), <em>A Flor da Lua</em> (Residência Artística Casa das Caldeiras/2016), <em>Estudo para o Encontro</em> (ProAC/2017), <em>Instante-já</em> (Fomento à Dança/2019), criado em parceria com a artista uruguaia Andrea Arobba e indicado ao Prêmio APCA-Dança nas categorias Espetáculo/Estreia e Prêmio Técnico pela criação de luz e espaço cênico; <em>Entre-espaço onde tudo existe</em> (videodança concebida em parceria com Pri Magalhães/Nome Filmes) e <em>Sempre mais que um</em>, ambas produzidas com apoio do Fomento à Dança em 2022; e <em>Onde Houver Céu</em>, também indicada ao Prêmio APCA.</p>
+          <p>Desde 2016 desenvolve os Encontros Efêmeros, criando trabalhos de improvisação com artistas da cena contemporânea. Em 2022, por meio de pesquisa desenvolvida no PPG Artes da Cena da Unicamp, criou, em conjunto com Marisa Lambert e Mariana Molinos, as Entrevistas-performativas, uma série audiovisual sobre improvisação e afeto gravada com artistas como Zélia Monteiro, Mariana Muniz, Key Sawao, Alex Ratton, Wellington Duarte e Vera Sala. É membro integrante do Grupo Prática como Pesquisa: processos de produção da cena contemporânea (PPGAC | IA Unicamp). Conduziu workshops, residências artísticas e palestras em diferentes espaços culturais.</p>
+          <p>Atuando no campo da gestão cultural, trabalhou na Secretaria Municipal de Cultura de São Paulo (2009-2017), tendo sido responsável, nos últimos quatro anos, pela coordenação do Programa Municipal de Fomento à Dança para a Cidade de São Paulo; fez parte do projeto de criação e implantação do Centro de Referência da Dança e da curadoria do Circuito Municipal de Cultura. Participou de encontros de gestão em eventos internacionais como Festival Danzalborde (CL), FIDCU (UY) e EGA (AR). Atuou no programa de Formação para o Interior das Oficinas Culturais do Estado de São Paulo (2017-2019), foi programador cultural da Oficina Cultural Oswald de Andrade de 2020 a 2024, integrou a Gerência de Articulação e Difusão das Fábricas de Cultura e atualmente é Assessor de Planejamento Estratégico do Instituto Poiesis.</p>
+          </details>
+        </div>
+
+        <aside class="sobre__margem" aria-label="Formação">
+          <h3 class="rotulo">Formação</h3>
+          <dl class="ficha">
+            <dt>Mestrado</dt><dd>Artes da Cena · Unicamp</dd>
+            <dt>Especialização</dt><dd>Técnica Klauss Vianna · PUC-SP</dd>
+            <dt>Bacharelado</dt><dd>Comunicação das Artes do Corpo</dd>
+            <dt>Licenciatura</dt><dd>Teatro · Anhembi Morumbi</dd>
+          </dl>
+          <h3 class="rotulo">Hoje</h3>
+          <p class="ficha__hoje">Assessor de Planejamento Estratégico do Instituto Poiesis</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="colofao" data-tone="dark">
+    <p class="colofao__nome" role="img" aria-label="Marcus Moreno"></p>
+    <p><span class="rotulo">Fotografias</span> Silvia Machado (<cite>A Imagem como Ausência</cite>, <cite>A Flor da Lua</cite>, <cite>Estudo para o Encontro</cite>, <cite>Instante-já</cite>, <cite>Onde Houver Céu</cite>) · Danilo Patzdorf e Claudia Magalhães (<cite>A Flor da Lua</cite>). Quadros e trechos de vídeo: canal de Marcus Moreno no YouTube. Demais créditos a confirmar.</p>
+    <p><span class="rotulo">Composição</span> Bodoni Moda e Archivo · <a href="conceito.html">Caderno de conceito</a></p>
+    <p class="colofao__linguas"><a href="es.html" hreflang="es" lang="es">Español</a> · <a href="en.html" hreflang="en" lang="en">English</a></p>
+    <p class="colofao__assinatura"><span>© <span data-ano>2026</span> Marcus Moreno</span></p>
+  </footer>
+
+  <dialog class="player" aria-label="Vídeo">
+    <div class="player__topo">
+      <p class="player__titulo"></p>
+      <a class="video-youtube" href="#" target="_blank" rel="noopener">Abrir no YouTube</a>
+      <button class="player__fechar" type="button">Fechar</button>
+    </div>
+    <div class="player__tela"></div>
+  </dialog>
+
+  <script src="js/agenda.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/mouse.js" defer></script>
+  <script src="js/som.js" defer></script>
+  <script src="js/imersao.js" defer></script>
+</body>
+</html>
