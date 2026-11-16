@@ -22,7 +22,7 @@
   --peso-titulo: 400;   /* o menor peso da Baskervville: traço fino e contraste alto */
   --peso-texto: 500;   /* texto corrido: o peso normal da Baskervville */
   --peso-numeral: 400;  /* anos e números grandes: Baskervville, algarismos alinhados */
-  --grotesca: "Jost", "Futura", "Helvetica Neue", Arial, sans-serif;
+  --grotesca: "Tenor Sans", "Helvetica Neue", Arial, sans-serif;
 
   --fs-nome: clamp(4.2rem, 15.5vw, 17rem);
   --fs-titulo: clamp(2.2rem, 5.2vw, 5.4rem);
@@ -106,7 +106,7 @@ h1, h2, h3,
   font-weight: var(--peso-titulo);
 }
 
-/* rótulo: sans fina e geométrica, em caixa-alta, sem negrito */
+/* rótulo: sans humanista de traço fino, em caixa-alta, sem negrito */
 .rotulo {
   font-family: var(--grotesca);
   font-stretch: 75%;
@@ -279,6 +279,7 @@ h1, h2, h3,
 .indice__lista li { border-top: 1px solid rgb(242 238 230 / 0.14); }
 .indice__lista a {
   display: block;
+  font-family: var(--grotesca);
   padding: 0.35rem 0;
   font-size: clamp(1.3rem, 2.3vw, 2rem);
   line-height: 1.15;
