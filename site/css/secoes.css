@@ -733,5 +733,5 @@
   display: grid;
   grid-template-rows: auto minmax(auto, calc(76svh - var(--topo-epigrafe) - 2.6rem)) auto;
 }
-.epigrafe:has(> .telao) .epigrafe__frase { align-self: start; font-size: clamp(1.4rem, min(3.4vw, 6svh), 3.5rem); }
+.epigrafe:has(> .telao) .epigrafe__frase { align-self: start; font-size: clamp(1.25rem, min(3.1vw, 5.5svh), 3.1rem); }
 .epigrafe:has(> .telao) .agora { margin-top: 1.5rem; }

@@ -40,7 +40,7 @@
 }
 .folha h2 {
   font-weight: var(--peso-titulo);
-  font-size: clamp(2rem, 4.4vw, 3.8rem);
+  font-size: clamp(1.8rem, 4vw, 3.4rem);
   line-height: 0.95;
   letter-spacing: -0.02em;
 }
