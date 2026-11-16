@@ -1,5 +1,5 @@
 /* Fontes hospedadas no próprio site (só o alfabeto latino, que cobre o português).
-   Archivo · Omnibus-Type · OFL. Baskervville · Impallari Type · OFL. */
+   Jost · Indestructible Type · OFL. Baskervville · Impallari Type · OFL. */
 
 @font-face {
   font-family: "Baskervville";
@@ -20,12 +20,11 @@
 }
 
 @font-face {
-  font-family: "Archivo";
+  font-family: "Jost";
   font-style: normal;
-  font-weight: 300 700;
-  font-stretch: 62% 125%;
+  font-weight: 100 900;
   font-display: swap;
-  src: url("../assets/fontes/archivo.woff2") format("woff2");
+  src: url("../assets/fontes/jost.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
