@@ -18,10 +18,10 @@
   --tinta-clara: #5c554e;   /* texto secundário sobre papel */
   --tinta-escura: #b8aea2;  /* texto secundário sobre escuro */
 
-  --serif: "Baskervville", "Baskerville", Georgia, serif;
-  --peso-titulo: 400;   /* o menor peso da Baskervville: traço fino e contraste alto */
-  --peso-texto: 500;   /* texto corrido: o peso normal da Baskervville */
-  --peso-numeral: 400;  /* anos e números grandes: Baskervville, algarismos alinhados */
+  --serif: "Tenor Sans", "Helvetica Neue", Arial, sans-serif;
+  --peso-titulo: 400;   /* peso único da Tenor Sans */
+  --peso-texto: 400;   /* texto corrido: peso único da Tenor Sans */
+  --peso-numeral: 400;  /* anos e números grandes, em Tenor Sans */
   --grotesca: "Tenor Sans", "Helvetica Neue", Arial, sans-serif;
 
   --fs-nome: clamp(4.2rem, 15.5vw, 17rem);
@@ -98,7 +98,7 @@ a { color: inherit; }
 }
 .skip:focus { transform: none; }
 
-/* voz dos títulos: Baskervville (o contraste alto dá o traço fino nos tamanhos grandes) */
+/* voz dos títulos: Tenor Sans */
 h1, h2, h3,
 .epigrafe__frase, .indice__lista a, .lista-video__item, .dedicatoria__nome,
 .presente__intro, .premios cite, .produtor__nome, .contato__insta,
