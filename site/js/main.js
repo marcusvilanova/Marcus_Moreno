@@ -7,14 +7,12 @@
   const ponteiroFino = matchMedia('(hover: hover) and (pointer: fine)').matches;
   const SVG = 'http://www.w3.org/2000/svg';
 
-  const limitar = (v) => Math.min(Math.max(v, 0), 1);
 
   /* ---------- topo: tom da seção e seção atual ---------- */
 
   function criarTopo(secoes) {
     const topo = document.querySelector('.topo');
     const rotulo = topo.querySelector('.topo__secao');
-    const num = topo.querySelector('.topo__num');
     const titulo = topo.querySelector('.topo__titulo');
     const fundos = new Map(secoes.map((s) => [s, getComputedStyle(s).backgroundColor]));
     const LINHA = 34; // altura de leitura do topo, em px
@@ -30,11 +28,8 @@
       topo.classList.toggle('sem-nome', atual.id === 'contato' || atual.classList.contains('colofao'));
       // sobre a foto de abertura o topo é transparente; nas seções, assume a cor do fundo
       topo.style.backgroundColor = atual.dataset.topo ? 'transparent' : fundos.get(atual);
-      if ('num' in atual.dataset) {
-        num.textContent = atual.dataset.num;
-        titulo.textContent = atual.dataset.title;
-        rotulo.classList.toggle('tem-secao', atual.dataset.num !== '');
-      }
+      titulo.textContent = atual.dataset.title || '';
+      rotulo.classList.toggle('tem-secao', !!atual.dataset.title);
     };
   }
 
@@ -70,25 +65,9 @@
     };
   }
 
-  /* ---------- numeral: o bistre preenche o contorno conforme a seção é lida ---------- */
-
-  function criarLeitura() {
-    const pares = [...document.querySelectorAll('.secao')]
-      .map((s) => [s, s.querySelector('.cabeca__num')])
-      .filter(([, n]) => n);
-    return () => {
-      pares.forEach(([secao, numeral]) => {
-        const r = secao.getBoundingClientRect();
-        const percurso = Math.min(r.height, innerHeight * 2.5);
-        const lido = limitar((innerHeight * 0.85 - r.top) / percurso);
-        numeral.style.setProperty('--leitura', `${(lido * 100).toFixed(1)}%`);
-      });
-    };
-  }
-
   function iniciarRolagem() {
     const secoes = [...document.querySelectorAll('main [data-tone], .colofao')];
-    const tarefas = [criarTopo(secoes), criarBlecaute(secoes), criarLeitura()];
+    const tarefas = [criarTopo(secoes), criarBlecaute(secoes)];
     let agendado = false;
     const atualizar = () => { agendado = false; tarefas.forEach((t) => t()); };
 

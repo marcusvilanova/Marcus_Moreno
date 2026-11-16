@@ -63,7 +63,7 @@
   <!-- Cabeçalho: nome, seção atual e índice -->
   <header class="topo" data-tone="light">
     <a class="topo__nome" href="index.html" aria-label="Marcus Moreno"><span class="nome-tinta" aria-hidden="true"></span></a>
-    <p class="topo__secao" aria-hidden="true"><span class="topo__num"></span> <span class="topo__titulo"></span></p>
+    <p class="topo__secao" aria-hidden="true"><span class="topo__titulo"></span></p>
     <div class="topo__acoes">
       <a class="topo__contato" href="contato.html">Contato</a>
       <button class="topo__letra" type="button" data-passo="0" aria-label="Aumentar o tamanho da letra" title="Tamanho da letra">A<span>a</span></button>
@@ -74,19 +74,19 @@
 
   <nav class="indice" id="indice" aria-label="Índice" hidden>
     <ol class="indice__lista">
-      <li><a href="sobre.html"><span>I</span>Sobre</a></li>
-      <li><a href="#criacoes"><span>II</span>Criações cênicas</a></li>
-      <li><a href="entreato.html"><span>·</span>Entreato</a></li>
-      <li><a href="efemeros.html"><span>III</span>Encontros Efêmeros</a></li>
-      <li><a href="entrevistas.html"><span>IV</span>Entrevistas-performativas</a></li>
-      <li><a href="presente.html"><span>V</span>Danças de Presente</a></li>
-      <li><a href="curadoria.html"><span>VI</span>Projetos curatoriais</a></li>
-      <li><a href="textos.html"><span>VII</span>Textos</a></li>
-      <li><a href="trajetoria.html"><span>VIII</span>Trajetória</a></li>
-      <li><a href="imprensa.html"><span>IX</span>Na imprensa</a></li>
-      <li><a href="acervo.html"><span>·</span>Acervo</a></li>
-      <li><a href="contato.html"><span>X</span>Contato</a></li>
-      <li><a href="programadores.html"><span>·</span>Para programadores</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="#criacoes">Criações cênicas</a></li>
+      <li><a href="entreato.html">Entreato</a></li>
+      <li><a href="efemeros.html">Encontros Efêmeros</a></li>
+      <li><a href="entrevistas.html">Entrevistas-performativas</a></li>
+      <li><a href="presente.html">Danças de Presente</a></li>
+      <li><a href="curadoria.html">Projetos curatoriais</a></li>
+      <li><a href="textos.html">Textos</a></li>
+      <li><a href="trajetoria.html">Trajetória</a></li>
+      <li><a href="imprensa.html">Na imprensa</a></li>
+      <li><a href="acervo.html">Acervo</a></li>
+      <li><a href="contato.html">Contato</a></li>
+      <li><a href="programadores.html">Para programadores</a></li>
       <li><a href="es.html" hreflang="es" lang="es"><span>ES</span>Español</a></li>
       <li><a href="en.html" hreflang="en" lang="en"><span>EN</span>English</a></li>
     </ol>
@@ -96,54 +96,180 @@
   <main id="conteudo">
     <h1 class="sr">Marcus Moreno</h1>
 
-<!-- II · CRIAÇÕES CÊNICAS ─ o palco, o claro-escuro -->
+<!-- CRIAÇÕES CÊNICAS ─ o palco, o claro-escuro -->
 
-    <section class="secao criacoes" id="criacoes" data-tone="dark" data-num="II" data-title="Criações cênicas">
+    <section class="secao criacoes" id="criacoes" data-tone="dark" data-title="Criações cênicas">
       <header class="cabeca">
-        <span class="cabeca__num" aria-hidden="true">II</span>
         <h2 class="cabeca__titulo">Criações <em>cênicas</em></h2>
         <p class="cabeca__nota">2013 — 2024</p>
       </header>
 
-      <article class="obra obra--ausencia" id="obra-ausencia">
+      <article class="obra obra--ceu" id="obra-ceu">
+        <div class="obra__texto">
+          <p class="obra__ano">2024</p>
+          <h3 class="obra__titulo">Onde Houver Céu</h3>
+          <p class="obra__selo">Indicado ao Prêmio APCA</p>
+          <button class="tocar" type="button" data-video="7Ws8Uslqozw" data-titulo="Onde Houver Céu">Assistir</button>
+        </div>
+        <div class="obra__par obra__par--ceu">
+          <figure class="revela">
+            <img class="tinta" src="assets/img/onde-houver-ceu-1.webp" srcset="assets/img/onde-houver-ceu-1-1000.webp 1000w, assets/img/onde-houver-ceu-1.webp 1333w" sizes="(min-width: 900px) 28vw, 70vw" width="1333" height="2000" loading="lazy" alt="Marcus de costas, braços abertos, sobre um chão coberto de folhagem; outros intérpretes ao fundo." decoding="async">
+          </figure>
+          <figure class="revela">
+            <img class="tinta" src="assets/img/onde-houver-ceu-2.webp" srcset="assets/img/onde-houver-ceu-2-1000.webp 1000w, assets/img/onde-houver-ceu-2.webp 2000w" sizes="(min-width: 900px) 40vw, 100vw" width="2000" height="1333" loading="lazy" alt="Marcus deitado de lado no chão de folhagem, apoiado nas mãos, olhar rente ao solo." decoding="async">
+            <figcaption class="legenda">Fotos Silvia Machado</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="obra obra--sempre obra--tela-cheia" id="obra-sempre">
         <figure class="obra__midia revela">
-          <button class="obra__ver" type="button" data-video="8Wuyt81Asps" data-start="12" data-titulo="A Imagem como Ausência">
-            <img class="tinta" src="assets/img/quadros/ausencia.webp" srcset="assets/img/quadros/ausencia-800.webp 900w, assets/img/quadros/ausencia.webp 1704w" sizes="(min-width: 900px) 60vw, 100vw" width="1136" height="720" loading="lazy" alt="No palco escuro, um retângulo de papel iluminado; diante dele, pequena, a silhueta de Marcus caminhando." decoding="async">
-            <span class="sr">Assistir ao vídeo de A Imagem como Ausência</span>
+          <button class="obra__ver" type="button" data-video="ejixmU_3cXk" data-titulo="Sempre mais que um">
+            <img class="tinta" src="assets/img/sempre-mais-que-um.webp" width="960" height="720" loading="lazy" sizes="100vw" alt="Fotografia de longa exposição: vários corpos em movimento se sobrepõem num palco escuro." decoding="async">
+            <span class="sr">Assistir ao vídeo de Sempre mais que um</span>
           </button>
-          <figcaption class="legenda">Quadro do vídeo · Registro Doctela</figcaption>
         </figure>
         <div class="obra__texto">
-          <p class="obra__ano">2013</p>
-          <h3 class="obra__titulo">A Imagem como Ausência</h3>
-          <p class="obra__meta">ProAC · Primeiras Obras</p>
-          <p class="obra__sinopse">O ponto de partida para esta criação é o da tela em branco, o espaço de acontecimento que está prestes a ser preenchido.</p>
-          <p class="obra__selo">Estreia entre os destaques do ano na retrospectiva da crítica Helena Katz, <cite>O Estado de S. Paulo</cite></p>
+          <p class="obra__ano">2023</p>
+          <h3 class="obra__titulo">Sempre mais que um</h3>
+          <p class="obra__meta">Fomento à Dança</p>
+          <button class="tocar" type="button" data-video="ejixmU_3cXk" data-titulo="Sempre mais que um">Assistir</button>
+        </div>
+      </article>
+
+      <article class="obra obra--cinema" id="obra-cinema">
+        <!-- o quadro do filme começa pequeno no centro, como a tela vista do fundo da sala, e cresce com a rolagem
+             até tomar a tela inteira (ver js/imersao.js, "quadro que cresce"). Sem movimento, fica de ponta a ponta, parado. -->
+        <div class="expande" data-expande>
+          <div class="expande__palco">
+            <p class="expande__titulo" aria-hidden="true"><span class="rotulo">Videodança · 2021</span>Entre-espaço <em>onde tudo existe</em></p>
+            <figure class="obra__faixa expande__quadro">
+              <button class="obra__ver" type="button" data-video="m-qB_rqaMXo" data-titulo="Entre-espaço onde tudo existe">
+                <img class="tinta" src="assets/img/entre-espaco-still.webp" srcset="assets/img/entre-espaco-still-1000.webp 1000w, assets/img/entre-espaco-still.webp 2000w, assets/img/entre-espaco-still-2880.webp 2880w" sizes="(max-aspect-ratio: 239/100) 239vh, 100vw" width="2000" height="836" loading="lazy" alt="Rosto de Marcus em primeiro plano, mata e céu nublado ao fundo." decoding="async">
+                <span class="sr">Assistir ao vídeo de Entre-espaço onde tudo existe</span>
+              </button>
+            </figure>
+          </div>
+        </div>
+        <div class="obra__texto obra__texto--linha">
+          <p class="obra__ano">2021</p>
+          <h3 class="obra__titulo">Entre-espaço onde tudo existe</h3>
+          <p class="obra__meta">Videodança · com Pri Magalhães / Nome Filmes · Fomento à Dança</p>
+          <button class="tocar" type="button" data-video="m-qB_rqaMXo" data-titulo="Entre-espaço onde tudo existe">Assistir</button>
+        </div>
+      </article>
+
+      <article class="obra obra--brotar" id="obra-brotar">
+        <figure class="obra__midia revela">
+          <button class="obra__ver" type="button" data-video="Vtriv1TdLco" data-titulo="Para insistir em brotar">
+            <img class="tinta" src="assets/img/para-insistir-em-brotar.webp" width="480" height="270" loading="lazy" alt="Marcus dança sobre uma laje, a cidade de São Paulo ao fundo." decoding="async">
+            <span class="sr">Assistir ao vídeo de Para insistir em brotar</span>
+          </button>
+        </figure>
+        <div class="obra__texto">
+          <p class="obra__ano">2021</p>
+          <h3 class="obra__titulo">Para insistir em brotar</h3>
+          <p class="obra__meta">Videodança</p>
+          <p class="obra__sinopse">O título retoma um dos capítulos de <em>A Flor da Lua</em>.</p>
+          <button class="tocar" type="button" data-video="Vtriv1TdLco" data-titulo="Para insistir em brotar">Assistir</button>
+        </div>
+      </article>
+
+      <!-- obra--tela-cheia: a foto ocupa a tela inteira e o texto fica por cima (pode ser usado em outra obra) -->
+
+      <div class="cena-instante" data-cena-instante>
+        <div class="cena-instante__palco">
+          <img class="cena-instante__foto" src="assets/img/instante-ja-2.webp" width="1000" height="667" loading="lazy" alt="Corpo nu da cintura para cima, borrado pelo movimento contra fundo claro." decoding="async">
+          <div class="cena-instante__escuro" aria-hidden="true"></div>
+          <p class="rotulo cena-instante__rotulo"><cite>Instante-já</cite> · 2019</p>
+          <ol class="cena-instante__perguntas">
+            <li>Como captar o instante de um <em>acontecimento</em>?</li>
+            <li>Quais imagens se constroem <em>neste instante</em>?</li>
+            <li>É possível dançar uma imagem antes mesmo de conseguir <em>nomeá-la</em>?</li>
+          </ol>
+          <p class="cena-instante__credito legenda">Foto Silvia Machado</p>
+        </div>
+      </div>
+
+      <article class="obra obra--instante" id="obra-instante">
+        <div class="obra__sobreposta">
+          <figure class="obra__fundo revela">
+            <img class="tinta" src="assets/img/instante-ja-1.webp" srcset="assets/img/instante-ja-1-1000.webp 1000w, assets/img/instante-ja-1.webp 2000w" sizes="(min-width: 900px) 62vw, 100vw" width="2000" height="1333" loading="lazy" alt="Marcus em palco cinza, raquete de pingue-pongue na mão, olhando para a bola no alto." decoding="async">
+            <figcaption class="legenda">Foto Silvia Machado</figcaption>
+          </figure>
+        </div>
+        <div class="obra__texto">
+          <p class="obra__ano">2019 <span>/ 2022</span></p>
+          <h3 class="obra__titulo">Instante-já</h3>
+          <p class="obra__meta">Fomento à Dança · criação com Andrea Arobba (UY)</p>
+          <p class="obra__selo">Indicado ao Prêmio APCA-Dança 2019: Estreia do ano e Prêmio Técnico (luz e espaço cênico de Hernandes de Oliveira)</p>
           <details class="obra__mais">
             <summary>Sinopse e ficha técnica</summary>
             <div class="obra__mais-corpo">
-              <p>Como um pintor que inicia sua obra com uma primeira marca de tinta sobre o quadro, a dança aqui vem do impulso interno vital, do movimento do corpo.</p>
-              <p>O desejo de promover reflexões sobre espaços vazios na construção de imagens teve início com a discussão sobre a qualidade das sensações proposta por Alberto Manguel, em seu livro <cite>Lendo Imagens</cite>, e se intensificou a partir do contato com as obras do pintor Jackson Pollock, conhecido por subverter o suporte e permitir a queda da tinta com a tela esticada no chão.</p>
-              <p>Estimulada pela ação de ‘pintar pintando’, percorrida pela forma, pela cor, pela abstração e sua capacidade de tornar-se movimento, a composição foi se constituindo com a urgência e o imediatismo de dançar. ‘Escorrer’, ‘respingar’, ‘(des)manchar’, ‘(des)controlar’ são alguns verbos de ação que serviram como mote para criar uma série de pequenas improvisações. <cite>A Imagem como Ausência</cite> propõe refletir sobre a presença do que não é necessariamente visto ou dito, num espaço em que o corpo se constitui pela sua própria ação e busca seu modo de fazer dança.</p>
-              <p>Obra criada em 2013 com apoio do Edital ProAC de Primeiras Obras de Criação em Temporada de Dança.</p>
+              <p>Tudo o que acontece no cérebro se inicia a partir de células conhecidas como neurônios. De um neurônio para outro há, em muitos casos, pequenos vãos, preenchidos por substâncias químicas liberadas a cada disparo de um impulso elétrico. São eles que influenciam a produção de imagens provenientes dos sentidos humanos e do fluxo dos nossos pensamentos.</p>
+              <p>Estes foram alguns disparadores para a criação de <cite>instante-já</cite>, nome que tem inspiração na obra <cite>Água Viva</cite> da escritora Clarice Lispector, nas poéticas que refletem sobre a passagem do tempo e que, neste contexto, são contaminadas por ideias relativas à percepção, memória e produção de imagens, presentes no universo das ciências cognitivas. O curso deste desejo de dançar o instante-já se aprofundou a partir do encontro de Marcus Moreno com a artista uruguaia Andrea Arobba, por meio da imersão em materiais criativos levantados ao longo de uma residência artística realizada no Centro de Referência da Dança (CRDSP). Este é um trabalho que tem sua origem no encontro: com o tempo, com o espaço, com diferentes corpos, com maneiras distintas de fazer dança. Um solo construído por muitas presenças, em muitos instantes.</p>
+              <p>Obra criada em 2019 com apoio do Programa Municipal de Fomento à Dança para a Cidade de São Paulo, Secretaria Municipal de Cultura.</p>
+              <blockquote class="obra__epigrafe">O ar é o não lugar onde tudo vai existir <cite>Clarice Lispector</cite></blockquote>
               <dl class="creditos">
-                <dt>Criação e interpretação</dt><dd>Marcus Moreno</dd>
-                <dt>Orientação artística</dt><dd>Key Sawao</dd>
-                <dt>Figurino</dt><dd>Thais Franco</dd>
-                <dt>Luz</dt><dd>Calu Zabel</dd>
-                <dt>Espaço cênico</dt><dd>Marcus Moreno</dd>
-                <dt>Música</dt><dd>Movimentos da Suíte em Sol Maior de Bach</dd>
+                <dt>Concepção e dança</dt><dd>Marcus Moreno</dd>
+                <dt>Colaboração artística</dt><dd>Andrea Arobba (GEN)</dd>
+                <dt>Criação de luz e espaço cênico</dt><dd>Hernandes de Oliveira</dd>
+                <dt>Trilha sonora original</dt><dd>Antonio Porto</dd>
+                <dt>Pesquisadores convidados do Ciclo Presentificar</dt><dd>Ivan Hegen, Jussara Miller, Paula Petreca, Virgínia Souza e André Cravo</dd>
                 <dt>Fotos</dt><dd>Silvia Machado</dd>
-                <dt>Design gráfico</dt><dd>Paula Viana</dd>
-                <dt>Registro em vídeo</dt><dd>Doctela</dd>
+                <dt>Design gráfico</dt><dd>Ruth Alvarez</dd>
+                <dt>Registro em vídeo</dt><dd>Nome Filmes</dd>
+                <dt>Assessoria de imprensa</dt><dd>Elaine Calux</dd>
+                <dt>Audiodescrição</dt><dd>Daniella Forchetti · Música e Movimento</dd>
+                <dt>Assistente de produção e mídias sociais</dt><dd>Juliana Vinagre</dd>
                 <dt>Produção executiva</dt><dd>Cristiane Klein</dd>
                 <dt>Direção de produção</dt><dd>Dionísio Produção</dd>
               </dl>
             </div>
           </details>
-          <button class="tocar" type="button" data-video="8Wuyt81Asps" data-start="12" data-titulo="A Imagem como Ausência">Assistir</button>
+          <button class="tocar" type="button" data-video="bwpxBs99I4M" data-titulo="Instante-já">Assistir</button>
         </div>
       </article>
+
+      <article class="obra obra--estudo" id="obra-estudo">
+        <div class="obra__par">
+          <figure class="revela">
+            <img class="tinta" src="assets/img/estudo-encontro-2.webp" srcset="assets/img/estudo-encontro-2-1000.webp 1000w, assets/img/estudo-encontro-2.webp 1333w" sizes="(min-width: 900px) 26vw, 60vw" width="1333" height="2000" loading="lazy" alt="Marcus encostado em uma parede de concreto, cabeça inclinada, luz lateral no chão." decoding="async">
+          </figure>
+          <figure class="revela">
+            <img class="tinta" src="assets/img/estudo-encontro-1.webp" width="975" height="975" loading="lazy" alt="Marcus em torção, braço sobre a cabeça, diante de parede de concreto." decoding="async">
+            <figcaption class="legenda">Fotos Silvia Machado</figcaption>
+          </figure>
+        </div>
+        <div class="obra__texto">
+          <p class="obra__ano">2017</p>
+          <h3 class="obra__titulo">Estudo para o Encontro</h3>
+          <p class="obra__meta">ProAC · Edital nº 04/2016</p>
+          <p class="obra__sinopse">Este trabalho surge de temas corporais concretos para a criação de imagens sensoriais.</p>
+          <details class="obra__mais">
+            <summary>Sinopse e ficha técnica</summary>
+            <div class="obra__mais-corpo">
+              <p>A partir de combinações do corpo e de suas singularidades, dança, música e luz se reúnem para a invenção de encontros possíveis.</p>
+              <p>Obra criada com apoio do Edital ProAC nº 04/2016, Concurso de Apoio a Projetos de Produção de Espetáculo Inédito e Temporada de Dança no Estado de São Paulo.</p>
+              <dl class="creditos">
+                <dt>Concepção e dança</dt><dd>Marcus Moreno</dd>
+                <dt>Música e dança</dt><dd>Moisés Mendoza Baião</dd>
+                <dt>Colaboração cênica</dt><dd>Key Sawao</dd>
+                <dt>Luz</dt><dd>Calu Zabel</dd>
+                <dt>Figurino</dt><dd>Marcus Moreno</dd>
+                <dt>Fotos</dt><dd>Silvia Machado</dd>
+                <dt>Registro em vídeo</dt><dd>Márcia Alves e Lienio Medeiros</dd>
+                <dt>Produção executiva</dt><dd>Cristiane Klein</dd>
+                <dt>Direção de produção</dt><dd>Dionísio Produção</dd>
+              </dl>
+            </div>
+          </details>
+          <button class="tocar" type="button" data-video="dIDL_3DrXDo" data-titulo="Estudo para o Encontro">Assistir</button>
+        </div>
+      </article>
+
+      <!-- CENA · Instante-já: a foto do corpo borrado ocupa a tela e as três perguntas de Marcus aparecem uma de cada vez,
+           no ritmo da rolagem; a cada pergunta a luz abre um pouco mais (ver js/imersao.js) -->
 
       <article class="obra obra--flor" id="obra-flor">
         <div class="obra__texto">
@@ -199,171 +325,46 @@
         </div>
       </article>
 
-      <article class="obra obra--estudo" id="obra-estudo">
-        <div class="obra__par">
-          <figure class="revela">
-            <img class="tinta" src="assets/img/estudo-encontro-2.webp" srcset="assets/img/estudo-encontro-2-1000.webp 1000w, assets/img/estudo-encontro-2.webp 1333w" sizes="(min-width: 900px) 26vw, 60vw" width="1333" height="2000" loading="lazy" alt="Marcus encostado em uma parede de concreto, cabeça inclinada, luz lateral no chão." decoding="async">
-          </figure>
-          <figure class="revela">
-            <img class="tinta" src="assets/img/estudo-encontro-1.webp" width="975" height="975" loading="lazy" alt="Marcus em torção, braço sobre a cabeça, diante de parede de concreto." decoding="async">
-            <figcaption class="legenda">Fotos Silvia Machado</figcaption>
-          </figure>
-        </div>
+      <article class="obra obra--ausencia" id="obra-ausencia">
+        <figure class="obra__midia revela">
+          <button class="obra__ver" type="button" data-video="8Wuyt81Asps" data-start="12" data-titulo="A Imagem como Ausência">
+            <img class="tinta" src="assets/img/quadros/ausencia.webp" srcset="assets/img/quadros/ausencia-800.webp 900w, assets/img/quadros/ausencia.webp 1704w" sizes="(min-width: 900px) 60vw, 100vw" width="1136" height="720" loading="lazy" alt="No palco escuro, um retângulo de papel iluminado; diante dele, pequena, a silhueta de Marcus caminhando." decoding="async">
+            <span class="sr">Assistir ao vídeo de A Imagem como Ausência</span>
+          </button>
+          <figcaption class="legenda">Quadro do vídeo · Registro Doctela</figcaption>
+        </figure>
         <div class="obra__texto">
-          <p class="obra__ano">2017</p>
-          <h3 class="obra__titulo">Estudo para o Encontro</h3>
-          <p class="obra__meta">ProAC · Edital nº 04/2016</p>
-          <p class="obra__sinopse">Este trabalho surge de temas corporais concretos para a criação de imagens sensoriais.</p>
+          <p class="obra__ano">2013</p>
+          <h3 class="obra__titulo">A Imagem como Ausência</h3>
+          <p class="obra__meta">ProAC · Primeiras Obras</p>
+          <p class="obra__sinopse">O ponto de partida para esta criação é o da tela em branco, o espaço de acontecimento que está prestes a ser preenchido.</p>
+          <p class="obra__selo">Estreia entre os destaques do ano na retrospectiva da crítica Helena Katz, <cite>O Estado de S. Paulo</cite></p>
           <details class="obra__mais">
             <summary>Sinopse e ficha técnica</summary>
             <div class="obra__mais-corpo">
-              <p>A partir de combinações do corpo e de suas singularidades, dança, música e luz se reúnem para a invenção de encontros possíveis.</p>
-              <p>Obra criada com apoio do Edital ProAC nº 04/2016, Concurso de Apoio a Projetos de Produção de Espetáculo Inédito e Temporada de Dança no Estado de São Paulo.</p>
+              <p>Como um pintor que inicia sua obra com uma primeira marca de tinta sobre o quadro, a dança aqui vem do impulso interno vital, do movimento do corpo.</p>
+              <p>O desejo de promover reflexões sobre espaços vazios na construção de imagens teve início com a discussão sobre a qualidade das sensações proposta por Alberto Manguel, em seu livro <cite>Lendo Imagens</cite>, e se intensificou a partir do contato com as obras do pintor Jackson Pollock, conhecido por subverter o suporte e permitir a queda da tinta com a tela esticada no chão.</p>
+              <p>Estimulada pela ação de ‘pintar pintando’, percorrida pela forma, pela cor, pela abstração e sua capacidade de tornar-se movimento, a composição foi se constituindo com a urgência e o imediatismo de dançar. ‘Escorrer’, ‘respingar’, ‘(des)manchar’, ‘(des)controlar’ são alguns verbos de ação que serviram como mote para criar uma série de pequenas improvisações. <cite>A Imagem como Ausência</cite> propõe refletir sobre a presença do que não é necessariamente visto ou dito, num espaço em que o corpo se constitui pela sua própria ação e busca seu modo de fazer dança.</p>
+              <p>Obra criada em 2013 com apoio do Edital ProAC de Primeiras Obras de Criação em Temporada de Dança.</p>
               <dl class="creditos">
-                <dt>Concepção e dança</dt><dd>Marcus Moreno</dd>
-                <dt>Música e dança</dt><dd>Moisés Mendoza Baião</dd>
-                <dt>Colaboração cênica</dt><dd>Key Sawao</dd>
+                <dt>Criação e interpretação</dt><dd>Marcus Moreno</dd>
+                <dt>Orientação artística</dt><dd>Key Sawao</dd>
+                <dt>Figurino</dt><dd>Thais Franco</dd>
                 <dt>Luz</dt><dd>Calu Zabel</dd>
-                <dt>Figurino</dt><dd>Marcus Moreno</dd>
+                <dt>Espaço cênico</dt><dd>Marcus Moreno</dd>
+                <dt>Música</dt><dd>Movimentos da Suíte em Sol Maior de Bach</dd>
                 <dt>Fotos</dt><dd>Silvia Machado</dd>
-                <dt>Registro em vídeo</dt><dd>Márcia Alves e Lienio Medeiros</dd>
+                <dt>Design gráfico</dt><dd>Paula Viana</dd>
+                <dt>Registro em vídeo</dt><dd>Doctela</dd>
                 <dt>Produção executiva</dt><dd>Cristiane Klein</dd>
                 <dt>Direção de produção</dt><dd>Dionísio Produção</dd>
               </dl>
             </div>
           </details>
-          <button class="tocar" type="button" data-video="dIDL_3DrXDo" data-titulo="Estudo para o Encontro">Assistir</button>
+          <button class="tocar" type="button" data-video="8Wuyt81Asps" data-start="12" data-titulo="A Imagem como Ausência">Assistir</button>
         </div>
       </article>
-
-      <!-- CENA · Instante-já: a foto do corpo borrado ocupa a tela e as três perguntas de Marcus aparecem uma de cada vez,
-           no ritmo da rolagem; a cada pergunta a luz abre um pouco mais (ver js/imersao.js) -->
-      <div class="cena-instante" data-cena-instante>
-        <div class="cena-instante__palco">
-          <img class="cena-instante__foto" src="assets/img/instante-ja-2.webp" width="1000" height="667" loading="lazy" alt="Corpo nu da cintura para cima, borrado pelo movimento contra fundo claro." decoding="async">
-          <div class="cena-instante__escuro" aria-hidden="true"></div>
-          <p class="rotulo cena-instante__rotulo"><cite>Instante-já</cite> · 2019</p>
-          <ol class="cena-instante__perguntas">
-            <li>Como captar o instante de um <em>acontecimento</em>?</li>
-            <li>Quais imagens se constroem <em>neste instante</em>?</li>
-            <li>É possível dançar uma imagem antes mesmo de conseguir <em>nomeá-la</em>?</li>
-          </ol>
-          <p class="cena-instante__credito legenda">Foto Silvia Machado</p>
-        </div>
-      </div>
-
-      <article class="obra obra--instante" id="obra-instante">
-        <div class="obra__sobreposta">
-          <figure class="obra__fundo revela">
-            <img class="tinta" src="assets/img/instante-ja-1.webp" srcset="assets/img/instante-ja-1-1000.webp 1000w, assets/img/instante-ja-1.webp 2000w" sizes="(min-width: 900px) 62vw, 100vw" width="2000" height="1333" loading="lazy" alt="Marcus em palco cinza, raquete de pingue-pongue na mão, olhando para a bola no alto." decoding="async">
-            <figcaption class="legenda">Foto Silvia Machado</figcaption>
-          </figure>
-        </div>
-        <div class="obra__texto">
-          <p class="obra__ano">2019 <span>/ 2022</span></p>
-          <h3 class="obra__titulo">Instante-já</h3>
-          <p class="obra__meta">Fomento à Dança · criação com Andrea Arobba (UY)</p>
-          <p class="obra__selo">Indicado ao Prêmio APCA-Dança 2019: Estreia do ano e Prêmio Técnico (luz e espaço cênico de Hernandes de Oliveira)</p>
-          <details class="obra__mais">
-            <summary>Sinopse e ficha técnica</summary>
-            <div class="obra__mais-corpo">
-              <p>Tudo o que acontece no cérebro se inicia a partir de células conhecidas como neurônios. De um neurônio para outro há, em muitos casos, pequenos vãos, preenchidos por substâncias químicas liberadas a cada disparo de um impulso elétrico. São eles que influenciam a produção de imagens provenientes dos sentidos humanos e do fluxo dos nossos pensamentos.</p>
-              <p>Estes foram alguns disparadores para a criação de <cite>instante-já</cite>, nome que tem inspiração na obra <cite>Água Viva</cite> da escritora Clarice Lispector, nas poéticas que refletem sobre a passagem do tempo e que, neste contexto, são contaminadas por ideias relativas à percepção, memória e produção de imagens, presentes no universo das ciências cognitivas. O curso deste desejo de dançar o instante-já se aprofundou a partir do encontro de Marcus Moreno com a artista uruguaia Andrea Arobba, por meio da imersão em materiais criativos levantados ao longo de uma residência artística realizada no Centro de Referência da Dança (CRDSP). Este é um trabalho que tem sua origem no encontro: com o tempo, com o espaço, com diferentes corpos, com maneiras distintas de fazer dança. Um solo construído por muitas presenças, em muitos instantes.</p>
-              <p>Obra criada em 2019 com apoio do Programa Municipal de Fomento à Dança para a Cidade de São Paulo, Secretaria Municipal de Cultura.</p>
-              <blockquote class="obra__epigrafe">O ar é o não lugar onde tudo vai existir <cite>Clarice Lispector</cite></blockquote>
-              <dl class="creditos">
-                <dt>Concepção e dança</dt><dd>Marcus Moreno</dd>
-                <dt>Colaboração artística</dt><dd>Andrea Arobba (GEN)</dd>
-                <dt>Criação de luz e espaço cênico</dt><dd>Hernandes de Oliveira</dd>
-                <dt>Trilha sonora original</dt><dd>Antonio Porto</dd>
-                <dt>Pesquisadores convidados do Ciclo Presentificar</dt><dd>Ivan Hegen, Jussara Miller, Paula Petreca, Virgínia Souza e André Cravo</dd>
-                <dt>Fotos</dt><dd>Silvia Machado</dd>
-                <dt>Design gráfico</dt><dd>Ruth Alvarez</dd>
-                <dt>Registro em vídeo</dt><dd>Nome Filmes</dd>
-                <dt>Assessoria de imprensa</dt><dd>Elaine Calux</dd>
-                <dt>Audiodescrição</dt><dd>Daniella Forchetti · Música e Movimento</dd>
-                <dt>Assistente de produção e mídias sociais</dt><dd>Juliana Vinagre</dd>
-                <dt>Produção executiva</dt><dd>Cristiane Klein</dd>
-                <dt>Direção de produção</dt><dd>Dionísio Produção</dd>
-              </dl>
-            </div>
-          </details>
-          <button class="tocar" type="button" data-video="bwpxBs99I4M" data-titulo="Instante-já">Assistir</button>
-        </div>
-      </article>
-
-      <article class="obra obra--cinema" id="obra-cinema">
-        <!-- o quadro do filme começa pequeno no centro, como a tela vista do fundo da sala, e cresce com a rolagem
-             até tomar a tela inteira (ver js/imersao.js, "quadro que cresce"). Sem movimento, fica de ponta a ponta, parado. -->
-        <div class="expande" data-expande>
-          <div class="expande__palco">
-            <p class="expande__titulo" aria-hidden="true"><span class="rotulo">Videodança · 2021</span>Entre-espaço <em>onde tudo existe</em></p>
-            <figure class="obra__faixa expande__quadro">
-              <button class="obra__ver" type="button" data-video="m-qB_rqaMXo" data-titulo="Entre-espaço onde tudo existe">
-                <img class="tinta" src="assets/img/entre-espaco-still.webp" srcset="assets/img/entre-espaco-still-1000.webp 1000w, assets/img/entre-espaco-still.webp 2000w, assets/img/entre-espaco-still-2880.webp 2880w" sizes="(max-aspect-ratio: 239/100) 239vh, 100vw" width="2000" height="836" loading="lazy" alt="Rosto de Marcus em primeiro plano, mata e céu nublado ao fundo." decoding="async">
-                <span class="sr">Assistir ao vídeo de Entre-espaço onde tudo existe</span>
-              </button>
-            </figure>
-          </div>
-        </div>
-        <div class="obra__texto obra__texto--linha">
-          <p class="obra__ano">2021</p>
-          <h3 class="obra__titulo">Entre-espaço onde tudo existe</h3>
-          <p class="obra__meta">Videodança · com Pri Magalhães / Nome Filmes · Fomento à Dança</p>
-          <button class="tocar" type="button" data-video="m-qB_rqaMXo" data-titulo="Entre-espaço onde tudo existe">Assistir</button>
-        </div>
-      </article>
-
-      <article class="obra obra--brotar" id="obra-brotar">
-        <figure class="obra__midia revela">
-          <button class="obra__ver" type="button" data-video="Vtriv1TdLco" data-titulo="Para insistir em brotar">
-            <img class="tinta" src="assets/img/para-insistir-em-brotar.webp" width="480" height="270" loading="lazy" alt="Marcus dança sobre uma laje, a cidade de São Paulo ao fundo." decoding="async">
-            <span class="sr">Assistir ao vídeo de Para insistir em brotar</span>
-          </button>
-        </figure>
-        <div class="obra__texto">
-          <p class="obra__ano">2021</p>
-          <h3 class="obra__titulo">Para insistir em brotar</h3>
-          <p class="obra__meta">Videodança</p>
-          <p class="obra__sinopse">O título retoma um dos capítulos de <em>A Flor da Lua</em>.</p>
-          <button class="tocar" type="button" data-video="Vtriv1TdLco" data-titulo="Para insistir em brotar">Assistir</button>
-        </div>
-      </article>
-
-      <!-- obra--tela-cheia: a foto ocupa a tela inteira e o texto fica por cima (pode ser usado em outra obra) -->
-      <article class="obra obra--sempre obra--tela-cheia" id="obra-sempre">
-        <figure class="obra__midia revela">
-          <button class="obra__ver" type="button" data-video="ejixmU_3cXk" data-titulo="Sempre mais que um">
-            <img class="tinta" src="assets/img/sempre-mais-que-um.webp" width="960" height="720" loading="lazy" sizes="100vw" alt="Fotografia de longa exposição: vários corpos em movimento se sobrepõem num palco escuro." decoding="async">
-            <span class="sr">Assistir ao vídeo de Sempre mais que um</span>
-          </button>
-        </figure>
-        <div class="obra__texto">
-          <p class="obra__ano">2023</p>
-          <h3 class="obra__titulo">Sempre mais que um</h3>
-          <p class="obra__meta">Fomento à Dança</p>
-          <button class="tocar" type="button" data-video="ejixmU_3cXk" data-titulo="Sempre mais que um">Assistir</button>
-        </div>
-      </article>
-
-      <article class="obra obra--ceu" id="obra-ceu">
-        <div class="obra__texto">
-          <p class="obra__ano">2024</p>
-          <h3 class="obra__titulo">Onde Houver Céu</h3>
-          <p class="obra__selo">Indicado ao Prêmio APCA</p>
-          <button class="tocar" type="button" data-video="7Ws8Uslqozw" data-titulo="Onde Houver Céu">Assistir</button>
-        </div>
-        <div class="obra__par obra__par--ceu">
-          <figure class="revela">
-            <img class="tinta" src="assets/img/onde-houver-ceu-1.webp" srcset="assets/img/onde-houver-ceu-1-1000.webp 1000w, assets/img/onde-houver-ceu-1.webp 1333w" sizes="(min-width: 900px) 28vw, 70vw" width="1333" height="2000" loading="lazy" alt="Marcus de costas, braços abertos, sobre um chão coberto de folhagem; outros intérpretes ao fundo." decoding="async">
-          </figure>
-          <figure class="revela">
-            <img class="tinta" src="assets/img/onde-houver-ceu-2.webp" srcset="assets/img/onde-houver-ceu-2-1000.webp 1000w, assets/img/onde-houver-ceu-2.webp 2000w" sizes="(min-width: 900px) 40vw, 100vw" width="2000" height="1333" loading="lazy" alt="Marcus deitado de lado no chão de folhagem, apoiado nas mãos, olhar rente ao solo." decoding="async">
-            <figcaption class="legenda">Fotos Silvia Machado</figcaption>
-          </figure>
-        </div>
-      </article>
-    </section>
+        </section>
   </main>
 
   <footer class="colofao" data-tone="dark">

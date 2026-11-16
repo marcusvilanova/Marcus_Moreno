@@ -186,7 +186,6 @@ h1, h2, h3,
   transition: opacity 0.5s ease;
 }
 .topo__secao.tem-secao { opacity: 1; }
-.topo__num { font-family: var(--serif); font-size: 1rem; letter-spacing: 0.04em; margin-right: 0.4em; }
 
 .topo__indice {
   justify-self: end;
@@ -489,7 +488,7 @@ h1, h2, h3,
 .cabeca {
   position: relative;
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 1fr;
   align-items: end;
   column-gap: clamp(1rem, 3vw, 3rem);
   padding-bottom: clamp(1.2rem, 2vw, 2rem);
@@ -517,25 +516,6 @@ h1, h2, h3,
   --traco-v: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 1000' preserveAspectRatio='none'%3E%3Cpath d='M4.4 1C3.3 90 5.3 170 4.1 260S2.8 430 4.6 540 5.5 700 3.8 800 3.4 940 4.7 999' fill='none' stroke='%23000' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");
 }
 
-/* o numeral romano é contorno; o bistre o preenche de baixo para cima conforme a seção é lida */
-/* discreto: um fólio de caderno, não um cartaz. Contorno leve, tinta translúcida. */
-.cabeca__num {
-  --tinta-num: var(--destaque);
-  font-size: clamp(2.6rem, 6vw, 6rem);
-  line-height: 0.72;
-  padding-bottom: 0.08em;
-  color: transparent;
-  -webkit-text-stroke: 0.75px color-mix(in srgb, var(--tinta-num) 55%, transparent);
-  background-image: linear-gradient(to top,
-    color-mix(in srgb, var(--tinta-num) 26%, transparent) var(--leitura, 0%),
-    transparent calc(var(--leitura, 0%) + 0.5%));
-  -webkit-background-clip: text;
-  background-clip: text;
-  letter-spacing: -0.02em;
-}
-[data-tone="dark"] .cabeca__num { --tinta-num: var(--destaque-claro); }
-[data-tone="concrete"] .cabeca__num { --tinta-num: var(--umbria); }
-
 .cabeca__titulo {
   font-weight: var(--peso-titulo);
   font-size: var(--fs-titulo);
@@ -544,7 +524,7 @@ h1, h2, h3,
 }
 .cabeca__titulo em { font-style: italic; }
 .cabeca__nota {
-  grid-column: 2;
+  grid-column: 1;
   margin-top: 1rem;
   font-family: var(--grotesca);
   font-stretch: 75%;
@@ -554,11 +534,11 @@ h1, h2, h3,
 }
 
 @media (min-width: 900px) {
-  .cabeca { grid-template-columns: auto 1fr auto; }
-  .cabeca__nota { grid-column: 3; margin: 0; padding-bottom: 0.6rem; }
+  .cabeca { grid-template-columns: 1fr auto; }
+  .cabeca__nota { grid-column: 2; margin: 0; padding-bottom: 0.6rem; }
 
-  /* cabeçalho espelhado: o numeral passa para a direita e o traço nasce da direita */
-  .cabeca--espelho .cabeca__num { grid-column: 3; grid-row: 1; }
+  /* cabeçalho espelhado: a nota vai para a esquerda e o título, alinhado à direita */
+  .cabeca--espelho { grid-template-columns: auto 1fr; }
   .cabeca--espelho .cabeca__titulo { grid-column: 2; grid-row: 1; text-align: right; }
   .cabeca--espelho .cabeca__nota { grid-column: 1; grid-row: 1; }
   .cabeca--espelho::after { transform-origin: right center; }
@@ -795,7 +775,6 @@ html { --escala: 1; font-size: calc(max(87.5%, 0.73vw) * var(--escala)); }
 @media (max-width: 370px) { .topo__nome .nome-tinta { width: calc(7.4rem / var(--escala, 1)); } }
 .topo { padding: calc(1.1rem / var(--escala, 1)) calc(var(--margem) / var(--escala, 1)); column-gap: calc(1rem / var(--escala, 1)); }
 .topo__acoes { gap: calc(clamp(1.4rem, 3vw, 2.6rem) / var(--escala, 1)); }
-.topo__num { font-size: calc(1rem / var(--escala, 1)); }
 .topo__ondas { height: calc(0.95rem / var(--escala, 1)); }
 .topo__indice::before { width: calc(1.8rem / var(--escala, 1)); }
 @media (max-width: 370px) { .topo__acoes { gap: calc(0.9rem / var(--escala, 1)); } }

@@ -45,7 +45,7 @@ Para ver os vídeos dentro do site no seu computador, dê dois cliques em `abrir
 - `css/programadores.css` · as páginas de difusão e o PDF do release
 - `css/entreato.css` · a galeria com rolagem lateral
 - `css/conceito.css` · só o caderno de conceito
-- `js/main.js` · movimento (blecaute, numerais, revelações, rede, quadros das entrevistas, vídeos, rolagem lateral do Entreato)
+- `js/main.js` · movimento (blecaute, revelações, rede, quadros das entrevistas, vídeos, rolagem lateral do Entreato)
 - `js/agenda.js` · a agenda da faixa “Agora” (o arquivo para atualizar)
 - `js/imersao.js` e `css/imersao.css` · o carregamento (o nome se escrevendo) e a cena de Instante-já
 - `js/som.js` · a música gerada na hora, ligada pelo botão “Som”
