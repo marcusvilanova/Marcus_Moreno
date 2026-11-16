@@ -52,7 +52,7 @@ Para ver os vídeos dentro do site no seu computador, dê dois cliques em `abrir
 - `js/som.js` · a música gerada na hora, ligada pelo botão “Som”
 - `js/mouse.js` · gestos do mouse nas fotos, só no computador: água e paralaxe (o cursor é o normal do sistema)
 - `assets/img/` · fotos otimizadas em WebP (versão de 2000 px e de 1000 px para celular). Para acrescentar uma foto, converta para WebP (qualidade 80) antes de usar
-- `assets/marca/` · assinatura MM em bistre, nanquim e cal, o ícone da aba e o nome escrito à mão da entrada, do topo e do rodapé (`nome-tinta.svg`, usado como máscara: a cor vem do CSS), o ícone do iPhone e a imagem de prévia para compartilhar (`compartilhar.jpg`)
+- `assets/marca/` · assinatura MM em bistre, nanquim e cal, o ícone da aba e o nome escrito à mão do topo e do Contato (`nome-tinta.svg`, usado como máscara: a cor vem do CSS), o ícone do iPhone e a imagem de prévia para compartilhar (`compartilhar.jpg`)
 - `assets/imprensa/` · os downloads da área de difusão: releases em PDF (pt, es, en), fotos em alta com crédito e a assinatura
 - `ferramentas/` · os geradores do mural do Acervo (`gerar-mural.py`), das páginas de difusão, dos PDFs e da versão de publicação (`gerar-publicacao.py`)
 - `404.html`, `robots.txt`, `sitemap.xml` · para a publicação (ver `PUBLICAR.md`)

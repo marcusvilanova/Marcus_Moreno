@@ -505,20 +505,27 @@
 /* ---------- colofão ---------- */
 
 .colofao {
-  display: grid;
-  gap: 1.2rem;
-  padding: 2.5rem var(--margem) 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  padding: 1.8rem var(--margem);
   border-top: 1px solid rgb(242 238 230 / 0.14);
-  font-size: 0.92rem;
+  font-family: var(--grotesca);
+  font-size: var(--fs-rotulo);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: var(--tinta-escura);
 }
-.colofao .rotulo { display: block; color: var(--destaque-claro); margin-bottom: 0.3rem; }
-.colofao__assinatura { display: flex; flex-direction: column; gap: 0.8rem; }
-.colofao__assinatura .nome-tinta { width: 9.5rem; color: var(--destaque-claro); }
-@media (min-width: 900px) {
-  .colofao { grid-template-columns: 6fr 4fr 2fr; column-gap: 1.5rem; align-items: end; }
-  .colofao__assinatura { align-items: flex-end; text-align: right; }
-}
+.colofao__redes { list-style: none; margin: 0; padding: 0; display: flex; gap: 1.4rem; }
+.colofao__redes a { display: inline-flex; padding: 0.5rem; margin: -0.5rem; color: var(--cal); transition: color 0.3s ease; }
+.colofao__redes a:hover, .colofao__redes a:focus-visible { color: var(--destaque-claro); }
+.colofao__assinatura { margin: 0; }
+
+/* créditos das fotografias, no fim da página Contato */
+.contato__creditos { margin-top: clamp(3rem, 6vw, 5rem); max-width: 46rem; font-size: 0.85rem; color: var(--tinta-escura); }
+.contato__creditos .rotulo { display: block; color: var(--destaque-claro); margin-bottom: 0.3rem; }
 
 /* ---------- telões: trechos dos vídeos de Marcus como fundo de seção ----------
    Como as projeções de vídeo no fundo do palco: atrás do texto, um trecho da própria obra de que a seção fala,
@@ -664,20 +671,6 @@
   .sobre__retrato { grid-column: 1 / 6; }
   .sobre__texto { grid-column: 6 / 11; }
 }
-
-/* ---------- a assinatura à mão fecha o site como o abriu: o nome se escreve de novo no rodapé ---------- */
-.colofao__nome {
-  grid-column: 1 / -1;
-  justify-self: center;
-  width: min(72vw, 30rem);
-  aspect-ratio: 1420 / 175;
-  margin: 1.5rem 0 2.5rem;
-  background: var(--kraft);
-  -webkit-mask: url("../assets/marca/nome-tinta.svg") no-repeat center / contain;
-  mask: url("../assets/marca/nome-tinta.svg") no-repeat center / contain;
-}
-.js .colofao__nome { clip-path: inset(0 100% 0 0); }
-.js .colofao__nome.is-escrita { animation: escrever-nome 2.6s cubic-bezier(0.45, 0.05, 0.35, 1) 0.2s forwards; }
 
 /* no celular, os nomes da rede de afetos ficam maiores */
 @media (max-width: 640px) {

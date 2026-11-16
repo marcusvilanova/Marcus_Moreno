@@ -164,21 +164,6 @@
     teloes.forEach((telao) => { adiantar.observe(telao); olhar.observe(telao); });
   }
 
-  /* ---------- 5 · assinatura do rodapé ---------- */
-
-  // o nome à mão se escreve de novo quando o rodapé aparece: o site fecha como abriu
-  function iniciarAssinatura() {
-    const nome = document.querySelector('.colofao__nome');
-    if (!nome) return;
-    if (!('IntersectionObserver' in window)) { nome.classList.add('is-escrita'); return; }
-    // observa o rodapé, não o nome: antes de se escrever, o nome está todo recortado e não conta como visível
-    new IntersectionObserver(([e], olhar) => {
-      if (!e.isIntersecting) return;
-      nome.classList.add('is-escrita');
-      olhar.disconnect();
-    }, { threshold: 0.3 }).observe(nome.parentElement);
-  }
-
   /* ---------- 6 · ampliar as fotos ---------- */
 
   // um clique na foto a abre grande, em cor; o X, o Esc ou um clique fora fecham.
@@ -226,5 +211,4 @@
   iniciarExpansao();
   iniciarCena();
   iniciarTeloes();
-  iniciarAssinatura();
 })();
