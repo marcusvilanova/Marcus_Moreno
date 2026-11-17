@@ -98,6 +98,14 @@ a { color: inherit; }
 }
 .skip:focus { transform: none; }
 
+/* texto corrido justificado em todo o site; a hifenização em português evita buracos entre as palavras.
+   Títulos e rótulos de uma linha não mudam (a última linha nunca é esticada); o que tem alinhamento próprio mantém o seu. */
+main p, main dd, main li, main blockquote, main figcaption, .contato__creditos {
+  text-align: justify;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
 /* sem itálico em nenhum lugar do site: a ênfase fica na cor, não na inclinação */
 em, i, cite, dfn, address, var { font-style: normal; }
 
