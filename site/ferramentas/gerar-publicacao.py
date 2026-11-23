@@ -18,8 +18,8 @@ SAIDA = SITE.parent / "publicar"
 MARCA = ".gerada-por-gerar-publicacao"
 
 # na ordem em que a página inicial os carrega
-CSS_DA_CAPA = ["fontes", "base", "obras", "secoes", "acervo", "laterais", "entreato", "percurso", "imersao"]
-JS_DA_CAPA = ["agenda", "main", "mouse", "som", "imersao", "percurso"]
+CSS_DA_CAPA = ["fontes", "base", "obras", "secoes", "acervo", "laterais", "entreato", "percurso", "paletas", "imersao"]
+JS_DA_CAPA = ["agenda", "main", "mouse", "som", "imersao", "percurso", "paleta"]
 # arquivos de estilo que outras páginas (programadores, es, en, 404) continuam usando soltos
 CSS_SOLTOS = {"fontes", "base", "programadores"}
 

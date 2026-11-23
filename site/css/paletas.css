@@ -1,0 +1,112 @@
+/* Paletas de cor, escolhidas pelo botão "Escolher paleta" do topo (js/paleta.js).
+   A escolha fica no atributo data-paleta do <html>. Sem ele, vale a paleta Palco, a original (as cores do topo de base.css).
+   As paletas claras trocam só as variáveis de cor: as seções que eram escuras ficam claras e o texto delas, escuro. */
+
+:root[data-paleta="papel"] {
+  --cal: #fbf8f2;
+  --linho: #f1ebe0;
+  --kraft: #e2d6c1;
+  --umbria: #2b2019;
+  --nanquim: #1d1712;
+  --palco: #e9e0d0;
+  --fim: #ded3c0;
+  --destaque: #6a4e38;
+  --destaque-claro: #6a4e38;
+  --tinta-clara: #5f554b;
+  --tinta-escura: #5f554b;
+}
+
+:root[data-paleta="galeria"] {
+  --cal: #ffffff;
+  --linho: #f5f4f1;
+  --kraft: #dedbd5;
+  --umbria: #1e1c1a;
+  --nanquim: #141312;
+  --palco: #e9e7e3;
+  --fim: #dfdcd7;
+  --destaque: #5a5047;
+  --destaque-claro: #5a5047;
+  --tinta-clara: #5e5a55;
+  --tinta-escura: #5e5a55;
+}
+
+/* nas paletas claras, o que era escuro (seções, índice, percurso, rodapé) ganha texto escuro */
+:root[data-paleta] [data-tone="dark"],
+:root[data-paleta] .indice,
+:root[data-paleta] .seguir,
+:root[data-paleta] .portas,
+:root[data-paleta] .colofao {
+  --cal: var(--nanquim);
+  --cor-titulo: var(--umbria);
+  color: var(--nanquim);
+}
+:root[data-paleta] .criacoes { --palco: var(--fim); }
+:root[data-paleta] .presente[data-tone="dark"] { background: var(--palco); --cobre: var(--palco); }
+/* os vídeos de fundo são de palco escuro: um véu claro os aproxima do papel */
+:root[data-paleta] .epigrafe > .telao { --veu: 72%; }
+:root[data-paleta] .epigrafe[data-tone="dark"],
+:root[data-paleta] .epigrafe[data-tone="dark"] .epigrafe__frase { text-shadow: none; }
+/* os cartazes do Agora tinham fundo escuro translúcido e halo escuro nas letras: nas claras, papel translúcido */
+:root[data-paleta] .agora__cartaz { background: rgb(255 255 255 / 0.45); text-shadow: none; border-color: rgb(29 23 18 / 0.18); }
+
+/* ---------- o seletor no topo ---------- */
+
+.paleta { position: relative; }
+.topo__paleta {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: inherit;
+  cursor: pointer;
+  font-family: var(--grotesca);
+  font-size: calc(var(--fs-rotulo) / var(--escala, 1));
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.topo__paleta:hover, .topo__paleta:focus-visible, .topo__paleta[aria-expanded="true"] { color: var(--destaque-claro); }
+
+.paleta__lista {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 1rem);
+  z-index: 60;
+  width: min(19rem, calc(100vw - 2rem));
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.4rem;
+  background: #f5f2ec;
+  color: #1d1712;
+  border: 1px solid rgb(29 23 18 / 0.14);
+  box-shadow: 0 1rem 2.4rem rgb(29 23 18 / 0.2);
+  text-transform: none;
+  letter-spacing: 0;
+}
+.paleta__lista[hidden] { display: none; }
+.paleta__opcao {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.15rem 0.9rem;
+  align-items: center;
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.paleta__opcao:hover, .paleta__opcao:focus-visible { background: rgb(29 23 18 / 0.06); outline: none; }
+.paleta__opcao[aria-pressed="true"] { background: rgb(29 23 18 / 0.09); }
+.paleta__cores { grid-row: span 2; display: flex; }
+.paleta__cores i { width: 1.15rem; height: 1.15rem; border-radius: 50%; border: 1px solid rgb(29 23 18 / 0.22); }
+.paleta__cores i + i { margin-left: -0.35rem; }
+.paleta__nome { font-family: var(--serif); font-size: 1rem; }
+.paleta__opcao[aria-pressed="true"] .paleta__nome::after { content: " · em uso"; font-size: 0.8rem; color: #5f554b; }
+.paleta__desc { font-size: 0.8rem; color: #5f554b; }
+
+@media (max-width: 700px) {
+  .topo__paleta-longo { display: none; }
+  /* no celular, a lista ocupa a largura da tela, logo abaixo do topo */
+  .paleta__lista { position: fixed; top: 3.8rem; left: 1rem; right: 1rem; width: auto; }
+}

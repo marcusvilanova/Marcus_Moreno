@@ -30,8 +30,11 @@
   <link rel="stylesheet" href="css/laterais.css">
   <link rel="stylesheet" href="css/entreato.css">
   <link rel="stylesheet" href="css/percurso.css">
+  <link rel="stylesheet" href="css/paletas.css">
   <link rel="stylesheet" href="css/imersao.css">
   <script>document.documentElement.classList.add('js');
+    // paleta escolhida pelo botão "Escolher paleta" (js/paleta.js), aplicada antes de a página aparecer
+    try { var paleta = localStorage.getItem('mm-paleta'); if (paleta === 'papel' || paleta === 'galeria') document.documentElement.dataset.paleta = paleta; } catch (e) {}
     // entrada: sobre o vídeo das Danças de Presente, o nome se escreve e a pessoa entra pelo botão (uma vez por visita;
     // não aparece em links de seção). Para ver de novo, abra o site com ?entrada no fim do endereço. Ver js/imersao.js.
     try { if ((!sessionStorage.getItem('mm-carregou') && !location.hash) || /[?&]entrada(&|=|$)/.test(location.search)) document.documentElement.classList.add('com-carregamento'); } catch (e) {}
@@ -66,6 +69,10 @@
     <p class="topo__secao" aria-hidden="true"><span class="topo__titulo"></span></p>
     <div class="topo__acoes">
       <a class="topo__contato" href="contato.html">Contato</a>
+      <div class="paleta">
+        <button class="topo__paleta" type="button" aria-expanded="false" aria-controls="paletas"><span class="topo__paleta-longo">Escolher </span>paleta</button>
+        <div class="paleta__lista" id="paletas" role="group" aria-label="Paletas de cor" hidden></div>
+      </div>
       <button class="topo__letra" type="button" data-passo="0" aria-label="Aumentar o tamanho da letra" title="Tamanho da letra">A<span>a</span></button>
       <button class="topo__som" type="button" aria-pressed="false" title="Música gerada na hora, nunca igual"><span class="topo__ondas" aria-hidden="true"><i></i><i></i><i></i></span>Som</button>
       <button class="topo__indice" type="button" aria-expanded="false" aria-controls="indice">Índice</button>
@@ -156,5 +163,6 @@
   <script src="js/som.js" defer></script>
   <script src="js/imersao.js" defer></script>
   <script src="js/percurso.js" defer></script>
+  <script src="js/paleta.js" defer></script>
 </body>
 </html>

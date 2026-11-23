@@ -106,6 +106,9 @@ main p, main dd, main li, main blockquote, main figcaption, .contato__creditos {
   hyphens: auto;
 }
 
+/* o que é centralizado de propósito continua centralizado: os cartazes do Agora e as perguntas de Instante-já */
+.agora__cartaz :is(p, span, cite, h3), .cena-instante__perguntas li { text-align: inherit; }
+
 /* sem itálico em nenhum lugar do site: a ênfase fica na cor, não na inclinação */
 em, i, cite, dfn, address, var { font-style: normal; }
 

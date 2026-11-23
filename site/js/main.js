@@ -14,7 +14,6 @@
     const topo = document.querySelector('.topo');
     const rotulo = topo.querySelector('.topo__secao');
     const titulo = topo.querySelector('.topo__titulo');
-    const fundos = new Map(secoes.map((s) => [s, getComputedStyle(s).backgroundColor]));
     const LINHA = 34; // altura de leitura do topo, em px
 
     return () => {
@@ -27,7 +26,8 @@
       // no Contato a assinatura grande já está na tela: a do topo se recolhe
       topo.classList.toggle('sem-nome', atual.id === 'contato');
       // sobre a foto de abertura o topo é transparente; nas seções, assume a cor do fundo
-      topo.style.backgroundColor = atual.dataset.topo ? 'transparent' : fundos.get(atual);
+      // a cor é lida na hora: muda quando a pessoa escolhe outra paleta
+      topo.style.backgroundColor = atual.dataset.topo ? 'transparent' : getComputedStyle(atual).backgroundColor;
       titulo.textContent = atual.dataset.title || '';
       rotulo.classList.toggle('tem-secao', !!atual.dataset.title);
     };
