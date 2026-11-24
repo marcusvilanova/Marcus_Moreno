@@ -175,6 +175,3 @@
   .conversa__quadro img { width: 82vw; height: auto; }
   .conversa__quadro::before { width: 3.4rem; height: 3.4rem; margin: -1.7rem 0 0 -1.7rem; }
 }
-
-/* colunas estreitas: o texto das galerias laterais fica alinhado à esquerda, sem buracos entre as palavras */
-.lateral :is(p, li, figcaption) { text-align: left; }

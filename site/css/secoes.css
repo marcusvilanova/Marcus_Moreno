@@ -26,8 +26,6 @@
   margin-top: 0.7rem;
 }
 .ficha dd, .ficha__hoje { font-style: normal; line-height: 1.3; }
-/* coluna estreita: alinhada à esquerda, para não abrir buracos entre as palavras */
-.sobre__margem :is(p, dd, dt) { text-align: left; }
 
 @media (min-width: 900px) {
   .sobre__grade { grid-template-columns: repeat(12, 1fr); column-gap: 1.5rem; align-items: start; }
@@ -268,7 +266,7 @@
 .dedicatoria--tres .dedicatoria__nome { font-size: clamp(1.7rem, 3.6vw, 3.6rem); max-width: 18em; text-wrap: balance; }
 .dedicatoria:hover .dedicatoria__nome, .dedicatoria:focus-visible .dedicatoria__nome { transform: translateX(1.2rem); color: var(--destaque-claro); font-style: normal; }
 /* cada nome é um vídeo: um quadro do vídeo e a palavra Assistir ficam sempre à vista */
-.dedicatorias__dica { margin-bottom: 1.2rem; color: var(--destaque-claro); text-align: left; }
+.dedicatorias__dica { margin-bottom: 1.2rem; color: var(--destaque-claro); }
 .dedicatoria__assistir {
   align-self: center;
   display: inline-flex; align-items: center; gap: 0.8rem;

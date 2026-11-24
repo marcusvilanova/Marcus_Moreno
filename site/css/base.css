@@ -98,22 +98,18 @@ a { color: inherit; }
 }
 .skip:focus { transform: none; }
 
-/* texto corrido justificado no computador, sem cortar palavras no fim da linha. No celular, a coluna é estreita
-   e a justificação abriria espaços largos entre as palavras: lá o texto fica alinhado à esquerda.
-   Títulos e rótulos de uma linha não mudam (a última linha nunca é esticada); o que tem alinhamento próprio mantém o seu. */
+/* alinhamento: o texto do site fica à esquerda. Só os textos longos de coluna larga são justificados, e só no computador:
+   a biografia do Sobre, a introdução dos Encontros Efêmeros e os créditos do Contato. Em coluna estreita (obras, listas,
+   legendas, linha do tempo) e no celular, a justificação abriria buracos entre as palavras.
+   Para justificar outro texto longo, acrescente o seletor dele à lista abaixo. */
 main p, main dd, main li, main blockquote, main figcaption, .contato__creditos {
   -webkit-hyphens: manual;
   hyphens: manual;
   text-wrap: pretty;
 }
 @media (min-width: 700px) {
-  main p, main dd, main li, main blockquote, main figcaption, .contato__creditos { text-align: justify; }
+  .sobre__mais > p, .efemeros__intro > p:not(.efemeros__frase), .contato__creditos { text-align: justify; }
 }
-
-/* o que é centralizado de propósito continua centralizado: os cartazes do Agora e as perguntas de Instante-já */
-.agora__cartaz :is(p, span, cite, h3), .cena-instante__perguntas li { text-align: inherit; }
-/* frases grandes de destaque não se esticam: com poucas palavras por linha, a justificação abre buracos */
-.imprensa__citacao blockquote, .efemeros__frase, .lateral__frase, .epigrafe__frase { text-align: left; }
 
 /* sem itálico em nenhum lugar do site: a ênfase fica na cor, não na inclinação */
 em, i, cite, dfn, address, var { font-style: normal; }
