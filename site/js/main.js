@@ -36,7 +36,7 @@
       // no Contato a assinatura grande já está na tela: a do topo se recolhe
       topo.classList.toggle('sem-nome', atual.id === 'contato');
       // sobre a foto de abertura o topo é transparente; nas seções, assume a cor do fundo
-      // a cor é lida na hora: muda quando a pessoa escolhe outra paleta
+      // a cor do topo é a do fundo da seção que está passando
       topo.style.backgroundColor = atual.dataset.topo ? 'transparent' : getComputedStyle(atual).backgroundColor;
       titulo.textContent = atual.dataset.title || '';
       rotulo.classList.toggle('tem-secao', !!atual.dataset.title);

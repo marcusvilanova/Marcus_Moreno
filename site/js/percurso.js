@@ -215,5 +215,4 @@
   faixaSeguir();
   indice();
   vestir();
-  addEventListener('mm-paleta', vestir); // quando a pessoa troca de paleta (js/paleta.js)
 })();

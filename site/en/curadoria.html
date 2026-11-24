@@ -31,12 +31,9 @@
   <link rel="stylesheet" href="../css/laterais.css">
   <link rel="stylesheet" href="../css/entreato.css">
   <link rel="stylesheet" href="../css/percurso.css">
-  <link rel="stylesheet" href="../css/paletas.css">
   <link rel="stylesheet" href="../css/imersao.css">
   <script>document.documentElement.classList.add('js');
     window.MM = { lingua: 'en', raiz: '../' }; // língua da página e caminho até a raiz do site (ferramentas/gerar-traducoes.py)
-    // paleta escolhida pelo botão "Escolher paleta" (js/paleta.js), aplicada antes de a página aparecer
-    try { var paleta = localStorage.getItem('mm-paleta'); if (paleta === 'papel' || paleta === 'galeria') document.documentElement.dataset.paleta = paleta; } catch (e) {}
     // entrada: sobre o vídeo das Danças de Presente, o nome se escreve e a pessoa entra pelo botão (uma vez por visita;
     // não aparece em links de seção). Para ver de novo, abra o site com ?entrada no fim do endereço. Ver js/imersao.js.
     try { if ((!sessionStorage.getItem('mm-carregou') && !location.hash) || /[?&]entrada(&|=|$)/.test(location.search)) document.documentElement.classList.add('com-carregamento'); } catch (e) {}
@@ -72,10 +69,6 @@
     <div class="topo__acoes">
       <nav class="linguas" aria-label="Language"><a href="../curadoria.html" hreflang="pt-BR" lang="pt-BR">PT</a><a href="../es/curadoria.html" hreflang="es" lang="es">ES</a><a href="../en/curadoria.html" hreflang="en" lang="en" aria-current="page">EN</a></nav>
       <a class="topo__contato" href="contato.html">Contact</a>
-      <div class="paleta">
-        <button class="topo__paleta" type="button" aria-expanded="false" aria-controls="paletas"><span class="topo__paleta-longo">Choose </span>palette</button>
-        <div class="paleta__lista" id="paletas" role="group" aria-label="Colour palettes" hidden></div>
-      </div>
       <button class="topo__letra" type="button" data-passo="0" aria-label="Increase text size" title="Text size">A<span>a</span></button>
       <button class="topo__som" type="button" aria-pressed="false" title="Music generated live, never the same"><span class="topo__ondas" aria-hidden="true"><i></i><i></i><i></i></span>Sound</button>
       <button class="topo__indice" type="button" aria-expanded="false" aria-controls="indice">Index</button>
@@ -167,6 +160,5 @@
   <script src="../js/som.js" defer></script>
   <script src="../js/imersao.js" defer></script>
   <script src="../js/percurso.js" defer></script>
-  <script src="../js/paleta.js" defer></script>
 </body>
 </html>

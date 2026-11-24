@@ -158,8 +158,6 @@
 :lang(en) .topo__som::after { content: "Turn on the sound"; }
 :lang(es) .lista-video__item::after { content: "ver"; }
 :lang(en) .lista-video__item::after { content: "watch"; }
-:lang(es) .paleta__opcao[aria-pressed="true"] .paleta__nome::after { content: " · en uso"; }
-:lang(en) .paleta__opcao[aria-pressed="true"] .paleta__nome::after { content: " · in use"; }
 
 /* seletor de língua no topo: PT · ES · EN */
 .linguas { display: flex; gap: 0.7em; font-family: var(--grotesca); font-size: calc(var(--fs-rotulo) / var(--escala, 1)); letter-spacing: 0.16em; }
