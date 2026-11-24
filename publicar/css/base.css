@@ -109,6 +109,8 @@ main p, main dd, main li, main blockquote, main figcaption, .contato__creditos {
 
 /* o que é centralizado de propósito continua centralizado: os cartazes do Agora e as perguntas de Instante-já */
 .agora__cartaz :is(p, span, cite, h3), .cena-instante__perguntas li { text-align: inherit; }
+/* frases grandes de destaque não se esticam: com poucas palavras por linha, a justificação abre buracos */
+.imprensa__citacao blockquote, .efemeros__frase, .lateral__frase, .epigrafe__frase { text-align: left; }
 
 /* sem itálico em nenhum lugar do site: a ênfase fica na cor, não na inclinação */
 em, i, cite, dfn, address, var { font-style: normal; }

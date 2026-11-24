@@ -111,6 +111,12 @@
   .entrevistas__texto { grid-column: 1 / 8; }
   .rede { grid-column: 1 / -1; width: 100%; }
 }
+/* em telas largas, a rede fica ao lado do texto: o lado direito não sobra vazio */
+@media (min-width: 1100px) {
+  .entrevistas__grade { align-items: center; }
+  .entrevistas__texto { grid-column: 1 / 6; }
+  .rede { grid-column: 6 / 13; grid-row: 1; }
+}
 
 .lista-video { counter-reset: ent; border-bottom: 1px solid color-mix(in srgb, var(--nanquim) 30%, transparent); }
 .lista-video li { counter-increment: ent; border-top: 1px solid color-mix(in srgb, var(--nanquim) 30%, transparent); }
