@@ -558,8 +558,7 @@
    Um véu da cor da seção deixa o texto legível; nas bordas, a imagem surge do papel e volta para ele.
    Antes de o vídeo tocar (e sempre, para quem pede movimento reduzido) fica um quadro parado do mesmo trecho. */
 
-.epigrafe:has(> .telao) { position: relative; }
-.epigrafe:has(> .telao), .secao:has(> .telao) { isolation: isolate; }
+.secao:has(> .telao) { isolation: isolate; }
 .telao {
   --borda: clamp(4rem, 14vh, 10rem);
   --veu: 70%;
@@ -570,7 +569,6 @@
 }
 .secao > .telao { max-width: none; margin: 0; }
 /* a epígrafe é uma coluna centrada: o telão sai dela e vai de uma borda à outra da tela */
-.epigrafe > .telao { left: calc(50% - 50vw); right: auto; width: 100vw; }
 /* o quadro fica parado na tela enquanto a seção passa; numa seção mais baixa que a tela, encolhe até caber nela */
 .telao__quadro {
   position: sticky;
@@ -603,12 +601,10 @@
 .efemeros > .telao, .imprensa > .telao { --veu: 60%; }
 /* a epígrafe é o próprio palco escuro de Instante-já: véu leve, para a linha de luz brilhar atrás da frase */
 /* sem véu: o vídeo aparece nítido; a frase se lê pelo halo escuro em volta das letras */
-.epigrafe > .telao { --veu: 0%; }
 .epigrafe[data-tone="dark"] { --destaque: var(--destaque-claro); --tinta-clara: var(--tinta-escura); }
 .epigrafe[data-tone="dark"] .agora { border-top-color: rgb(242 238 230 / 0.22); }
 /* um halo da cor do palco em volta das letras: a frase se destaca da linha de luz quando passa por ela */
 .epigrafe[data-tone="dark"] { text-shadow: 0 0 1.2rem rgb(28 20 15 / 0.9); }
-.epigrafe[data-tone="dark"] .epigrafe__frase { text-shadow: 0 0 2.4rem rgb(28 20 15 / 0.9); }
 /* sobre a imagem, o texto secundário e o bistre escurecem um pouco, para a leitura não depender da parte da imagem que está atrás */
 [data-tone="light"]:has(> .telao) { --tinta-clara: #3a332d; --destaque: #463124; }
 .presente:has(> .telao) .dedicatoria__para { color: var(--kraft); }
@@ -706,34 +702,17 @@
 
 /* na epígrafe, em telas largas, o quadro do vídeo aparece inteiro (antes a altura era cortada e Marcus ficava sem cabeça).
    O escuro do vídeo é a própria cor do palco, então as laterais se desfazem no fundo da seção. */
-@media (min-aspect-ratio: 143/100) {
-  .epigrafe .telao__quadro > img, .epigrafe .telao__quadro > video { object-fit: contain; object-position: 50% 50%; }
-  .epigrafe .telao__quadro::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to right, var(--palco) calc(50% - 71vh), transparent calc(50% - 46vh), transparent calc(50% + 46vh), var(--palco) calc(50% + 71vh));
-  }
-}
 
 .lista-video__sub { font-size: max(0.4em, 0.85rem); }
 
-/* epígrafe: o vídeo rola junto com a seção (não fica parado na tela) e os cartazes do Agora começam
-   abaixo da linha de luz, que fica por volta de 62% da altura da tela: a luz nunca passa atrás deles */
-.epigrafe:has(> .telao) .telao__quadro { position: absolute; inset: 0 0 auto; height: 100vh; height: 100svh; }
-/* a epígrafe é o vídeo da linha de luz em tela cheia; o Agora fica embaixo, no chão escuro do palco, abaixo da luz.
-   O fundo escuro vai até as bordas da tela, também onde a coluna de texto termina */
-.epigrafe:has(> .telao) {
-  display: grid;
-  align-content: end;
-  min-height: 100vh;
-  min-height: 100svh;
-  padding-top: 0;
-  padding-bottom: clamp(2.5rem, 7vh, 5rem);
+/* a faixa do Agora, logo depois da capa: escura como o palco, de uma borda à outra da tela */
+.epigrafe[data-tone="dark"] {
+  padding-top: clamp(3rem, 7vw, 5rem);
+  padding-bottom: clamp(3rem, 7vw, 5rem);
   box-shadow: 0 0 0 100vmax var(--palco);
   clip-path: inset(0 -100vmax);
 }
-.epigrafe:has(> .telao) .agora { margin-top: 0; }
+.epigrafe .agora { margin-top: 0; }
 
 /* ---------- Criações recentes (página inicial): as três obras mais novas ---------- */
 .recentes { padding: clamp(3.5rem, 8vw, 6rem) var(--margem) 0; background: var(--palco); color: var(--cal); }

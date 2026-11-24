@@ -116,7 +116,7 @@ em, i, cite, dfn, address, var { font-style: normal; }
 
 /* voz dos títulos: Tenor Sans */
 h1, h2, h3,
-.epigrafe__frase, .indice__lista a, .lista-video__item, .dedicatoria__nome,
+.indice__lista a, .lista-video__item, .dedicatoria__nome,
 .presente__intro, .premios cite, .produtor__nome, .contato__insta,
 .player__titulo, .tipos__amostra, .rede__nome {
   font-weight: var(--peso-titulo);
@@ -175,7 +175,7 @@ h1, h2, h3,
 .topo[data-tone="dark"], .topo[data-tone="foto"], .indice-aberto .topo { color: var(--cal); }
 .indice-aberto .topo { background-color: transparent !important; }
 
-/* MM e o nome; some sobre a capa, onde o nome já aparece grande */
+/* MM e o nome, também sobre as fotos da capa */
 .topo__nome {
   justify-self: start;
   display: inline-flex;
@@ -190,7 +190,6 @@ h1, h2, h3,
 }
 .topo__nome .marca { width: 1.3rem; }
 .topo__nome .marca path { stroke-width: 4.5; }
-.topo[data-tone="foto"] .topo__nome { opacity: 0; pointer-events: none; }
 
 .topo__secao {
   font-family: var(--grotesca);
@@ -438,54 +437,10 @@ h1, h2, h3,
   100% { transform: scaleY(0); transform-origin: bottom; }
 }
 
-/* o texto da capa: nome, quem é, o que investiga e os dois caminhos. Embaixo à esquerda, sobre a sombra das fotos */
-.abertura__texto {
-  position: absolute;
-  z-index: 2;
-  left: 0; right: 0;
-  bottom: clamp(4.5rem, 13vh, 8.5rem);
-  max-width: var(--maximo);
-  margin: 0 auto;
-  padding: 0 var(--margem);
-  display: grid;
-  justify-items: start;
-  gap: 0.9rem;
-  color: var(--cal);
-  text-shadow: 0 0 1.6rem rgb(18 16 14 / 0.65);
-}
-.abertura__nome { margin: 0; font-size: clamp(2.6rem, 6.5vw, 6rem); line-height: 1; letter-spacing: -0.01em; font-weight: var(--peso-titulo); }
-.abertura__papel { margin: 0; color: var(--destaque-claro); }
-.abertura__frase { margin: 0; max-width: 26em; font-size: clamp(1.05rem, 1.5vw, 1.35rem); line-height: 1.45; }
-.abertura__acoes { display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.7rem 0 0; }
-
-/* botões de texto: contorno fino; o principal é cheio, na cor do papel */
-.botao {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6em;
-  padding: 0.95em 1.5em;
-  border: 1px solid color-mix(in srgb, currentColor 45%, transparent);
-  font-family: var(--grotesca);
-  font-size: var(--fs-rotulo);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  text-decoration: none;
-  text-shadow: none;
-  color: inherit;
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-}
-.botao:hover, .botao:focus-visible { border-color: currentColor; }
-.botao--principal { background: var(--cal); border-color: var(--cal); color: var(--nanquim); }
-.botao--principal:hover, .botao--principal:focus-visible { background: var(--destaque-claro); border-color: var(--destaque-claro); color: var(--nanquim); }
-@media (max-width: 600px) {
-  .abertura__acoes { flex-direction: column; align-self: stretch; width: 100%; }
-}
 
 @media (max-width: 700px) and (orientation: portrait) {
   .cena__img { object-position: var(--obj-m, 50% 50%); }
-  /* no celular, a foto escurece embaixo, onde ficam o nome, a frase e os botões */
-  .abertura::after { background: linear-gradient(to bottom, rgb(18 16 14 / 0.7), transparent 30%), linear-gradient(to top, rgb(18 16 14 / 0.9), rgb(18 16 14 / 0.6) 42%, transparent 68%); }
+  .abertura::after { background: linear-gradient(to bottom, rgb(18 16 14 / 0.7), transparent 40%); }
 }
 
 
@@ -495,21 +450,6 @@ h1, h2, h3,
   padding: var(--respiro) var(--margem);
   max-width: var(--maximo);
   margin: 0 auto;
-}
-.epigrafe__lead { color: var(--destaque); margin-bottom: 1.6rem; }
-.epigrafe__frase {
-  font-size: clamp(1.25rem, 3.1vw, 3.1rem);
-  line-height: 1.06;
-  letter-spacing: -0.02em;
-}
-.epigrafe__frase span { display: block; }
-.epigrafe__frase span:nth-child(2) { padding-left: 1.4em; }
-.epigrafe__frase span:nth-child(3) { padding-left: 2.8em; }
-.epigrafe__frase em { color: var(--destaque); }
-
-@media (max-width: 700px) {
-  .epigrafe__frase span:nth-child(2) { padding-left: 0.6em; }
-  .epigrafe__frase span:nth-child(3) { padding-left: 1.2em; }
 }
 
 /* agora: o que está acontecendo, como a placa de um teatro */

@@ -2,12 +2,6 @@
 
 T = {
     # ---------- início: capa, epígrafe e Agora
-    "Artista da dança · São Paulo": ("Artista de la danza · São Paulo", "Dance artist · São Paulo"),
-    "Investiga as temporalidades, a improvisação cênica e a criação de redes de afetos.": (
-        "Investiga las temporalidades, la improvisación escénica y la creación de redes de afectos.",
-        "He investigates temporalities, stage improvisation and the making of networks of affection."),
-    "Percorrer o site": ("Recorrer el sitio", "Walk through the site"),
-    "Ver criações": ("Ver creaciones", "See stage works"),
     "Criações recentes": ("Creaciones recientes", "Recent works"),
     "Ver todas as criações": ("Ver todas las creaciones", "See all stage works"),
     "Investigar": ("Investigar", "To investigate"),
