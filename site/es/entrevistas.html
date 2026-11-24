@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entrevistas performativas · Marcus Moreno</title>
+  <meta name="description" content="Marcus Moreno, artista de la danza. Creaciones escénicas, entrevistas performativas, Danzas de Presente, curaduría, textos y trayectoria.">
+  <meta name="theme-color" content="#1c140f">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Marcus Moreno · Danza">
+  <meta property="og:description" content="Improvisación, temporalidades y redes de afectos.">
+  <!-- AO PUBLICAR: troque "assets/marca/compartilhar.jpg" pelo endereço completo (https://seu-dominio/assets/marca/compartilhar.jpg),
+       senão o WhatsApp e o Instagram mostram o link sem a foto. Veja PUBLICAR.md. -->
+  <meta property="og:image" content="../assets/marca/compartilhar.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Marcus Moreno de espaldas en un escenario, frente a una vara de reflectores encendidos, con el nombre escrito a mano.">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+    <link rel="preload" href="../assets/fontes/tenor-sans.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/fontes.css">
+  <link rel="icon" href="../assets/marca/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/marca/apple-touch-icon.png">
+  <link rel="alternate" hreflang="pt-BR" href="../entrevistas.html">
+  <link rel="alternate" hreflang="es" href="../es/entrevistas.html">
+  <link rel="alternate" hreflang="en" href="../en/entrevistas.html">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/obras.css">
+  <link rel="stylesheet" href="../css/secoes.css">
+  <link rel="stylesheet" href="../css/acervo.css">
+  <link rel="stylesheet" href="../css/laterais.css">
+  <link rel="stylesheet" href="../css/entreato.css">
+  <link rel="stylesheet" href="../css/percurso.css">
+  <link rel="stylesheet" href="../css/paletas.css">
+  <link rel="stylesheet" href="../css/imersao.css">
+  <script>document.documentElement.classList.add('js');
+    window.MM = { lingua: 'es', raiz: '../' }; // língua da página e caminho até a raiz do site (ferramentas/gerar-traducoes.py)
+    // paleta escolhida pelo botão "Escolher paleta" (js/paleta.js), aplicada antes de a página aparecer
+    try { var paleta = localStorage.getItem('mm-paleta'); if (paleta === 'papel' || paleta === 'galeria') document.documentElement.dataset.paleta = paleta; } catch (e) {}
+    // entrada: sobre o vídeo das Danças de Presente, o nome se escreve e a pessoa entra pelo botão (uma vez por visita;
+    // não aparece em links de seção). Para ver de novo, abra o site com ?entrada no fim do endereço. Ver js/imersao.js.
+    try { if ((!sessionStorage.getItem('mm-carregou') && !location.hash) || /[?&]entrada(&|=|$)/.test(location.search)) document.documentElement.classList.add('com-carregamento'); } catch (e) {}
+    // garantia: se o código do site não carregar, a entrada se abre sozinha em 10 segundos
+    setTimeout(function () { if (!document.documentElement.hasAttribute('data-entrada')) document.documentElement.classList.remove('com-carregamento'); }, 10000);</script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"Marcus Moreno","alternateName":"Marcus Vinicius Moreno Nascimento","jobTitle":"Artista da dança","sameAs":["https://instagram.com/marcusmoreno_danca"]}
+  </script>
+</head><body>
+  <!-- ENTRADA · sobre o vídeo das Danças de Presente, o nome de Marcus se escreve à mão; depois aparecem dois botões: entrar com som ou em silêncio -->
+  <div class="carregando" hidden>
+    <img class="carregando__quadro" src="../assets/img/teloes/presente-key.webp" width="960" height="536" alt="" fetchpriority="high" decoding="async">
+    <span class="carregando__nome">Marcus Moreno</span>
+    <div class="carregando__entradas">
+      <button class="carregando__entrar" type="button" data-som>Entrar con sonido</button>
+      <button class="carregando__entrar carregando__entrar--silencio" type="button">Entrar en silencio</button>
+    </div>
+  </div>
+  <a class="skip" href="#conteudo">Ir al contenido</a>
+  <div class="blecaute" aria-hidden="true"></div>
+  <!-- água: distorção que só atua na foto sob o mouse, e só enquanto o mouse se move (ver main.js) -->
+  <svg class="filtros" width="0" height="0" aria-hidden="true" focusable="false">
+    <filter id="agua" x="-4%" y="-4%" width="108%" height="108%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.024" numOctaves="2" seed="5" result="ruido"/>
+      <feDisplacementMap in="SourceGraphic" in2="ruido" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
+
+  <!-- Cabeçalho: nome, seção atual e índice -->
+  <header class="topo" data-tone="light">
+    <a class="topo__nome" href="index.html" aria-label="Marcus Moreno"><span class="nome-tinta" aria-hidden="true"></span></a>
+    <p class="topo__secao" aria-hidden="true"><span class="topo__titulo"></span></p>
+    <div class="topo__acoes">
+      <nav class="linguas" aria-label="Idioma"><a href="../entrevistas.html" hreflang="pt-BR" lang="pt-BR">PT</a><a href="../es/entrevistas.html" hreflang="es" lang="es" aria-current="page">ES</a><a href="../en/entrevistas.html" hreflang="en" lang="en">EN</a></nav>
+      <a class="topo__contato" href="contato.html">Contacto</a>
+      <div class="paleta">
+        <button class="topo__paleta" type="button" aria-expanded="false" aria-controls="paletas"><span class="topo__paleta-longo">Elegir </span>paleta</button>
+        <div class="paleta__lista" id="paletas" role="group" aria-label="Paletas de color" hidden></div>
+      </div>
+      <button class="topo__letra" type="button" data-passo="0" aria-label="Aumentar el tamaño de la letra" title="Tamaño de la letra">A<span>a</span></button>
+      <button class="topo__som" type="button" aria-pressed="false" title="Música generada al momento, nunca igual"><span class="topo__ondas" aria-hidden="true"><i></i><i></i><i></i></span>Sonido</button>
+      <button class="topo__indice" type="button" aria-expanded="false" aria-controls="indice">Índice</button>
+    </div>
+  </header>
+
+  <nav class="indice" id="indice" aria-label="Índice" hidden>
+    <ol class="indice__lista">
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="criacoes.html">Creaciones escénicas</a></li>
+      <li><a href="entreato.html">Entreacto</a></li>
+      <li><a href="efemeros.html">Encuentros Efímeros</a></li>
+      <li><a href="#entrevistas">Entrevistas performativas</a></li>
+      <li><a href="presente.html">Danzas de Presente</a></li>
+      <li><a href="curadoria.html">Proyectos curatoriales</a></li>
+      <li><a href="textos.html">Textos</a></li>
+      <li><a href="trajetoria.html">Trayectoria</a></li>
+      <li><a href="imprensa.html">En la prensa</a></li>
+      <li><a href="acervo.html">Archivo</a></li>
+      <li><a href="contato.html">Contacto</a></li>
+      <li><a href="../es.html">Para programadores</a></li>
+      <li class="indice__lingua"><a href="../entrevistas.html" hreflang="pt-BR" lang="pt-BR"><span>PT</span>Português</a></li>
+      <li class="indice__lingua"><a href="../en/entrevistas.html" hreflang="en" lang="en"><span>EN</span>English</a></li>
+    </ol>
+    <p class="indice__pe">Estudos do presente</p>
+  </nav>
+
+  <main id="conteudo">
+    <h1 class="sr">Marcus Moreno</h1>
+
+<!-- ENTREVISTAS-PERFORMATIVAS ─ a rede -->
+
+    <section class="secao entrevistas" id="entrevistas" data-tone="light" data-title="Entrevistas performativas">
+      <header class="cabeca">
+        <h2 class="cabeca__titulo">Entrevistas<em>performativas</em></h2>
+        <p class="cabeca__nota">Serie en video · conversaciones bailadas</p>
+      </header>
+
+      <div class="entrevistas__grade">
+        <div class="entrevistas__texto">
+          <p class="capitular">Las entrevistas performativas, que también pueden describirse como conversaciones bailadas, son eventos que buscan crear un espacio para el intercambio de saberes a través de la experiencia de la convivencia, a partir de acciones simples (organizadas de antemano, pero abiertas a lo imprevisible) que apuntan al despertar de un campo de singularidad y de compartir.</p>
+          <p>Son encuentros guiados por una metodología fluida y en permanente transformación, que abren formas de escucha y de contacto más cercanas e involucran al artista invitado en una experiencia estética, en intercambios que incluyen en la interacción y la discusión saberes del orden de lo sensible.</p>
+          <p>Este procedimiento viene siendo desarrollado por Marcus Moreno en los últimos años a partir de una propuesta de Marisa Lambert, quien dirigió su maestría en Artes Escénicas en la Unicamp.</p>
+        </div>
+
+        <figure class="rede" aria-hidden="true">
+          <svg class="rede__svg" viewBox="-40 -30 880 660"></svg>
+          <figcaption class="rede__legenda">
+            <span class="rede__chave rede__chave--ida">entrevista performativa</span>
+            <span class="rede__chave rede__chave--volta">danza de presente</span>
+            <span class="rede__chave rede__chave--efemero">encuentro efímero</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- as conversas: uma galeria que anda para o lado com a rolagem (ver js/main.js, galerias laterais).
+           Para acrescentar uma entrevista, copie um <li class="conversa">, troque pessoa, quadro, vídeo e nome,
+           e ajuste o total no contador. A rede de afetos acima se redesenha sozinha a partir desta lista. -->
+      <div class="lateral lateral--conversas" data-lateral>
+        <div class="lateral__palco">
+          <div class="lateral__faixa" data-lateral-faixa>
+            <div class="lateral__abre">
+              <p class="rotulo">La serie</p>
+              <p class="lateral__frase">Seis conversaciones<em>bailadas</em> con artistas de la escena contemporánea.</p>
+              <p class="rotulo lateral__dica" aria-hidden="true"><span class="lateral__dica-rolar">Desplaza la página</span><span class="lateral__dica-deslizar">Desliza</span> <i></i></p>
+            </div>
+            <ol class="conversas" data-rede>
+              <li class="conversa" data-pessoa="zelia" data-quadro="../assets/img/quadros/entrevista-zelia.webp" data-lateral-item>
+                <button class="conversa__botao" type="button" data-video="jd_U6hWVAxY" data-titulo="Entrevista performativa con Zélia Monteiro"><span class="conversa__quadro"><img class="tinta" src="../assets/img/quadros/entrevista-zelia.webp" width="960" height="540" loading="lazy" alt="" decoding="async"></span><span class="conversa__n">01</span><span class="conversa__com">con</span> Zélia Monteiro</button>
+              </li>
+              <li class="conversa" data-pessoa="key" data-quadro="../assets/img/quadros/entrevista-key.webp" data-lateral-item>
+                <button class="conversa__botao" type="button" data-video="lXd31e4e4DI" data-titulo="Entrevista performativa con Key Sawao"><span class="conversa__quadro"><img class="tinta" src="../assets/img/quadros/entrevista-key.webp" width="960" height="540" loading="lazy" alt="" decoding="async"></span><span class="conversa__n">02</span><span class="conversa__com">con</span> Key Sawao</button>
+              </li>
+              <li class="conversa" data-pessoa="vera" data-quadro="../assets/img/quadros/entrevista-vera.webp" data-lateral-item>
+                <button class="conversa__botao" type="button" data-video="5UkvPAkzwQQ" data-titulo="Entrevista performativa con Vera Sala"><span class="conversa__quadro"><img class="tinta" src="../assets/img/quadros/entrevista-vera.webp" width="960" height="540" loading="lazy" alt="" decoding="async"></span><span class="conversa__n">03</span><span class="conversa__com">con</span> Vera Sala</button>
+              </li>
+              <li class="conversa" data-pessoa="mariana" data-quadro="../assets/img/quadros/entrevista-mariana.webp" data-lateral-item>
+                <button class="conversa__botao" type="button" data-video="azvbrgBYgow" data-start="1" data-titulo="Entrevista performativa con Mariana Muniz"><span class="conversa__quadro"><img class="tinta" src="../assets/img/quadros/entrevista-mariana.webp" width="960" height="540" loading="lazy" alt="" decoding="async"></span><span class="conversa__n">04</span><span class="conversa__com">con</span> Mariana Muniz</button>
+              </li>
+              <li class="conversa" data-pessoa="wellington" data-quadro="../assets/img/quadros/entrevista-wellington.webp" data-lateral-item>
+                <button class="conversa__botao" type="button" data-video="UQLYlQUCsjA" data-titulo="Entrevista performativa con Wellington Duarte"><span class="conversa__quadro"><img class="tinta" src="../assets/img/quadros/entrevista-wellington.webp" width="960" height="540" loading="lazy" alt="" decoding="async"></span><span class="conversa__n">05</span><span class="conversa__com">con</span> Wellington Duarte</button>
+              </li>
+              <li class="conversa" data-pessoa="alex" data-quadro="../assets/img/quadros/entrevista-alex.webp" data-lateral-item>
+                <button class="conversa__botao" type="button" data-video="k5sz9-4NUl4" data-titulo="Entrevista performativa con Alex Ratton"><span class="conversa__quadro"><img class="tinta" src="../assets/img/quadros/entrevista-alex.webp" width="960" height="540" loading="lazy" alt="" decoding="async"></span><span class="conversa__n">06</span><span class="conversa__com">con</span> Alex Ratton</button>
+              </li>
+            </ol>
+          </div>
+          <div class="lateral__pe" aria-hidden="true">
+            <span class="lateral__contador" data-lateral-contador>01 / 06</span>
+            <span class="lateral__progresso" data-lateral-progresso><span></span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="colofao" data-tone="dark">
+    <ul class="colofao__redes">
+      <li><a href="https://instagram.com/marcusmoreno_danca" target="_blank" rel="noopener" aria-label="Instagram de Marcus Moreno (@marcusmoreno_danca)"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/></svg></a></li>
+      <li><a href="https://www.youtube.com/@MARCUSVMN" target="_blank" rel="noopener" aria-label="Canal de Marcus Moreno en YouTube"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor" stroke="none"/></svg></a></li>
+    </ul>
+    <p class="colofao__assinatura">© <span data-ano>2026</span> Marcus Moreno</p>
+  </footer>
+
+  <dialog class="player" aria-label="Video">
+    <div class="player__topo">
+      <p class="player__titulo"></p>
+      <a class="video-youtube" href="#" target="_blank" rel="noopener">Abrir en YouTube</a>
+      <button class="player__fechar" type="button">Cerrar</button>
+    </div>
+    <div class="player__tela"></div>
+  </dialog>
+
+  <script src="../js/agenda.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/mouse.js" defer></script>
+  <script src="../js/som.js" defer></script>
+  <script src="../js/imersao.js" defer></script>
+  <script src="../js/percurso.js" defer></script>
+  <script src="../js/paleta.js" defer></script>
+</body>
+</html>

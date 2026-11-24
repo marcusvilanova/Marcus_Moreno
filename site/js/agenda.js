@@ -7,6 +7,8 @@
      titulo   · nome da obra, do projeto ou do evento (aparece em itálico)
      detalhe  · uma linha sobre onde, com quem
      ate      · (opcional) último dia, no formato ANO-MÊS-DIA. Depois dessa data o item some sozinho.
+     es, en   · (opcional) o mesmo item no site em espanhol e em inglês: { tipo, quando, detalhe }.
+                O que faltar aparece em português. O título da obra não se traduz.
 
    Para acrescentar, copie um bloco { ... }, cole abaixo e troque os textos.
    Os itens aparecem na ordem em que estão aqui. */
@@ -18,12 +20,16 @@ window.AGENDA = [
     titulo: 'Imagens da Memória: Espirais em Movimento',
     detalhe: 'com Marcus Moreno, Maria Fernanda Machado e Raony Iaconis',
     ate: '2026-12-13',
+    es: { tipo: 'Residencia artística', quando: '14 oct — 13 dic 2026', detalhe: 'con Marcus Moreno, Maria Fernanda Machado y Raony Iaconis' },
+    en: { tipo: 'Artist residency', quando: 'Oct 14 — Dec 13, 2026', detalhe: 'with Marcus Moreno, Maria Fernanda Machado and Raony Iaconis' },
   },
   {
     tipo: 'Em desenvolvimento',
     quando: '',
     titulo: 'Onde se Possa Dançar',
     detalhe: 'projeto contemplado pela 39ª edição do Fomento à Dança',
+    es: { tipo: 'En desarrollo', detalhe: 'proyecto seleccionado en la 39ª edición del Fomento a la Danza' },
+    en: { tipo: 'In development', detalhe: "a project selected in the 39th edition of São Paulo's Fomento à Dança" },
   },
 ];
 
@@ -35,7 +41,11 @@ window.AGENDA = [
   if (!lista || !Array.isArray(window.AGENDA)) return;
 
   const hoje = new Date().toISOString().slice(0, 10);
-  const vigentes = window.AGENDA.filter((item) => !item.ate || item.ate >= hoje);
+  const LINGUA = (window.MM && window.MM.lingua) || 'pt';
+  // nas páginas traduzidas, cada campo usa a versão da língua quando ela existe
+  const vigentes = window.AGENDA
+    .filter((item) => !item.ate || item.ate >= hoje)
+    .map((item) => ({ ...item, ...(item[LINGUA] || {}) }));
 
   function criarItem(item) {
     // cada item é um cartaz de teatro: o tipo no alto, o título grande, o detalhe e, no pé, a data

@@ -21,8 +21,9 @@
   <link rel="stylesheet" href="css/fontes.css">
   <link rel="icon" href="assets/marca/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/marca/apple-touch-icon.png">
-  <link rel="alternate" hreflang="es" href="es.html">
-  <link rel="alternate" hreflang="en" href="en.html">
+  <link rel="alternate" hreflang="pt-BR" href="sobre.html">
+  <link rel="alternate" hreflang="es" href="es/sobre.html">
+  <link rel="alternate" hreflang="en" href="en/sobre.html">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/obras.css">
   <link rel="stylesheet" href="css/secoes.css">
@@ -33,6 +34,7 @@
   <link rel="stylesheet" href="css/paletas.css">
   <link rel="stylesheet" href="css/imersao.css">
   <script>document.documentElement.classList.add('js');
+    window.MM = { lingua: 'pt', raiz: '' }; // língua da página e caminho até a raiz do site (ferramentas/gerar-traducoes.py)
     // paleta escolhida pelo botão "Escolher paleta" (js/paleta.js), aplicada antes de a página aparecer
     try { var paleta = localStorage.getItem('mm-paleta'); if (paleta === 'papel' || paleta === 'galeria') document.documentElement.dataset.paleta = paleta; } catch (e) {}
     // entrada: sobre o vídeo das Danças de Presente, o nome se escreve e a pessoa entra pelo botão (uma vez por visita;
@@ -68,6 +70,7 @@
     <a class="topo__nome" href="index.html" aria-label="Marcus Moreno"><span class="nome-tinta" aria-hidden="true"></span></a>
     <p class="topo__secao" aria-hidden="true"><span class="topo__titulo"></span></p>
     <div class="topo__acoes">
+      <nav class="linguas" aria-label="Idioma"><a href="sobre.html" hreflang="pt-BR" lang="pt-BR" aria-current="page">PT</a><a href="es/sobre.html" hreflang="es" lang="es">ES</a><a href="en/sobre.html" hreflang="en" lang="en">EN</a></nav>
       <a class="topo__contato" href="contato.html">Contato</a>
       <div class="paleta">
         <button class="topo__paleta" type="button" aria-expanded="false" aria-controls="paletas"><span class="topo__paleta-longo">Escolher </span>paleta</button>
@@ -94,8 +97,8 @@
       <li><a href="acervo.html">Acervo</a></li>
       <li><a href="contato.html">Contato</a></li>
       <li><a href="programadores.html">Para programadores</a></li>
-      <li><a href="es.html" hreflang="es" lang="es"><span>ES</span>Español</a></li>
-      <li><a href="en.html" hreflang="en" lang="en"><span>EN</span>English</a></li>
+      <li class="indice__lingua"><a href="es/sobre.html" hreflang="es" lang="es"><span>ES</span>Español</a></li>
+      <li class="indice__lingua"><a href="en/sobre.html" hreflang="en" lang="en"><span>EN</span>English</a></li>
     </ol>
     <p class="indice__pe">Estudos do presente</p>
   </nav>

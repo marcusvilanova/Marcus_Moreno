@@ -91,18 +91,23 @@ def principal(com_conceito: bool) -> None:
 
     # cada página aponta para os mesmos arquivos juntos (a versão muda quando estilos ou código mudam)
     versao = hashlib.md5((css + js).encode("utf-8")).hexdigest()[:8]
-    for arquivo in sorted(SITE.glob("*.html")):
+    # as páginas em português, na raiz, e as traduções, em es/ e en/ (ferramentas/gerar-traducoes.py)
+    for arquivo in sorted([*SITE.glob("*.html"), *SITE.glob("es/*.html"), *SITE.glob("en/*.html")]):
         pagina = arquivo.read_text(encoding="utf-8")
         if "js/agenda.js" not in pagina:
             continue  # páginas que não usam o site (ex.: as de difusão) ficam como estão
-        pagina = re.sub(r'  <link rel="stylesheet" href="css/fontes\.css">\n(?:.*\n)*?  <link rel="stylesheet" href="css/imersao\.css">\n',
-                        f'  <link rel="stylesheet" href="css/site.min.css?v={versao}">\n', pagina, count=1)
-        pagina = re.sub(r'  <script src="js/agenda\.js" defer></script>\n(?:  <script src="js/\w+\.js" defer></script>\n)+',
-                        f'  <script src="js/site.min.js?v={versao}" defer></script>\n', pagina, count=1)
+        subir = "" if arquivo.parent == SITE else "../"
+        pagina = re.sub(r'  <link rel="stylesheet" href="(?:\.\./)?css/fontes\.css">\n(?:.*\n)*?  <link rel="stylesheet" href="(?:\.\./)?css/imersao\.css">\n',
+                        f'  <link rel="stylesheet" href="{subir}css/site.min.css?v={versao}">\n', pagina, count=1)
+        pagina = re.sub(r'  <script src="(?:\.\./)?js/agenda\.js" defer></script>\n(?:  <script src="(?:\.\./)?js/\w+\.js" defer></script>\n)+',
+                        f'  <script src="{subir}js/site.min.js?v={versao}" defer></script>\n', pagina, count=1)
         if not com_conceito:
             pagina = pagina.replace(' · <a href="conceito.html">Caderno de conceito</a>', "")
+            pagina = pagina.replace(' · <a href="../conceito.html">Caderno de conceito</a>', "")
         assert "css/site.min.css" in pagina and "js/site.min.js" in pagina, f"não achei os links para trocar em {arquivo.name}"
-        (SAIDA / arquivo.name).write_text(tirar_comentarios_html(pagina), encoding="utf-8")
+        destino = SAIDA / arquivo.relative_to(SITE)
+        destino.parent.mkdir(parents=True, exist_ok=True)
+        destino.write_text(tirar_comentarios_html(pagina), encoding="utf-8")
 
     def tamanho(pasta: Path) -> float:
         return sum(a.stat().st_size for a in pasta.rglob("*") if a.is_file()) / 1024 / 1024

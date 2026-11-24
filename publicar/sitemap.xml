@@ -1,24 +1,201 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- AO PUBLICAR: troque SEU-DOMINIO pelo endereço do site (veja PUBLICAR.md) -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url>
-    <loc>https://SEU-DOMINIO/</loc>
+  <url><loc>https://SEU-DOMINIO/</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/index.html"/>
   </url>
-  <url><loc>https://SEU-DOMINIO/sobre.html</loc></url>
-  <url><loc>https://SEU-DOMINIO/criacoes.html</loc></url>
-  <url><loc>https://SEU-DOMINIO/entreato.html</loc></url>
-  <url><loc>https://SEU-DOMINIO/efemeros.html</loc></url>
-  <url><loc>https://SEU-DOMINIO/entrevistas.html</loc></url>
-  <url><loc>https://SEU-DOMINIO/presente.html</loc></url>
-  <url><loc>https://SEU-DOMINIO/curadoria.html</loc></url>
-  <url><loc>https://SEU-DOMINIO/textos.html</loc></url>
-  <url><loc>https://SEU-DOMINIO/trajetoria.html</loc></url>
-  <url><loc>https://SEU-DOMINIO/imprensa.html</loc></url>
-  <url><loc>https://SEU-DOMINIO/acervo.html</loc></url>
-  <url><loc>https://SEU-DOMINIO/contato.html</loc></url>
+  <url><loc>https://SEU-DOMINIO/es/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/index.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/en/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/index.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/sobre.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/sobre.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/sobre.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/sobre.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/es/sobre.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/sobre.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/sobre.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/sobre.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/en/sobre.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/sobre.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/sobre.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/sobre.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/criacoes.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/criacoes.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/criacoes.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/criacoes.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/es/criacoes.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/criacoes.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/criacoes.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/criacoes.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/en/criacoes.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/criacoes.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/criacoes.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/criacoes.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/entreato.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/entreato.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/entreato.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/entreato.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/es/entreato.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/entreato.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/entreato.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/entreato.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/en/entreato.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/entreato.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/entreato.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/entreato.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/efemeros.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/efemeros.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/efemeros.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/efemeros.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/es/efemeros.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/efemeros.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/efemeros.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/efemeros.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/en/efemeros.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/efemeros.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/efemeros.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/efemeros.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/entrevistas.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/entrevistas.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/entrevistas.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/entrevistas.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/es/entrevistas.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/entrevistas.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/entrevistas.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/entrevistas.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/en/entrevistas.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/entrevistas.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/entrevistas.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/entrevistas.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/presente.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/presente.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/presente.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/presente.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/es/presente.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/presente.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/presente.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/presente.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/en/presente.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/presente.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/presente.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/presente.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/curadoria.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/curadoria.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/curadoria.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/curadoria.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/es/curadoria.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/curadoria.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/curadoria.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/curadoria.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/en/curadoria.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/curadoria.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/curadoria.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/curadoria.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/textos.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/textos.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/textos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/textos.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/es/textos.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/textos.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/textos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/textos.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/en/textos.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/textos.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/textos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/textos.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/trajetoria.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/trajetoria.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/trajetoria.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/trajetoria.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/es/trajetoria.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/trajetoria.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/trajetoria.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/trajetoria.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/en/trajetoria.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/trajetoria.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/trajetoria.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/trajetoria.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/imprensa.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/imprensa.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/imprensa.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/imprensa.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/es/imprensa.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/imprensa.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/imprensa.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/imprensa.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/en/imprensa.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/imprensa.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/imprensa.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/imprensa.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/acervo.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/acervo.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/acervo.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/acervo.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/es/acervo.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/acervo.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/acervo.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/acervo.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/en/acervo.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/acervo.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/acervo.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/acervo.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/contato.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/contato.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/contato.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/contato.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/es/contato.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/contato.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/contato.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/contato.html"/>
+  </url>
+  <url><loc>https://SEU-DOMINIO/en/contato.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/contato.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://SEU-DOMINIO/es/contato.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/contato.html"/>
+  </url>
   <url><loc>https://SEU-DOMINIO/programadores.html</loc></url>
   <url><loc>https://SEU-DOMINIO/es.html</loc></url>
   <url><loc>https://SEU-DOMINIO/en.html</loc></url>

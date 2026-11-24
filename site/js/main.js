@@ -6,6 +6,16 @@
   const reduzMovimento = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const ponteiroFino = matchMedia('(hover: hover) and (pointer: fine)').matches;
   const SVG = 'http://www.w3.org/2000/svg';
+  // textos que o código escreve, na língua da página (window.MM vem do <head>; ver ferramentas/gerar-traducoes.py)
+  const LINGUA = (window.MM && window.MM.lingua) || 'pt';
+  const TEXTOS = {
+    pt: { fechar: 'Fechar', indice: 'Índice', youtube: 'Abrir no YouTube', assistir: 'Assistir',
+          letra: ['Aumentar o tamanho da letra', 'Aumentar mais a letra', 'Aumentar mais a letra', 'Voltar ao tamanho original da letra'] },
+    es: { fechar: 'Cerrar', indice: 'Índice', youtube: 'Abrir en YouTube', assistir: 'Ver',
+          letra: ['Aumentar el tamaño de la letra', 'Aumentar más la letra', 'Aumentar más la letra', 'Volver al tamaño original de la letra'] },
+    en: { fechar: 'Close', indice: 'Index', youtube: 'Open on YouTube', assistir: 'Watch',
+          letra: ['Increase text size', 'Increase text size further', 'Increase text size further', 'Back to the original text size'] },
+  }[LINGUA] || {};
 
 
   /* ---------- topo: tom da seção e seção atual ---------- */
@@ -92,7 +102,7 @@
       document.documentElement.classList.add('indice-aberto');
       document.body.style.overflow = 'hidden';
       botao.setAttribute('aria-expanded', 'true');
-      botao.textContent = 'Fechar';
+      botao.textContent = TEXTOS.fechar;
       indice.querySelector('a').focus({ preventScroll: true });
     }
 
@@ -102,7 +112,7 @@
       document.documentElement.classList.remove('indice-aberto');
       document.body.style.overflow = '';
       botao.setAttribute('aria-expanded', 'false');
-      botao.textContent = 'Índice';
+      botao.textContent = TEXTOS.indice;
       setTimeout(() => { if (!aberto) indice.hidden = true; }, 800);
       if (devolverFoco) botao.focus({ preventScroll: true });
     }
@@ -364,7 +374,7 @@
     a.href = enderecoYouTube(alvo);
     a.target = '_blank';
     a.rel = 'noopener';
-    a.textContent = 'Abrir no YouTube';
+    a.textContent = TEXTOS.youtube;
     return a;
   }
 
@@ -392,7 +402,7 @@
       tela.remove(); // tirar o iframe para o som parar
       midia.hidden = false;
       obra.classList.remove('is-tocando');
-      rotular(obra, 'Assistir');
+      rotular(obra, TEXTOS.assistir);
       tocando = null;
     }
 
@@ -415,7 +425,7 @@
       midia.before(tela);
       midia.hidden = true;
       obra.classList.add('is-tocando');
-      rotular(obra, 'Fechar');
+      rotular(obra, TEXTOS.fechar);
       tocando = { obra, tela, midia };
 
       const r = tela.getBoundingClientRect();
@@ -636,7 +646,7 @@
     const botao = document.querySelector('.topo__letra');
     if (!botao) return;
     const PASSOS = [1, 1.15, 1.3, 1.5];
-    const NOMES = ['Aumentar o tamanho da letra', 'Aumentar mais a letra', 'Aumentar mais a letra', 'Voltar ao tamanho original da letra'];
+    const NOMES = TEXTOS.letra;
     let passo = 0;
     try { passo = Math.min(PASSOS.length - 1, Math.max(0, +localStorage.getItem('mm-letra') || 0)); } catch (e) { /* sem memória: começa no tamanho de origem */ }
     function aplicar() {

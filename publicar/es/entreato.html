@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entreacto · Marcus Moreno</title>
+  <meta name="description" content="Marcus Moreno, artista de la danza. Creaciones escénicas, entrevistas performativas, Danzas de Presente, curaduría, textos y trayectoria.">
+  <meta name="theme-color" content="#1c140f">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Marcus Moreno · Danza">
+  <meta property="og:description" content="Improvisación, temporalidades y redes de afectos.">
+  <meta property="og:image" content="../assets/marca/compartilhar.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Marcus Moreno de espaldas en un escenario, frente a una vara de reflectores encendidos, con el nombre escrito a mano.">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+    <link rel="preload" href="../assets/fontes/tenor-sans.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/site.min.css?v=997bbe2b">
+  <script>document.documentElement.classList.add('js');
+    window.MM = { lingua: 'es', raiz: '../' }; // língua da página e caminho até a raiz do site (ferramentas/gerar-traducoes.py)
+    // paleta escolhida pelo botão "Escolher paleta" (js/paleta.js), aplicada antes de a página aparecer
+    try { var paleta = localStorage.getItem('mm-paleta'); if (paleta === 'papel' || paleta === 'galeria') document.documentElement.dataset.paleta = paleta; } catch (e) {}
+    // entrada: sobre o vídeo das Danças de Presente, o nome se escreve e a pessoa entra pelo botão (uma vez por visita;
+    // não aparece em links de seção). Para ver de novo, abra o site com ?entrada no fim do endereço. Ver js/imersao.js.
+    try { if ((!sessionStorage.getItem('mm-carregou') && !location.hash) || /[?&]entrada(&|=|$)/.test(location.search)) document.documentElement.classList.add('com-carregamento'); } catch (e) {}
+    // garantia: se o código do site não carregar, a entrada se abre sozinha em 10 segundos
+    setTimeout(function () { if (!document.documentElement.hasAttribute('data-entrada')) document.documentElement.classList.remove('com-carregamento'); }, 10000);</script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"Marcus Moreno","alternateName":"Marcus Vinicius Moreno Nascimento","jobTitle":"Artista da dança","sameAs":["https://instagram.com/marcusmoreno_danca"]}
+  </script>
+</head><body>
+  <div class="carregando" hidden>
+    <img class="carregando__quadro" src="../assets/img/teloes/presente-key.webp" width="960" height="536" alt="" fetchpriority="high" decoding="async">
+    <span class="carregando__nome">Marcus Moreno</span>
+    <div class="carregando__entradas">
+      <button class="carregando__entrar" type="button" data-som>Entrar con sonido</button>
+      <button class="carregando__entrar carregando__entrar--silencio" type="button">Entrar en silencio</button>
+    </div>
+  </div>
+  <a class="skip" href="#conteudo">Ir al contenido</a>
+  <div class="blecaute" aria-hidden="true"></div>
+  <svg class="filtros" width="0" height="0" aria-hidden="true" focusable="false">
+    <filter id="agua" x="-4%" y="-4%" width="108%" height="108%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.024" numOctaves="2" seed="5" result="ruido"/>
+      <feDisplacementMap in="SourceGraphic" in2="ruido" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
+
+  <header class="topo" data-tone="light">
+    <a class="topo__nome" href="index.html" aria-label="Marcus Moreno"><span class="nome-tinta" aria-hidden="true"></span></a>
+    <p class="topo__secao" aria-hidden="true"><span class="topo__titulo"></span></p>
+    <div class="topo__acoes">
+      <nav class="linguas" aria-label="Idioma"><a href="../entreato.html" hreflang="pt-BR" lang="pt-BR">PT</a><a href="../es/entreato.html" hreflang="es" lang="es" aria-current="page">ES</a><a href="../en/entreato.html" hreflang="en" lang="en">EN</a></nav>
+      <a class="topo__contato" href="contato.html">Contacto</a>
+      <div class="paleta">
+        <button class="topo__paleta" type="button" aria-expanded="false" aria-controls="paletas"><span class="topo__paleta-longo">Elegir </span>paleta</button>
+        <div class="paleta__lista" id="paletas" role="group" aria-label="Paletas de color" hidden></div>
+      </div>
+      <button class="topo__letra" type="button" data-passo="0" aria-label="Aumentar el tamaño de la letra" title="Tamaño de la letra">A<span>a</span></button>
+      <button class="topo__som" type="button" aria-pressed="false" title="Música generada al momento, nunca igual"><span class="topo__ondas" aria-hidden="true"><i></i><i></i><i></i></span>Sonido</button>
+      <button class="topo__indice" type="button" aria-expanded="false" aria-controls="indice">Índice</button>
+    </div>
+  </header>
+
+  <nav class="indice" id="indice" aria-label="Índice" hidden>
+    <ol class="indice__lista">
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="criacoes.html">Creaciones escénicas</a></li>
+      <li><a href="#entreato">Entreacto</a></li>
+      <li><a href="efemeros.html">Encuentros Efímeros</a></li>
+      <li><a href="entrevistas.html">Entrevistas performativas</a></li>
+      <li><a href="presente.html">Danzas de Presente</a></li>
+      <li><a href="curadoria.html">Proyectos curatoriales</a></li>
+      <li><a href="textos.html">Textos</a></li>
+      <li><a href="trajetoria.html">Trayectoria</a></li>
+      <li><a href="imprensa.html">En la prensa</a></li>
+      <li><a href="acervo.html">Archivo</a></li>
+      <li><a href="contato.html">Contacto</a></li>
+      <li><a href="../es.html">Para programadores</a></li>
+      <li class="indice__lingua"><a href="../entreato.html" hreflang="pt-BR" lang="pt-BR"><span>PT</span>Português</a></li>
+      <li class="indice__lingua"><a href="../en/entreato.html" hreflang="en" lang="en"><span>EN</span>English</a></li>
+    </ol>
+    <p class="indice__pe">Estudos do presente</p>
+  </nav>
+
+  <main id="conteudo">
+    <h1 class="sr">Marcus Moreno</h1>
+
+<section class="entreato" id="entreato" data-lateral data-tone="dark" data-title="Entreacto" aria-labelledby="entreato-titulo">
+      <div class="entreato__palco">
+        <div class="entreato__faixa" data-lateral-faixa>
+          <div class="entreato__abre">
+            <p class="rotulo entreato__rotulo">Intervalo entre las obras</p>
+            <h2 class="entreato__titulo" id="entreato-titulo">Entre<em>acto</em></h2>
+            <p class="entreato__texto">Fotografías de escena, de ensayo y de calle. El cuerpo en lugares: biblioteca, pared, caldera, azotea, follaje, escenario.</p>
+            <p class="rotulo entreato__dica" aria-hidden="true"><span class="entreato__dica-rolar">Desplaza la página</span><span class="entreato__dica-deslizar">Desliza</span> <i></i></p>
+          </div>
+          <figure data-lateral-item class="entreato__foto entreato__foto--h">
+            <div class="entreato__moldura"><img class="tinta" src="../assets/img/flor-mario-de-andrade.webp" srcset="../assets/img/flor-mario-de-andrade-1000.webp 1000w, ../assets/img/flor-mario-de-andrade.webp 2000w" sizes="90vh" width="2000" height="1333" loading="lazy" alt="Marcus baila descalzo en la terraza de la Biblioteca Mário de Andrade, entre árboles y edificios." decoding="async"></div>
+            <figcaption class="legenda"><span class="entreato__n">01</span> <cite>A Flor da Lua</cite> · Biblioteca Mário de Andrade · Foto Claudia Magalhães</figcaption>
+          </figure>
+          <figure data-lateral-item class="entreato__foto entreato__foto--v">
+            <div class="entreato__moldura"><img class="tinta" src="../assets/img/estudo-encontro-2.webp" srcset="../assets/img/estudo-encontro-2-1000.webp 1000w, ../assets/img/estudo-encontro-2.webp 1333w" sizes="45vh" width="1333" height="2000" loading="lazy" alt="Marcus apoyado en una pared de hormigón, la cabeza inclinada, luz lateral en el suelo." decoding="async"></div>
+            <figcaption class="legenda"><span class="entreato__n">02</span> <cite>Estudo para o Encontro</cite> · Foto Silvia Machado</figcaption>
+          </figure>
+          <figure data-lateral-item class="entreato__foto entreato__foto--h entreato__foto--baixo">
+            <div class="entreato__moldura"><img class="tinta" src="../assets/img/flor-casa-caldeiras.webp" width="960" height="640" loading="lazy" alt="Silueta a contraluz ámbar en la Casa das Caldeiras, el público sentado a la izquierda." decoding="async"></div>
+            <figcaption class="legenda"><span class="entreato__n">03</span> <cite>A Flor da Lua</cite> · Casa das Caldeiras</figcaption>
+          </figure>
+          <figure data-lateral-item class="entreato__foto entreato__foto--v">
+            <div class="entreato__moldura"><img class="tinta" src="../assets/img/retrato-07.webp" width="853" height="1280" loading="lazy" alt="Marcus agachado al borde de un espejo de agua, retorciendo un paño blanco, plantas al fondo." decoding="async"></div>
+            <figcaption class="legenda"><span class="entreato__n">04</span> Retrato · 2025</figcaption>
+          </figure>
+          <figure data-lateral-item class="entreato__foto entreato__foto--h">
+            <div class="entreato__moldura"><img class="tinta" src="../assets/img/img-1639.webp" srcset="../assets/img/img-1639-1000.webp 1000w, ../assets/img/img-1639.webp 2000w" sizes="90vh" width="2000" height="1307" loading="lazy" alt="Marcus con un brazo alzado al cielo sobre una azotea, São Paulo y una antena al fondo." decoding="async"></div>
+            <figcaption class="legenda"><span class="entreato__n">05</span> Azotea · São Paulo</figcaption>
+          </figure>
+          <figure data-lateral-item class="entreato__foto entreato__foto--v">
+            <div class="entreato__moldura"><img class="tinta" src="../assets/img/onde-houver-ceu-1.webp" srcset="../assets/img/onde-houver-ceu-1-1000.webp 1000w, ../assets/img/onde-houver-ceu-1.webp 1333w" sizes="45vh" width="1333" height="2000" loading="lazy" alt="Marcus de espaldas, brazos abiertos, sobre un suelo cubierto de follaje; otros intérpretes al fondo." decoding="async"></div>
+            <figcaption class="legenda"><span class="entreato__n">06</span> <cite>Onde Houver Céu</cite> · Foto Silvia Machado</figcaption>
+          </figure>
+          <figure data-lateral-item class="entreato__foto entreato__foto--h entreato__foto--baixo">
+            <div class="entreato__moldura"><img class="tinta" src="../assets/img/retrato-25.webp" srcset="../assets/img/retrato-25-1000.webp 1000w, ../assets/img/retrato-25.webp 1280w" sizes="90vh" width="1280" height="853" loading="lazy" alt="Marcus Moreno de perfil, frente a una ventana de persianas, con las manos alzadas a la altura del rostro." decoding="async"></div>
+            <figcaption class="legenda"><span class="entreato__n">07</span> Retrato · 2025</figcaption>
+          </figure>
+          <figure data-lateral-item class="entreato__foto entreato__foto--h">
+            <div class="entreato__moldura"><img class="tinta" src="../assets/img/fvp-8603.webp" srcset="../assets/img/fvp-8603-1000.webp 1000w, ../assets/img/fvp-8603.webp 2000w" sizes="90vh" width="2000" height="1330" loading="lazy" alt="Marcus de espaldas en un escenario, manos unidas, mirando una vara de reflectores encendidos." decoding="async"></div>
+            <figcaption class="legenda"><span class="entreato__n">08</span> Escenario · Reflectores encendidos</figcaption>
+          </figure>
+        </div>
+        <div class="entreato__pe" aria-hidden="true">
+          <span class="entreato__contador" data-lateral-contador>01 / 08</span>
+          <span class="entreato__progresso" data-lateral-progresso><span></span></span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="colofao" data-tone="dark">
+    <ul class="colofao__redes">
+      <li><a href="https://instagram.com/marcusmoreno_danca" target="_blank" rel="noopener" aria-label="Instagram de Marcus Moreno (@marcusmoreno_danca)"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/></svg></a></li>
+      <li><a href="https://www.youtube.com/@MARCUSVMN" target="_blank" rel="noopener" aria-label="Canal de Marcus Moreno en YouTube"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor" stroke="none"/></svg></a></li>
+    </ul>
+    <p class="colofao__assinatura">© <span data-ano>2026</span> Marcus Moreno</p>
+  </footer>
+
+  <dialog class="player" aria-label="Video">
+    <div class="player__topo">
+      <p class="player__titulo"></p>
+      <a class="video-youtube" href="#" target="_blank" rel="noopener">Abrir en YouTube</a>
+      <button class="player__fechar" type="button">Cerrar</button>
+    </div>
+    <div class="player__tela"></div>
+  </dialog>
+
+  <script src="../js/site.min.js?v=997bbe2b" defer></script>
+</body>
+</html>

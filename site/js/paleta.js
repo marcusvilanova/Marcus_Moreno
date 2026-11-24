@@ -7,6 +7,12 @@
     { id: 'papel', nome: 'Papel', descricao: 'Clara e quente: linho, kraft e bistre.', cores: ['#e9e0d0', '#f1ebe0', '#6a4e38'] },
     { id: 'galeria', nome: 'Galeria', descricao: 'Clara e neutra: branco, cinza e grafite.', cores: ['#e9e7e3', '#f5f4f1', '#5a5047'] },
   ];
+  // nome e descrição nas páginas em espanhol e inglês
+  const LINGUA = (window.MM && window.MM.lingua) || 'pt';
+  const TRADUCOES = {
+    es: { palco: ['Escenario', 'La original: marrón profundo y papel.'], papel: ['Papel', 'Clara y cálida: lino, kraft y bistre.'], galeria: ['Galería', 'Clara y neutra: blanco, gris y grafito.'] },
+    en: { palco: ['Stage', 'The original: deep brown and paper.'], papel: ['Paper', 'Light and warm: linen, kraft and bistre.'], galeria: ['Gallery', 'Light and neutral: white, grey and graphite.'] },
+  }[LINGUA] || {};
   const CHAVE = 'mm-paleta';
   const raiz = document.documentElement;
   const botao = document.querySelector('.topo__paleta');
@@ -46,10 +52,10 @@
     });
     const nome = document.createElement('span');
     nome.className = 'paleta__nome';
-    nome.textContent = p.nome;
+    nome.textContent = (TRADUCOES[p.id] || [p.nome])[0];
     const descricao = document.createElement('span');
     descricao.className = 'paleta__desc';
-    descricao.textContent = p.descricao;
+    descricao.textContent = (TRADUCOES[p.id] || [0, p.descricao])[1];
     opcao.append(cores, nome, descricao);
     opcao.addEventListener('click', () => aplicar(p.id));
     lista.append(opcao);

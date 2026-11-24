@@ -8,6 +8,13 @@
 
   const reduzMovimento = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const raiz = document.documentElement;
+  const LINGUA = (window.MM && window.MM.lingua) || 'pt';
+  const RAIZ = (window.MM && window.MM.raiz) || ''; // nas páginas traduzidas, os arquivos ficam uma pasta acima
+  const TEXTOS = {
+    pt: { ampliada: 'Foto ampliada', fechar: 'Fechar' },
+    es: { ampliada: 'Foto ampliada', fechar: 'Cerrar' },
+    en: { ampliada: 'Enlarged photo', fechar: 'Close' },
+  }[LINGUA] || {};
   const limitar = (v, min, max) => Math.min(max, Math.max(min, v));
 
   // vídeo de fundo, sem som e em loop; ganha a classe is-tocando (e acende por cima do quadro parado) quando começa a tocar
@@ -40,7 +47,7 @@
     fundo.forEach((el) => { el.inert = true; });
 
     // sem movimento reduzido, o vídeo toca atrás do nome; se o navegador não deixar, fica o quadro parado
-    const video = reduzMovimento ? null : criarVideo('assets/video/presente-key.mp4', 'carregando__video');
+    const video = reduzMovimento ? null : criarVideo(`${RAIZ}assets/video/presente-key.mp4`, 'carregando__video');
     if (video) {
       tela.querySelector('.carregando__quadro').after(video);
       video.play().catch(() => {});
@@ -176,8 +183,8 @@
 
     const caixa = document.createElement('dialog');
     caixa.className = 'ampliar';
-    caixa.setAttribute('aria-label', 'Foto ampliada');
-    caixa.innerHTML = '<button class="ampliar__fechar" type="button" aria-label="Fechar">×</button>'
+    caixa.setAttribute('aria-label', TEXTOS.ampliada);
+    caixa.innerHTML = `<button class="ampliar__fechar" type="button" aria-label="${TEXTOS.fechar}">×</button>`
       + '<figure class="ampliar__quadro"><img alt=""><figcaption class="ampliar__legenda"></figcaption></figure>';
     document.body.append(caixa);
     const grande = caixa.querySelector('img');

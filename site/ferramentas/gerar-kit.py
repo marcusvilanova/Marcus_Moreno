@@ -126,6 +126,7 @@ def peso(caminho: str) -> str:
 
 
 def pagina(lingua: str) -> str:
+    inicio = {"pt": "index.html", "es": "es/index.html", "en": "en/index.html"}.get(lingua, "index.html")  # o site na mesma língua
     t = TEXTO[lingua]
     arquivos = [f"assets/imprensa/release-marcus-moreno-{lingua}.pdf",
                 "assets/imprensa/marcus-moreno_fotos-em-alta.zip",
@@ -154,7 +155,7 @@ def pagina(lingua: str) -> str:
           <a href="tel:{tel}">{tel_texto}</a>
           <a href="mailto:{email}">{email}</a>
         </address>""" for nome, casa, tel, tel_texto, email in CONTATOS)
-    site = f'\n      <p class="kit__intro"><a href="index.html">{t["site"]}</a></p>' if t["site"] else ""
+    site = f'\n      <p class="kit__intro"><a href="{inicio}">{t["site"]}</a></p>' if t["site"] else ""
     release = "\n".join(f"        <p>{p}</p>" for p in t["release"])
     return f"""<!doctype html>
 <!-- Gerado por ferramentas/gerar-kit.py. Para mudar um texto, edite lá e rode de novo. -->
@@ -181,7 +182,7 @@ def pagina(lingua: str) -> str:
 <body data-tone="light">
   <main class="kit">
     <header class="kit__topo">
-      <a class="kit__voltar" href="index.html" aria-label="{t["voltar"]}"><span class="nome-tinta" aria-hidden="true"></span></a>
+      <a class="kit__voltar" href="{inicio}" aria-label="{t["voltar"]}"><span class="nome-tinta" aria-hidden="true"></span></a>
       <nav class="kit__idiomas rotulo" aria-label="Idioma · Language">
 {idiomas}
       </nav>

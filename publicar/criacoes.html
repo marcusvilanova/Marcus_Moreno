@@ -16,8 +16,9 @@
   <meta property="og:locale" content="pt_BR">
   <meta name="twitter:card" content="summary_large_image">
     <link rel="preload" href="assets/fontes/tenor-sans.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/site.min.css?v=44d10ed2">
+  <link rel="stylesheet" href="css/site.min.css?v=997bbe2b">
   <script>document.documentElement.classList.add('js');
+    window.MM = { lingua: 'pt', raiz: '' }; // língua da página e caminho até a raiz do site (ferramentas/gerar-traducoes.py)
     // paleta escolhida pelo botão "Escolher paleta" (js/paleta.js), aplicada antes de a página aparecer
     try { var paleta = localStorage.getItem('mm-paleta'); if (paleta === 'papel' || paleta === 'galeria') document.documentElement.dataset.paleta = paleta; } catch (e) {}
     // entrada: sobre o vídeo das Danças de Presente, o nome se escreve e a pessoa entra pelo botão (uma vez por visita;
@@ -50,6 +51,7 @@
     <a class="topo__nome" href="index.html" aria-label="Marcus Moreno"><span class="nome-tinta" aria-hidden="true"></span></a>
     <p class="topo__secao" aria-hidden="true"><span class="topo__titulo"></span></p>
     <div class="topo__acoes">
+      <nav class="linguas" aria-label="Idioma"><a href="criacoes.html" hreflang="pt-BR" lang="pt-BR" aria-current="page">PT</a><a href="es/criacoes.html" hreflang="es" lang="es">ES</a><a href="en/criacoes.html" hreflang="en" lang="en">EN</a></nav>
       <a class="topo__contato" href="contato.html">Contato</a>
       <div class="paleta">
         <button class="topo__paleta" type="button" aria-expanded="false" aria-controls="paletas"><span class="topo__paleta-longo">Escolher </span>paleta</button>
@@ -76,8 +78,8 @@
       <li><a href="acervo.html">Acervo</a></li>
       <li><a href="contato.html">Contato</a></li>
       <li><a href="programadores.html">Para programadores</a></li>
-      <li><a href="es.html" hreflang="es" lang="es"><span>ES</span>Español</a></li>
-      <li><a href="en.html" hreflang="en" lang="en"><span>EN</span>English</a></li>
+      <li class="indice__lingua"><a href="es/criacoes.html" hreflang="es" lang="es"><span>ES</span>Español</a></li>
+      <li class="indice__lingua"><a href="en/criacoes.html" hreflang="en" lang="en"><span>EN</span>English</a></li>
     </ol>
     <p class="indice__pe">Estudos do presente</p>
   </nav>
@@ -364,6 +366,6 @@
     <div class="player__tela"></div>
   </dialog>
 
-  <script src="js/site.min.js?v=44d10ed2" defer></script>
+  <script src="js/site.min.js?v=997bbe2b" defer></script>
 </body>
 </html>

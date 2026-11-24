@@ -152,3 +152,18 @@
 }
 @keyframes apagar-pagina { to { opacity: 0; } }
 @keyframes acender-pagina { from { opacity: 0; } }
+
+/* ---------- textos escritos pelo CSS, nas páginas em espanhol e inglês (ferramentas/gerar-traducoes.py) ---------- */
+:lang(es) .topo__som::after { content: "Enciende el sonido"; }
+:lang(en) .topo__som::after { content: "Turn on the sound"; }
+:lang(es) .lista-video__item::after { content: "ver"; }
+:lang(en) .lista-video__item::after { content: "watch"; }
+:lang(es) .paleta__opcao[aria-pressed="true"] .paleta__nome::after { content: " · en uso"; }
+:lang(en) .paleta__opcao[aria-pressed="true"] .paleta__nome::after { content: " · in use"; }
+
+/* seletor de língua no topo: PT · ES · EN */
+.linguas { display: flex; gap: 0.7em; font-family: var(--grotesca); font-size: calc(var(--fs-rotulo) / var(--escala, 1)); letter-spacing: 0.16em; }
+.linguas a { color: inherit; text-decoration: none; opacity: 0.55; transition: opacity 0.3s ease; }
+.linguas a:hover, .linguas a:focus-visible, .linguas a[aria-current="page"] { opacity: 1; }
+.linguas a[aria-current="page"] { text-decoration: underline; text-underline-offset: 0.35em; }
+@media (max-width: 900px) { .linguas { display: none; } } /* no celular, as línguas ficam no Índice */
