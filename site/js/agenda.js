@@ -48,9 +48,9 @@ window.AGENDA = [
     .map((item) => ({ ...item, ...(item[LINGUA] || {}) }));
 
   function criarItem(item) {
-    // cada item é um cartaz de teatro: o tipo no alto, o título grande, o detalhe e, no pé, a data
+    // cada item é uma linha: o título e o detalhe à esquerda; o tipo e a data à direita
     const li = document.createElement('li');
-    li.className = 'agora__cartaz';
+    li.className = 'agora__item';
     const tipo = document.createElement('span');
     tipo.className = 'agora__tipo';
     tipo.textContent = item.tipo || '';

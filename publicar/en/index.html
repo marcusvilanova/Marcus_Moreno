@@ -16,7 +16,7 @@
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
     <link rel="preload" href="../assets/fontes/tenor-sans.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../css/site.min.css?v=52561d8a">
+  <link rel="stylesheet" href="../css/site.min.css?v=f62baeb3">
   <script>document.documentElement.classList.add('js');
     window.MM = { lingua: 'en', raiz: '../' }; // língua da página e caminho até a raiz do site (ferramentas/gerar-traducoes.py)
     // troca de página com transição (css/percurso.css): se a navegação for interrompida no meio, a transição é só abandonada, sem erro
@@ -75,7 +75,6 @@
   </nav>
 
   <main id="conteudo">
-    <h1 class="sr">Marcus Moreno</h1>
 
     <section class="abertura" id="inicio" data-tone="dark" data-topo="foto" data-title="">
       <div class="abertura__cena" aria-hidden="true">
@@ -86,17 +85,17 @@
         <figure class="cena" style="--i: 4; --obj: 60% 50%; --obj-m: 68% 50%"><img class="cena__img" src="../assets/img/capa-ausencia.webp" srcset="../assets/img/capa-ausencia-1000.webp 1000w, ../assets/img/capa-ausencia.webp 2000w" sizes="100vw" width="2000" height="1268" loading="lazy" alt="" decoding="async"><figcaption class="legenda cena__legenda"><cite>A Imagem como Ausência</cite> · Photo Silvia Machado</figcaption></figure>
         <figure class="cena" style="--i: 5; --obj: 50% 12%; --obj-m: 74% 50%"><img class="cena__img" src="../assets/img/capa-caldeiras.webp" width="960" height="640" loading="lazy" alt="" decoding="async"><figcaption class="legenda cena__legenda"><cite>A Flor da Lua</cite> · Casa das Caldeiras</figcaption></figure>
       </div>
+      <div class="abertura__texto">
+        <h1 class="abertura__nome">Marcus Moreno</h1>
+        <p class="rotulo abertura__papel">Dance artist · São Paulo</p>
+        <p class="abertura__frase">He investigates temporalities, stage improvisation and the making of networks of affection.</p>
+        <p class="abertura__acoes"><a class="botao botao--principal" href="sobre.html">Walk through the site <span aria-hidden="true">→</span></a><a class="botao" href="criacoes.html">See stage works</a></p>
+      </div>
       <span class="abertura__fio" aria-hidden="true"></span>
     </section>
 
 <section class="epigrafe" data-tone="dark" data-title="">
       <div class="telao" aria-hidden="true" data-video="../assets/video/instante-linha.mp4" data-video-menor="../assets/video/instante-linha-960.mp4"><div class="telao__quadro" style="--foco: 58% 100%"><img src="../assets/img/teloes/instante-linha.webp" width="1280" height="900" alt="" loading="lazy" decoding="async"></div></div>
-      <p class="epigrafe__lead rotulo">To investigate</p>
-      <p class="epigrafe__frase">
-        <span>temporalities,</span>
-        <span>stage improvisation</span>
-        <span>and the making of <em>networks of affection</em></span>
-      </p>
 
       <aside class="agora" aria-label="Now">
         <p class="rotulo agora__rotulo">Now</p>
@@ -105,6 +104,18 @@
           <li><span class="agora__tipo">In development</span><p><cite>Onde se Possa Dançar</cite>, a project selected in the 39th edition of São Paulo's Fomento à Dança</p></li>
         </ul>
       </aside>
+    </section>
+
+    <section class="recentes" data-tone="dark" data-title="" aria-labelledby="recentes-titulo">
+      <header class="recentes__cabeca">
+        <h2 class="rotulo recentes__titulo" id="recentes-titulo">Recent works</h2>
+        <a class="recentes__todas" href="criacoes.html">See all stage works <span aria-hidden="true">→</span></a>
+      </header>
+      <ul class="recentes__lista">
+        <li><a class="recentes__obra" href="criacoes.html#obra-ceu"><img class="tinta" src="../assets/img/onde-houver-ceu-1-1000.webp" width="666" height="1000" alt="" loading="lazy" decoding="async"><span class="recentes__ano">2024</span><span class="recentes__nome">Onde Houver Céu</span></a></li>
+        <li><a class="recentes__obra" href="criacoes.html#obra-sempre"><img class="tinta" src="../assets/img/sempre-mais-que-um.webp" width="960" height="720" alt="" loading="lazy" decoding="async"><span class="recentes__ano">2023</span><span class="recentes__nome">Sempre mais que um</span></a></li>
+        <li><a class="recentes__obra" href="criacoes.html#obra-cinema"><img class="tinta" src="../assets/img/entre-espaco-still-1000.webp" width="1000" height="418" alt="" loading="lazy" decoding="async"><span class="recentes__ano">2021</span><span class="recentes__nome">Entre-espaço onde tudo existe</span></a></li>
+      </ul>
     </section>
   </main>
 
@@ -125,6 +136,6 @@
     <div class="player__tela"></div>
   </dialog>
 
-  <script src="../js/site.min.js?v=52561d8a" defer></script>
+  <script src="../js/site.min.js?v=f62baeb3" defer></script>
 </body>
 </html>

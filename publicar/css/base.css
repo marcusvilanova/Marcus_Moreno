@@ -438,9 +438,54 @@ h1, h2, h3,
   100% { transform: scaleY(0); transform-origin: bottom; }
 }
 
+/* o texto da capa: nome, quem é, o que investiga e os dois caminhos. Embaixo à esquerda, sobre a sombra das fotos */
+.abertura__texto {
+  position: absolute;
+  z-index: 2;
+  left: 0; right: 0;
+  bottom: clamp(4.5rem, 13vh, 8.5rem);
+  max-width: var(--maximo);
+  margin: 0 auto;
+  padding: 0 var(--margem);
+  display: grid;
+  justify-items: start;
+  gap: 0.9rem;
+  color: var(--cal);
+  text-shadow: 0 0 1.6rem rgb(18 16 14 / 0.65);
+}
+.abertura__nome { margin: 0; font-size: clamp(2.6rem, 6.5vw, 6rem); line-height: 1; letter-spacing: -0.01em; font-weight: var(--peso-titulo); }
+.abertura__papel { margin: 0; color: var(--destaque-claro); }
+.abertura__frase { margin: 0; max-width: 26em; font-size: clamp(1.05rem, 1.5vw, 1.35rem); line-height: 1.45; }
+.abertura__acoes { display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.7rem 0 0; }
+
+/* botões de texto: contorno fino; o principal é cheio, na cor do papel */
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  padding: 0.95em 1.5em;
+  border: 1px solid color-mix(in srgb, currentColor 45%, transparent);
+  font-family: var(--grotesca);
+  font-size: var(--fs-rotulo);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-shadow: none;
+  color: inherit;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+.botao:hover, .botao:focus-visible { border-color: currentColor; }
+.botao--principal { background: var(--cal); border-color: var(--cal); color: var(--nanquim); }
+.botao--principal:hover, .botao--principal:focus-visible { background: var(--destaque-claro); border-color: var(--destaque-claro); color: var(--nanquim); }
+@media (max-width: 600px) {
+  .abertura__acoes { flex-direction: column; align-self: stretch; width: 100%; }
+}
+
 @media (max-width: 700px) and (orientation: portrait) {
   .cena__img { object-position: var(--obj-m, 50% 50%); }
-  .abertura::after { background: linear-gradient(to bottom, rgb(18 16 14 / 0.7), transparent 40%); }
+  /* no celular, a foto escurece embaixo, onde ficam o nome, a frase e os botões */
+  .abertura::after { background: linear-gradient(to bottom, rgb(18 16 14 / 0.7), transparent 30%), linear-gradient(to top, rgb(18 16 14 / 0.9), rgb(18 16 14 / 0.6) 42%, transparent 68%); }
 }
 
 
@@ -796,46 +841,33 @@ html { --escala: 1; font-size: calc(max(72%, 0.6vw) * var(--escala)); }
 .topo__indice::before { width: calc(1.8rem / var(--escala, 1)); }
 @media (max-width: 370px) { .topo__acoes { gap: calc(0.9rem / var(--escala, 1)); } }
 
-/* ---------- Agora: cada item é um cartaz de teatro ----------
-   Moldura dupla (um fio largo e outro fino por dentro), o tipo no alto, o título grande ao centro e a data no pé. */
-.agora__lista { gap: 1.4rem; }
-.agora__lista li.agora__cartaz {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.9rem;
-  min-height: 17rem;
-  padding: 2.2rem 1.8rem 1.8rem;
-  text-align: center;
-  /* fundo translúcido, sem desfoque: o vídeo de Marcus continua visível atrás do cartaz,
-     só um pouco mais escuro, para o texto não se perder quando a linha de luz passa por trás */
-  background: rgb(28 20 15 / 0.38);
-  text-shadow: 0 0 1rem rgb(28 20 15 / 0.95), 0 0 0.3rem rgb(28 20 15 / 0.9);
-  border: 1px solid rgb(214 198 171 / 0.4);
-  box-shadow: inset 0 0 0 6px var(--palco), inset 0 0 0 7px rgb(214 198 171 / 0.2);
-  transition: border-color 0.4s ease, background 0.4s ease;
+/* ---------- Agora: uma linha por item (título e detalhe à esquerda; tipo e data à direita) ---------- */
+.agora__lista { grid-template-columns: minmax(0, 1fr); gap: 0; }
+.agora__item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.25rem 2rem;
+  align-items: baseline;
+  padding: 1rem 0;
+  border-top: 1px solid rgb(242 238 230 / 0.16);
+  text-shadow: 0 0 1rem rgb(28 20 15 / 0.9);
 }
-.agora__lista li.agora__cartaz:hover { border-color: rgb(214 198 171 / 0.65); }
-.agora__cartaz .agora__tipo {
+.agora__item:first-child { border-top: 0; padding-top: 0; }
+.agora__item .agora__titulo { grid-column: 1; margin: 0; max-width: none; font-size: clamp(1.15rem, 1.6vw, 1.5rem); line-height: 1.2; }
+.agora__item .agora__titulo cite { font-style: normal; }
+.agora__item .agora__detalhe { grid-column: 1; margin: 0; max-width: 40em; font-size: 0.95rem; line-height: 1.45; color: var(--tinta-escura); }
+.agora__item .agora__tipo { grid-column: 2; grid-row: 1; margin: 0; text-align: right; color: var(--destaque-claro); }
+.agora__item .agora__quando {
+  grid-column: 2; grid-row: 2;
   margin: 0;
-  padding-bottom: 0.9rem;
-  width: 100%;
-  letter-spacing: 0.32em;
-  color: var(--destaque-claro);
-  border-bottom: 1px solid rgb(214 198 171 / 0.22);
-}
-.agora__cartaz .agora__titulo { margin: auto 0 0; max-width: 14em; font-size: clamp(1.45rem, 2.1vw, 1.95rem); line-height: 1.1; font-weight: var(--peso-titulo); }
-.agora__cartaz .agora__titulo cite { font-style: normal; }
-.agora__cartaz .agora__detalhe { margin: 0 0 auto; max-width: 24em; font-size: 0.98rem; line-height: 1.4; color: var(--tinta-escura); }
-.agora__cartaz .agora__quando {
-  margin: 0;
-  width: 100%;
-  padding-top: 0.9rem;
-  border-top: 1px solid rgb(214 198 171 / 0.22);
+  text-align: right;
   font-family: var(--grotesca);
-  font-stretch: 75%;
-  font-size: calc(var(--fs-rotulo) * 1.15);
-  letter-spacing: 0.24em;
+  font-size: var(--fs-rotulo);
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--cal);
+}
+@media (max-width: 700px) {
+  .agora__item { grid-template-columns: minmax(0, 1fr); }
+  .agora__item .agora__tipo, .agora__item .agora__quando { grid-column: 1; grid-row: auto; text-align: left; }
 }

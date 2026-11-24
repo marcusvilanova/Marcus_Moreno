@@ -1,5 +1,5 @@
 /* Percurso: a ordem das páginas, para quem quer atravessar o site inteiro.
-   Desta lista saem a faixa "A seguir" no fim de cada página, as duas portas da página inicial,
+   Desta lista saem a faixa "A seguir" no fim de cada página, as seções da página inicial,
    as descrições do Índice, a página atual marcada nele e a posição no topo ("4 de 12").
    Para mudar a ordem, uma descrição ou uma imagem (de assets/img/mural/), edite a lista PERCURSO_PT;
    as descrições em espanhol e inglês ficam logo abaixo, em TRADUCOES. */
@@ -29,9 +29,8 @@
         contato: ['Contacto', 'Producción, redes y material para programadores.'],
       },
       percurso: 'Recorrido por el sitio', seguir: 'A continuación', fim: 'Fin del recorrido · volver al',
-      anterior: 'Anterior', de: 'de', todas: 'Ver todas las secciones', completa: 'La experiencia completa',
-      percorrer: 'Recorrer el sitio', direto: 'O ve directo a una sección',
-      linhaPercorrer: (n, primeira) => `${n} secciones, una tras otra, a partir de ${primeira}.`,
+      anterior: 'Anterior', de: 'de', todas: 'Ver todas las secciones', secoes: 'Secciones',
+      percorrer: 'Recorrer el sitio',
     },
     en: {
       paginas: {
@@ -44,16 +43,14 @@
         contato: ['Contact', 'Production, social media and material for programmers.'],
       },
       percurso: 'Journey through the site', seguir: 'Next', fim: 'End of the journey · back to',
-      anterior: 'Previous', de: 'of', todas: 'See all sections', completa: 'The full experience',
-      percorrer: 'Walk through the site', direto: 'Or go straight to a section',
-      linhaPercorrer: (n, primeira) => `${n} sections, one after another, starting with ${primeira}.`,
+      anterior: 'Previous', de: 'of', todas: 'See all sections', secoes: 'Sections',
+      percorrer: 'Walk through the site',
     },
   };
   const ROTULOS = TRADUCOES[LINGUA] || {
     percurso: 'Percurso pelo site', seguir: 'A seguir', fim: 'Fim do percurso · voltar ao',
-    anterior: 'Anterior', de: 'de', todas: 'Ver todas as seções', completa: 'A experiência completa',
-    percorrer: 'Percorrer o site', direto: 'Ou vá direto a uma seção',
-    linhaPercorrer: (n, primeira) => `${n} seções, uma depois da outra, a partir do ${primeira}.`,
+    anterior: 'Anterior', de: 'de', todas: 'Ver todas as seções', secoes: 'Seções',
+    percorrer: 'Percorrer o site',
   };
   const traduzir = (p) => {
     const t = ROTULOS.paginas && ROTULOS.paginas[p.pagina];
@@ -124,7 +121,7 @@
     rodape.before(faixa);
   }
 
-  /* ---------- página inicial: percorrer tudo ou ir direto a uma seção ---------- */
+  /* ---------- página inicial: as seções do site, cada uma com uma imagem e uma linha ---------- */
 
   function portas() {
     if (atual !== 'index') return;
@@ -135,29 +132,29 @@
     Object.assign(secao.dataset, { tone: 'dark', title: '' });
     secao.setAttribute('aria-labelledby', 'portas-titulo');
 
-    const percorrer = el('a', 'portas__percorrer');
+    const cabeca = el('header', 'portas__cabeca');
+    const titulo = el('h2', 'rotulo portas__titulo', ROTULOS.secoes);
+    titulo.id = 'portas-titulo';
+    const percorrer = el('a', 'portas__percorrer', `${ROTULOS.percorrer} `);
     percorrer.href = link(PERCURSO[0]);
-    percorrer.append(
-      el('span', 'rotulo portas__rotulo', ROTULOS.completa),
-      el('span', 'portas__titulo', ROTULOS.percorrer),
-      el('span', 'portas__linha', ROTULOS.linhaPercorrer(total, PERCURSO[0].titulo)),
-    );
-    percorrer.querySelector('.portas__titulo').id = 'portas-titulo';
+    const seta = el('span', '', '→');
+    seta.setAttribute('aria-hidden', 'true');
+    percorrer.append(seta);
+    cabeca.append(titulo, percorrer);
 
-    const mapa = el('div', 'portas__mapa');
-    mapa.append(el('p', 'rotulo portas__rotulo', ROTULOS.direto));
     const lista = el('ol', 'portas__lista');
     PERCURSO.forEach((p) => {
       const item = el('li');
       const a = el('a', 'portas__item');
       a.href = link(p);
-      a.append(el('span', 'portas__nome', p.titulo), el('span', 'portas__desc', p.linha));
+      const foto = el('img', 'portas__imagem tinta');
+      Object.assign(foto, { src: imagem(p), alt: '', width: 512, height: 640, loading: 'lazy', decoding: 'async' });
+      a.append(foto, el('span', 'portas__nome', p.titulo), el('span', 'portas__desc', p.linha));
       item.append(a);
       lista.append(item);
     });
-    mapa.append(lista);
 
-    secao.append(percorrer, mapa);
+    secao.append(cabeca, lista);
     ultima.after(secao);
   }
 
