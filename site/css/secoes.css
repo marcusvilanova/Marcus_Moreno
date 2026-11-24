@@ -267,6 +267,37 @@
 }
 .dedicatoria--tres .dedicatoria__nome { font-size: clamp(1.7rem, 3.6vw, 3.6rem); max-width: 18em; text-wrap: balance; }
 .dedicatoria:hover .dedicatoria__nome, .dedicatoria:focus-visible .dedicatoria__nome { transform: translateX(1.2rem); color: var(--destaque-claro); font-style: normal; }
+/* cada nome é um vídeo: o círculo com play e a palavra Assistir ficam sempre à vista, como nas obras */
+.dedicatorias__dica { margin-bottom: 1.2rem; color: var(--destaque-claro); }
+.dedicatoria__assistir {
+  position: relative;
+  align-self: center;
+  display: inline-flex; align-items: center; gap: 0.7rem;
+  font-family: var(--grotesca);
+  font-size: var(--fs-rotulo);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--destaque-claro);
+}
+.dedicatoria__assistir::before {
+  content: "";
+  width: 2.6rem; height: 2.6rem;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  transition: background-color 0.4s ease, transform 0.6s var(--curva);
+}
+.dedicatoria__assistir::after {
+  content: "";
+  position: absolute;
+  left: 1.1rem; top: 50%;
+  transform: translateY(-50%);
+  border-style: solid;
+  border-width: 0.3rem 0 0.3rem 0.52rem;
+  border-color: transparent transparent transparent currentColor;
+  transition: border-color 0.4s ease;
+}
+.dedicatoria:hover .dedicatoria__assistir::before, .dedicatoria:focus-visible .dedicatoria__assistir::before { background-color: currentColor; transform: scale(1.1); }
+.dedicatoria:hover .dedicatoria__assistir::after, .dedicatoria:focus-visible .dedicatoria__assistir::after { border-left-color: var(--cobre); }
 
 @media (min-width: 900px) {
   .dedicatorias li:nth-child(even) .dedicatoria { justify-content: flex-end; text-align: right; }
