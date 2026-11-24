@@ -8,8 +8,8 @@
 
 .capitular::first-letter {
   float: left;
-  font-size: 5.4em;
-  line-height: 0.78;
+  font-size: 3.4em;
+  line-height: 0.8;
   padding: 0.06em 0.08em 0 0;
   color: var(--destaque);
   font-weight: var(--peso-titulo);
@@ -26,6 +26,8 @@
   margin-top: 0.7rem;
 }
 .ficha dd, .ficha__hoje { font-style: normal; line-height: 1.3; }
+/* coluna estreita: alinhada à esquerda, para não abrir buracos entre as palavras */
+.sobre__margem :is(p, dd, dt) { text-align: left; }
 
 @media (min-width: 900px) {
   .sobre__grade { grid-template-columns: repeat(12, 1fr); column-gap: 1.5rem; align-items: start; }
@@ -645,7 +647,7 @@
 }
 
 /* ---------- Sobre: a primeira frase vem grande; o resto da biografia abre em "Ler mais" ---------- */
-.sobre__lead { font-size: clamp(1.4rem, 1.9vw, 1.85rem); line-height: 1.32; }
+.sobre__lead { font-size: clamp(1.12rem, 1.25vw, 1.35rem); line-height: 1.5; }
 .sobre__mais { margin-top: 1.6rem; border-top: 1px solid color-mix(in srgb, var(--nanquim) 28%, transparent); }
 .sobre__mais summary {
   display: flex; align-items: center; gap: 0.8rem;

@@ -98,12 +98,13 @@ a { color: inherit; }
 }
 .skip:focus { transform: none; }
 
-/* texto corrido justificado em todo o site; a hifenização em português evita buracos entre as palavras.
+/* texto corrido justificado em todo o site, sem cortar palavras no fim da linha.
    Títulos e rótulos de uma linha não mudam (a última linha nunca é esticada); o que tem alinhamento próprio mantém o seu. */
 main p, main dd, main li, main blockquote, main figcaption, .contato__creditos {
   text-align: justify;
-  -webkit-hyphens: auto;
-  hyphens: auto;
+  -webkit-hyphens: manual;
+  hyphens: manual;
+  text-wrap: pretty;
 }
 
 /* o que é centralizado de propósito continua centralizado: os cartazes do Agora e as perguntas de Instante-já */
@@ -755,7 +756,7 @@ figure:has(> img.tinta), .obra__ver { overflow: hidden; }
    Acima de 1920 px, a medida de base cresce junto com a tela: letras, margens e a largura máxima do conteúdo
    (em rem) acompanham, em vez de o site virar uma coluna pequena no meio de uma tela enorme. */
 html { --escala: 1; font-size: calc(max(72%, 0.6vw) * var(--escala)); }
-:root { --maximo: 92.5rem; }
+:root { --maximo: 1320px; } /* largura das páginas em px: não encolhe quando a letra diminui */
 
 /* ---------- toque: botões e links com área de toque de pelo menos 44 px, sem mudar o desenho ---------- */
 @media (pointer: coarse) {
