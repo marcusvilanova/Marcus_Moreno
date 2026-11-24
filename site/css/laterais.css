@@ -101,7 +101,7 @@
 /* ---------- Trajetória: os anos passam numa linha traçada à mão ---------- */
 
 .marcos {
-  --ano: clamp(2.8rem, 4.2vw, 4.4rem); /* anos discretos: marcam o tempo sem gritar */
+  --ano: clamp(2.3rem, 3.3vw, 3.5rem); /* anos discretos: marcam o tempo sem gritar */
   position: relative;
   display: flex;
   align-self: center;
@@ -117,7 +117,7 @@
   -webkit-mask: var(--traco-h) 0 0 / 100% 100% no-repeat;
   mask: var(--traco-h) 0 0 / 100% 100% no-repeat;
 }
-.marco { flex: none; width: min(21rem, 76vw); scroll-snap-align: start; }
+.marco { flex: none; width: min(340px, 76vw); scroll-snap-align: start; } /* largura em px: não encolhe quando a letra diminui */
 .marco__ano {
   display: block;
   font-family: var(--serif);
@@ -154,3 +154,6 @@
   .marcos__foto img { width: 86vw; height: auto; }
   .conversa__quadro::before { width: 3.4rem; height: 3.4rem; margin: -1.7rem 0 0 -1.7rem; }
 }
+
+/* colunas estreitas: o texto das galerias laterais fica alinhado à esquerda, sem buracos entre as palavras */
+.lateral :is(p, li, figcaption) { text-align: left; }
