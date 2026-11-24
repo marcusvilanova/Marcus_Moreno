@@ -28,6 +28,7 @@
     } catch (e) { /* sem memória: a escolha vale só nesta página */ }
     marcar();
     dispatchEvent(new Event('scroll')); // o topo recalcula a cor do fundo
+    dispatchEvent(new Event('mm-paleta')); // a faixa A seguir e o rodapé vestem a nova cor
   }
 
   PALETAS.forEach((p) => {

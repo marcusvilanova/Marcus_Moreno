@@ -513,16 +513,16 @@
   justify-content: space-between;
   gap: 1rem 2rem;
   padding: 1.8rem var(--margem);
-  border-top: 1px solid rgb(242 238 230 / 0.14);
+  border-top: 1px solid color-mix(in srgb, currentColor 14%, transparent);
   font-family: var(--grotesca);
   font-size: var(--fs-rotulo);
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--tinta-escura);
+  color: var(--seguir-texto);
 }
 .colofao__redes { list-style: none; margin: 0; padding: 0; display: flex; gap: 1.4rem; }
-.colofao__redes a { display: inline-flex; padding: 0.5rem; margin: -0.5rem; color: var(--cal); transition: color 0.3s ease; }
-.colofao__redes a:hover, .colofao__redes a:focus-visible { color: var(--destaque-claro); }
+.colofao__redes a { display: inline-flex; padding: 0.5rem; margin: -0.5rem; color: var(--seguir-forte); transition: color 0.3s ease; }
+.colofao__redes a:hover, .colofao__redes a:focus-visible { color: var(--seguir-acento); }
 .colofao__assinatura { margin: 0; }
 
 /* créditos das fotografias, no fim da página Contato */
@@ -706,15 +706,6 @@
   }
 }
 
-/* do papel para o escuro: o fim do Sobre já cai na cor do palco, para a capa não começar numa linha reta */
-.sobre::after {
-  content: "";
-  position: absolute;
-  inset: auto 0 0;
-  height: var(--respiro);
-  pointer-events: none;
-  background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--palco) 55%, transparent) 55%, var(--palco));
-}
 .lista-video__sub { font-size: max(0.4em, 0.85rem); }
 
 /* epígrafe: o vídeo rola junto com a seção (não fica parado na tela) e os cartazes do Agora começam

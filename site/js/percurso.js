@@ -35,6 +35,15 @@
 
   /* ---------- fim de cada página: a próxima seção, como o próximo ato ---------- */
 
+  // o título da próxima seção com uma seta, que anda um pouco quando o mouse passa
+  function titulo(texto) {
+    const t = el('span', 'seguir__titulo', `${texto} `);
+    const seta = el('span', 'seguir__seta', '→');
+    seta.setAttribute('aria-hidden', 'true');
+    t.append(seta);
+    return t;
+  }
+
   function faixaSeguir() {
     const rodape = document.querySelector('.colofao');
     if (posicao < 0 || !rodape) return;
@@ -50,7 +59,7 @@
     const texto = el('span', 'seguir__texto');
     texto.append(
       el('span', 'rotulo seguir__rotulo', proxima === INICIO ? 'Fim do percurso · voltar ao' : 'A seguir'),
-      el('span', 'seguir__titulo', proxima.titulo),
+      titulo(proxima.titulo),
       el('span', 'seguir__linha', proxima.linha),
     );
     const foto = el('img', 'seguir__imagem');
@@ -58,7 +67,9 @@
     principal.append(texto, foto);
 
     const outros = el('p', 'seguir__outros');
-    const voltar = el('a', 'seguir__anterior', `Anterior: ${anterior.titulo}`);
+    const voltar = el('a', 'seguir__anterior');
+    voltar.append(el('span', 'seguir__seta seguir__seta--volta', '←'), ` Anterior: ${anterior.titulo}`);
+    voltar.querySelector('.seguir__seta').setAttribute('aria-hidden', 'true');
     voltar.href = link(anterior);
     const onde = el('span', 'seguir__posicao', `${posicao + 1} de ${total}`);
     const todas = el('button', 'seguir__todas', 'Ver todas as seções');
@@ -124,7 +135,24 @@
     if (rotulo && posicao >= 0) rotulo.append(el('span', 'topo__posicao', `${posicao + 1} de ${total}`));
   }
 
+  /* ---------- a faixa e o rodapé vestem a cor da última seção da página ---------- */
+
+  function vestir() {
+    const secoes = document.querySelectorAll('main > section');
+    const ultima = secoes[secoes.length - 1];
+    if (!ultima) return;
+    const fundo = getComputedStyle(ultima).backgroundColor;
+    if (fundo === 'rgba(0, 0, 0, 0)' || fundo === 'transparent') return;
+    const tom = ['light', 'concrete'].includes(ultima.dataset.tone) ? ultima.dataset.tone : 'dark';
+    document.querySelectorAll('.seguir, .colofao').forEach((parte) => {
+      parte.dataset.tone = tom;
+      parte.style.backgroundColor = fundo;
+    });
+  }
+
   portas();
   faixaSeguir();
   indice();
+  vestir();
+  addEventListener('mm-paleta', vestir); // quando a pessoa troca de paleta (js/paleta.js)
 })();
