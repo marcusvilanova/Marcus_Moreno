@@ -98,28 +98,56 @@
 .conversa__botao:focus-visible { outline: 1px solid var(--destaque); outline-offset: 6px; }
 
 
-/* ---------- Trajetória: os anos passam numa linha traçada à mão ---------- */
+/* ---------- Trajetória: linha do tempo vertical, os anos um embaixo do outro ---------- */
+
+.linha-tempo { display: grid; gap: clamp(2rem, 5vw, 4rem); }
+.linha-tempo__frase { margin-top: 0.7rem; max-width: 15em; font-size: var(--fs-grande); line-height: 1.25; font-weight: var(--peso-titulo); text-align: left; }
+.linha-tempo__frase em { color: var(--destaque); }
+.linha-tempo__foto { margin-top: clamp(1.5rem, 3vw, 2.5rem); }
+.linha-tempo__foto img { display: block; width: 100%; height: auto; }
 
 .marcos {
-  --ano: clamp(2.3rem, 3.3vw, 3.5rem); /* anos discretos: marcam o tempo sem gritar */
+  --ano: clamp(1.8rem, 2.6vw, 2.7rem);
+  --coluna-ano: 7.5rem;   /* largura da coluna dos anos */
+  --vao: 2.6rem;          /* espaço entre o ano e o texto; a linha passa no meio dele */
   position: relative;
-  display: flex;
-  align-self: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
-/* a linha atravessa todos os anos, logo abaixo dos números */
+/* a linha traçada à mão desce por todos os anos */
 .marcos::before {
   content: "";
   position: absolute;
-  left: 0; right: 0;
-  top: calc(var(--ano) + 1.1rem);
-  height: 7px;
+  top: 0.6rem; bottom: 0.6rem;
+  left: calc(var(--coluna-ano) + var(--vao) / 2 - 3px);
+  width: 7px;
   background: var(--destaque);
-  -webkit-mask: var(--traco-h) 0 0 / 100% 100% no-repeat;
-  mask: var(--traco-h) 0 0 / 100% 100% no-repeat;
+  opacity: 0.7;
+  -webkit-mask: var(--traco-v) 0 0 / 100% 100% no-repeat;
+  mask: var(--traco-v) 0 0 / 100% 100% no-repeat;
 }
-.marco { flex: none; width: min(340px, 76vw); scroll-snap-align: start; } /* largura em px: não encolhe quando a letra diminui */
+.marco {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--coluna-ano) minmax(0, 1fr);
+  column-gap: var(--vao);
+  padding-bottom: clamp(1.8rem, 3.2vw, 2.8rem);
+}
+.marco:last-child { padding-bottom: 0; }
+/* o ponto de cada ano sobre a linha */
+.marco::after {
+  content: "";
+  position: absolute;
+  top: 0.55rem;
+  left: calc(var(--coluna-ano) + var(--vao) / 2);
+  width: 0.65rem; height: 0.65rem;
+  margin-left: -0.325rem;
+  border-radius: 50%;
+  background: var(--linho);
+  border: 1px solid var(--destaque);
+}
 .marco__ano {
-  display: block;
   font-family: var(--serif);
   font-weight: var(--peso-numeral);
   font-size: var(--ano);
@@ -127,31 +155,24 @@
   letter-spacing: 0.02em;
   color: color-mix(in srgb, var(--destaque) 72%, var(--linho));
   font-variant-numeric: lining-nums;
-  white-space: nowrap;
+  text-align: right;
 }
-.marco__ano i { font-style: normal; font-size: 0.5em; color: var(--tinta-clara); margin-left: 0.2em; }
-.marco p {
-  position: relative;
-  margin-top: 1.1rem;
-  padding: 1.6rem clamp(1.5rem, 3.5vw, 3.5rem) 0 0;
-  max-width: 21rem;
-  line-height: 1.5;
+/* o ano final de um período fica embaixo, menor */
+.marco__ano i { display: block; margin-top: 0.25rem; font-style: normal; font-size: 0.45em; color: var(--tinta-clara); }
+.marco p { margin: 0; padding-top: 0.15rem; max-width: 34em; line-height: 1.55; }
+
+@media (min-width: 900px) {
+  .linha-tempo { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); align-items: start; column-gap: clamp(2.5rem, 5vw, 5rem); }
+  .linha-tempo__abre { position: sticky; top: 7rem; }
 }
-/* o ponto de cada ano sobre a linha */
-.marco p::before {
-  content: "";
-  position: absolute; left: 0; top: -0.05rem;
-  width: 0.65rem; height: 0.65rem; border-radius: 50%;
-  background: var(--linho); border: 1px solid var(--destaque);
+@media (max-width: 600px) {
+  .marcos { --coluna-ano: 4.6rem; --vao: 1.8rem; }
 }
-.marcos__foto { flex: none; scroll-snap-align: center; }
-.marcos__foto img { display: block; height: min(56vh, 34rem); width: auto; max-width: none; }
 
 /* celular: cada item cabe inteiro na tela */
 @media (max-width: 899px) {
   .lateral__palco { gap: 1.6rem; }
   .conversa__quadro img { width: 82vw; height: auto; }
-  .marcos__foto img { width: 86vw; height: auto; }
   .conversa__quadro::before { width: 3.4rem; height: 3.4rem; margin: -1.7rem 0 0 -1.7rem; }
 }
 

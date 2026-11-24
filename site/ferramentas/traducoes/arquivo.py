@@ -89,7 +89,6 @@ T = {
     "Marcus Moreno e Andrea Arobba investigam a dimensão “instante-já”": (
         "Marcus Moreno y Andrea Arobba investigan la dimensión “instante-ya”",
         "Marcus Moreno and Andrea Arobba investigate the “instant-now” dimension"),
-    "veículo a confirmar": ("medio por confirmar", "outlet to be confirmed"),
     "Clarice Lispector inspira": ("Clarice Lispector inspira", "Clarice Lispector inspires"),
     ", novo solo de Marcus Moreno": (", nuevo solo de Marcus Moreno", ", Marcus Moreno's new solo"),
     "jul 2019": ("jul 2019", "Jul 2019"),
@@ -130,9 +129,9 @@ T = {
     "Release, fotos em alta e vídeos": ("Dossier, fotos en alta resolución y videos", "Press kit, high-resolution photos and videos"),
     "Silvia Machado (": ("Silvia Machado (", "Silvia Machado ("),
     ") · Danilo Patzdorf e Claudia Magalhães (": (") · Danilo Patzdorf y Claudia Magalhães (", ") · Danilo Patzdorf and Claudia Magalhães ("),
-    "). Quadros e trechos de vídeo: canal de Marcus Moreno no YouTube. Demais créditos a confirmar.": (
-        "). Fotogramas y fragmentos de video: canal de Marcus Moreno en YouTube. Otros créditos por confirmar.",
-        "). Video stills and excerpts: Marcus Moreno's YouTube channel. Other credits to be confirmed."),
+    "). Quadros e trechos de vídeo: canal de Marcus Moreno no YouTube.": (
+        "). Fotogramas y fragmentos de video: canal de Marcus Moreno en YouTube.",
+        "). Video stills and excerpts: Marcus Moreno's YouTube channel."),
 }
 
 MESMO = {

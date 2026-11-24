@@ -16,26 +16,14 @@
   <meta property="og:locale" content="pt_BR">
   <meta name="twitter:card" content="summary_large_image">
     <link rel="preload" href="assets/fontes/tenor-sans.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/site.min.css?v=07e9663f">
+  <link rel="stylesheet" href="css/site.min.css?v=a17ecc63">
   <script>document.documentElement.classList.add('js');
     window.MM = { lingua: 'pt', raiz: '' }; // língua da página e caminho até a raiz do site (ferramentas/gerar-traducoes.py)
-    // entrada: sobre o vídeo das Danças de Presente, o nome se escreve e a pessoa entra pelo botão (uma vez por visita;
-    // não aparece em links de seção). Para ver de novo, abra o site com ?entrada no fim do endereço. Ver js/imersao.js.
-    try { if ((!sessionStorage.getItem('mm-carregou') && !location.hash) || /[?&]entrada(&|=|$)/.test(location.search)) document.documentElement.classList.add('com-carregamento'); } catch (e) {}
-    // garantia: se o código do site não carregar, a entrada se abre sozinha em 10 segundos
-    setTimeout(function () { if (!document.documentElement.hasAttribute('data-entrada')) document.documentElement.classList.remove('com-carregamento'); }, 10000);</script>
+</script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Person","name":"Marcus Moreno","alternateName":"Marcus Vinicius Moreno Nascimento","jobTitle":"Artista da dança","sameAs":["https://instagram.com/marcusmoreno_danca"]}
   </script>
 </head><body>
-  <div class="carregando" hidden>
-    <img class="carregando__quadro" src="assets/img/teloes/presente-key.webp" width="960" height="536" alt="" fetchpriority="high" decoding="async">
-    <span class="carregando__nome">Marcus Moreno</span>
-    <div class="carregando__entradas">
-      <button class="carregando__entrar" type="button" data-som>Entrar com som</button>
-      <button class="carregando__entrar carregando__entrar--silencio" type="button">Entrar em silêncio</button>
-    </div>
-  </div>
   <a class="skip" href="#conteudo">Ir para o conteúdo</a>
   <div class="blecaute" aria-hidden="true"></div>
   <svg class="filtros" width="0" height="0" aria-hidden="true" focusable="false">
@@ -86,33 +74,24 @@
         <h2 class="cabeca__titulo">Trajetória</h2>
       </header>
 
-      <div class="lateral lateral--marcos" data-lateral>
-        <div class="lateral__palco">
-          <div class="lateral__faixa" data-lateral-faixa>
-            <div class="lateral__abre">
-              <p class="rotulo">De 2009 até hoje</p>
-              <p class="lateral__frase">Criação, gestão e pesquisa, <em>um ano depois do outro</em>.</p>
-              <p class="rotulo lateral__dica" aria-hidden="true"><span class="lateral__dica-rolar">Role a página</span><span class="lateral__dica-deslizar">Deslize</span> <i></i></p>
-            </div>
-            <ol class="marcos">
-              <li class="marco" data-lateral-item><span class="marco__ano">2009<i>–2017</i></span><p>Secretaria Municipal de Cultura de São Paulo. Coordena o Programa Municipal de Fomento à Dança nos últimos quatro anos; integra a criação e implantação do Centro de Referência da Dança e a curadoria do Circuito Municipal de Cultura.</p></li>
-              <li class="marco" data-lateral-item><span class="marco__ano">2012</span><p>Início das criações cênicas.</p></li>
-              <li class="marco" data-lateral-item><span class="marco__ano">2016</span><p>Começam os Encontros Efêmeros, trabalhos de improvisação com artistas da cena contemporânea.</p></li>
-              <li class="marco" data-lateral-item><span class="marco__ano">2017<i>–2019</i></span><p>Programa de Formação para o Interior, Oficinas Culturais do Estado de São Paulo.</p></li>
-              <li class="marco" data-lateral-item><span class="marco__ano">2020<i>–2024</i></span><p>Programador cultural da Oficina Cultural Oswald de Andrade.</p></li>
-              <li class="marco" data-lateral-item><span class="marco__ano">2022</span><p>Cria as Entrevistas-performativas com Marisa Lambert e Mariana Molinos, no PPG Artes da Cena da Unicamp.</p></li>
-              <li class="marco" data-lateral-item><span class="marco__ano">2025</span><p>Mestre em Artes da Cena pela Unicamp com a dissertação <cite>Estudos do presente: afeto e improvisação cênica</cite>.</p></li>
-              <li class="marco" data-lateral-item><span class="marco__ano">Hoje</span><p>Assessor de Planejamento Estratégico do Instituto Poiesis. Integrou a Gerência de Articulação e Difusão das Fábricas de Cultura.</p></li>
-            </ol>
-            <figure class="marcos__foto revela">
-              <img class="tinta" src="assets/img/fvp-8603.webp" srcset="assets/img/fvp-8603-1000.webp 1000w, assets/img/fvp-8603.webp 2000w" sizes="(min-width: 900px) 60vh, 90vw" width="2000" height="1330" loading="lazy" alt="Marcus de costas num palco, mãos unidas, olhando uma vara de refletores acesos." decoding="async">
-            </figure>
-          </div>
-          <div class="lateral__pe" aria-hidden="true">
-            <span class="lateral__contador" data-lateral-contador>01 / 08</span>
-            <span class="lateral__progresso" data-lateral-progresso><span></span></span>
-          </div>
+      <div class="linha-tempo">
+        <div class="linha-tempo__abre">
+          <p class="rotulo">De 2009 até hoje</p>
+          <p class="linha-tempo__frase">Criação, gestão e pesquisa, <em>um ano depois do outro</em>.</p>
+          <figure class="linha-tempo__foto revela">
+            <img class="tinta" src="assets/img/fvp-8603.webp" srcset="assets/img/fvp-8603-1000.webp 1000w, assets/img/fvp-8603.webp 2000w" sizes="(min-width: 900px) 30vw, 90vw" width="2000" height="1330" loading="lazy" alt="Marcus de costas num palco, mãos unidas, olhando uma vara de refletores acesos." decoding="async">
+          </figure>
         </div>
+        <ol class="marcos">
+          <li class="marco"><span class="marco__ano">2009<i>–2017</i></span><p>Secretaria Municipal de Cultura de São Paulo. Coordena o Programa Municipal de Fomento à Dança nos últimos quatro anos; integra a criação e implantação do Centro de Referência da Dança e a curadoria do Circuito Municipal de Cultura.</p></li>
+          <li class="marco"><span class="marco__ano">2012</span><p>Início das criações cênicas.</p></li>
+          <li class="marco"><span class="marco__ano">2016</span><p>Começam os Encontros Efêmeros, trabalhos de improvisação com artistas da cena contemporânea.</p></li>
+          <li class="marco"><span class="marco__ano">2017<i>–2019</i></span><p>Programa de Formação para o Interior, Oficinas Culturais do Estado de São Paulo.</p></li>
+          <li class="marco"><span class="marco__ano">2020<i>–2024</i></span><p>Programador cultural da Oficina Cultural Oswald de Andrade.</p></li>
+          <li class="marco"><span class="marco__ano">2022</span><p>Cria as Entrevistas-performativas com Marisa Lambert e Mariana Molinos, no PPG Artes da Cena da Unicamp.</p></li>
+          <li class="marco"><span class="marco__ano">2025</span><p>Mestre em Artes da Cena pela Unicamp com a dissertação <cite>Estudos do presente: afeto e improvisação cênica</cite>.</p></li>
+          <li class="marco"><span class="marco__ano">Hoje</span><p>Assessor de Planejamento Estratégico do Instituto Poiesis. Integrou a Gerência de Articulação e Difusão das Fábricas de Cultura.</p></li>
+        </ol>
       </div>
       <p class="trajetoria__intl"><span class="rotulo">Encontros internacionais de gestão</span> Festival Danzalborde (Chile) · FIDCU (Uruguai) · EGA (Argentina)</p>
     </section>
@@ -135,6 +114,6 @@
     <div class="player__tela"></div>
   </dialog>
 
-  <script src="js/site.min.js?v=07e9663f" defer></script>
+  <script src="js/site.min.js?v=a17ecc63" defer></script>
 </body>
 </html>

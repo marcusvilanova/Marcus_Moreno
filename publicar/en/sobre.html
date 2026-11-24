@@ -16,26 +16,14 @@
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
     <link rel="preload" href="../assets/fontes/tenor-sans.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../css/site.min.css?v=07e9663f">
+  <link rel="stylesheet" href="../css/site.min.css?v=a17ecc63">
   <script>document.documentElement.classList.add('js');
     window.MM = { lingua: 'en', raiz: '../' }; // língua da página e caminho até a raiz do site (ferramentas/gerar-traducoes.py)
-    // entrada: sobre o vídeo das Danças de Presente, o nome se escreve e a pessoa entra pelo botão (uma vez por visita;
-    // não aparece em links de seção). Para ver de novo, abra o site com ?entrada no fim do endereço. Ver js/imersao.js.
-    try { if ((!sessionStorage.getItem('mm-carregou') && !location.hash) || /[?&]entrada(&|=|$)/.test(location.search)) document.documentElement.classList.add('com-carregamento'); } catch (e) {}
-    // garantia: se o código do site não carregar, a entrada se abre sozinha em 10 segundos
-    setTimeout(function () { if (!document.documentElement.hasAttribute('data-entrada')) document.documentElement.classList.remove('com-carregamento'); }, 10000);</script>
+</script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Person","name":"Marcus Moreno","alternateName":"Marcus Vinicius Moreno Nascimento","jobTitle":"Artista da dança","sameAs":["https://instagram.com/marcusmoreno_danca"]}
   </script>
 </head><body>
-  <div class="carregando" hidden>
-    <img class="carregando__quadro" src="../assets/img/teloes/presente-key.webp" width="960" height="536" alt="" fetchpriority="high" decoding="async">
-    <span class="carregando__nome">Marcus Moreno</span>
-    <div class="carregando__entradas">
-      <button class="carregando__entrar" type="button" data-som>Enter with sound</button>
-      <button class="carregando__entrar carregando__entrar--silencio" type="button">Enter in silence</button>
-    </div>
-  </div>
   <a class="skip" href="#conteudo">Skip to content</a>
   <div class="blecaute" aria-hidden="true"></div>
   <svg class="filtros" width="0" height="0" aria-hidden="true" focusable="false">
@@ -133,6 +121,6 @@
     <div class="player__tela"></div>
   </dialog>
 
-  <script src="../js/site.min.js?v=07e9663f" defer></script>
+  <script src="../js/site.min.js?v=a17ecc63" defer></script>
 </body>
 </html>

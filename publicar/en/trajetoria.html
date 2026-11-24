@@ -16,26 +16,14 @@
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
     <link rel="preload" href="../assets/fontes/tenor-sans.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../css/site.min.css?v=07e9663f">
+  <link rel="stylesheet" href="../css/site.min.css?v=a17ecc63">
   <script>document.documentElement.classList.add('js');
     window.MM = { lingua: 'en', raiz: '../' }; // língua da página e caminho até a raiz do site (ferramentas/gerar-traducoes.py)
-    // entrada: sobre o vídeo das Danças de Presente, o nome se escreve e a pessoa entra pelo botão (uma vez por visita;
-    // não aparece em links de seção). Para ver de novo, abra o site com ?entrada no fim do endereço. Ver js/imersao.js.
-    try { if ((!sessionStorage.getItem('mm-carregou') && !location.hash) || /[?&]entrada(&|=|$)/.test(location.search)) document.documentElement.classList.add('com-carregamento'); } catch (e) {}
-    // garantia: se o código do site não carregar, a entrada se abre sozinha em 10 segundos
-    setTimeout(function () { if (!document.documentElement.hasAttribute('data-entrada')) document.documentElement.classList.remove('com-carregamento'); }, 10000);</script>
+</script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Person","name":"Marcus Moreno","alternateName":"Marcus Vinicius Moreno Nascimento","jobTitle":"Artista da dança","sameAs":["https://instagram.com/marcusmoreno_danca"]}
   </script>
 </head><body>
-  <div class="carregando" hidden>
-    <img class="carregando__quadro" src="../assets/img/teloes/presente-key.webp" width="960" height="536" alt="" fetchpriority="high" decoding="async">
-    <span class="carregando__nome">Marcus Moreno</span>
-    <div class="carregando__entradas">
-      <button class="carregando__entrar" type="button" data-som>Enter with sound</button>
-      <button class="carregando__entrar carregando__entrar--silencio" type="button">Enter in silence</button>
-    </div>
-  </div>
   <a class="skip" href="#conteudo">Skip to content</a>
   <div class="blecaute" aria-hidden="true"></div>
   <svg class="filtros" width="0" height="0" aria-hidden="true" focusable="false">
@@ -86,33 +74,24 @@
         <h2 class="cabeca__titulo">Career</h2>
       </header>
 
-      <div class="lateral lateral--marcos" data-lateral>
-        <div class="lateral__palco">
-          <div class="lateral__faixa" data-lateral-faixa>
-            <div class="lateral__abre">
-              <p class="rotulo">From 2009 to today</p>
-              <p class="lateral__frase">Creation, management and research, <em>one year after another</em>.</p>
-              <p class="rotulo lateral__dica" aria-hidden="true"><span class="lateral__dica-rolar">Scroll down</span><span class="lateral__dica-deslizar">Swipe</span> <i></i></p>
-            </div>
-            <ol class="marcos">
-              <li class="marco" data-lateral-item><span class="marco__ano">2009<i>–2017</i></span><p>São Paulo Municipal Department of Culture. Coordinates the Municipal Dance Fund in his last four years there; helps create and set up the Dance Reference Centre and curates the Municipal Culture Circuit.</p></li>
-              <li class="marco" data-lateral-item><span class="marco__ano">2012</span><p>First stage works.</p></li>
-              <li class="marco" data-lateral-item><span class="marco__ano">2016</span><p>The Ephemeral Encounters begin: improvisations with artists from the contemporary scene.</p></li>
-              <li class="marco" data-lateral-item><span class="marco__ano">2017<i>–2019</i></span><p>Training programme for the interior, São Paulo State Cultural Workshops.</p></li>
-              <li class="marco" data-lateral-item><span class="marco__ano">2020<i>–2024</i></span><p>Cultural programmer at the Oswald de Andrade Cultural Workshop.</p></li>
-              <li class="marco" data-lateral-item><span class="marco__ano">2022</span><p>Creates the Performative Interviews with Marisa Lambert and Mariana Molinos, at Unicamp's graduate programme in Performing Arts.</p></li>
-              <li class="marco" data-lateral-item><span class="marco__ano">2025</span><p>Master's in Performing Arts from Unicamp with the dissertation <cite>Estudos do presente: afeto e improvisação cênica</cite>.</p></li>
-              <li class="marco" data-lateral-item><span class="marco__ano">Today</span><p>Strategic Planning Adviser at Instituto Poiesis. Was part of the outreach and dissemination team of the Fábricas de Cultura.</p></li>
-            </ol>
-            <figure class="marcos__foto revela">
-              <img class="tinta" src="../assets/img/fvp-8603.webp" srcset="../assets/img/fvp-8603-1000.webp 1000w, ../assets/img/fvp-8603.webp 2000w" sizes="(min-width: 900px) 60vh, 90vw" width="2000" height="1330" loading="lazy" alt="Marcus from behind on a stage, hands together, looking at a bar of lit spotlights." decoding="async">
-            </figure>
-          </div>
-          <div class="lateral__pe" aria-hidden="true">
-            <span class="lateral__contador" data-lateral-contador>01 / 08</span>
-            <span class="lateral__progresso" data-lateral-progresso><span></span></span>
-          </div>
+      <div class="linha-tempo">
+        <div class="linha-tempo__abre">
+          <p class="rotulo">From 2009 to today</p>
+          <p class="linha-tempo__frase">Creation, management and research, <em>one year after another</em>.</p>
+          <figure class="linha-tempo__foto revela">
+            <img class="tinta" src="../assets/img/fvp-8603.webp" srcset="../assets/img/fvp-8603-1000.webp 1000w, ../assets/img/fvp-8603.webp 2000w" sizes="(min-width: 900px) 30vw, 90vw" width="2000" height="1330" loading="lazy" alt="Marcus from behind on a stage, hands together, looking at a bar of lit spotlights." decoding="async">
+          </figure>
         </div>
+        <ol class="marcos">
+          <li class="marco"><span class="marco__ano">2009<i>–2017</i></span><p>São Paulo Municipal Department of Culture. Coordinates the Municipal Dance Fund in his last four years there; helps create and set up the Dance Reference Centre and curates the Municipal Culture Circuit.</p></li>
+          <li class="marco"><span class="marco__ano">2012</span><p>First stage works.</p></li>
+          <li class="marco"><span class="marco__ano">2016</span><p>The Ephemeral Encounters begin: improvisations with artists from the contemporary scene.</p></li>
+          <li class="marco"><span class="marco__ano">2017<i>–2019</i></span><p>Training programme for the interior, São Paulo State Cultural Workshops.</p></li>
+          <li class="marco"><span class="marco__ano">2020<i>–2024</i></span><p>Cultural programmer at the Oswald de Andrade Cultural Workshop.</p></li>
+          <li class="marco"><span class="marco__ano">2022</span><p>Creates the Performative Interviews with Marisa Lambert and Mariana Molinos, at Unicamp's graduate programme in Performing Arts.</p></li>
+          <li class="marco"><span class="marco__ano">2025</span><p>Master's in Performing Arts from Unicamp with the dissertation <cite>Estudos do presente: afeto e improvisação cênica</cite>.</p></li>
+          <li class="marco"><span class="marco__ano">Today</span><p>Strategic Planning Adviser at Instituto Poiesis. Was part of the outreach and dissemination team of the Fábricas de Cultura.</p></li>
+        </ol>
       </div>
       <p class="trajetoria__intl"><span class="rotulo">International management meetings</span> Festival Danzalborde (Chile) · FIDCU (Uruguay) · EGA (Argentina)</p>
     </section>
@@ -135,6 +114,6 @@
     <div class="player__tela"></div>
   </dialog>
 
-  <script src="../js/site.min.js?v=07e9663f" defer></script>
+  <script src="../js/site.min.js?v=a17ecc63" defer></script>
 </body>
 </html>

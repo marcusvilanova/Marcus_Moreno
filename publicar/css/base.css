@@ -98,13 +98,16 @@ a { color: inherit; }
 }
 .skip:focus { transform: none; }
 
-/* texto corrido justificado em todo o site, sem cortar palavras no fim da linha.
+/* texto corrido justificado no computador, sem cortar palavras no fim da linha. No celular, a coluna é estreita
+   e a justificação abriria espaços largos entre as palavras: lá o texto fica alinhado à esquerda.
    Títulos e rótulos de uma linha não mudam (a última linha nunca é esticada); o que tem alinhamento próprio mantém o seu. */
 main p, main dd, main li, main blockquote, main figcaption, .contato__creditos {
-  text-align: justify;
   -webkit-hyphens: manual;
   hyphens: manual;
   text-wrap: pretty;
+}
+@media (min-width: 700px) {
+  main p, main dd, main li, main blockquote, main figcaption, .contato__creditos { text-align: justify; }
 }
 
 /* o que é centralizado de propósito continua centralizado: os cartazes do Agora e as perguntas de Instante-já */
