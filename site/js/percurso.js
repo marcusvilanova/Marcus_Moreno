@@ -7,7 +7,7 @@
   const PERCURSO_PT = [
     { pagina: 'sobre', titulo: 'Sobre', linha: 'Biografia, trajetória e projetos curatoriais.', imagem: 'retrato-25.webp' },
     { pagina: 'criacoes', titulo: 'Criações cênicas', linha: 'Oito obras, de 2024 a 2013, com vídeos e fichas.', imagem: 'onde-houver-ceu-1.webp' },
-    { pagina: 'encontros', titulo: 'Encontros', linha: 'Encontros Efêmeros, Entrevistas-performativas e Danças de Presente.', imagem: 'efemero-cora.webp' },
+    { pagina: 'encontros', titulo: 'Encontros', linha: 'Encontros Efêmeros, Entrevistas-performativas e Danças de Presente.', imagem: 'entrevista-mariana.webp' },
     { pagina: 'imagens', titulo: 'Imagens', linha: 'Fotografias de cena e o mural de todas as obras.', imagem: 'retrato-07.webp' },
     { pagina: 'textos', titulo: 'Textos e imprensa', linha: 'O que Marcus escreve e o que se escreve sobre ele.', imagem: 'instante-ja-1.webp' },
     { pagina: 'contato', titulo: 'Contato', linha: 'Produção, redes e material para programadores.', imagem: 'fvp-8547.webp' },

@@ -707,25 +707,10 @@
 
 /* a faixa do Agora, logo depois da capa: escura como o palco, de uma borda à outra da tela */
 .epigrafe[data-tone="dark"] {
-  padding-top: clamp(3rem, 7vw, 5rem);
-  padding-bottom: clamp(3rem, 7vw, 5rem);
+  padding-top: clamp(3.5rem, 8vw, 6rem);
+  padding-bottom: clamp(3.5rem, 8vw, 6rem);
   box-shadow: 0 0 0 100vmax var(--palco);
   clip-path: inset(0 -100vmax);
 }
 .epigrafe .agora { margin-top: 0; }
 
-/* ---------- Criações recentes (página inicial): as três obras mais novas ---------- */
-.recentes { padding: clamp(3.5rem, 8vw, 6rem) var(--margem) 0; background: var(--palco); color: var(--cal); }
-.recentes > * { max-width: var(--maximo); margin-left: auto; margin-right: auto; }
-.recentes__cabeca { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.6rem 2rem; margin-bottom: 1.4rem; }
-.recentes__titulo { margin: 0; color: var(--destaque-claro); }
-.recentes__todas { font-family: var(--grotesca); font-size: var(--fs-rotulo); letter-spacing: 0.16em; text-transform: uppercase; color: var(--cal); text-decoration: none; }
-.recentes__todas:hover, .recentes__todas:focus-visible { color: var(--destaque-claro); }
-.recentes__lista { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1rem, 2.5vw, 2rem); }
-.recentes__obra { display: grid; gap: 0.5rem; color: inherit; text-decoration: none; }
-.recentes__obra img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
-.recentes__obra:hover img, .recentes__obra:focus-visible img { filter: none; }
-.recentes__ano { font-family: var(--grotesca); font-size: var(--fs-rotulo); letter-spacing: 0.14em; color: var(--tinta-escura); margin-top: 0.3rem; }
-.recentes__nome { font-size: clamp(1.1rem, 1.6vw, 1.45rem); line-height: 1.2; transition: color 0.3s ease; }
-.recentes__obra:hover .recentes__nome, .recentes__obra:focus-visible .recentes__nome { color: var(--destaque-claro); }
-@media (max-width: 700px) { .recentes__lista { grid-template-columns: minmax(0, 1fr); } }

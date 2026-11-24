@@ -115,8 +115,8 @@
 
     <section class="epigrafe" data-tone="dark" data-title="">
       <!-- Agora: atualizar a cada projeto. Fonte: Instagram e linktree do Marcus, nov. 2026. -->
-      <aside class="agora" aria-label="Ahora">
-        <p class="rotulo agora__rotulo">Ahora</p>
+      <aside class="agora" aria-labelledby="agora-titulo">
+        <h2 class="agora__titulo-secao" id="agora-titulo">Ahora</h2>
         <!-- a lista é preenchida a partir de js/agenda.js: atualize lá, não aqui -->
         <ul class="agora__lista" data-agenda>
           <li><span class="agora__tipo">Residencia artística · 14 oct — 13 dic 2026</span><p><cite>Imagens da Memória: Espirais em Movimento</cite>, con Marcus Moreno, Maria Fernanda Machado y Raony Iaconis</p></li>
@@ -125,18 +125,6 @@
       </aside>
     </section>
 
-    <!-- Criações recentes: as três obras mais novas, cada uma leva à sua ficha. Quando entrar uma obra nova, troque aqui. -->
-    <section class="recentes" data-tone="dark" data-title="" aria-labelledby="recentes-titulo">
-      <header class="recentes__cabeca">
-        <h2 class="rotulo recentes__titulo" id="recentes-titulo">Creaciones recientes</h2>
-        <a class="recentes__todas" href="criacoes.html">Ver todas las creaciones <span aria-hidden="true">→</span></a>
-      </header>
-      <ul class="recentes__lista">
-        <li><a class="recentes__obra" href="criacoes.html#obra-ceu"><img class="tinta" src="../assets/img/onde-houver-ceu-1-1000.webp" width="666" height="1000" alt="" loading="lazy" decoding="async"><span class="recentes__ano">2024</span><span class="recentes__nome">Onde Houver Céu</span></a></li>
-        <li><a class="recentes__obra" href="criacoes.html#obra-sempre"><img class="tinta" src="../assets/img/sempre-mais-que-um.webp" width="960" height="720" alt="" loading="lazy" decoding="async"><span class="recentes__ano">2023</span><span class="recentes__nome">Sempre mais que um</span></a></li>
-        <li><a class="recentes__obra" href="criacoes.html#obra-cinema"><img class="tinta" src="../assets/img/entre-espaco-still-1000.webp" width="1000" height="418" alt="" loading="lazy" decoding="async"><span class="recentes__ano">2021</span><span class="recentes__nome">Entre-espaço onde tudo existe</span></a></li>
-      </ul>
-    </section>
   </main>
 
   <footer class="colofao" data-tone="dark">

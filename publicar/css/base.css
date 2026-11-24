@@ -781,33 +781,45 @@ html { --escala: 1; font-size: calc(max(72%, 0.6vw) * var(--escala)); }
 .topo__indice::before { width: calc(1.8rem / var(--escala, 1)); }
 @media (max-width: 370px) { .topo__acoes { gap: calc(0.9rem / var(--escala, 1)); } }
 
-/* ---------- Agora: uma linha por item (título e detalhe à esquerda; tipo e data à direita) ---------- */
-.agora__lista { grid-template-columns: minmax(0, 1fr); gap: 0; }
-.agora__item {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 0.25rem 2rem;
-  align-items: baseline;
-  padding: 1rem 0;
-  border-top: 1px solid rgb(242 238 230 / 0.16);
-  text-shadow: 0 0 1rem rgb(28 20 15 / 0.9);
+/* ---------- Agora: cada item é um cartaz de teatro, em destaque logo depois da capa ----------
+   Moldura dupla (um fio e outro fino por dentro), o tipo no alto, o título grande ao centro e a data no pé. */
+.agora { grid-template-columns: minmax(0, 1fr); gap: clamp(1.4rem, 3vw, 2.4rem); padding-top: 0; border-top: 0; }
+.agora__titulo-secao { margin: 0; font-size: var(--fs-titulo); line-height: 1; font-weight: var(--peso-titulo); color: var(--cal); }
+.agora__lista { grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: clamp(1rem, 2.5vw, 2rem); }
+.agora__lista li.agora__cartaz {
+  --papel-cartaz: color-mix(in srgb, var(--palco) 88%, var(--kraft));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  min-height: clamp(19rem, 30vw, 25rem);
+  padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
+  text-align: center;
+  background: var(--papel-cartaz);
+  border: 1px solid rgb(214 198 171 / 0.45);
+  box-shadow: inset 0 0 0 8px var(--papel-cartaz), inset 0 0 0 9px rgb(214 198 171 / 0.22);
+  transition: border-color 0.4s ease;
 }
-.agora__item:first-child { border-top: 0; padding-top: 0; }
-.agora__item .agora__titulo { grid-column: 1; margin: 0; max-width: none; font-size: clamp(1.15rem, 1.6vw, 1.5rem); line-height: 1.2; }
-.agora__item .agora__titulo cite { font-style: normal; }
-.agora__item .agora__detalhe { grid-column: 1; margin: 0; max-width: 40em; font-size: 0.95rem; line-height: 1.45; color: var(--tinta-escura); }
-.agora__item .agora__tipo { grid-column: 2; grid-row: 1; margin: 0; text-align: right; color: var(--destaque-claro); }
-.agora__item .agora__quando {
-  grid-column: 2; grid-row: 2;
+.agora__lista li.agora__cartaz:hover { border-color: rgb(214 198 171 / 0.75); }
+.agora__cartaz .agora__tipo {
+  width: 100%;
   margin: 0;
-  text-align: right;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgb(214 198 171 / 0.22);
+  letter-spacing: 0.32em;
+  color: var(--destaque-claro);
+}
+.agora__cartaz .agora__titulo { margin: auto 0 0; max-width: 12em; font-size: clamp(1.8rem, 3vw, 2.8rem); line-height: 1.08; font-weight: var(--peso-titulo); }
+.agora__cartaz .agora__titulo cite { font-style: normal; }
+.agora__cartaz .agora__detalhe { margin: 0 0 auto; max-width: 26em; font-size: 1rem; line-height: 1.45; color: var(--tinta-escura); }
+.agora__cartaz .agora__quando {
+  width: 100%;
+  margin: 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgb(214 198 171 / 0.22);
   font-family: var(--grotesca);
-  font-size: var(--fs-rotulo);
-  letter-spacing: 0.14em;
+  font-size: calc(var(--fs-rotulo) * 1.2);
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--cal);
-}
-@media (max-width: 700px) {
-  .agora__item { grid-template-columns: minmax(0, 1fr); }
-  .agora__item .agora__tipo, .agora__item .agora__quando { grid-column: 1; grid-row: auto; text-align: left; }
 }

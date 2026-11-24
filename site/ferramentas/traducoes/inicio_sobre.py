@@ -2,8 +2,6 @@
 
 T = {
     # ---------- início: capa, epígrafe e Agora
-    "Criações recentes": ("Creaciones recientes", "Recent works"),
-    "Ver todas as criações": ("Ver todas las creaciones", "See all stage works"),
     "Investigar": ("Investigar", "To investigate"),
     "as temporalidades,": ("las temporalidades,", "temporalities,"),
     "a improvisação cênica": ("la improvisación escénica", "stage improvisation"),
