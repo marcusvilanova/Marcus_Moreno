@@ -34,6 +34,8 @@
   <link rel="stylesheet" href="../css/imersao.css">
   <script>document.documentElement.classList.add('js');
     window.MM = { lingua: 'es', raiz: '../' }; // língua da página e caminho até a raiz do site (ferramentas/gerar-traducoes.py)
+    // troca de página com transição (css/percurso.css): se a navegação for interrompida no meio, a transição é só abandonada, sem erro
+    ['pageswap', 'pagereveal'].forEach(function (tipo) { addEventListener(tipo, function (e) { var t = e.viewTransition; if (t) { t.ready.catch(function () {}); t.finished.catch(function () {}); t.updateCallbackDone.catch(function () {}); } }); });
     // entrada: sobre o vídeo das Danças de Presente, o nome se escreve e a pessoa entra pelo botão. Só na página inicial,
     // uma vez por visita. Para ver de novo, abra o site com ?entrada no fim do endereço. Ver js/imersao.js.
     try { if ((!sessionStorage.getItem('mm-carregou') && !location.hash) || /[?&]entrada(&|=|$)/.test(location.search)) document.documentElement.classList.add('com-carregamento'); } catch (e) {}
@@ -79,15 +81,9 @@
     <ol class="indice__lista">
       <li><a href="sobre.html">Sobre</a></li>
       <li><a href="criacoes.html">Creaciones escénicas</a></li>
-      <li><a href="entreato.html">Entreacto</a></li>
-      <li><a href="efemeros.html">Encuentros Efímeros</a></li>
-      <li><a href="entrevistas.html">Entrevistas performativas</a></li>
-      <li><a href="presente.html">Danzas de Presente</a></li>
-      <li><a href="curadoria.html">Proyectos curatoriales</a></li>
-      <li><a href="textos.html">Textos</a></li>
-      <li><a href="trajetoria.html">Trayectoria</a></li>
-      <li><a href="imprensa.html">En la prensa</a></li>
-      <li><a href="acervo.html">Archivo</a></li>
+      <li><a href="encontros.html">Encuentros</a></li>
+      <li><a href="imagens.html">Imágenes</a></li>
+      <li><a href="textos.html">Textos y prensa</a></li>
       <li><a href="contato.html">Contacto</a></li>
       <li><a href="../es.html">Para programadores</a></li>
       <li class="indice__lingua"><a href="../index.html" hreflang="pt-BR" lang="pt-BR"><span>PT</span>Português</a></li>

@@ -1,5 +1,5 @@
 # Gera o mural do Acervo (antes do Contato): recorta cada imagem no mesmo formato (4:5), em assets/img/mural/,
-# e escreve as três faixas no acervo.html, entre <!-- MURAL:INICIO --> e <!-- MURAL:FIM -->.
+# e escreve as três faixas em imagens.html (seção Acervo), entre <!-- MURAL:INICIO --> e <!-- MURAL:FIM -->.
 #
 # Uso, de dentro da pasta site:   python ferramentas/gerar-mural.py
 # Para trocar, tirar ou reordenar imagens, edite a lista FAIXAS abaixo e rode de novo.
@@ -78,10 +78,19 @@ def recortar(arquivo: str, fx: float, fy: float) -> str:
     return nome
 
 
+# em que página está cada seção do site (são 6 páginas; algumas reúnem mais de uma seção)
+PAGINA_DA_SECAO = {
+    "sobre": "sobre.html", "trajetoria": "sobre.html#trajetoria", "curadoria": "sobre.html#curadoria",
+    "efemeros": "encontros.html", "entrevistas": "encontros.html#entrevistas", "presente": "encontros.html#presente",
+    "entreato": "imagens.html#entreato", "acervo": "imagens.html#acervo",
+    "textos": "textos.html", "imprensa": "textos.html#imprensa", "contato": "contato.html",
+}
+
+
 def pagina_do_destino(destino: str) -> str:
-    """Cada seção tem a sua página: #obra-flor vai para criacoes.html#obra-flor, #sobre para sobre.html."""
+    """#obra-flor vai para criacoes.html#obra-flor; #trajetoria, para a página em que a seção está."""
     alvo = destino.lstrip("#")
-    return f"criacoes.html#{alvo}" if alvo.startswith("obra-") else f"{alvo}.html"
+    return f"criacoes.html#{alvo}" if alvo.startswith("obra-") else PAGINA_DA_SECAO.get(alvo, f"{alvo}.html")
 
 
 def peca(nome: str, destino, legenda: str, indice: int) -> str:
@@ -120,7 +129,7 @@ def principal() -> None:
 
     bloco = ("<!-- MURAL:INICIO · gerado por ferramentas/gerar-mural.py; para mudar, edite lá e rode de novo -->\n"
              '      <div class="mural" aria-hidden="true">\n' + "\n".join(faixas_html) + "\n      </div>\n      <!-- MURAL:FIM -->")
-    index = SITE / "acervo.html"
+    index = SITE / "imagens.html"
     texto = index.read_text(encoding="utf-8")
     inicio = texto.index("<!-- MURAL:INICIO")
     fim = texto.index("<!-- MURAL:FIM -->") + len("<!-- MURAL:FIM -->")

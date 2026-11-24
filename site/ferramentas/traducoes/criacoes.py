@@ -2,8 +2,6 @@
 
 T = {
     "Criações cênicas · Marcus Moreno": ("Creaciones escénicas · Marcus Moreno", "Stage works · Marcus Moreno"),
-    "Criações": ("Creaciones", "Stage"),
-    "cênicas": ("escénicas", "works"),
     "Marcus de costas, braços abertos, sobre um chão coberto de folhagem; outros intérpretes ao fundo.": (
         "Marcus de espaldas, brazos abiertos, sobre un suelo cubierto de follaje; otros intérpretes al fondo.",
         "Marcus from behind, arms open, on a floor covered with foliage; other performers in the background."),

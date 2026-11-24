@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Writing · Marcus Moreno</title>
+  <title>Writing and press · Marcus Moreno</title>
   <meta name="description" content="Marcus Moreno, dance artist. Stage works, performative interviews, Present Dances, curating, writing and career.">
   <meta name="theme-color" content="#1c140f">
   <meta property="og:type" content="website">
@@ -16,9 +16,11 @@
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
     <link rel="preload" href="../assets/fontes/tenor-sans.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../css/site.min.css?v=a17ecc63">
+  <link rel="stylesheet" href="../css/site.min.css?v=49c4455b">
   <script>document.documentElement.classList.add('js');
     window.MM = { lingua: 'en', raiz: '../' }; // língua da página e caminho até a raiz do site (ferramentas/gerar-traducoes.py)
+    // troca de página com transição (css/percurso.css): se a navegação for interrompida no meio, a transição é só abandonada, sem erro
+    ['pageswap', 'pagereveal'].forEach(function (tipo) { addEventListener(tipo, function (e) { var t = e.viewTransition; if (t) { t.ready.catch(function () {}); t.finished.catch(function () {}); t.updateCallbackDone.catch(function () {}); } }); });
 </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Person","name":"Marcus Moreno","alternateName":"Marcus Vinicius Moreno Nascimento","jobTitle":"Artista da dança","sameAs":["https://instagram.com/marcusmoreno_danca"]}
@@ -49,15 +51,9 @@
     <ol class="indice__lista">
       <li><a href="sobre.html">About</a></li>
       <li><a href="criacoes.html">Stage works</a></li>
-      <li><a href="entreato.html">Interlude</a></li>
-      <li><a href="efemeros.html">Ephemeral Encounters</a></li>
-      <li><a href="entrevistas.html">Performative Interviews</a></li>
-      <li><a href="presente.html">Present Dances</a></li>
-      <li><a href="curadoria.html">Curatorial projects</a></li>
-      <li><a href="#textos">Writing</a></li>
-      <li><a href="trajetoria.html">Career</a></li>
-      <li><a href="imprensa.html">In the press</a></li>
-      <li><a href="acervo.html">Archive</a></li>
+      <li><a href="encontros.html">Encounters</a></li>
+      <li><a href="imagens.html">Images</a></li>
+      <li><a href="textos.html">Writing and press</a></li>
       <li><a href="contato.html">Contact</a></li>
       <li><a href="../en.html">For programmers</a></li>
       <li class="indice__lingua"><a href="../textos.html" hreflang="pt-BR" lang="pt-BR"><span>PT</span>Português</a></li>
@@ -168,6 +164,41 @@
         </section>
       </div>
     </section>
+
+<section class="secao imprensa" id="imprensa" data-tone="light" data-title="In the press">
+      <div class="telao" aria-hidden="true" data-video="../assets/video/instante-ja.mp4"><div class="telao__quadro" style="--foco: 50% 60%"><img src="../assets/img/teloes/instante-ja.webp" width="960" height="540" alt="" loading="lazy" decoding="async"></div></div>
+      <header class="cabeca cabeca--espelho">
+        <h2 class="cabeca__titulo">In the <em>press</em></h2>
+      </header>
+      <figure class="imprensa__citacao">
+        <blockquote>“the world is not a place, it is time”</blockquote>
+        <figcaption>Henrique Rochelle on <cite>Instante-já</cite> · Crítica de Minuto, Criticatividade</figcaption>
+      </figure>
+
+      <div class="imprensa__grade">
+        <div>
+          <h3 class="rotulo">Articles and reviews</h3>
+          <ol class="clipping">
+            <li><span class="clipping__data">Dec 2019</span><p class="clipping__titulo">Final performance of <cite>instante-já</cite>, by Marcus Moreno, at Teatro Cacilda Becker</p><span class="clipping__veiculo">Elaine Calux · press release, December 12</span></li>
+            <li><span class="clipping__data">Dec 2019</span><p class="clipping__titulo">Marcus Moreno closes the run of <cite>instante-já</cite> at Teatro Cacilda Becker</p><span class="clipping__veiculo">Elaine Calux · press release, December 5</span></li>
+            <li><span class="clipping__data">2019</span><p class="clipping__titulo">Crítica de Minuto on <cite>Instante-já</cite></p><span class="clipping__veiculo">Henrique Rochelle · Criticatividade</span></li>
+            <li><span class="clipping__data">2019</span><p class="clipping__titulo">Marcus Moreno and Andrea Arobba investigate the “instant-now” dimension</p></li>
+            <li><span class="clipping__data">2019</span><p class="clipping__titulo">Clarice Lispector inspires <cite>instante-já</cite>, Marcus Moreno's new solo</p><span class="clipping__veiculo">Conectedance</span></li>
+            <li><span class="clipping__data">Jul 2019</span><p class="clipping__titulo"><cite>Instante-já</cite> in the dance listings, July 5 to 11</p><span class="clipping__veiculo">Guia Folha · Folha de S.Paulo</span></li>
+            <li><span class="clipping__data">2019</span><p class="clipping__titulo"><cite>Instante-já</cite> in the dance listings</p><span class="clipping__veiculo">Portal MUD</span></li>
+            <li><span class="clipping__data">2013</span><p class="clipping__titulo"><cite>A Imagem como Ausência</cite> among the highlights of the year, in critic Helena Katz's review</p><span class="clipping__veiculo">O Estado de S. Paulo</span></li>
+          </ol>
+        </div>
+        <div>
+          <h3 class="rotulo">Nominations</h3>
+          <ul class="premios">
+            <li><cite>Instante-já</cite> <span>APCA Dance Award 2019 · Premiere of the Year</span></li>
+            <li><cite>Instante-já</cite> <span>APCA Dance Award 2019 · Technical Award, lighting and stage design by Hernandes de Oliveira</span></li>
+            <li><cite>Onde Houver Céu</cite> <span>APCA Award</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="colofao" data-tone="dark">
@@ -187,6 +218,6 @@
     <div class="player__tela"></div>
   </dialog>
 
-  <script src="../js/site.min.js?v=a17ecc63" defer></script>
+  <script src="../js/site.min.js?v=49c4455b" defer></script>
 </body>
 </html>

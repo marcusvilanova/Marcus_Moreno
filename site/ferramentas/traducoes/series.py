@@ -36,8 +36,6 @@ T = {
     "Encontros Efêmeros: Marcus Moreno + Márcio Greyk": ("Encuentros Efímeros: Marcus Moreno + Márcio Greyk", "Ephemeral Encounters: Marcus Moreno + Márcio Greyk"),
     "Encontros Efêmeros: Marcus Moreno + Alex Ratton": ("Encuentros Efímeros: Marcus Moreno + Alex Ratton", "Ephemeral Encounters: Marcus Moreno + Alex Ratton"),
     "Encontros Efêmeros: Marcus Moreno + Rafaela Sahyoun": ("Encuentros Efímeros: Marcus Moreno + Rafaela Sahyoun", "Ephemeral Encounters: Marcus Moreno + Rafaela Sahyoun"),
-    "Encontros": ("Encuentros", "Ephemeral"),
-    "Efêmeros": ("Efímeros", "Encounters"),
     "Desde 2016": ("Desde 2016", "Since 2016"),
     "Este é um procedimento de partilha que tem como principal objetivo reconhecer afetos e modos de criação em dança.": (
         "Es un procedimiento de compartir cuyo principal objetivo es reconocer afectos y modos de creación en danza.",
@@ -49,8 +47,6 @@ T = {
 
     # ---------- entrevistas-performativas
     "Entrevistas-performativas · Marcus Moreno": ("Entrevistas performativas · Marcus Moreno", "Performative Interviews · Marcus Moreno"),
-    "Entrevistas-": ("Entrevistas", "Performative"),
-    "performativas": ("performativas", "Interviews"),
     "Série em vídeo · conversas-dançadas": ("Serie en video · conversaciones bailadas", "Video series · danced conversations"),
     "As entrevistas-performativas, que podem ser descritas também como conversas-dançadas, são eventos que intuem a criação de um espaço voltado à troca de saberes pela experiência do convívio, decorrente de ações simples (previamente organizadas, mas abertas à imprevisibilidade) que apontam para o despertar de um campo de singularidade e partilha.": (
         "Las entrevistas performativas, que también pueden describirse como conversaciones bailadas, son eventos que buscan crear un espacio para el intercambio de saberes a través de la experiencia de la convivencia, a partir de acciones simples (organizadas de antemano, pero abiertas a lo imprevisible) que apuntan al despertar de un campo de singularidad y de compartir.",
@@ -87,8 +83,6 @@ T = {
     "Danças de Presente: para Alex Ratton, Wellington Duarte e Mariana Muniz": (
         "Danzas de Presente: para Alex Ratton, Wellington Duarte y Mariana Muniz",
         "Present Dances: for Alex Ratton, Wellington Duarte and Mariana Muniz"),
-    "Danças de": ("Danzas de", "Present"),
-    "Presente": ("Presente", "Dances"),
     "Com o anseio pelo agradecimento, esta série de improvisações foram criadas como desdobramentos das memórias vindas das entrevistas-performativas, bem como de encontros anteriores a ela, de seu processo de elaboração e daquilo que cada um desses artistas entrevistados me inspira e atravessa meu mover.": (
         "Con el deseo de agradecer, esta serie de improvisaciones nació como desdoblamiento de las memorias de las entrevistas performativas, de los encuentros que las precedieron, de su proceso de elaboración y de aquello que cada uno de estos artistas entrevistados me inspira y atraviesa mi moverme.",
         "Born of a wish to give thanks, this series of improvisations unfolds from the memories of the performative interviews, from the encounters that came before them, from the process of making them and from what each of these artists inspires in me and how they move through my moving."),
@@ -98,8 +92,6 @@ T = {
 
     # ---------- projetos curatoriais
     "Projetos curatoriais · Marcus Moreno": ("Proyectos curatoriales · Marcus Moreno", "Curatorial projects · Marcus Moreno"),
-    "Projetos": ("Proyectos", "Curatorial"),
-    "curatoriais": ("curatoriales", "projects"),
     "Geopoéticas do Sul": ("Geopoéticas del Sur", "Geopoéticas do Sul (Southern Geopoetics)"),
     "Encontro Latino-americano de Gestores de Dança": ("Encuentro Latinoamericano de Gestores de Danza", "Latin American Meeting of Dance Managers"),
     "Solos Brasileiros": ("Solos Brasileños", "Solos Brasileiros (Brazilian Solos)"),

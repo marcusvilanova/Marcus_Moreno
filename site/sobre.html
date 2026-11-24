@@ -34,6 +34,8 @@
   <link rel="stylesheet" href="css/imersao.css">
   <script>document.documentElement.classList.add('js');
     window.MM = { lingua: 'pt', raiz: '' }; // língua da página e caminho até a raiz do site (ferramentas/gerar-traducoes.py)
+    // troca de página com transição (css/percurso.css): se a navegação for interrompida no meio, a transição é só abandonada, sem erro
+    ['pageswap', 'pagereveal'].forEach(function (tipo) { addEventListener(tipo, function (e) { var t = e.viewTransition; if (t) { t.ready.catch(function () {}); t.finished.catch(function () {}); t.updateCallbackDone.catch(function () {}); } }); });
 </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Person","name":"Marcus Moreno","alternateName":"Marcus Vinicius Moreno Nascimento","jobTitle":"Artista da dança","sameAs":["https://instagram.com/marcusmoreno_danca"]}
@@ -64,17 +66,11 @@
 
   <nav class="indice" id="indice" aria-label="Índice" hidden>
     <ol class="indice__lista">
-      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
       <li><a href="criacoes.html">Criações cênicas</a></li>
-      <li><a href="entreato.html">Entreato</a></li>
-      <li><a href="efemeros.html">Encontros Efêmeros</a></li>
-      <li><a href="entrevistas.html">Entrevistas-performativas</a></li>
-      <li><a href="presente.html">Danças de Presente</a></li>
-      <li><a href="curadoria.html">Projetos curatoriais</a></li>
-      <li><a href="textos.html">Textos</a></li>
-      <li><a href="trajetoria.html">Trajetória</a></li>
-      <li><a href="imprensa.html">Na imprensa</a></li>
-      <li><a href="acervo.html">Acervo</a></li>
+      <li><a href="encontros.html">Encontros</a></li>
+      <li><a href="imagens.html">Imagens</a></li>
+      <li><a href="textos.html">Textos e imprensa</a></li>
       <li><a href="contato.html">Contato</a></li>
       <li><a href="programadores.html">Para programadores</a></li>
       <li class="indice__lingua"><a href="es/sobre.html" hreflang="es" lang="es"><span>ES</span>Español</a></li>
@@ -120,6 +116,73 @@
           <p class="ficha__hoje">Assessor de Planejamento Estratégico do Instituto Poiesis</p>
         </aside>
       </div>
+    </section>
+
+<!-- TRAJETÓRIA -->
+
+    <section class="secao trajetoria" id="trajetoria" data-tone="light" data-title="Trajetória">
+      <header class="cabeca">
+        <h2 class="cabeca__titulo">Trajetória</h2>
+      </header>
+
+      <!-- linha do tempo vertical: os anos um embaixo do outro. Para acrescentar um ano, copie um <li class="marco">. -->
+      <div class="linha-tempo">
+        <div class="linha-tempo__abre">
+          <p class="rotulo">De 2009 até hoje</p>
+          <p class="linha-tempo__frase">Criação, gestão e pesquisa, <em>um ano depois do outro</em>.</p>
+          <figure class="linha-tempo__foto revela">
+            <img class="tinta" src="assets/img/fvp-8603.webp" srcset="assets/img/fvp-8603-1000.webp 1000w, assets/img/fvp-8603.webp 2000w" sizes="(min-width: 900px) 30vw, 90vw" width="2000" height="1330" loading="lazy" alt="Marcus de costas num palco, mãos unidas, olhando uma vara de refletores acesos." decoding="async">
+          </figure>
+        </div>
+        <ol class="marcos">
+          <li class="marco"><span class="marco__ano">2009<i>–2017</i></span><p>Secretaria Municipal de Cultura de São Paulo. Coordena o Programa Municipal de Fomento à Dança nos últimos quatro anos; integra a criação e implantação do Centro de Referência da Dança e a curadoria do Circuito Municipal de Cultura.</p></li>
+          <li class="marco"><span class="marco__ano">2012</span><p>Início das criações cênicas.</p></li>
+          <li class="marco"><span class="marco__ano">2016</span><p>Começam os Encontros Efêmeros, trabalhos de improvisação com artistas da cena contemporânea.</p></li>
+          <li class="marco"><span class="marco__ano">2017<i>–2019</i></span><p>Programa de Formação para o Interior, Oficinas Culturais do Estado de São Paulo.</p></li>
+          <li class="marco"><span class="marco__ano">2020<i>–2024</i></span><p>Programador cultural da Oficina Cultural Oswald de Andrade.</p></li>
+          <li class="marco"><span class="marco__ano">2022</span><p>Cria as Entrevistas-performativas com Marisa Lambert e Mariana Molinos, no PPG Artes da Cena da Unicamp.</p></li>
+          <li class="marco"><span class="marco__ano">2025</span><p>Mestre em Artes da Cena pela Unicamp com a dissertação <cite>Estudos do presente: afeto e improvisação cênica</cite>.</p></li>
+          <li class="marco"><span class="marco__ano">Hoje</span><p>Assessor de Planejamento Estratégico do Instituto Poiesis. Integrou a Gerência de Articulação e Difusão das Fábricas de Cultura.</p></li>
+        </ol>
+      </div>
+      <p class="trajetoria__intl"><span class="rotulo">Encontros internacionais de gestão</span> Festival Danzalborde (Chile) · FIDCU (Uruguai) · EGA (Argentina)</p>
+    </section>
+
+<!-- PROJETOS CURATORIAIS -->
+
+    <section class="secao curadoria" id="curadoria" data-tone="concrete" data-title="Projetos curatoriais">
+      <header class="cabeca">
+        <h2 class="cabeca__titulo">Projetos <em>curatoriais</em></h2>
+      </header>
+
+      <div class="curadoria__grade">
+        <ol class="curadoria__lista">
+          <li class="revela">
+            <span class="curadoria__ano">2019</span>
+            <h3>Geopoéticas do Sul</h3>
+            <p>Encontro Latino-americano de Gestores de Dança</p>
+          </li>
+          <li class="revela">
+            <span class="curadoria__ano">2022</span>
+            <h3>Solos Brasileiros</h3>
+            <p>Danças para Villa-Lobos</p>
+          </li>
+          <li class="revela">
+            <span class="curadoria__ano">2023 · 2025</span>
+            <h3>muDANÇA</h3>
+            <p>Mostra Universitária</p>
+          </li>
+          <li class="revela">
+            <span class="curadoria__ano">SMC · SP</span>
+            <h3>Circuito Municipal de Cultura</h3>
+            <p>Curadoria junto à Secretaria Municipal de Cultura de São Paulo</p>
+          </li>
+        </ol>
+        <figure class="curadoria__imagem revela">
+          <img class="tinta" src="assets/img/img-1639.webp" srcset="assets/img/img-1639-1000.webp 1000w, assets/img/img-1639.webp 2000w" sizes="(min-width: 900px) 40vw, 100vw" width="2000" height="1307" loading="lazy" alt="Marcus com um braço erguido ao céu sobre uma laje, São Paulo e uma torre de antena ao fundo." decoding="async">
+        </figure>
+      </div>
+      <!-- Registros, textos e imagens de cada projeto entram aqui. -->
     </section>
   </main>
 

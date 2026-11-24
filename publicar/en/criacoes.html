@@ -16,9 +16,11 @@
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
     <link rel="preload" href="../assets/fontes/tenor-sans.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../css/site.min.css?v=a17ecc63">
+  <link rel="stylesheet" href="../css/site.min.css?v=49c4455b">
   <script>document.documentElement.classList.add('js');
     window.MM = { lingua: 'en', raiz: '../' }; // língua da página e caminho até a raiz do site (ferramentas/gerar-traducoes.py)
+    // troca de página com transição (css/percurso.css): se a navegação for interrompida no meio, a transição é só abandonada, sem erro
+    ['pageswap', 'pagereveal'].forEach(function (tipo) { addEventListener(tipo, function (e) { var t = e.viewTransition; if (t) { t.ready.catch(function () {}); t.finished.catch(function () {}); t.updateCallbackDone.catch(function () {}); } }); });
 </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Person","name":"Marcus Moreno","alternateName":"Marcus Vinicius Moreno Nascimento","jobTitle":"Artista da dança","sameAs":["https://instagram.com/marcusmoreno_danca"]}
@@ -48,16 +50,10 @@
   <nav class="indice" id="indice" aria-label="Index" hidden>
     <ol class="indice__lista">
       <li><a href="sobre.html">About</a></li>
-      <li><a href="#criacoes">Stage works</a></li>
-      <li><a href="entreato.html">Interlude</a></li>
-      <li><a href="efemeros.html">Ephemeral Encounters</a></li>
-      <li><a href="entrevistas.html">Performative Interviews</a></li>
-      <li><a href="presente.html">Present Dances</a></li>
-      <li><a href="curadoria.html">Curatorial projects</a></li>
-      <li><a href="textos.html">Writing</a></li>
-      <li><a href="trajetoria.html">Career</a></li>
-      <li><a href="imprensa.html">In the press</a></li>
-      <li><a href="acervo.html">Archive</a></li>
+      <li><a href="criacoes.html">Stage works</a></li>
+      <li><a href="encontros.html">Encounters</a></li>
+      <li><a href="imagens.html">Images</a></li>
+      <li><a href="textos.html">Writing and press</a></li>
       <li><a href="contato.html">Contact</a></li>
       <li><a href="../en.html">For programmers</a></li>
       <li class="indice__lingua"><a href="../criacoes.html" hreflang="pt-BR" lang="pt-BR"><span>PT</span>Português</a></li>
@@ -348,6 +344,6 @@
     <div class="player__tela"></div>
   </dialog>
 
-  <script src="../js/site.min.js?v=a17ecc63" defer></script>
+  <script src="../js/site.min.js?v=49c4455b" defer></script>
 </body>
 </html>

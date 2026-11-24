@@ -706,19 +706,6 @@
   .rede__marcus { font-size: 27px; }
 }
 
-/* ---------- a luz sobe: do escuro para o papel (o inverso do blecaute) ----------
-   O começo da seção clara ainda guarda a cor da seção escura que veio antes e clareia aos poucos. */
-.efemeros, .curadoria { --antes: var(--palco); padding-top: calc(var(--respiro) + 22vh); }
-.curadoria { --antes: var(--umbria); }
-.efemeros::before, .curadoria::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto;
-  height: calc(var(--respiro) * 0.5 + 22vh);
-  pointer-events: none;
-  background: linear-gradient(to bottom, var(--antes), color-mix(in srgb, var(--antes) 62%, transparent) 30%, color-mix(in srgb, var(--antes) 26%, transparent) 62%, transparent);
-}
-
 /* na epígrafe, em telas largas, o quadro do vídeo aparece inteiro (antes a altura era cortada e Marcus ficava sem cabeça).
    O escuro do vídeo é a própria cor do palco, então as laterais se desfazem no fundo da seção. */
 @media (min-aspect-ratio: 143/100) {

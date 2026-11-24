@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Textos · Marcus Moreno</title>
+  <title>Textos e imprensa · Marcus Moreno</title>
   <meta name="description" content="Marcus Moreno, artista da dança. Criações cênicas, entrevistas-performativas, Danças de Presente, curadoria, textos e trajetória.">
   <meta name="theme-color" content="#1c140f">
   <meta property="og:type" content="website">
@@ -34,6 +34,8 @@
   <link rel="stylesheet" href="css/imersao.css">
   <script>document.documentElement.classList.add('js');
     window.MM = { lingua: 'pt', raiz: '' }; // língua da página e caminho até a raiz do site (ferramentas/gerar-traducoes.py)
+    // troca de página com transição (css/percurso.css): se a navegação for interrompida no meio, a transição é só abandonada, sem erro
+    ['pageswap', 'pagereveal'].forEach(function (tipo) { addEventListener(tipo, function (e) { var t = e.viewTransition; if (t) { t.ready.catch(function () {}); t.finished.catch(function () {}); t.updateCallbackDone.catch(function () {}); } }); });
 </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Person","name":"Marcus Moreno","alternateName":"Marcus Vinicius Moreno Nascimento","jobTitle":"Artista da dança","sameAs":["https://instagram.com/marcusmoreno_danca"]}
@@ -66,15 +68,9 @@
     <ol class="indice__lista">
       <li><a href="sobre.html">Sobre</a></li>
       <li><a href="criacoes.html">Criações cênicas</a></li>
-      <li><a href="entreato.html">Entreato</a></li>
-      <li><a href="efemeros.html">Encontros Efêmeros</a></li>
-      <li><a href="entrevistas.html">Entrevistas-performativas</a></li>
-      <li><a href="presente.html">Danças de Presente</a></li>
-      <li><a href="curadoria.html">Projetos curatoriais</a></li>
-      <li><a href="#textos">Textos</a></li>
-      <li><a href="trajetoria.html">Trajetória</a></li>
-      <li><a href="imprensa.html">Na imprensa</a></li>
-      <li><a href="acervo.html">Acervo</a></li>
+      <li><a href="encontros.html">Encontros</a></li>
+      <li><a href="imagens.html">Imagens</a></li>
+      <li><a href="textos.html">Textos e imprensa</a></li>
       <li><a href="contato.html">Contato</a></li>
       <li><a href="programadores.html">Para programadores</a></li>
       <li class="indice__lingua"><a href="es/textos.html" hreflang="es" lang="es"><span>ES</span>Español</a></li>
@@ -188,6 +184,45 @@
               </li>
           </ol>
         </section>
+      </div>
+    </section>
+
+<!-- NA IMPRENSA -->
+
+    <section class="secao imprensa" id="imprensa" data-tone="light" data-title="Na imprensa">
+      <!-- telão: trecho de <cite>Instante-já</cite>, em sépia e câmera lenta (ferramentas/gerar-teloes.py) -->
+      <div class="telao" aria-hidden="true" data-video="assets/video/instante-ja.mp4"><div class="telao__quadro" style="--foco: 50% 60%"><img src="assets/img/teloes/instante-ja.webp" width="960" height="540" alt="" loading="lazy" decoding="async"></div></div>
+      <header class="cabeca cabeca--espelho">
+        <h2 class="cabeca__titulo">Na <em>imprensa</em></h2>
+      </header>
+      <figure class="imprensa__citacao">
+        <blockquote>“o mundo não é lugar, ele é tempo”</blockquote>
+        <figcaption>Henrique Rochelle sobre <cite>Instante-já</cite> · Crítica de Minuto, Criticatividade</figcaption>
+      </figure>
+
+      <div class="imprensa__grade">
+        <div>
+          <h3 class="rotulo">Matérias e críticas</h3>
+          <!-- Quando os links estiverem reunidos, cada título pode virar <a href="...">. Fonte: página de imprensa do site antigo. -->
+          <ol class="clipping">
+            <li><span class="clipping__data">dez 2019</span><p class="clipping__titulo">Última apresentação de <cite>instante-já</cite>, de Marcus Moreno, no Cacilda Becker</p><span class="clipping__veiculo">Elaine Calux · release, 12 de dezembro</span></li>
+            <li><span class="clipping__data">dez 2019</span><p class="clipping__titulo">Marcus Moreno encerra circulação de <cite>instante-já</cite> no Cacilda Becker</p><span class="clipping__veiculo">Elaine Calux · release, 5 de dezembro</span></li>
+            <li><span class="clipping__data">2019</span><p class="clipping__titulo">Crítica de Minuto sobre <cite>Instante-já</cite></p><span class="clipping__veiculo">Henrique Rochelle · Criticatividade</span></li>
+            <li><span class="clipping__data">2019</span><p class="clipping__titulo">Marcus Moreno e Andrea Arobba investigam a dimensão “instante-já”</p></li>
+            <li><span class="clipping__data">2019</span><p class="clipping__titulo">Clarice Lispector inspira <cite>instante-já</cite>, novo solo de Marcus Moreno</p><span class="clipping__veiculo">Conectedance</span></li>
+            <li><span class="clipping__data">jul 2019</span><p class="clipping__titulo"><cite>Instante-já</cite> no roteiro de dança, 5 a 11 de julho</p><span class="clipping__veiculo">Guia Folha · Folha de S.Paulo</span></li>
+            <li><span class="clipping__data">2019</span><p class="clipping__titulo"><cite>Instante-já</cite> na agenda de dança</p><span class="clipping__veiculo">Portal MUD</span></li>
+            <li><span class="clipping__data">2013</span><p class="clipping__titulo"><cite>A Imagem como Ausência</cite> entre os destaques do ano, na retrospectiva da crítica Helena Katz</p><span class="clipping__veiculo">O Estado de S. Paulo</span></li>
+          </ol>
+        </div>
+        <div>
+          <h3 class="rotulo">Indicações</h3>
+          <ul class="premios">
+            <li><cite>Instante-já</cite> <span>Prêmio APCA-Dança 2019 · Estreia do ano</span></li>
+            <li><cite>Instante-já</cite> <span>Prêmio APCA-Dança 2019 · Prêmio Técnico, luz e espaço cênico de Hernandes de Oliveira</span></li>
+            <li><cite>Onde Houver Céu</cite> <span>Prêmio APCA</span></li>
+          </ul>
+        </div>
       </div>
     </section>
   </main>

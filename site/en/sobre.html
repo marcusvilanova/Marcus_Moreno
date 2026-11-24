@@ -34,6 +34,8 @@
   <link rel="stylesheet" href="../css/imersao.css">
   <script>document.documentElement.classList.add('js');
     window.MM = { lingua: 'en', raiz: '../' }; // língua da página e caminho até a raiz do site (ferramentas/gerar-traducoes.py)
+    // troca de página com transição (css/percurso.css): se a navegação for interrompida no meio, a transição é só abandonada, sem erro
+    ['pageswap', 'pagereveal'].forEach(function (tipo) { addEventListener(tipo, function (e) { var t = e.viewTransition; if (t) { t.ready.catch(function () {}); t.finished.catch(function () {}); t.updateCallbackDone.catch(function () {}); } }); });
 </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Person","name":"Marcus Moreno","alternateName":"Marcus Vinicius Moreno Nascimento","jobTitle":"Artista da dança","sameAs":["https://instagram.com/marcusmoreno_danca"]}
@@ -64,17 +66,11 @@
 
   <nav class="indice" id="indice" aria-label="Index" hidden>
     <ol class="indice__lista">
-      <li><a href="#sobre">About</a></li>
+      <li><a href="sobre.html">About</a></li>
       <li><a href="criacoes.html">Stage works</a></li>
-      <li><a href="entreato.html">Interlude</a></li>
-      <li><a href="efemeros.html">Ephemeral Encounters</a></li>
-      <li><a href="entrevistas.html">Performative Interviews</a></li>
-      <li><a href="presente.html">Present Dances</a></li>
-      <li><a href="curadoria.html">Curatorial projects</a></li>
-      <li><a href="textos.html">Writing</a></li>
-      <li><a href="trajetoria.html">Career</a></li>
-      <li><a href="imprensa.html">In the press</a></li>
-      <li><a href="acervo.html">Archive</a></li>
+      <li><a href="encontros.html">Encounters</a></li>
+      <li><a href="imagens.html">Images</a></li>
+      <li><a href="textos.html">Writing and press</a></li>
       <li><a href="contato.html">Contact</a></li>
       <li><a href="../en.html">For programmers</a></li>
       <li class="indice__lingua"><a href="../sobre.html" hreflang="pt-BR" lang="pt-BR"><span>PT</span>Português</a></li>
@@ -120,6 +116,73 @@
           <p class="ficha__hoje">Strategic Planning Adviser, Instituto Poiesis</p>
         </aside>
       </div>
+    </section>
+
+<!-- TRAJETÓRIA -->
+
+    <section class="secao trajetoria" id="trajetoria" data-tone="light" data-title="Career">
+      <header class="cabeca">
+        <h2 class="cabeca__titulo">Career</h2>
+      </header>
+
+      <!-- linha do tempo vertical: os anos um embaixo do outro. Para acrescentar um ano, copie um <li class="marco">. -->
+      <div class="linha-tempo">
+        <div class="linha-tempo__abre">
+          <p class="rotulo">From 2009 to today</p>
+          <p class="linha-tempo__frase">Creation, management and research, <em>one year after another</em>.</p>
+          <figure class="linha-tempo__foto revela">
+            <img class="tinta" src="../assets/img/fvp-8603.webp" srcset="../assets/img/fvp-8603-1000.webp 1000w, ../assets/img/fvp-8603.webp 2000w" sizes="(min-width: 900px) 30vw, 90vw" width="2000" height="1330" loading="lazy" alt="Marcus from behind on a stage, hands together, looking at a bar of lit spotlights." decoding="async">
+          </figure>
+        </div>
+        <ol class="marcos">
+          <li class="marco"><span class="marco__ano">2009<i>–2017</i></span><p>São Paulo Municipal Department of Culture. Coordinates the Municipal Dance Fund in his last four years there; helps create and set up the Dance Reference Centre and curates the Municipal Culture Circuit.</p></li>
+          <li class="marco"><span class="marco__ano">2012</span><p>First stage works.</p></li>
+          <li class="marco"><span class="marco__ano">2016</span><p>The Ephemeral Encounters begin: improvisations with artists from the contemporary scene.</p></li>
+          <li class="marco"><span class="marco__ano">2017<i>–2019</i></span><p>Training programme for the interior, São Paulo State Cultural Workshops.</p></li>
+          <li class="marco"><span class="marco__ano">2020<i>–2024</i></span><p>Cultural programmer at the Oswald de Andrade Cultural Workshop.</p></li>
+          <li class="marco"><span class="marco__ano">2022</span><p>Creates the Performative Interviews with Marisa Lambert and Mariana Molinos, at Unicamp's graduate programme in Performing Arts.</p></li>
+          <li class="marco"><span class="marco__ano">2025</span><p>Master's in Performing Arts from Unicamp with the dissertation <cite>Estudos do presente: afeto e improvisação cênica</cite>.</p></li>
+          <li class="marco"><span class="marco__ano">Today</span><p>Strategic Planning Adviser at Instituto Poiesis. Was part of the outreach and dissemination team of the Fábricas de Cultura.</p></li>
+        </ol>
+      </div>
+      <p class="trajetoria__intl"><span class="rotulo">International management meetings</span> Festival Danzalborde (Chile) · FIDCU (Uruguay) · EGA (Argentina)</p>
+    </section>
+
+<!-- PROJETOS CURATORIAIS -->
+
+    <section class="secao curadoria" id="curadoria" data-tone="concrete" data-title="Curatorial projects">
+      <header class="cabeca">
+        <h2 class="cabeca__titulo">Curatorial <em>projects</em></h2>
+      </header>
+
+      <div class="curadoria__grade">
+        <ol class="curadoria__lista">
+          <li class="revela">
+            <span class="curadoria__ano">2019</span>
+            <h3>Geopoéticas do Sul (Southern Geopoetics)</h3>
+            <p>Latin American Meeting of Dance Managers</p>
+          </li>
+          <li class="revela">
+            <span class="curadoria__ano">2022</span>
+            <h3>Solos Brasileiros (Brazilian Solos)</h3>
+            <p>Dances for Villa-Lobos</p>
+          </li>
+          <li class="revela">
+            <span class="curadoria__ano">2023 · 2025</span>
+            <h3>muDANÇA</h3>
+            <p>University showcase</p>
+          </li>
+          <li class="revela">
+            <span class="curadoria__ano">SMC · SP</span>
+            <h3>Municipal Culture Circuit</h3>
+            <p>Curated with São Paulo's Municipal Department of Culture</p>
+          </li>
+        </ol>
+        <figure class="curadoria__imagem revela">
+          <img class="tinta" src="../assets/img/img-1639.webp" srcset="../assets/img/img-1639-1000.webp 1000w, ../assets/img/img-1639.webp 2000w" sizes="(min-width: 900px) 40vw, 100vw" width="2000" height="1307" loading="lazy" alt="Marcus with one arm raised to the sky on a rooftop, São Paulo and an antenna tower behind." decoding="async">
+        </figure>
+      </div>
+      <!-- Registros, textos e imagens de cada projeto entram aqui. -->
     </section>
   </main>
 

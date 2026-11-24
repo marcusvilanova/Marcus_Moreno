@@ -3,14 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Acervo · Marcus Moreno</title>
+  <title>Imagens · Marcus Moreno</title>
   <meta name="description" content="Marcus Moreno, artista da dança. Criações cênicas, entrevistas-performativas, Danças de Presente, curadoria, textos e trajetória.">
   <meta name="theme-color" content="#1c140f">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Marcus Moreno · Dança">
   <meta property="og:description" content="Improvisação, temporalidades e redes de afetos.">
-  <!-- AO PUBLICAR: troque "assets/marca/compartilhar.jpg" pelo endereço completo (https://seu-dominio/assets/marca/compartilhar.jpg),
-       senão o WhatsApp e o Instagram mostram o link sem a foto. Veja PUBLICAR.md. -->
   <meta property="og:image" content="assets/marca/compartilhar.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -18,22 +16,11 @@
   <meta property="og:locale" content="pt_BR">
   <meta name="twitter:card" content="summary_large_image">
     <link rel="preload" href="assets/fontes/tenor-sans.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/fontes.css">
-  <link rel="icon" href="assets/marca/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="assets/marca/apple-touch-icon.png">
-  <link rel="alternate" hreflang="pt-BR" href="acervo.html">
-  <link rel="alternate" hreflang="es" href="es/acervo.html">
-  <link rel="alternate" hreflang="en" href="en/acervo.html">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/obras.css">
-  <link rel="stylesheet" href="css/secoes.css">
-  <link rel="stylesheet" href="css/acervo.css">
-  <link rel="stylesheet" href="css/laterais.css">
-  <link rel="stylesheet" href="css/entreato.css">
-  <link rel="stylesheet" href="css/percurso.css">
-  <link rel="stylesheet" href="css/imersao.css">
+  <link rel="stylesheet" href="css/site.min.css?v=49c4455b">
   <script>document.documentElement.classList.add('js');
     window.MM = { lingua: 'pt', raiz: '' }; // língua da página e caminho até a raiz do site (ferramentas/gerar-traducoes.py)
+    // troca de página com transição (css/percurso.css): se a navegação for interrompida no meio, a transição é só abandonada, sem erro
+    ['pageswap', 'pagereveal'].forEach(function (tipo) { addEventListener(tipo, function (e) { var t = e.viewTransition; if (t) { t.ready.catch(function () {}); t.finished.catch(function () {}); t.updateCallbackDone.catch(function () {}); } }); });
 </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Person","name":"Marcus Moreno","alternateName":"Marcus Vinicius Moreno Nascimento","jobTitle":"Artista da dança","sameAs":["https://instagram.com/marcusmoreno_danca"]}
@@ -41,7 +28,6 @@
 </head><body>
   <a class="skip" href="#conteudo">Ir para o conteúdo</a>
   <div class="blecaute" aria-hidden="true"></div>
-  <!-- água: distorção que só atua na foto sob o mouse, e só enquanto o mouse se move (ver main.js) -->
   <svg class="filtros" width="0" height="0" aria-hidden="true" focusable="false">
     <filter id="agua" x="-4%" y="-4%" width="108%" height="108%" color-interpolation-filters="sRGB">
       <feTurbulence type="fractalNoise" baseFrequency="0.011 0.024" numOctaves="2" seed="5" result="ruido"/>
@@ -49,12 +35,11 @@
     </filter>
   </svg>
 
-  <!-- Cabeçalho: nome, seção atual e índice -->
   <header class="topo" data-tone="light">
     <a class="topo__nome" href="index.html" aria-label="Marcus Moreno"><span class="nome-tinta" aria-hidden="true"></span></a>
     <p class="topo__secao" aria-hidden="true"><span class="topo__titulo"></span></p>
     <div class="topo__acoes">
-      <nav class="linguas" aria-label="Idioma"><a href="acervo.html" hreflang="pt-BR" lang="pt-BR" aria-current="page">PT</a><a href="es/acervo.html" hreflang="es" lang="es">ES</a><a href="en/acervo.html" hreflang="en" lang="en">EN</a></nav>
+      <nav class="linguas" aria-label="Idioma"><a href="imagens.html" hreflang="pt-BR" lang="pt-BR" aria-current="page">PT</a><a href="es/imagens.html" hreflang="es" lang="es">ES</a><a href="en/imagens.html" hreflang="en" lang="en">EN</a></nav>
       <a class="topo__contato" href="contato.html">Contato</a>
       <button class="topo__letra" type="button" data-passo="0" aria-label="Aumentar o tamanho da letra" title="Tamanho da letra">A<span>a</span></button>
       <button class="topo__som" type="button" aria-pressed="false" title="Música gerada na hora, nunca igual"><span class="topo__ondas" aria-hidden="true"><i></i><i></i><i></i></span>Som</button>
@@ -66,19 +51,13 @@
     <ol class="indice__lista">
       <li><a href="sobre.html">Sobre</a></li>
       <li><a href="criacoes.html">Criações cênicas</a></li>
-      <li><a href="entreato.html">Entreato</a></li>
-      <li><a href="efemeros.html">Encontros Efêmeros</a></li>
-      <li><a href="entrevistas.html">Entrevistas-performativas</a></li>
-      <li><a href="presente.html">Danças de Presente</a></li>
-      <li><a href="curadoria.html">Projetos curatoriais</a></li>
-      <li><a href="textos.html">Textos</a></li>
-      <li><a href="trajetoria.html">Trajetória</a></li>
-      <li><a href="imprensa.html">Na imprensa</a></li>
-      <li><a href="#acervo">Acervo</a></li>
+      <li><a href="encontros.html">Encontros</a></li>
+      <li><a href="imagens.html">Imagens</a></li>
+      <li><a href="textos.html">Textos e imprensa</a></li>
       <li><a href="contato.html">Contato</a></li>
       <li><a href="programadores.html">Para programadores</a></li>
-      <li class="indice__lingua"><a href="es/acervo.html" hreflang="es" lang="es"><span>ES</span>Español</a></li>
-      <li class="indice__lingua"><a href="en/acervo.html" hreflang="en" lang="en"><span>EN</span>English</a></li>
+      <li class="indice__lingua"><a href="es/imagens.html" hreflang="es" lang="es"><span>ES</span>Español</a></li>
+      <li class="indice__lingua"><a href="en/imagens.html" hreflang="en" lang="en"><span>EN</span>English</a></li>
     </ol>
     <p class="indice__pe">Estudos do presente</p>
   </nav>
@@ -86,13 +65,58 @@
   <main id="conteudo">
     <h1 class="sr">Marcus Moreno</h1>
 
-<!-- ACERVO · o mural das obras, antes do Contato: como o agradecimento no fim de um espetáculo,
-         quando todo o elenco volta ao palco junto. As imagens e a ordem saem de ferramentas/gerar-mural.py. -->
+<section class="entreato" id="entreato" data-lateral data-tone="dark" data-title="Entreato" aria-labelledby="entreato-titulo">
+      <div class="entreato__palco">
+        <div class="entreato__faixa" data-lateral-faixa>
+          <div class="entreato__abre">
+            <p class="rotulo entreato__rotulo">Intervalo entre as obras</p>
+            <h2 class="entreato__titulo" id="entreato-titulo">Entre<em>ato</em></h2>
+            <p class="entreato__texto">Fotografias de cena, de ensaio e de rua. O corpo em lugares: biblioteca, parede, caldeira, laje, folhagem, palco.</p>
+            <p class="rotulo entreato__dica" aria-hidden="true"><span class="entreato__dica-rolar">Role a página</span><span class="entreato__dica-deslizar">Deslize</span> <i></i></p>
+          </div>
+          <figure data-lateral-item class="entreato__foto entreato__foto--h">
+            <div class="entreato__moldura"><img class="tinta" src="assets/img/flor-mario-de-andrade.webp" srcset="assets/img/flor-mario-de-andrade-1000.webp 1000w, assets/img/flor-mario-de-andrade.webp 2000w" sizes="90vh" width="2000" height="1333" loading="lazy" alt="Marcus dança descalço no terraço da Biblioteca Mário de Andrade, entre árvores e prédios." decoding="async"></div>
+            <figcaption class="legenda"><span class="entreato__n">01</span> <cite>A Flor da Lua</cite> · Biblioteca Mário de Andrade · Foto Claudia Magalhães</figcaption>
+          </figure>
+          <figure data-lateral-item class="entreato__foto entreato__foto--v">
+            <div class="entreato__moldura"><img class="tinta" src="assets/img/estudo-encontro-2.webp" srcset="assets/img/estudo-encontro-2-1000.webp 1000w, assets/img/estudo-encontro-2.webp 1333w" sizes="45vh" width="1333" height="2000" loading="lazy" alt="Marcus encostado em uma parede de concreto, cabeça inclinada, luz lateral no chão." decoding="async"></div>
+            <figcaption class="legenda"><span class="entreato__n">02</span> <cite>Estudo para o Encontro</cite> · Foto Silvia Machado</figcaption>
+          </figure>
+          <figure data-lateral-item class="entreato__foto entreato__foto--h entreato__foto--baixo">
+            <div class="entreato__moldura"><img class="tinta" src="assets/img/flor-casa-caldeiras.webp" width="960" height="640" loading="lazy" alt="Silhueta contra luz âmbar na Casa das Caldeiras, plateia sentada à esquerda." decoding="async"></div>
+            <figcaption class="legenda"><span class="entreato__n">03</span> <cite>A Flor da Lua</cite> · Casa das Caldeiras</figcaption>
+          </figure>
+          <figure data-lateral-item class="entreato__foto entreato__foto--v">
+            <div class="entreato__moldura"><img class="tinta" src="assets/img/retrato-07.webp" width="853" height="1280" loading="lazy" alt="Marcus agachado à beira de um espelho d’água, torcendo um pano branco, plantas ao fundo." decoding="async"></div>
+            <figcaption class="legenda"><span class="entreato__n">04</span> Retrato · 2025</figcaption>
+          </figure>
+          <figure data-lateral-item class="entreato__foto entreato__foto--h">
+            <div class="entreato__moldura"><img class="tinta" src="assets/img/img-1639.webp" srcset="assets/img/img-1639-1000.webp 1000w, assets/img/img-1639.webp 2000w" sizes="90vh" width="2000" height="1307" loading="lazy" alt="Marcus com um braço erguido ao céu sobre uma laje, São Paulo e uma torre de antena ao fundo." decoding="async"></div>
+            <figcaption class="legenda"><span class="entreato__n">05</span> Laje · São Paulo</figcaption>
+          </figure>
+          <figure data-lateral-item class="entreato__foto entreato__foto--v">
+            <div class="entreato__moldura"><img class="tinta" src="assets/img/onde-houver-ceu-1.webp" srcset="assets/img/onde-houver-ceu-1-1000.webp 1000w, assets/img/onde-houver-ceu-1.webp 1333w" sizes="45vh" width="1333" height="2000" loading="lazy" alt="Marcus de costas, braços abertos, sobre um chão coberto de folhagem; outros intérpretes ao fundo." decoding="async"></div>
+            <figcaption class="legenda"><span class="entreato__n">06</span> <cite>Onde Houver Céu</cite> · Foto Silvia Machado</figcaption>
+          </figure>
+          <figure data-lateral-item class="entreato__foto entreato__foto--h entreato__foto--baixo">
+            <div class="entreato__moldura"><img class="tinta" src="assets/img/retrato-25.webp" srcset="assets/img/retrato-25-1000.webp 1000w, assets/img/retrato-25.webp 1280w" sizes="90vh" width="1280" height="853" loading="lazy" alt="Marcus Moreno de perfil, diante de uma janela de venezianas, mãos erguidas à altura do rosto." decoding="async"></div>
+            <figcaption class="legenda"><span class="entreato__n">07</span> Retrato · 2025</figcaption>
+          </figure>
+          <figure data-lateral-item class="entreato__foto entreato__foto--h">
+            <div class="entreato__moldura"><img class="tinta" src="assets/img/fvp-8603.webp" srcset="assets/img/fvp-8603-1000.webp 1000w, assets/img/fvp-8603.webp 2000w" sizes="90vh" width="2000" height="1330" loading="lazy" alt="Marcus de costas num palco, mãos unidas, olhando uma vara de refletores acesos." decoding="async"></div>
+            <figcaption class="legenda"><span class="entreato__n">08</span> Palco · Refletores acesos</figcaption>
+          </figure>
+        </div>
+        <div class="entreato__pe" aria-hidden="true">
+          <span class="entreato__contador" data-lateral-contador>01 / 08</span>
+          <span class="entreato__progresso" data-lateral-progresso><span></span></span>
+        </div>
+      </div>
+    </section>
 
-    <section class="acervo" id="acervo" data-tone="dark" data-topo="foto" data-title="Acervo" aria-labelledby="acervo-titulo">
+<section class="acervo" id="acervo" data-tone="dark" data-topo="foto" data-title="Acervo" aria-labelledby="acervo-titulo">
       <h2 class="sr" id="acervo-titulo">Acervo</h2>
       <p class="rotulo acervo__rotulo" aria-hidden="true">Acervo</p>
-      <!-- MURAL:INICIO · gerado por ferramentas/gerar-mural.py; para mudar, edite lá e rode de novo -->
       <div class="mural" aria-hidden="true">
         <div class="mural__faixa" style="--duracao: 130s">
           <div class="mural__trilho">
@@ -128,9 +152,9 @@
             <button class="mural__peca" type="button" tabindex="-1" data-video="BS4TVR6UXvo" data-start="331" data-titulo="Encontros Efêmeros: Marcus Moreno + Márcio Greyk"><img src="assets/img/mural/efemero-marcio.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Encontro Efêmero <cite>com Márcio Greyk</cite></span></button>
             <a class="mural__peca" href="criacoes.html#obra-cinema" tabindex="-1"><img src="assets/img/mural/entre-espaco-still.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2021 <cite>Entre-espaço onde tudo existe</cite></span></a>
             <button class="mural__peca" type="button" tabindex="-1" data-video="azvbrgBYgow" data-start="1" data-titulo="Entrevista-performativa com Mariana Muniz"><img src="assets/img/mural/entrevista-mariana.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Entrevista <cite>com Mariana Muniz</cite></span></button>
-            <a class="mural__peca" href="entreato.html" tabindex="-1"><img src="assets/img/mural/retrato-07.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Retrato · 2025</span></a>
+            <a class="mural__peca" href="imagens.html#entreato" tabindex="-1"><img src="assets/img/mural/retrato-07.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Retrato · 2025</span></a>
             <button class="mural__peca" type="button" tabindex="-1" data-video="g3cO501wIUE" data-start="2" data-titulo="Encontros Efêmeros: Marcus Moreno + Alex Ratton"><img src="assets/img/mural/efemero-alex.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Encontro Efêmero <cite>com Alex Ratton</cite></span></button>
-            <a class="mural__peca" href="trajetoria.html" tabindex="-1"><img src="assets/img/mural/fvp-8603.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Palco</span></a>
+            <a class="mural__peca" href="sobre.html#trajetoria" tabindex="-1"><img src="assets/img/mural/fvp-8603.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Palco</span></a>
             <a class="mural__peca" href="criacoes.html#obra-brotar" tabindex="-1"><img src="assets/img/mural/para-insistir-em-brotar.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2021 <cite>Para insistir em brotar</cite></span></a>
             <a class="mural__peca" href="criacoes.html#obra-estudo" tabindex="-1"><img src="assets/img/mural/estudo-encontro-2.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2017 <cite>Estudo para o Encontro</cite></span></a>
             <button class="mural__peca" type="button" tabindex="-1" data-video="5UkvPAkzwQQ" data-titulo="Entrevista-performativa com Vera Sala"><img src="assets/img/mural/entrevista-vera.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Entrevista <cite>com Vera Sala</cite></span></button>
@@ -138,9 +162,9 @@
             <button class="mural__peca" type="button" tabindex="-1" data-video="BS4TVR6UXvo" data-start="331" data-titulo="Encontros Efêmeros: Marcus Moreno + Márcio Greyk"><img src="assets/img/mural/efemero-marcio.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Encontro Efêmero <cite>com Márcio Greyk</cite></span></button>
             <a class="mural__peca" href="criacoes.html#obra-cinema" tabindex="-1"><img src="assets/img/mural/entre-espaco-still.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2021 <cite>Entre-espaço onde tudo existe</cite></span></a>
             <button class="mural__peca" type="button" tabindex="-1" data-video="azvbrgBYgow" data-start="1" data-titulo="Entrevista-performativa com Mariana Muniz"><img src="assets/img/mural/entrevista-mariana.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Entrevista <cite>com Mariana Muniz</cite></span></button>
-            <a class="mural__peca" href="entreato.html" tabindex="-1"><img src="assets/img/mural/retrato-07.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Retrato · 2025</span></a>
+            <a class="mural__peca" href="imagens.html#entreato" tabindex="-1"><img src="assets/img/mural/retrato-07.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Retrato · 2025</span></a>
             <button class="mural__peca" type="button" tabindex="-1" data-video="g3cO501wIUE" data-start="2" data-titulo="Encontros Efêmeros: Marcus Moreno + Alex Ratton"><img src="assets/img/mural/efemero-alex.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Encontro Efêmero <cite>com Alex Ratton</cite></span></button>
-            <a class="mural__peca" href="trajetoria.html" tabindex="-1"><img src="assets/img/mural/fvp-8603.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Palco</span></a>
+            <a class="mural__peca" href="sobre.html#trajetoria" tabindex="-1"><img src="assets/img/mural/fvp-8603.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Palco</span></a>
             <a class="mural__peca" href="criacoes.html#obra-brotar" tabindex="-1"><img src="assets/img/mural/para-insistir-em-brotar.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2021 <cite>Para insistir em brotar</cite></span></a>
           </div>
         </div>
@@ -153,8 +177,8 @@
             <a class="mural__peca" href="criacoes.html#obra-ceu" tabindex="-1"><img src="assets/img/mural/onde-houver-ceu-2.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2024 <cite>Onde Houver Céu</cite></span></a>
             <button class="mural__peca" type="button" tabindex="-1" data-video="k5sz9-4NUl4" data-titulo="Entrevista-performativa com Alex Ratton"><img src="assets/img/mural/entrevista-alex.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Entrevista <cite>com Alex Ratton</cite></span></button>
             <a class="mural__peca" href="criacoes.html#obra-estudo" tabindex="-1"><img src="assets/img/mural/estudo-encontro-1.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2017 <cite>Estudo para o Encontro</cite></span></a>
-            <a class="mural__peca" href="curadoria.html" tabindex="-1"><img src="assets/img/mural/img-1639.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Marcus Moreno</span></a>
-            <a class="mural__peca" href="presente.html" tabindex="-1"><img src="assets/img/mural/retrato-24.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda"><cite>Danças de Presente</cite></span></a>
+            <a class="mural__peca" href="sobre.html#curadoria" tabindex="-1"><img src="assets/img/mural/img-1639.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Marcus Moreno</span></a>
+            <a class="mural__peca" href="encontros.html#presente" tabindex="-1"><img src="assets/img/mural/retrato-24.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda"><cite>Danças de Presente</cite></span></a>
             <a class="mural__peca" href="contato.html" tabindex="-1"><img src="assets/img/mural/fvp-8547.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Palco</span></a>
             <a class="mural__peca" href="criacoes.html#obra-instante" tabindex="-1"><img src="assets/img/mural/instante-ja-2.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2019 <cite>Instante-já</cite></span></a>
             <button class="mural__peca" type="button" tabindex="-1" data-video="UQLYlQUCsjA" data-titulo="Entrevista-performativa com Wellington Duarte"><img src="assets/img/mural/entrevista-wellington.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Entrevista <cite>com Wellington Duarte</cite></span></button>
@@ -163,14 +187,13 @@
             <a class="mural__peca" href="criacoes.html#obra-ceu" tabindex="-1"><img src="assets/img/mural/onde-houver-ceu-2.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2024 <cite>Onde Houver Céu</cite></span></a>
             <button class="mural__peca" type="button" tabindex="-1" data-video="k5sz9-4NUl4" data-titulo="Entrevista-performativa com Alex Ratton"><img src="assets/img/mural/entrevista-alex.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Entrevista <cite>com Alex Ratton</cite></span></button>
             <a class="mural__peca" href="criacoes.html#obra-estudo" tabindex="-1"><img src="assets/img/mural/estudo-encontro-1.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">2017 <cite>Estudo para o Encontro</cite></span></a>
-            <a class="mural__peca" href="curadoria.html" tabindex="-1"><img src="assets/img/mural/img-1639.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Marcus Moreno</span></a>
-            <a class="mural__peca" href="presente.html" tabindex="-1"><img src="assets/img/mural/retrato-24.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda"><cite>Danças de Presente</cite></span></a>
+            <a class="mural__peca" href="sobre.html#curadoria" tabindex="-1"><img src="assets/img/mural/img-1639.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Marcus Moreno</span></a>
+            <a class="mural__peca" href="encontros.html#presente" tabindex="-1"><img src="assets/img/mural/retrato-24.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda"><cite>Danças de Presente</cite></span></a>
             <a class="mural__peca" href="contato.html" tabindex="-1"><img src="assets/img/mural/fvp-8547.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><span class="mural__legenda">Palco</span></a>
           </div>
         </div>
       </div>
-      <!-- MURAL:FIM -->
-    </section>
+      </section>
   </main>
 
   <footer class="colofao" data-tone="dark">
@@ -190,11 +213,6 @@
     <div class="player__tela"></div>
   </dialog>
 
-  <script src="js/agenda.js" defer></script>
-  <script src="js/main.js" defer></script>
-  <script src="js/mouse.js" defer></script>
-  <script src="js/som.js" defer></script>
-  <script src="js/imersao.js" defer></script>
-  <script src="js/percurso.js" defer></script>
+  <script src="js/site.min.js?v=49c4455b" defer></script>
 </body>
 </html>

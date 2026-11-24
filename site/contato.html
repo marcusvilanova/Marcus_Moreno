@@ -34,6 +34,8 @@
   <link rel="stylesheet" href="css/imersao.css">
   <script>document.documentElement.classList.add('js');
     window.MM = { lingua: 'pt', raiz: '' }; // língua da página e caminho até a raiz do site (ferramentas/gerar-traducoes.py)
+    // troca de página com transição (css/percurso.css): se a navegação for interrompida no meio, a transição é só abandonada, sem erro
+    ['pageswap', 'pagereveal'].forEach(function (tipo) { addEventListener(tipo, function (e) { var t = e.viewTransition; if (t) { t.ready.catch(function () {}); t.finished.catch(function () {}); t.updateCallbackDone.catch(function () {}); } }); });
 </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Person","name":"Marcus Moreno","alternateName":"Marcus Vinicius Moreno Nascimento","jobTitle":"Artista da dança","sameAs":["https://instagram.com/marcusmoreno_danca"]}
@@ -66,16 +68,10 @@
     <ol class="indice__lista">
       <li><a href="sobre.html">Sobre</a></li>
       <li><a href="criacoes.html">Criações cênicas</a></li>
-      <li><a href="entreato.html">Entreato</a></li>
-      <li><a href="efemeros.html">Encontros Efêmeros</a></li>
-      <li><a href="entrevistas.html">Entrevistas-performativas</a></li>
-      <li><a href="presente.html">Danças de Presente</a></li>
-      <li><a href="curadoria.html">Projetos curatoriais</a></li>
-      <li><a href="textos.html">Textos</a></li>
-      <li><a href="trajetoria.html">Trajetória</a></li>
-      <li><a href="imprensa.html">Na imprensa</a></li>
-      <li><a href="acervo.html">Acervo</a></li>
-      <li><a href="#contato">Contato</a></li>
+      <li><a href="encontros.html">Encontros</a></li>
+      <li><a href="imagens.html">Imagens</a></li>
+      <li><a href="textos.html">Textos e imprensa</a></li>
+      <li><a href="contato.html">Contato</a></li>
       <li><a href="programadores.html">Para programadores</a></li>
       <li class="indice__lingua"><a href="es/contato.html" hreflang="es" lang="es"><span>ES</span>Español</a></li>
       <li class="indice__lingua"><a href="en/contato.html" hreflang="en" lang="en"><span>EN</span>English</a></li>

@@ -16,8 +16,7 @@ from pathlib import Path
 
 SITE = Path(__file__).resolve().parent.parent
 PASTA_TRADUCOES = Path(__file__).resolve().parent / "traducoes"
-PAGINAS = ["index", "sobre", "criacoes", "entreato", "efemeros", "entrevistas", "presente",
-           "curadoria", "textos", "trajetoria", "imprensa", "acervo", "contato"]
+PAGINAS = ["index", "sobre", "criacoes", "encontros", "imagens", "textos", "contato"]
 LINGUAS = {
     "pt": {"html": "pt-BR", "og": "pt_BR", "nome": "Português", "sigla": "PT", "pasta": ""},
     "es": {"html": "es", "og": "es_ES", "nome": "Español", "sigla": "ES", "pasta": "es/"},
@@ -30,6 +29,8 @@ PROTEGIDO = re.compile(r"<script\b.*?</script>|<style\b.*?</style>|<!--.*?-->", 
 ATRIBUTO = re.compile(r'(\s(?:alt|aria-label|title|data-titulo|data-title|placeholder)=")([^"]*)(")')
 META = re.compile(r'(<meta (?:name="description"|property="og:title"|property="og:description"|property="og:image:alt") content=")([^"]*)(")')
 TEXTO = re.compile(r"(?<=>)([^<]+)(?=<)")
+# títulos de seção traduzidos inteiros, com a marcação (a ordem das palavras pode mudar de uma língua para outra)
+TITULO = re.compile(r'(<h2 class="cabeca__titulo">)(.*?)(</h2>)', re.S)
 
 
 def normalizar(texto: str) -> str:
@@ -92,9 +93,20 @@ def traduzir_trecho(trecho: str, lingua: str, traducoes: dict, mesmo: set, falta
         novo = trocar(m.group(2))
         return m.group(0) if novo is None else m.group(1) + novo.replace('"', "&quot;") + m.group(3)
 
+    guardados = []
+
+    def titulo(m):
+        chave = normalizar(m.group(2))
+        if chave not in traducoes or "<" not in chave:
+            return m.group(0)
+        guardados.append(m.group(1) + traducoes[chave][POSICAO[lingua]] + m.group(3))
+        return f"\x00{len(guardados) - 1}\x00"
+
+    trecho = TITULO.sub(titulo, trecho)
     trecho = META.sub(atributo, trecho)
     trecho = ATRIBUTO.sub(atributo, trecho)
-    return TEXTO.sub(no_de_texto, trecho)
+    trecho = TEXTO.sub(no_de_texto, trecho)
+    return re.sub(r"\x00(\d+)\x00", lambda m: guardados[int(m.group(1))], trecho)
 
 
 def ajustar_caminhos(trecho: str, lingua: str) -> str:

@@ -71,8 +71,6 @@ T = {
 
     # ---------- na imprensa
     "Na imprensa · Marcus Moreno": ("En la prensa · Marcus Moreno", "In the press · Marcus Moreno"),
-    "Na": ("En la", "In the"),
-    "imprensa": ("prensa", "press"),
     "“o mundo não é lugar, ele é tempo”": ("“el mundo no es lugar, es tiempo”", "“the world is not a place, it is time”"),
     "Henrique Rochelle sobre": ("Henrique Rochelle sobre", "Henrique Rochelle on"),
     "· Crítica de Minuto, Criticatividade": ("· Crítica de Minuto, Criticatividade", "· Crítica de Minuto, Criticatividade"),

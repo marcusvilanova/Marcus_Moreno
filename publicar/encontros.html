@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Entrevistas-performativas · Marcus Moreno</title>
+  <title>Encontros · Marcus Moreno</title>
   <meta name="description" content="Marcus Moreno, artista da dança. Criações cênicas, entrevistas-performativas, Danças de Presente, curadoria, textos e trajetória.">
   <meta name="theme-color" content="#1c140f">
   <meta property="og:type" content="website">
@@ -16,9 +16,11 @@
   <meta property="og:locale" content="pt_BR">
   <meta name="twitter:card" content="summary_large_image">
     <link rel="preload" href="assets/fontes/tenor-sans.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/site.min.css?v=a17ecc63">
+  <link rel="stylesheet" href="css/site.min.css?v=49c4455b">
   <script>document.documentElement.classList.add('js');
     window.MM = { lingua: 'pt', raiz: '' }; // língua da página e caminho até a raiz do site (ferramentas/gerar-traducoes.py)
+    // troca de página com transição (css/percurso.css): se a navegação for interrompida no meio, a transição é só abandonada, sem erro
+    ['pageswap', 'pagereveal'].forEach(function (tipo) { addEventListener(tipo, function (e) { var t = e.viewTransition; if (t) { t.ready.catch(function () {}); t.finished.catch(function () {}); t.updateCallbackDone.catch(function () {}); } }); });
 </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Person","name":"Marcus Moreno","alternateName":"Marcus Vinicius Moreno Nascimento","jobTitle":"Artista da dança","sameAs":["https://instagram.com/marcusmoreno_danca"]}
@@ -37,7 +39,7 @@
     <a class="topo__nome" href="index.html" aria-label="Marcus Moreno"><span class="nome-tinta" aria-hidden="true"></span></a>
     <p class="topo__secao" aria-hidden="true"><span class="topo__titulo"></span></p>
     <div class="topo__acoes">
-      <nav class="linguas" aria-label="Idioma"><a href="entrevistas.html" hreflang="pt-BR" lang="pt-BR" aria-current="page">PT</a><a href="es/entrevistas.html" hreflang="es" lang="es">ES</a><a href="en/entrevistas.html" hreflang="en" lang="en">EN</a></nav>
+      <nav class="linguas" aria-label="Idioma"><a href="encontros.html" hreflang="pt-BR" lang="pt-BR" aria-current="page">PT</a><a href="es/encontros.html" hreflang="es" lang="es">ES</a><a href="en/encontros.html" hreflang="en" lang="en">EN</a></nav>
       <a class="topo__contato" href="contato.html">Contato</a>
       <button class="topo__letra" type="button" data-passo="0" aria-label="Aumentar o tamanho da letra" title="Tamanho da letra">A<span>a</span></button>
       <button class="topo__som" type="button" aria-pressed="false" title="Música gerada na hora, nunca igual"><span class="topo__ondas" aria-hidden="true"><i></i><i></i><i></i></span>Som</button>
@@ -49,25 +51,44 @@
     <ol class="indice__lista">
       <li><a href="sobre.html">Sobre</a></li>
       <li><a href="criacoes.html">Criações cênicas</a></li>
-      <li><a href="entreato.html">Entreato</a></li>
-      <li><a href="efemeros.html">Encontros Efêmeros</a></li>
-      <li><a href="#entrevistas">Entrevistas-performativas</a></li>
-      <li><a href="presente.html">Danças de Presente</a></li>
-      <li><a href="curadoria.html">Projetos curatoriais</a></li>
-      <li><a href="textos.html">Textos</a></li>
-      <li><a href="trajetoria.html">Trajetória</a></li>
-      <li><a href="imprensa.html">Na imprensa</a></li>
-      <li><a href="acervo.html">Acervo</a></li>
+      <li><a href="encontros.html">Encontros</a></li>
+      <li><a href="imagens.html">Imagens</a></li>
+      <li><a href="textos.html">Textos e imprensa</a></li>
       <li><a href="contato.html">Contato</a></li>
       <li><a href="programadores.html">Para programadores</a></li>
-      <li class="indice__lingua"><a href="es/entrevistas.html" hreflang="es" lang="es"><span>ES</span>Español</a></li>
-      <li class="indice__lingua"><a href="en/entrevistas.html" hreflang="en" lang="en"><span>EN</span>English</a></li>
+      <li class="indice__lingua"><a href="es/encontros.html" hreflang="es" lang="es"><span>ES</span>Español</a></li>
+      <li class="indice__lingua"><a href="en/encontros.html" hreflang="en" lang="en"><span>EN</span>English</a></li>
     </ol>
     <p class="indice__pe">Estudos do presente</p>
   </nav>
 
   <main id="conteudo">
     <h1 class="sr">Marcus Moreno</h1>
+
+<section class="secao efemeros" id="efemeros" data-tone="light" data-title="Encontros Efêmeros">
+      <div class="telao" aria-hidden="true" data-video="assets/video/encontro-vento.mp4"><div class="telao__quadro" style="--foco: 52% 55%"><img src="assets/img/teloes/encontro-vento.webp" width="960" height="540" alt="" loading="lazy" decoding="async"></div></div>
+      <header class="cabeca cabeca--espelho">
+        <h2 class="cabeca__titulo">Encontros <em>Efêmeros</em></h2>
+        <p class="cabeca__nota">Desde 2016</p>
+      </header>
+
+      <div class="efemeros__intro">
+        <p class="efemeros__frase">Este é um procedimento de partilha que tem como principal objetivo reconhecer afetos e modos de criação em dança.</p>
+        <p>A partir de uma ideia lançada, os dois artistas dividem a cena em um encontro inédito, construindo juntos a dança deste dia.</p>
+      </div>
+
+      <div class="lista-video__palco">
+        <ol class="lista-video" data-efemeros>
+          <li data-pessoa="cora" data-quadro="assets/img/quadros/efemero-cora.webp"><button class="lista-video__item" type="button" data-video="5xQ4a2cmItM" data-start="1343" data-titulo="Encontros Efêmeros: Marcus Moreno + Cora Laszlo · Encontro para contemplar o vento"><span class="lista-video__com">+</span> Cora Laszlo <span class="lista-video__sub">Encontro para contemplar o vento</span></button></li>
+          <li data-pessoa="patricia" data-quadro="assets/img/quadros/efemero-patricia.webp"><button class="lista-video__item" type="button" data-video="mSVXEeCJtak" data-start="356" data-titulo="Encontros Efêmeros: Marcus Moreno + Patrícia Árabe"><span class="lista-video__com">+</span> Patrícia Árabe</button></li>
+          <li data-pessoa="jose-artur" data-quadro="assets/img/quadros/efemero-jose-artur.webp"><button class="lista-video__item" type="button" data-video="MUSrxQCvAzc" data-start="16" data-titulo="Encontros Efêmeros: Marcus Moreno + José Artur Campos"><span class="lista-video__com">+</span> José Artur Campos</button></li>
+          <li data-pessoa="marcio" data-quadro="assets/img/quadros/efemero-marcio.webp"><button class="lista-video__item" type="button" data-video="BS4TVR6UXvo" data-start="331" data-titulo="Encontros Efêmeros: Marcus Moreno + Márcio Greyk"><span class="lista-video__com">+</span> Márcio Greyk</button></li>
+          <li data-pessoa="alex" data-quadro="assets/img/quadros/efemero-alex.webp"><button class="lista-video__item" type="button" data-video="g3cO501wIUE" data-start="2" data-titulo="Encontros Efêmeros: Marcus Moreno + Alex Ratton"><span class="lista-video__com">+</span> Alex Ratton</button></li>
+          <li data-pessoa="rafaela" data-quadro="assets/img/quadros/efemero-rafaela.webp"><button class="lista-video__item" type="button" data-video="RpqCcdeJHao" data-start="1" data-titulo="Encontros Efêmeros: Marcus Moreno + Rafaela Sahyoun"><span class="lista-video__com">+</span> Rafaela Sahyoun</button></li>
+        </ol>
+        <figure class="quadro" aria-hidden="true"><img alt="" width="960" height="540" decoding="async"></figure>
+      </div>
+    </section>
 
 <section class="secao entrevistas" id="entrevistas" data-tone="light" data-title="Entrevistas-performativas">
       <header class="cabeca">
@@ -128,6 +149,28 @@
         </div>
       </div>
     </section>
+
+<section class="secao presente" id="presente" data-tone="dark" data-title="Danças de Presente">
+      <div class="telao" aria-hidden="true" data-video="assets/video/presente-key.mp4"><div class="telao__quadro" style="--foco: 55% 40%"><img src="assets/img/teloes/presente-key.webp" width="960" height="536" alt="" loading="lazy" decoding="async"></div></div>
+      <header class="cabeca cabeca--espelho">
+        <h2 class="cabeca__titulo">Danças de <em>Presente</em></h2>
+      </header>
+
+      <div class="presente__grade">
+        <figure class="presente__imagem revela">
+          <img class="tinta" src="assets/img/retrato-24.webp" srcset="assets/img/retrato-24-1000.webp 1000w, assets/img/retrato-24.webp 1280w" sizes="(min-width: 900px) 40vw, 100vw" width="1280" height="853" loading="lazy" alt="Marcus de olhos marejados, palmas das mãos unidas diante do rosto." decoding="async">
+        </figure>
+        <p class="presente__intro">Com o anseio pelo agradecimento, esta série de improvisações foram criadas como desdobramentos das memórias vindas das entrevistas-performativas, bem como de encontros anteriores a ela, de seu processo de elaboração e daquilo que cada um desses artistas entrevistados me inspira e atravessa meu mover.</p>
+      </div>
+
+      <p class="rotulo dedicatorias__dica">Quatro danças em vídeo. Escolha um nome para assistir.</p>
+      <ul class="dedicatorias">
+        <li><button class="dedicatoria" type="button" data-video="E3VUumx556c" data-titulo="Danças de Presente: para Key Sawao"><span class="dedicatoria__para">para</span> <span class="dedicatoria__nome">Key Sawao</span> <span class="dedicatoria__assistir" aria-hidden="true"><img class="dedicatoria__quadro tinta" src="assets/img/presente/key.webp" width="640" height="360" alt="" loading="lazy" decoding="async"><span>Assistir</span></span></button></li>
+        <li><button class="dedicatoria" type="button" data-video="fzdqepjCysw" data-titulo="Danças de Presente: para Zélia Monteiro"><span class="dedicatoria__para">para</span> <span class="dedicatoria__nome">Zélia Monteiro</span> <span class="dedicatoria__assistir" aria-hidden="true"><img class="dedicatoria__quadro tinta" src="assets/img/presente/zelia.webp" width="640" height="360" alt="" loading="lazy" decoding="async"><span>Assistir</span></span></button></li>
+        <li><button class="dedicatoria" type="button" data-video="rA19Jr8Q-ls" data-titulo="Danças de Presente: para Vera Sala"><span class="dedicatoria__para">para</span> <span class="dedicatoria__nome">Vera Sala</span> <span class="dedicatoria__assistir" aria-hidden="true"><img class="dedicatoria__quadro tinta" src="assets/img/presente/vera.webp" width="640" height="360" alt="" loading="lazy" decoding="async"><span>Assistir</span></span></button></li>
+        <li><button class="dedicatoria dedicatoria--tres" type="button" data-video="CyFW0b5kaVI" data-titulo="Danças de Presente: para Alex Ratton, Wellington Duarte e Mariana Muniz"><span class="dedicatoria__para">para</span> <span class="dedicatoria__nome">Alex Ratton, Wellington Duarte e Mariana Muniz</span> <span class="dedicatoria__assistir" aria-hidden="true"><img class="dedicatoria__quadro tinta" src="assets/img/presente/tres.webp" width="640" height="360" alt="" loading="lazy" decoding="async"><span>Assistir</span></span></button></li>
+      </ul>
+    </section>
   </main>
 
   <footer class="colofao" data-tone="dark">
@@ -147,6 +190,6 @@
     <div class="player__tela"></div>
   </dialog>
 
-  <script src="js/site.min.js?v=a17ecc63" defer></script>
+  <script src="js/site.min.js?v=49c4455b" defer></script>
 </body>
 </html>

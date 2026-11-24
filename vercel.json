@@ -33,5 +33,127 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/trajetoria.html",
+      "destination": "/sobre.html#trajetoria",
+      "permanent": true
+    },
+    {
+      "source": "/curadoria.html",
+      "destination": "/sobre.html#curadoria",
+      "permanent": true
+    },
+    {
+      "source": "/efemeros.html",
+      "destination": "/encontros.html",
+      "permanent": true
+    },
+    {
+      "source": "/entrevistas.html",
+      "destination": "/encontros.html#entrevistas",
+      "permanent": true
+    },
+    {
+      "source": "/presente.html",
+      "destination": "/encontros.html#presente",
+      "permanent": true
+    },
+    {
+      "source": "/entreato.html",
+      "destination": "/imagens.html",
+      "permanent": true
+    },
+    {
+      "source": "/acervo.html",
+      "destination": "/imagens.html#acervo",
+      "permanent": true
+    },
+    {
+      "source": "/imprensa.html",
+      "destination": "/textos.html#imprensa",
+      "permanent": true
+    },
+    {
+      "source": "/es/trajetoria.html",
+      "destination": "/es/sobre.html#trajetoria",
+      "permanent": true
+    },
+    {
+      "source": "/es/curadoria.html",
+      "destination": "/es/sobre.html#curadoria",
+      "permanent": true
+    },
+    {
+      "source": "/es/efemeros.html",
+      "destination": "/es/encontros.html",
+      "permanent": true
+    },
+    {
+      "source": "/es/entrevistas.html",
+      "destination": "/es/encontros.html#entrevistas",
+      "permanent": true
+    },
+    {
+      "source": "/es/presente.html",
+      "destination": "/es/encontros.html#presente",
+      "permanent": true
+    },
+    {
+      "source": "/es/entreato.html",
+      "destination": "/es/imagens.html",
+      "permanent": true
+    },
+    {
+      "source": "/es/acervo.html",
+      "destination": "/es/imagens.html#acervo",
+      "permanent": true
+    },
+    {
+      "source": "/es/imprensa.html",
+      "destination": "/es/textos.html#imprensa",
+      "permanent": true
+    },
+    {
+      "source": "/en/trajetoria.html",
+      "destination": "/en/sobre.html#trajetoria",
+      "permanent": true
+    },
+    {
+      "source": "/en/curadoria.html",
+      "destination": "/en/sobre.html#curadoria",
+      "permanent": true
+    },
+    {
+      "source": "/en/efemeros.html",
+      "destination": "/en/encontros.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/entrevistas.html",
+      "destination": "/en/encontros.html#entrevistas",
+      "permanent": true
+    },
+    {
+      "source": "/en/presente.html",
+      "destination": "/en/encontros.html#presente",
+      "permanent": true
+    },
+    {
+      "source": "/en/entreato.html",
+      "destination": "/en/imagens.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/acervo.html",
+      "destination": "/en/imagens.html#acervo",
+      "permanent": true
+    },
+    {
+      "source": "/en/imprensa.html",
+      "destination": "/en/textos.html#imprensa",
+      "permanent": true
+    }
   ]
 }
