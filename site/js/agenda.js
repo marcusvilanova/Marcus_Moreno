@@ -25,11 +25,11 @@ window.AGENDA = [
   },
   {
     tipo: 'Em desenvolvimento',
-    quando: '',
+    quando: 'Fomento à Dança',
     titulo: 'Onde se Possa Dançar',
-    detalhe: 'projeto contemplado pela 39ª edição do Fomento à Dança',
-    es: { tipo: 'En desarrollo', detalhe: 'proyecto seleccionado en la 39ª edición del Fomento a la Danza' },
-    en: { tipo: 'In development', detalhe: "a project selected in the 39th edition of São Paulo's Fomento à Dança" },
+    detalhe: 'projeto contemplado pela 39ª edição',
+    es: { tipo: 'En desarrollo', quando: 'Fomento a la Danza', detalhe: 'proyecto seleccionado en la 39ª edición' },
+    en: { tipo: 'In development', quando: 'Fomento à Dança', detalhe: 'a project selected in its 39th edition' },
   },
 ];
 

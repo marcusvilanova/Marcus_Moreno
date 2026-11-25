@@ -474,10 +474,6 @@ h1, h2, h3,
 }
 .agora__lista p { font-size: 1.12rem; line-height: 1.25; font-weight: var(--peso-titulo); max-width: 26em; }
 .agora__lista cite { font-style: normal; }
-@media (min-width: 900px) {
-  .agora { grid-template-columns: 8rem 1fr; }
-  .agora__lista { grid-template-columns: 1fr 1fr; }
-}
 
 /* ---------- seções: cabeçalho comum ---------- */
 
@@ -783,16 +779,31 @@ html { --escala: 1; font-size: calc(max(72%, 0.6vw) * var(--escala)); }
 
 /* ---------- Agora: cada item é um cartaz de teatro, em destaque logo depois da capa ----------
    Moldura dupla (um fio e outro fino por dentro), o tipo no alto, o título grande ao centro e a data no pé. */
-.agora { grid-template-columns: minmax(0, 1fr); gap: clamp(1.4rem, 3vw, 2.4rem); padding-top: 0; border-top: 0; }
+/* o Agora usa a mesma grade de 3 colunas das seções logo abaixo: na 1ª coluna, o título e uma linha;
+   na 2ª e na 3ª, os cartazes, no formato das fotos das seções (4:5). Com 3 cartazes, o título sobe e eles ocupam as 3. */
+.agora {
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem) clamp(1rem, 2.5vw, 2rem);
+  padding-top: 0;
+  border-top: 0;
+}
+.agora__cabeca { display: grid; gap: 0.8rem; align-content: end; }
 .agora__titulo-secao { margin: 0; font-size: var(--fs-titulo); line-height: 1; font-weight: var(--peso-titulo); color: var(--cal); }
-.agora__lista { grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: clamp(1rem, 2.5vw, 2rem); }
+.agora__sobre { margin: 0; max-width: 18em; font-size: clamp(1rem, 1.3vw, 1.15rem); line-height: 1.45; color: var(--tinta-escura); }
+.agora__lista { grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: inherit; }
+@media (min-width: 900px) {
+  .agora { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: end; }
+  .agora__lista { grid-column: 2 / 4; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .agora:has(.agora__cartaz:nth-child(3)) .agora__cabeca { grid-column: 1 / -1; }
+  .agora:has(.agora__cartaz:nth-child(3)) .agora__lista { grid-column: 1 / -1; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
 .agora__lista li.agora__cartaz {
   --papel-cartaz: color-mix(in srgb, var(--palco) 88%, var(--kraft));
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  min-height: clamp(19rem, 30vw, 25rem);
+  aspect-ratio: 4 / 5;
   padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
   text-align: center;
   background: var(--papel-cartaz);
@@ -809,7 +820,7 @@ html { --escala: 1; font-size: calc(max(72%, 0.6vw) * var(--escala)); }
   letter-spacing: 0.32em;
   color: var(--destaque-claro);
 }
-.agora__cartaz .agora__titulo { margin: auto 0 0; max-width: 12em; font-size: clamp(1.8rem, 3vw, 2.8rem); line-height: 1.08; font-weight: var(--peso-titulo); }
+.agora__cartaz .agora__titulo { margin: auto 0 0; max-width: 11em; font-size: clamp(1.5rem, 2.3vw, 2.3rem); line-height: 1.1; font-weight: var(--peso-titulo); }
 .agora__cartaz .agora__titulo cite { font-style: normal; }
 .agora__cartaz .agora__detalhe { margin: 0 0 auto; max-width: 26em; font-size: 1rem; line-height: 1.45; color: var(--tinta-escura); }
 .agora__cartaz .agora__quando {

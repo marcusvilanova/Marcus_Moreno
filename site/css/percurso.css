@@ -95,7 +95,7 @@
 .portas__percorrer { font-family: var(--grotesca); font-size: var(--fs-rotulo); letter-spacing: 0.16em; text-transform: uppercase; color: var(--cal); text-decoration: none; }
 .portas__percorrer:hover, .portas__percorrer:focus-visible { color: var(--destaque-claro); }
 /* 3 por linha no computador, 2 no tablet, 1 no celular: as 6 seções nunca deixam uma sozinha */
-.portas__lista { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.5rem, 3vw, 2.5rem) clamp(1rem, 2.5vw, 2rem); }
+.portas__lista { list-style: none; padding: 0; margin-block: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.5rem, 3vw, 2.5rem) clamp(1rem, 2.5vw, 2rem); }
 .portas__item { display: grid; gap: 0.35rem; color: inherit; text-decoration: none; }
 /* as fotos aparecem inteiras, no formato vertical em que foram recortadas (4:5): ninguém fica cortado */
 .portas__imagem { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; margin-bottom: 0.4rem; }

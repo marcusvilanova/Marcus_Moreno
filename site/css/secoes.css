@@ -712,5 +712,7 @@
   box-shadow: 0 0 0 100vmax var(--palco);
   clip-path: inset(0 -100vmax);
 }
-.epigrafe .agora { margin-top: 0; }
+/* a faixa ocupa a tela toda e o Agora tem a mesma largura da grade das seções, para as colunas coincidirem */
+.epigrafe[data-tone="dark"] { max-width: none; }
+.epigrafe .agora { margin-top: 0; max-width: var(--maximo); margin-left: auto; margin-right: auto; }
 
