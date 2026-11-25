@@ -12,7 +12,7 @@
     { pagina: 'textos', titulo: 'Textos e imprensa', linha: 'O que Marcus escreve e o que se escreve sobre ele.', imagem: 'instante-ja-1.webp' },
     { pagina: 'contato', titulo: 'Contato', linha: 'Produção, redes e material para programadores.', imagem: 'fvp-8547.webp' },
   ];
-  const INICIO_PT = { pagina: 'index', titulo: 'Início', linha: 'A capa e a agenda do que está acontecendo agora.', imagem: 'instante-ja-2.webp' };
+  const INICIO_PT = { pagina: 'index', titulo: 'Início', linha: 'A capa, o que está acontecendo agora e as seções do site.', imagem: 'instante-ja-2.webp' };
 
   // as páginas traduzidas (es/, en/) trocam o título e a linha de cada seção e os rótulos da faixa
   const LINGUA = (window.MM && window.MM.lingua) || 'pt';
@@ -20,7 +20,7 @@
   const TRADUCOES = {
     es: {
       paginas: {
-        index: ['Inicio', 'La portada y la agenda de lo que está pasando ahora.'],
+        index: ['Inicio', 'La portada, lo que está pasando ahora y las secciones del sitio.'],
         sobre: ['Sobre', 'Biografía, trayectoria y proyectos curatoriales.'],
         criacoes: ['Creaciones escénicas', 'Ocho obras, de 2024 a 2013, con videos y fichas.'],
         encontros: ['Encuentros', 'Encuentros Efímeros, Entrevistas performativas y Danzas de Presente.'],
@@ -34,7 +34,7 @@
     },
     en: {
       paginas: {
-        index: ['Home', 'The cover and what is happening now.'],
+        index: ['Home', 'The cover, what is happening now and the sections of the site.'],
         sobre: ['About', 'Biography, career and curatorial projects.'],
         criacoes: ['Stage works', 'Eight works, from 2024 back to 2013, with videos and credits.'],
         encontros: ['Encounters', 'Ephemeral Encounters, Performative Interviews and Present Dances.'],
@@ -166,7 +166,7 @@
       const href = a.getAttribute('href') || '';
       const alvo = href.startsWith('#') ? atual : nomeDaPagina(href);
       const p = porPagina.get(alvo);
-      if (!p || p === INICIO) return;
+      if (!p) return;
       if (alvo === atual) a.setAttribute('aria-current', 'page');
       a.append(el('small', 'indice__linha', p.linha));
     });

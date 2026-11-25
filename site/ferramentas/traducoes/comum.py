@@ -22,6 +22,7 @@ T = {
     "Índice": ("Índice", "Index"),
     "Contato": ("Contacto", "Contact"),
     "Som": ("Sonido", "Sound"),
+    "Início": ("Inicio", "Home"),
     "Sobre": ("Sobre", "About"),
     "Encontros": ("Encuentros", "Encounters"),
     "Imagens": ("Imágenes", "Images"),
