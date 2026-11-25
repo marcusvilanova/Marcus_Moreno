@@ -1,10 +1,11 @@
 /* Marcus Moreno · agenda
-   ESTE É O ARQUIVO PARA ATUALIZAR O QUE ESTÁ ACONTECENDO. Não é preciso mexer no index.html.
+   ESTE É O ARQUIVO PARA ATUALIZAR O QUE ESTÁ ACONTECENDO. Não é preciso mexer no criacoes.html,
+   onde a lista aparece, no começo de Criações cênicas.
 
    Cada item fica entre { } e tem:
      tipo     · o que é (Residência artística, Apresentação, Oficina, Estreia...)
      quando   · como a data aparece no site, do jeito que você quiser escrever
-     titulo   · nome da obra, do projeto ou do evento (aparece em itálico)
+     titulo   · nome da obra, do projeto ou do evento (aparece em letra grande)
      detalhe  · uma linha sobre onde, com quem
      ate      · (opcional) último dia, no formato ANO-MÊS-DIA. Depois dessa data o item some sozinho.
      es, en   · (opcional) o mesmo item no site em espanhol e em inglês: { tipo, quando, detalhe }.
@@ -25,11 +26,10 @@ window.AGENDA = [
   },
   {
     tipo: 'Em desenvolvimento',
-    quando: 'Fomento à Dança',
+    quando: 'Fomento à Dança · 39ª edição',
     titulo: 'Onde se Possa Dançar',
-    detalhe: 'projeto contemplado pela 39ª edição',
-    es: { tipo: 'En desarrollo', quando: 'Fomento a la Danza', detalhe: 'proyecto seleccionado en la 39ª edición' },
-    en: { tipo: 'In development', quando: 'Fomento à Dança', detalhe: 'a project selected in its 39th edition' },
+    es: { tipo: 'En desarrollo', quando: 'Fomento a la Danza · 39ª edición' },
+    en: { tipo: 'In development', quando: 'Fomento à Dança · 39th edition' },
   },
 ];
 
@@ -48,9 +48,10 @@ window.AGENDA = [
     .map((item) => ({ ...item, ...(item[LINGUA] || {}) }));
 
   function criarItem(item) {
-    // cada item é um cartaz de teatro: o tipo no alto, o título grande ao centro, o detalhe e, no pé, a data
+    // cada item é uma linha do programa: o tipo, o título grande, o detalhe e a data (no computador, o tipo
+    // e a data vão para uma coluna à esquerda: css/base.css)
     const li = document.createElement('li');
-    li.className = 'agora__cartaz';
+    li.className = 'agora__item';
     const tipo = document.createElement('span');
     tipo.className = 'agora__tipo';
     tipo.textContent = item.tipo || '';
@@ -69,7 +70,18 @@ window.AGENDA = [
     if (item.quando) {
       const quando = document.createElement('p');
       quando.className = 'agora__quando';
-      quando.textContent = item.quando;
+      // "Fomento à Dança · 39ª edição": o que vem depois do ponto desce para a linha de baixo (css/base.css)
+      const [antes, ...depois] = item.quando.split(' · ');
+      quando.append(antes);
+      if (depois.length) {
+        const ponto = document.createElement('span');
+        ponto.className = 'agora__sep';
+        ponto.textContent = ' · ';
+        const resto = document.createElement('span');
+        resto.className = 'agora__resto';
+        resto.textContent = depois.join(' · ');
+        quando.append(ponto, resto);
+      }
       li.append(quando);
     }
     return li;

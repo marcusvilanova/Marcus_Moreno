@@ -6,13 +6,15 @@
 (() => {
   const PERCURSO_PT = [
     { pagina: 'sobre', titulo: 'Sobre', linha: 'Biografia, trajetória e projetos curatoriais.', imagem: 'retrato-25.webp' },
-    { pagina: 'criacoes', titulo: 'Criações cênicas', linha: 'Oito obras, de 2024 a 2013, com vídeos e fichas.', imagem: 'onde-houver-ceu-1.webp' },
+    { pagina: 'criacoes', titulo: 'Criações cênicas', linha: 'Oito obras, de 2024 a 2013, com vídeos e fichas.', imagem: 'onde-houver-ceu-1.webp',
+      // com algo no Agora (js/agenda.js, no começo de Criações), a linha avisa que há criação em andamento
+      linhaAgora: 'O que está em criação agora e oito obras, de 2024 a 2013.' },
     { pagina: 'encontros', titulo: 'Encontros', linha: 'Encontros Efêmeros, Entrevistas-performativas e Danças de Presente.', imagem: 'entrevista-mariana.webp' },
     { pagina: 'imagens', titulo: 'Imagens', linha: 'Fotografias de cena e o mural de todas as obras.', imagem: 'retrato-07.webp' },
-    { pagina: 'textos', titulo: 'Textos e imprensa', linha: 'O que Marcus escreve e o que se escreve sobre ele.', imagem: 'instante-ja-1.webp' },
+    { pagina: 'textos', titulo: 'Textos e imprensa', linha: 'O que Marcus escreve e o que se escreve sobre ele.', imagem: 'retrato-24.webp' },
     { pagina: 'contato', titulo: 'Contato', linha: 'Produção, redes e material para programadores.', imagem: 'fvp-8547.webp' },
   ];
-  const INICIO_PT = { pagina: 'index', titulo: 'Início', linha: 'A capa, o que está acontecendo agora e as seções do site.', imagem: 'instante-ja-2.webp' };
+  const INICIO_PT = { pagina: 'index', titulo: 'Início', linha: 'A capa e as seis seções do site.', imagem: 'instante-ja-2.webp' };
 
   // as páginas traduzidas (es/, en/) trocam o título e a linha de cada seção e os rótulos da faixa
   const LINGUA = (window.MM && window.MM.lingua) || 'pt';
@@ -20,9 +22,9 @@
   const TRADUCOES = {
     es: {
       paginas: {
-        index: ['Inicio', 'La portada, lo que está pasando ahora y las secciones del sitio.'],
+        index: ['Inicio', 'La portada y las seis secciones del sitio.'],
         sobre: ['Sobre', 'Biografía, trayectoria y proyectos curatoriales.'],
-        criacoes: ['Creaciones escénicas', 'Ocho obras, de 2024 a 2013, con videos y fichas.'],
+        criacoes: ['Creaciones escénicas', 'Ocho obras, de 2024 a 2013, con videos y fichas.', 'Lo que está en creación ahora y ocho obras, de 2024 a 2013.'],
         encontros: ['Encuentros', 'Encuentros Efímeros, Entrevistas performativas y Danzas de Presente.'],
         imagens: ['Imágenes', 'Fotografías de escena y el mural de todas las obras.'],
         textos: ['Textos y prensa', 'Lo que Marcus escribe y lo que se escribe sobre él.'],
@@ -34,9 +36,9 @@
     },
     en: {
       paginas: {
-        index: ['Home', 'The cover, what is happening now and the sections of the site.'],
+        index: ['Home', 'The cover and the six sections of the site.'],
         sobre: ['About', 'Biography, career and curatorial projects.'],
-        criacoes: ['Stage works', 'Eight works, from 2024 back to 2013, with videos and credits.'],
+        criacoes: ['Stage works', 'Eight works, from 2024 back to 2013, with videos and credits.', 'What is being created now, and eight works from 2024 back to 2013.'],
         encontros: ['Encounters', 'Ephemeral Encounters, Performative Interviews and Present Dances.'],
         imagens: ['Images', 'Stage photographs and a mural of every work.'],
         textos: ['Writing and press', 'What Marcus writes and what is written about him.'],
@@ -52,9 +54,13 @@
     anterior: 'Anterior', de: 'de', todas: 'Ver todas as seções', secoes: 'Seções', subir: 'Voltar ao topo',
     percorrer: 'Percorrer o site',
   };
+  // o Agora tem algo hoje? (os itens com data vencida somem, como em js/agenda.js)
+  const hoje = new Date().toISOString().slice(0, 10);
+  const temAgora = (window.AGENDA || []).some((item) => !item.ate || item.ate >= hoje);
   const traduzir = (p) => {
     const t = ROTULOS.paginas && ROTULOS.paginas[p.pagina];
-    return t ? { ...p, titulo: t[0], linha: t[1] } : p;
+    const q = t ? { ...p, titulo: t[0], linha: t[1], linhaAgora: t[2] } : p;
+    return temAgora && q.linhaAgora ? { ...q, linha: q.linhaAgora } : q;
   };
   const PERCURSO = PERCURSO_PT.map(traduzir);
   const INICIO = traduzir(INICIO_PT);
@@ -121,7 +127,49 @@
     rodape.before(faixa);
   }
 
-  /* ---------- página inicial: as seções do site, cada uma com uma imagem e uma linha ---------- */
+  /* ---------- página inicial: as seções como os atos de um programa de teatro ----------
+     Cada seção é um nome, com a sua linha. No computador, a foto da seção aparece ao lado e ganha cor quando o mouse
+     passa pelo nome; no celular, cada nome tem uma foto pequena (css/percurso.css). */
+
+  const fotoDa = (p, classe) =>
+    Object.assign(el('img', classe), { src: imagem(p), alt: '', width: 512, height: 640, loading: 'lazy', decoding: 'async' });
+
+  function cabecaDasPortas() {
+    const cabeca = el('header', 'portas__cabeca');
+    const titulo = el('h2', 'rotulo portas__titulo', ROTULOS.secoes);
+    titulo.id = 'portas-titulo';
+    const percorrer = el('a', 'portas__percorrer', `${ROTULOS.percorrer} `);
+    percorrer.href = link(PERCURSO[0]);
+    const seta = el('span', '', '→');
+    seta.setAttribute('aria-hidden', 'true');
+    percorrer.append(seta);
+    cabeca.append(titulo, percorrer);
+    return cabeca;
+  }
+
+  // a foto ao lado acompanha o nome sob o mouse (ou o teclado) e ganha cor; fora da lista, volta à tinta
+  function encontro(lista, vista) {
+    const fotos = [...vista.children];
+    const itens = [...lista.querySelectorAll('.portas__item')];
+    const mostrar = (n) => {
+      fotos.forEach((foto, i) => foto.classList.toggle('is-atual', i === n));
+      vista.classList.add('is-encontro');
+    };
+    const apagar = () => vista.classList.remove('is-encontro');
+    itens.forEach((a, n) => {
+      a.addEventListener('pointerenter', () => mostrar(n));
+      a.addEventListener('focus', () => mostrar(n));
+      a.addEventListener('blur', apagar);
+    });
+    lista.addEventListener('pointerleave', apagar);
+
+    // sem mouse, a foto pequena de cada nome ganha cor ao passar pelo centro da tela, como as outras fotos do site
+    if (matchMedia('(pointer: fine)').matches) return;
+    const centro = new IntersectionObserver((entradas) => {
+      entradas.forEach((e) => e.target.classList.toggle('is-encontro', e.isIntersecting));
+    }, { rootMargin: '-38% 0px -38% 0px' });
+    lista.querySelectorAll('.portas__imagem').forEach((img) => centro.observe(img));
+  }
 
   function portas() {
     if (atual !== 'index') return;
@@ -132,29 +180,23 @@
     Object.assign(secao.dataset, { tone: 'dark', title: '' });
     secao.setAttribute('aria-labelledby', 'portas-titulo');
 
-    const cabeca = el('header', 'portas__cabeca');
-    const titulo = el('h2', 'rotulo portas__titulo', ROTULOS.secoes);
-    titulo.id = 'portas-titulo';
-    const percorrer = el('a', 'portas__percorrer', `${ROTULOS.percorrer} `);
-    percorrer.href = link(PERCURSO[0]);
-    const seta = el('span', '', '→');
-    seta.setAttribute('aria-hidden', 'true');
-    percorrer.append(seta);
-    cabeca.append(titulo, percorrer);
-
     const lista = el('ol', 'portas__lista');
-    PERCURSO.forEach((p) => {
+    const vista = el('figure', 'portas__vista');
+    vista.setAttribute('aria-hidden', 'true');
+    PERCURSO.forEach((p, n) => {
       const item = el('li');
       const a = el('a', 'portas__item');
       a.href = link(p);
-      const foto = el('img', 'portas__imagem tinta');
-      Object.assign(foto, { src: imagem(p), alt: '', width: 512, height: 640, loading: 'lazy', decoding: 'async' });
-      a.append(foto, el('span', 'portas__nome', p.titulo), el('span', 'portas__desc', p.linha));
+      a.append(fotoDa(p, 'portas__imagem tinta'), el('span', 'portas__nome', p.titulo), el('span', 'portas__desc', p.linha));
       item.append(a);
       lista.append(item);
+      vista.append(fotoDa(p, n === 0 ? 'portas__foto is-atual' : 'portas__foto'));
     });
+    encontro(lista, vista);
 
-    secao.append(cabeca, lista);
+    const programa = el('div', 'portas__programa');
+    programa.append(lista, vista);
+    secao.append(cabecaDasPortas(), programa);
     ultima.after(secao);
   }
 
@@ -231,10 +273,55 @@
     });
   }
 
+  /* ---------- no celular, a língua da página fica no topo: um toque abre as três ---------- */
+
+  // as línguas vêm do seletor do computador (.linguas), que no celular fica escondido
+  function lingua() {
+    const linguas = document.querySelector('.linguas');
+    const atual = linguas && linguas.querySelector('a[aria-current="page"]');
+    if (!atual) return;
+    const NOMES = { 'pt-BR': 'Português', es: 'Español', en: 'English' };
+    const nome = linguas.getAttribute('aria-label');
+
+    const botao = el('button', 'topo__lingua', atual.textContent);
+    botao.type = 'button';
+    botao.setAttribute('aria-label', `${nome}: ${NOMES[atual.getAttribute('hreflang')]}`);
+    botao.setAttribute('aria-expanded', 'false');
+    botao.setAttribute('aria-controls', 'linguas-painel');
+
+    const painel = el('nav', 'linguas-painel');
+    painel.id = 'linguas-painel';
+    painel.hidden = true;
+    painel.setAttribute('aria-label', nome);
+    linguas.querySelectorAll('a').forEach((a) => {
+      const item = a.cloneNode(false); // o mesmo endereço, a língua e a marca de página atual
+      const codigo = el('span', '', a.textContent);
+      codigo.setAttribute('aria-hidden', 'true');
+      item.append(codigo, NOMES[a.getAttribute('hreflang')] || a.textContent);
+      painel.append(item);
+    });
+    // logo depois do botão, para quem navega pelo teclado chegar às línguas em seguida
+    linguas.after(botao, painel);
+
+    const abrir = (sim) => {
+      painel.hidden = !sim;
+      botao.setAttribute('aria-expanded', String(sim));
+    };
+    botao.addEventListener('click', () => abrir(painel.hidden));
+    // um toque em qualquer outro lugar (inclusive no Índice) fecha a lista
+    document.addEventListener('pointerdown', (e) => {
+      if (!painel.hidden && !e.target.closest('.linguas-painel, .topo__lingua')) abrir(false);
+    });
+    addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !painel.hidden) { abrir(false); botao.focus(); }
+    });
+  }
+
   portas();
   faixaSeguir();
   indice();
   vestir();
   voltar();
   subir();
+  lingua();
 })();

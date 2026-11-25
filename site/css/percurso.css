@@ -1,5 +1,5 @@
 /* Percurso entre as páginas (js/percurso.js): a faixa "A seguir" no fim de cada página,
-   as duas portas da página inicial, as descrições do Índice e a troca de página como a luz da plateia. */
+   as seções da página inicial (um programa de teatro), as descrições do Índice e a troca de página como a luz da plateia. */
 
 /* ---------- A seguir: o próximo ato ---------- */
 
@@ -82,7 +82,9 @@
   .seguir__posicao { order: -1; width: 100%; }
 }
 
-/* ---------- página inicial: percorrer tudo ou ir direto ---------- */
+/* ---------- página inicial: as seções como os atos de um programa de teatro ----------
+   No computador, os nomes grandes à esquerda e, ao lado, a foto da seção, que ganha cor quando o mouse passa pelo nome
+   (ou o teclado chega nele). No celular, cada nome com uma foto pequena, que ganha cor ao passar pelo centro da tela. */
 
 .portas {
   background: var(--palco);
@@ -92,19 +94,65 @@
 .portas > * { max-width: var(--maximo); margin-left: auto; margin-right: auto; }
 .portas__cabeca { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.6rem 2rem; margin-bottom: 1.4rem; }
 .portas__titulo { margin: 0; color: var(--destaque-claro); }
-.portas__percorrer { font-family: var(--grotesca); font-size: var(--fs-rotulo); letter-spacing: 0.16em; text-transform: uppercase; color: var(--cal); text-decoration: none; }
-.portas__percorrer:hover, .portas__percorrer:focus-visible { color: var(--destaque-claro); }
-/* 3 por linha no computador, 2 no tablet, 1 no celular: as 6 seções nunca deixam uma sozinha */
-.portas__lista { list-style: none; padding: 0; margin-block: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.5rem, 3vw, 2.5rem) clamp(1rem, 2.5vw, 2rem); }
-.portas__item { display: grid; gap: 0.35rem; color: inherit; text-decoration: none; }
-/* as fotos aparecem inteiras, no formato vertical em que foram recortadas (4:5): ninguém fica cortado */
-.portas__imagem { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; margin-bottom: 0.4rem; }
+/* o convite para percorrer o site inteiro, de uma seção à outra */
+.portas__percorrer {
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid rgb(214 198 171 / 0.35);
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 1.25vw, 1.35rem);
+  letter-spacing: 0.01em;
+  color: var(--cal);
+  text-decoration: none;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+.portas__percorrer:hover, .portas__percorrer:focus-visible { color: var(--destaque-claro); border-color: currentColor; }
+
+.portas__programa { display: grid; grid-template-columns: minmax(0, 1fr); }
+.portas__lista { list-style: none; padding: 0; margin-block: 0; border-top: 1px solid rgb(214 198 171 / 0.18); }
+.portas__lista > li { border-bottom: 1px solid rgb(214 198 171 / 0.18); }
+.portas__item { display: grid; gap: 0.3rem 1.1rem; color: inherit; text-decoration: none; transition: opacity 0.4s ease; }
+.portas__nome { line-height: 1.05; transition: color 0.3s ease, transform 0.5s var(--curva); }
+.portas__desc { font-size: 1.05rem; line-height: 1.45; color: var(--tinta-escura); }
+.portas__item:hover .portas__nome, .portas__item:focus-visible .portas__nome { color: var(--destaque-claro); transform: translateX(0.5rem); }
+/* um nome em foco, os outros recuam, como a plateia fora da luz */
+@media (hover: hover) { .portas__lista:hover .portas__item:not(:hover) { opacity: 0.42; } }
+/* as fotos no formato vertical em que foram recortadas (4:5): ninguém fica cortado */
+.portas__imagem { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
 .portas__item:hover .portas__imagem, .portas__item:focus-visible .portas__imagem { filter: none; }
-.portas__nome { font-size: clamp(1.1rem, 1.6vw, 1.45rem); line-height: 1.2; transition: color 0.3s ease; }
-.portas__desc { font-size: 0.92rem; line-height: 1.45; color: var(--tinta-escura); }
-.portas__item:hover .portas__nome, .portas__item:focus-visible .portas__nome { color: var(--destaque-claro); }
-@media (max-width: 900px) { .portas__lista { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 560px) { .portas__lista { grid-template-columns: minmax(0, 1fr); } }
+
+/* a foto da seção, ao lado dos nomes: em tinta; no encontro (o nome sob o mouse ou o teclado), ganha cor */
+.portas__vista { display: none; position: relative; margin: 0; aspect-ratio: 4 / 5; overflow: hidden; background: #120d0a; }
+.portas__foto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.03);
+  filter: grayscale(0.88) sepia(0.2) contrast(1.04);
+  transition: opacity 0.7s ease, filter 1.1s ease, transform 1.6s var(--curva);
+}
+.portas__foto.is-atual { opacity: 1; transform: none; }
+.portas__vista.is-encontro .portas__foto.is-atual { filter: none; }
+
+@media (min-width: 900px) {
+  .portas__programa { grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: clamp(2rem, 5vw, 6rem); align-items: start; }
+  .portas__item { grid-template-columns: minmax(0, 1fr) minmax(0, 16em); align-items: baseline; padding: clamp(0.9rem, 1.4vw, 1.4rem) 0; }
+  .portas__imagem { display: none; }
+  .portas__nome { font-size: clamp(2rem, 3.4vw, 4.2rem); }
+  .portas__vista { display: block; position: sticky; top: 6rem; }
+}
+@media (max-width: 899px) {
+  .portas__item { grid-template-columns: 5.6rem minmax(0, 1fr); grid-template-rows: auto auto; align-items: center; padding: 0.9rem 0; }
+  .portas__imagem { grid-row: 1 / 3; }
+  .portas__nome { align-self: end; font-size: clamp(1.6rem, 6.4vw, 2.2rem); }
+  .portas__desc { align-self: start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .portas__nome, .portas__item, .portas__foto { transition: none; }
+  .portas__item:hover .portas__nome, .portas__item:focus-visible .portas__nome { transform: none; }
+}
 
 /* ---------- Índice: a página atual e uma linha sobre cada seção ---------- */
 
@@ -145,7 +193,39 @@
 .linguas a { color: inherit; text-decoration: none; opacity: 0.55; transition: opacity 0.3s ease; }
 .linguas a:hover, .linguas a:focus-visible, .linguas a[aria-current="page"] { opacity: 1; }
 .linguas a[aria-current="page"] { text-decoration: underline; text-underline-offset: 0.35em; }
-@media (max-width: 900px) { .linguas { display: none; } } /* no celular, as línguas ficam no Índice */
+@media (max-width: 900px) { .linguas { display: none; } } /* no celular, entra o botão abaixo */
+
+/* no celular, a língua da página fica no topo (PT, ES ou EN); um toque abre as três, numa lista escura (js/percurso.js) */
+.topo__lingua, .linguas-painel { display: none; }
+@media (max-width: 900px) {
+  .topo__lingua {
+    display: inline-flex; align-items: center;
+    padding: 0; border: 0; background: none; color: inherit; cursor: pointer;
+    font-family: var(--grotesca); font-size: calc(var(--fs-rotulo) / var(--escala, 1));
+    letter-spacing: 0.16em; text-transform: uppercase;
+    text-decoration: underline; text-underline-offset: 0.35em;
+  }
+  .linguas-painel:not([hidden]) {
+    display: block;
+    position: absolute; top: 100%; right: calc(var(--margem) / var(--escala, 1));
+    min-width: 12rem; padding: 0.3rem 1.1rem;
+    background: var(--palco); color: var(--cal);
+    border: 1px solid rgb(242 238 230 / 0.16); /* nas páginas escuras, a borda separa a lista do fundo */
+    box-shadow: 0 14px 40px rgb(0 0 0 / 0.28);
+  }
+  .linguas-painel a {
+    display: flex; align-items: baseline; gap: 0.9rem;
+    padding: 0.8rem 0;
+    color: inherit; text-decoration: none; font-size: 1.2rem;
+    border-top: 1px solid rgb(242 238 230 / 0.14);
+  }
+  .linguas-painel a:first-child { border-top: 0; }
+  .linguas-painel a span { width: 1.7rem; font-size: 0.82rem; letter-spacing: 0.16em; color: var(--tinta-escura); }
+  .linguas-painel a[aria-current="page"], .linguas-painel a:hover, .linguas-painel a:focus-visible { color: var(--destaque-claro); }
+}
+@media (max-width: 900px) and (pointer: coarse) {
+  .topo__lingua { padding: 0.75rem 0.5rem; margin: -0.75rem -0.5rem; } /* área de toque maior, sem mudar o desenho */
+}
 
 /* ---------- Voltar, no topo, ao lado da assinatura ---------- */
 .topo__inicio { justify-self: start; display: inline-flex; align-items: center; gap: clamp(1rem, 2vw, 1.8rem); }

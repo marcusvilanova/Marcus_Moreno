@@ -2,6 +2,8 @@
 
 T = {
     "Criações cênicas · Marcus Moreno": ("Creaciones escénicas · Marcus Moreno", "Stage works · Marcus Moreno"),
+    # o Agora, no começo da página (os itens vêm de js/agenda.js, com o espanhol e o inglês lá mesmo)
+    "Em criação": ("En creación", "In the making"),
     "Marcus de costas, braços abertos, sobre um chão coberto de folhagem; outros intérpretes ao fundo.": (
         "Marcus de espaldas, brazos abiertos, sobre un suelo cubierto de follaje; otros intérpretes al fondo.",
         "Marcus from behind, arms open, on a floor covered with foliage; other performers in the background."),

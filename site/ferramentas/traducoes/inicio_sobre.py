@@ -8,7 +8,6 @@ T = {
     "e a criação de": ("y la creación de", "and the making of"),
     "redes de afetos": ("redes de afectos", "networks of affection"),
     "Agora": ("Ahora", "Now"),
-    "O que Marcus está fazendo neste momento.": ("Lo que Marcus está haciendo en este momento.", "What Marcus is working on right now."),
     "Residência artística · 14 out — 13 dez 2026": ("Residencia artística · 14 oct — 13 dic 2026", "Artist residency · Oct 14 — Dec 13, 2026"),
     ", com Marcus Moreno, Maria Fernanda Machado e Raony Iaconis": (", con Marcus Moreno, Maria Fernanda Machado y Raony Iaconis", ", with Marcus Moreno, Maria Fernanda Machado and Raony Iaconis"),
     "Em desenvolvimento": ("En desarrollo", "In development"),

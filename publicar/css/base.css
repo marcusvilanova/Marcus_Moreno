@@ -44,6 +44,8 @@
 *, *::before, *::after { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; scrollbar-gutter: stable; -webkit-text-size-adjust: 100%; }
+/* a barra de rolagem nas cores do palco, e não a clara do sistema ao lado das seções escuras */
+html { scrollbar-color: #5a4838 var(--palco); }
 
 body {
   margin: 0;
@@ -328,9 +330,9 @@ h1, h2, h3,
 /* ---------- cenas ----------
    Cada foto fica 6 s. Nos 2 s de passagem, a que sai e a que entra se sobrepõem em clareamento
    (o mais claro de cada uma prevalece), como dupla exposição: os corpos de uma aparecem dentro da outra.
-   Seis fotos formam um ciclo de 36 s. Para outro número, ajuste --ciclo (fotos × 6 s)
+   Quatro fotos formam um ciclo de 24 s. Para outro número, ajuste --ciclo (fotos × 6 s)
    e as porcentagens dos keyframes (2 s, 6 s e 8 s em relação ao ciclo; a legenda, 2,4 s a 6,3 s). */
-.abertura { --cena-dur: 6s; --ciclo: 36s; }
+.abertura { --cena-dur: 6s; --ciclo: 24s; }
 .abertura__cena { z-index: 0; isolation: isolate; }
 
 .cena { position: absolute; inset: 0; margin: 0; }
@@ -384,15 +386,15 @@ h1, h2, h3,
 }
 @keyframes cena-fusao {
   0%      { opacity: 0; transform: scale(1.08); filter: blur(6px); animation-timing-function: ease-in-out; }
-  5.556%  { opacity: 1; filter: blur(0); }
-  16.667% { opacity: 1; filter: blur(0); animation-timing-function: ease-in-out; }
-  22.222% { opacity: 0; transform: scale(1); filter: blur(6px); }
+  8.333%  { opacity: 1; filter: blur(0); }
+  25%     { opacity: 1; filter: blur(0); animation-timing-function: ease-in-out; }
+  33.333% { opacity: 0; transform: scale(1); filter: blur(6px); }
   100%    { opacity: 0; transform: scale(1); filter: blur(6px); }
 }
 @keyframes cena-legenda {
-  0%, 6.667%       { opacity: 0; }
-  8.333%, 15.833%  { opacity: 1; }
-  17.5%, 100%      { opacity: 0; }
+  0%, 10%        { opacity: 0; }
+  12.5%, 23.75%  { opacity: 1; }
+  26.25%, 100%   { opacity: 0; }
 }
 
 /* assinatura MM: linha contínua */
@@ -440,26 +442,16 @@ h1, h2, h3,
 
 @media (max-width: 700px) and (orientation: portrait) {
   .cena__img { object-position: var(--obj-m, 50% 50%); }
-  .abertura::after { background: linear-gradient(to bottom, rgb(18 16 14 / 0.7), transparent 40%); }
+  /* embaixo a foto também volta à cor do palco, como no computador: a legenda se lê mesmo sobre o chão claro */
+  .abertura::after {
+    background:
+      linear-gradient(to bottom, rgb(18 16 14 / 0.7), transparent 40%),
+      linear-gradient(to top, rgb(18 16 14 / 0.72), transparent 18%);
+  }
 }
 
 
-/* ---------- epígrafe ---------- */
-
-.epigrafe {
-  padding: var(--respiro) var(--margem);
-  max-width: var(--maximo);
-  margin: 0 auto;
-}
-
-/* agora: o que está acontecendo, como a placa de um teatro */
-.agora {
-  display: grid;
-  gap: 1rem 2rem;
-  margin-top: clamp(4rem, 9vw, 7rem);
-  padding-top: 1.2rem;
-  border-top: 1px solid color-mix(in srgb, var(--nanquim) 28%, transparent);
-}
+/* agora (no começo de Criações cênicas): sem JavaScript, uma lista simples; com ele, o programa, mais abaixo */
 .agora__rotulo { color: var(--destaque); }
 .agora__lista { display: grid; gap: 1.4rem 3rem; }
 .agora__tipo {
@@ -770,67 +762,68 @@ html { --escala: 1; font-size: calc(max(72%, 0.6vw) * var(--escala)); }
 .topo__som, .topo__indice, .topo__contato, .topo__secao { font-size: calc(var(--fs-rotulo) / var(--escala, 1)); }
 .topo__letra { font-size: calc(1.05rem / var(--escala, 1)); }
 .topo__nome .nome-tinta { width: calc(clamp(10.5rem, 13vw, 12.5rem) / var(--escala, 1)); }
-@media (max-width: 370px) { .topo__nome .nome-tinta { width: calc(7.4rem / var(--escala, 1)); } }
+/* nos celulares, a assinatura do topo fica menor, para caber a língua (PT, ES ou EN) ao lado dos botões */
+@media (max-width: 480px) { .topo__nome .nome-tinta { width: calc(7.4rem / var(--escala, 1)); } }
+@media (max-width: 370px) { .topo__nome .nome-tinta { width: calc(6.6rem / var(--escala, 1)); } }
 .topo { padding: calc(1.1rem / var(--escala, 1)) calc(var(--margem) / var(--escala, 1)); column-gap: calc(1rem / var(--escala, 1)); }
 .topo__acoes { gap: calc(clamp(1.4rem, 3vw, 2.6rem) / var(--escala, 1)); }
 .topo__ondas { height: calc(0.95rem / var(--escala, 1)); }
 .topo__indice::before { width: calc(1.8rem / var(--escala, 1)); }
-@media (max-width: 370px) { .topo__acoes { gap: calc(0.9rem / var(--escala, 1)); } }
+@media (max-width: 480px) { .topo__acoes { gap: calc(0.9rem / var(--escala, 1)); } }
+@media (max-width: 370px) { .topo__acoes { gap: calc(0.75rem / var(--escala, 1)); } }
+/* os celulares menores (320 px): um pouco mais justo, para o Índice não sair da tela no espanhol */
+@media (max-width: 340px) {
+  .topo__nome .nome-tinta { width: calc(5.6rem / var(--escala, 1)); }
+  .topo__acoes { gap: calc(0.65rem / var(--escala, 1)); }
+  .topo { column-gap: calc(0.7rem / var(--escala, 1)); }
+}
 
-/* ---------- Agora: cada item é um cartaz de teatro, em destaque logo depois da capa ----------
-   Moldura dupla (um fio e outro fino por dentro), o tipo no alto, o título grande ao centro e a data no pé. */
-/* o Agora usa a mesma grade de 3 colunas das seções logo abaixo: na 1ª coluna, o título e uma linha;
-   na 2ª e na 3ª, os cartazes, no formato das fotos das seções (4:5). Com 3 cartazes, o título sobe e eles ocupam as 3. */
-.agora {
-  grid-template-columns: minmax(0, 1fr);
-  gap: clamp(1.5rem, 3vw, 2.5rem) clamp(1rem, 2.5vw, 2rem);
-  padding-top: 0;
-  border-top: 0;
-}
-.agora__cabeca { display: grid; gap: 0.8rem; align-content: end; }
-.agora__titulo-secao { margin: 0; font-size: var(--fs-titulo); line-height: 1; font-weight: var(--peso-titulo); color: var(--cal); }
-.agora__sobre { margin: 0; max-width: 18em; font-size: clamp(1rem, 1.3vw, 1.15rem); line-height: 1.45; color: var(--tinta-escura); }
-.agora__lista { grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: inherit; }
+/* ---------- Agora: no começo de Criações cênicas, o que está em criação neste momento ----------
+   Ocupa o lugar de uma obra, na mesma grade de 12 colunas (css/obras.css): à esquerda, "Agora" no lugar do ano;
+   à direita, um programa, como as seções da página inicial: uma linha para cada item de js/agenda.js, entre fios.
+   Em cada linha: o tipo e a data em letra pequena; o título grande e, embaixo, o detalhe (com quem, onde). */
+.agora .agora__cabeca .obra__ano { margin: 0; }
+.agora .agora__lista { grid-template-columns: minmax(0, 1fr); gap: 0; }
+/* no celular e no tablet, uma coluna da largura da tela */
+@media (max-width: 899px) { .agora { grid-template-columns: minmax(0, 1fr); } }
 @media (min-width: 900px) {
-  .agora { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: end; }
-  .agora__lista { grid-column: 2 / 4; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .agora:has(.agora__cartaz:nth-child(3)) .agora__cabeca { grid-column: 1 / -1; }
-  .agora:has(.agora__cartaz:nth-child(3)) .agora__lista { grid-column: 1 / -1; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .agora .agora__cabeca { grid-column: 1 / 4; align-self: start; }
+  .agora .agora__lista { grid-column: 4 / 13; }
 }
-.agora__lista li.agora__cartaz {
-  --papel-cartaz: color-mix(in srgb, var(--palco) 88%, var(--kraft));
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  aspect-ratio: 4 / 5;
-  padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
-  text-align: center;
-  background: var(--papel-cartaz);
-  border: 1px solid rgb(214 198 171 / 0.45);
-  box-shadow: inset 0 0 0 8px var(--papel-cartaz), inset 0 0 0 9px rgb(214 198 171 / 0.22);
-  transition: border-color 0.4s ease;
+.agora__lista li.agora__item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: 0.55rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgb(214 198 171 / 0.28);
 }
-.agora__lista li.agora__cartaz:hover { border-color: rgb(214 198 171 / 0.75); }
-.agora__cartaz .agora__tipo {
-  width: 100%;
+.agora__lista li.agora__item:last-child { border-bottom: 1px solid rgb(214 198 171 / 0.28); }
+.agora__item .agora__tipo { margin: 0; font-size: calc(var(--fs-rotulo) * 1.2); letter-spacing: 0.2em; color: var(--destaque-claro); }
+.agora__item .agora__titulo { margin: 0; max-width: none; font-size: clamp(1.8rem, 7.4vw, 2.4rem); line-height: 1.05; font-weight: var(--peso-titulo); text-wrap: balance; }
+.agora__item .agora__titulo cite { font-style: normal; }
+.agora__item .agora__detalhe { margin: 0; max-width: 30em; font-size: 1.1rem; line-height: 1.45; color: var(--tinta-escura); }
+.agora__item .agora__quando {
   margin: 0;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgb(214 198 171 / 0.22);
-  letter-spacing: 0.32em;
-  color: var(--destaque-claro);
-}
-.agora__cartaz .agora__titulo { margin: auto 0 0; max-width: 11em; font-size: clamp(1.5rem, 2.3vw, 2.3rem); line-height: 1.1; font-weight: var(--peso-titulo); }
-.agora__cartaz .agora__titulo cite { font-style: normal; }
-.agora__cartaz .agora__detalhe { margin: 0 0 auto; max-width: 26em; font-size: 1rem; line-height: 1.45; color: var(--tinta-escura); }
-.agora__cartaz .agora__quando {
-  width: 100%;
-  margin: 0;
-  padding-top: 1rem;
-  border-top: 1px solid rgb(214 198 171 / 0.22);
   font-family: var(--grotesca);
   font-size: calc(var(--fs-rotulo) * 1.2);
-  letter-spacing: 0.24em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--cal);
+  color: var(--tinta-escura);
+}
+/* o que vem depois do ponto ("39ª edição") fica na linha de baixo, sem o ponto: nunca sobra um ponto solto no fim da linha */
+.agora__quando .agora__sep { display: none; }
+.agora__quando .agora__resto { display: block; margin-top: 0.3rem; }
+/* no computador, o tipo e a data numa coluna à esquerda; o título e o detalhe, à direita */
+@media (min-width: 900px) {
+  .agora__lista li.agora__item {
+    grid-template-columns: minmax(0, 19rem) minmax(0, 1fr);
+    column-gap: clamp(2rem, 4vw, 4rem);
+    align-items: baseline;
+    padding: 1.9rem 0;
+  }
+  .agora__item .agora__tipo, .agora__item .agora__quando { grid-column: 1; letter-spacing: 0.16em; }
+  .agora__item .agora__tipo { grid-row: 1; }
+  .agora__item .agora__quando { grid-row: 2; }
+  .agora__item .agora__titulo { grid-column: 2; grid-row: 1 / span 2; align-self: start; font-size: clamp(2rem, 2.7vw, 3.2rem); }
+  .agora__item .agora__detalhe { grid-column: 2; grid-row: 3; }
 }
