@@ -77,16 +77,16 @@
 /* o nome à mão (o mesmo traço de assets/marca/nome-tinta.svg), escrito da esquerda para a direita */
 .carregando__nome {
   display: block;
-  font-family: var(--serif);
-  font-weight: var(--peso-titulo);
-  font-size: clamp(2.4rem, 7vw, 5.6rem);
-  line-height: 1.1;
-  letter-spacing: 0.01em;
-  white-space: nowrap;
+  width: min(74vw, 56rem);
+  aspect-ratio: 1420 / 175;
+  background: currentColor;
+  -webkit-mask: url("../assets/marca/nome-tinta.svg") no-repeat center / contain;
+  mask: url("../assets/marca/nome-tinta.svg") no-repeat center / contain;
   clip-path: inset(0 100% 0 0);
   animation: escrever-nome 2.8s cubic-bezier(0.45, 0.05, 0.35, 1) 0.4s forwards;
 }
 @keyframes escrever-nome { to { clip-path: inset(0 -2% 0 0); } }
+@media (max-width: 600px) { .carregando__nome { width: 90vw; } }
 .carregando.is-saindo .carregando__nome { transform: scale(1.03); transition: transform 1.3s cubic-bezier(0.2, 0.7, 0.1, 1); }
 
 /* ---------- 2 · a cena de Instante-já ---------- */
