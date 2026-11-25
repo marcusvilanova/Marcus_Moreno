@@ -146,3 +146,51 @@
 .linguas a:hover, .linguas a:focus-visible, .linguas a[aria-current="page"] { opacity: 1; }
 .linguas a[aria-current="page"] { text-decoration: underline; text-underline-offset: 0.35em; }
 @media (max-width: 900px) { .linguas { display: none; } } /* no celular, as línguas ficam no Índice */
+
+/* ---------- Voltar, no topo, ao lado da assinatura ---------- */
+.topo__inicio { justify-self: start; display: inline-flex; align-items: center; gap: clamp(1rem, 2vw, 1.8rem); }
+.topo__voltar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55em;
+  font-family: var(--grotesca);
+  font-size: calc(var(--fs-rotulo) / var(--escala, 1));
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.75;
+  transition: opacity 0.3s ease;
+}
+.topo__voltar > span[aria-hidden] { font-size: 1.25em; letter-spacing: 0; }
+.topo__voltar:hover, .topo__voltar:focus-visible { opacity: 1; }
+/* no celular, o topo é estreito: só a seta fica à vista (o nome continua para os leitores de tela) */
+@media (max-width: 600px) {
+  .topo__voltar-texto { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .topo__voltar { padding: 0.6rem; margin: -0.6rem -0.6rem -0.6rem 0; } /* área de toque maior, sem encostar na assinatura */
+}
+
+/* ---------- seta de voltar ao topo ---------- */
+.subir {
+  position: fixed;
+  z-index: 50;
+  right: calc(1.1rem + env(safe-area-inset-right, 0px));
+  bottom: calc(1.1rem + env(safe-area-inset-bottom, 0px));
+  width: max(3rem, 44px);   /* nunca menor que 44 px: o tamanho mínimo confortável para o dedo */
+  height: max(3rem, 44px);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid rgb(214 198 171 / 0.45);
+  background: color-mix(in srgb, var(--palco) 90%, transparent);
+  color: var(--cal);
+  font-size: 1.15rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0.6rem);
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0s linear 0.35s, border-color 0.3s ease, color 0.3s ease;
+}
+.subir.is-visivel { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+.subir:hover, .subir:focus-visible { border-color: var(--destaque-claro); color: var(--destaque-claro); }
+@media (prefers-reduced-motion: reduce) { .subir { transition: none; } }

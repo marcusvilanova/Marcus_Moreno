@@ -29,7 +29,7 @@
         contato: ['Contacto', 'Producción, redes y material para programadores.'],
       },
       percurso: 'Recorrido por el sitio', seguir: 'A continuación', fim: 'Fin del recorrido · volver al',
-      anterior: 'Anterior', de: 'de', todas: 'Ver todas las secciones', secoes: 'Secciones',
+      anterior: 'Anterior', de: 'de', todas: 'Ver todas las secciones', secoes: 'Secciones', subir: 'Volver arriba',
       percorrer: 'Recorrer el sitio',
     },
     en: {
@@ -43,13 +43,13 @@
         contato: ['Contact', 'Production, social media and material for programmers.'],
       },
       percurso: 'Journey through the site', seguir: 'Next', fim: 'End of the journey · back to',
-      anterior: 'Previous', de: 'of', todas: 'See all sections', secoes: 'Sections',
+      anterior: 'Previous', de: 'of', todas: 'See all sections', secoes: 'Sections', subir: 'Back to top',
       percorrer: 'Walk through the site',
     },
   };
   const ROTULOS = TRADUCOES[LINGUA] || {
     percurso: 'Percurso pelo site', seguir: 'A seguir', fim: 'Fim do percurso · voltar ao',
-    anterior: 'Anterior', de: 'de', todas: 'Ver todas as seções', secoes: 'Seções',
+    anterior: 'Anterior', de: 'de', todas: 'Ver todas as seções', secoes: 'Seções', subir: 'Voltar ao topo',
     percorrer: 'Percorrer o site',
   };
   const traduzir = (p) => {
@@ -190,8 +190,51 @@
     });
   }
 
+  /* ---------- Voltar (no topo): a página anterior, se ela for do site; se não, a página inicial ---------- */
+
+  function voltar() {
+    const botao = document.querySelector('.topo__voltar');
+    if (!botao) return;
+    botao.addEventListener('click', (evento) => {
+      let veioDoSite = false;
+      try { veioDoSite = Boolean(document.referrer) && new URL(document.referrer).origin === location.origin; } catch (e) { /* endereço de origem ilegível: segue o link */ }
+      if (veioDoSite && history.length > 1) {
+        evento.preventDefault();
+        history.back();
+      }
+    });
+  }
+
+  /* ---------- seta de voltar ao topo: só nas páginas longas, depois de rolar um bom trecho ---------- */
+
+  function subir() {
+    const botao = el('button', 'subir');
+    botao.type = 'button';
+    botao.setAttribute('aria-label', ROTULOS.subir);
+    const seta = el('span', '', '↑');
+    seta.setAttribute('aria-hidden', 'true');
+    botao.append(seta);
+    document.body.append(botao);
+    const atualizar = () => {
+      const longa = document.documentElement.scrollHeight > innerHeight * 2.5;
+      botao.classList.toggle('is-visivel', longa && scrollY > innerHeight * 1.2);
+    };
+    addEventListener('scroll', atualizar, { passive: true });
+    addEventListener('resize', atualizar);
+    atualizar();
+    botao.addEventListener('click', () => {
+      const reduz = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      scrollTo({ top: 0, behavior: reduz ? 'auto' : 'smooth' });
+      // o foco volta para o começo da página, para quem navega pelo teclado
+      const inicio = document.querySelector('.topo__nome');
+      if (inicio) inicio.focus({ preventScroll: true });
+    });
+  }
+
   portas();
   faixaSeguir();
   indice();
   vestir();
+  voltar();
+  subir();
 })();

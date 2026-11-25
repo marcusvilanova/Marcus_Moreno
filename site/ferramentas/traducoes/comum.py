@@ -52,6 +52,7 @@ T = {
     "Vídeo": ("Video", "Video"),
     "Abrir no YouTube": ("Abrir en YouTube", "Open on YouTube"),
     "Fechar": ("Cerrar", "Close"),
+    "Voltar": ("Volver", "Back"),
     "Role a página": ("Desplaza la página", "Scroll down"),
     "Deslize": ("Desliza", "Swipe"),
     "Assistir": ("Ver", "Watch"),
