@@ -18,11 +18,7 @@
   /* ---------- 1 · refletor ----------
      Uma cópia da foto, em cor e sem filtro, fica por cima dela, recortada por uma máscara circular
      que acompanha o mouse; a foto de baixo escurece um pouco, como a plateia fora do foco de luz. */
-  const luz = document.createElement('img');
-  luz.className = 'refletor';
-  luz.alt = '';
-  luz.setAttribute('aria-hidden', 'true');
-  document.body.append(luz);
+  let luz = null; // criada a cada seção aberta: a troca de seção leva a anterior junto (js/continuidade.js)
 
   function acender(foto) {
     luz.src = foto.currentSrc || foto.src;
@@ -51,7 +47,7 @@
 
   /* ---------- 2 e 3 · água (só em Sempre mais que um) e paralaxe ---------- */
 
-  function iniciarFotosVivas() {
+  function iniciarFotosVivas(sinal) {
     const mapa = document.querySelector('#agua feDisplacementMap');
     const ruido = document.querySelector('#agua feTurbulence');
 
@@ -119,7 +115,7 @@
         if (!temAgua(foto)) posicionar(foto, e.clientX, e.clientY);
       }
       if (!rodando) { rodando = true; requestAnimationFrame(passo); }
-    }, { passive: true });
+    }, { passive: true, signal: sinal });
 
     // ao rolar com o mouse parado, a foto sai de baixo dele: o refletor acompanha ou se apaga
     addEventListener('scroll', () => {
@@ -127,8 +123,15 @@
       const sob = document.elementFromPoint(mouse.x, mouse.y);
       if (!sob || sob.closest('img.tinta') !== foto) { soltar(foto); foto = null; return; }
       if (!temAgua(foto)) posicionar(foto, mouse.x, mouse.y);
-    }, { passive: true });
+    }, { passive: true, signal: sinal });
   }
 
-  iniciarFotosVivas();
+  window.MMVida.aoEntrar((pagina) => {
+    luz = document.createElement('img');
+    luz.className = 'refletor';
+    luz.alt = '';
+    luz.setAttribute('aria-hidden', 'true');
+    document.body.append(luz);
+    iniciarFotosVivas(pagina.sinal);
+  });
 })();

@@ -37,16 +37,6 @@ window.AGENDA = [
 (() => {
   'use strict';
 
-  const lista = document.querySelector('[data-agenda]');
-  if (!lista || !Array.isArray(window.AGENDA)) return;
-
-  const hoje = new Date().toISOString().slice(0, 10);
-  const LINGUA = (window.MM && window.MM.lingua) || 'pt';
-  // nas páginas traduzidas, cada campo usa a versão da língua quando ela existe
-  const vigentes = window.AGENDA
-    .filter((item) => !item.ate || item.ate >= hoje)
-    .map((item) => ({ ...item, ...(item[LINGUA] || {}) }));
-
   function criarItem(item) {
     // cada item é uma linha do programa: o tipo, o título grande, o detalhe e a data (no computador, o tipo
     // e a data vão para uma coluna à esquerda: css/base.css)
@@ -87,8 +77,21 @@ window.AGENDA = [
     return li;
   }
 
-  lista.replaceChildren(...vigentes.map(criarItem));
-  // sem nada acontecendo, a faixa inteira sai de cena
-  const faixa = lista.closest('.agora');
-  if (faixa) faixa.hidden = vigentes.length === 0;
+  // a cada página aberta (js/continuidade.js); só Criações cênicas tem a lista
+  function montar() {
+    const lista = document.querySelector('[data-agenda]');
+    if (!lista || !Array.isArray(window.AGENDA)) return;
+    const hoje = new Date().toISOString().slice(0, 10);
+    const LINGUA = (window.MM && window.MM.lingua) || 'pt';
+    // nas páginas traduzidas, cada campo usa a versão da língua quando ela existe
+    const vigentes = window.AGENDA
+      .filter((item) => !item.ate || item.ate >= hoje)
+      .map((item) => ({ ...item, ...(item[LINGUA] || {}) }));
+    lista.replaceChildren(...vigentes.map(criarItem));
+    // sem nada acontecendo, a faixa inteira sai de cena
+    const faixa = lista.closest('.agora');
+    if (faixa) faixa.hidden = vigentes.length === 0;
+  }
+
+  window.MMVida.aoEntrar(montar);
 })();

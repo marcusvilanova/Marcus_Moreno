@@ -168,14 +168,20 @@
 .topo__posicao { margin-left: 0.8em; opacity: 0.6; }
 .topo__posicao::before { content: "· "; }
 
-/* ---------- troca de página: a luz baixa e sobe, como na plateia ---------- */
+/* ---------- troca de seção: a luz baixa um pouco e sobe, como na plateia ----------
+   Entre as seções a página não recarrega (js/continuidade.js); a que sai e a que entra se cruzam,
+   sem um instante de tela vazia. A mesma passagem vale quando a página recarrega (vinda de fora do site). */
 
 @view-transition { navigation: auto; }
 @media (prefers-reduced-motion: no-preference) {
   ::view-transition { background-color: var(--palco); }
-  ::view-transition-old(root) { animation: apagar-pagina 0.32s ease-in both; }
-  ::view-transition-new(root) { animation: acender-pagina 0.55s ease-out 0.2s both; }
+  ::view-transition-old(root) { animation: apagar-pagina 0.24s ease-in both; }
+  ::view-transition-new(root) { animation: acender-pagina 0.36s ease-out both; }
 }
+/* enquanto a seção seguinte chega (internet lenta), o cursor avisa */
+html.a-caminho, html.a-caminho a { cursor: progress; }
+/* depois da troca, o foco vai para o conteúdo novo (para quem usa leitor de tela), sem moldura */
+main:focus { outline: none; }
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
 }

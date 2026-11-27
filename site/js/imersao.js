@@ -8,13 +8,15 @@
 
   const reduzMovimento = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const raiz = document.documentElement;
-  const LINGUA = (window.MM && window.MM.lingua) || 'pt';
-  const RAIZ = (window.MM && window.MM.raiz) || ''; // nas páginas traduzidas, os arquivos ficam uma pasta acima
-  const TEXTOS = {
+  const TEXTOS_POR_LINGUA = {
     pt: { ampliada: 'Foto ampliada', fechar: 'Fechar' },
     es: { ampliada: 'Foto ampliada', fechar: 'Cerrar' },
     en: { ampliada: 'Enlarged photo', fechar: 'Close' },
-  }[LINGUA] || {};
+  };
+  // a página aberta (js/continuidade.js): nas traduzidas, os arquivos ficam uma pasta acima
+  let RAIZ = '';
+  let TEXTOS = {};
+  let PAGINA = null;
   const limitar = (v, min, max) => Math.min(max, Math.max(min, v));
 
   // vídeo de fundo, sem som e em loop; ganha a classe is-tocando (e acende por cima do quadro parado) quando começa a tocar
@@ -102,8 +104,8 @@
         caixa.style.setProperty('--p', p.toFixed(3));
       }
       const pedir = () => { if (!pedido) { pedido = true; requestAnimationFrame(atualizar); } };
-      addEventListener('scroll', pedir, { passive: true });
-      addEventListener('resize', pedir);
+      addEventListener('scroll', pedir, { passive: true, signal: PAGINA.sinal });
+      addEventListener('resize', pedir, { signal: PAGINA.sinal });
       atualizar();
     });
   }
@@ -134,8 +136,8 @@
     }
 
     const pedir = () => { if (!pedido) { pedido = true; requestAnimationFrame(atualizar); } };
-    addEventListener('scroll', pedir, { passive: true });
-    addEventListener('resize', pedir);
+    addEventListener('scroll', pedir, { passive: true, signal: PAGINA.sinal });
+    addEventListener('resize', pedir, { signal: PAGINA.sinal });
     atualizar();
   }
 
@@ -169,6 +171,7 @@
       });
     }, { rootMargin: '200% 0px' });
     teloes.forEach((telao) => { adiantar.observe(telao); olhar.observe(telao); });
+    PAGINA.aoSair(() => { olhar.disconnect(); adiantar.disconnect(); });
   }
 
   /* ---------- 6 · ampliar as fotos ---------- */
@@ -208,14 +211,20 @@
       const cap = img.closest('figure')?.querySelector('figcaption');
       legenda.textContent = cap ? cap.textContent.trim() : '';
       caixa.showModal();
-    }, true);
+    }, { capture: true, signal: PAGINA.sinal });
     caixa.querySelector('.ampliar__fechar').addEventListener('click', () => caixa.close());
     caixa.addEventListener('click', (e) => { if (e.target === caixa) caixa.close(); });
   }
 
-  iniciarCarregamento();
-  iniciarAmpliar();
-  iniciarExpansao();
-  iniciarCena();
-  iniciarTeloes();
+  // na página aberta e de novo a cada troca de seção
+  window.MMVida.aoEntrar((pagina) => {
+    PAGINA = pagina;
+    RAIZ = (window.MM && window.MM.raiz) || '';
+    TEXTOS = TEXTOS_POR_LINGUA[(window.MM && window.MM.lingua) || 'pt'] || {};
+    iniciarCarregamento();
+    iniciarAmpliar();
+    iniciarExpansao();
+    iniciarCena();
+    iniciarTeloes();
+  });
 })();

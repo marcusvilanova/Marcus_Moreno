@@ -36,7 +36,7 @@
     acervo: 'palco', contato: 'fim',
   };
 
-  const topo = document.querySelector('.topo');
+  let topo = document.querySelector('.topo'); // o de cada seção aberta (js/continuidade.js)
   let ctx = null;
   let saida = null;
   let filtro = null;
@@ -251,8 +251,9 @@
 
   botao.addEventListener('click', alternar);
 
-  /* ---------- entre páginas: quem ligou o som, reencontra o som ---------- */
-  // o navegador só deixa tocar depois de um gesto em cada página: o som volta no primeiro clique, toque ou tecla
+  /* ---------- ao abrir o site de novo: quem ligou o som, reencontra o som ---------- */
+  // entre as seções a música não para; mas, numa página aberta do zero (recarregada ou vinda de fora), o navegador
+  // só deixa tocar depois de um gesto: o som volta no primeiro clique, toque ou tecla
   const MEMORIA = 'mm-som';
   botao.addEventListener('click', () => {
     try { sessionStorage.setItem(MEMORIA, ligado ? '1' : '0'); } catch (e) { /* sem memória: cada página começa em silêncio */ }
@@ -270,18 +271,36 @@
     ['click', 'keydown', 'touchend'].forEach((tipo) => addEventListener(tipo, retomar, { capture: true }));
   }
 
-  /* ---------- a cena muda com a seção que está no meio da tela ---------- */
+  /* ---------- a cada seção aberta: a música continua, e a cena e a luz passam a seguir a página nova ----------
+     A troca de seção não recarrega a página (js/continuidade.js): o som segue tocando, sem cortar. */
 
-  if ('IntersectionObserver' in window) {
-    const observador = new IntersectionObserver((entradas) => {
-      entradas.forEach((e) => {
-        if (!e.isIntersecting) return;
-        cena = CENAS[CENA_DA_SECAO[e.target.id]] || CENAS.padrao;
-        if (ctx && corpoGrave) corpoGrave.gain.setTargetAtTime(cena.grave, ctx.currentTime, 2);
+  window.MMVida.aoEntrar((pagina) => {
+    topo = document.querySelector('.topo');
+    cena = CENAS.padrao;
+    if (ctx) filtro.frequency.setTargetAtTime(brilhoAtual(), ctx.currentTime, 1.2);
+
+    // a cena muda com a seção que está no meio da tela
+    if ('IntersectionObserver' in window) {
+      const observador = new IntersectionObserver((entradas) => {
+        entradas.forEach((e) => {
+          if (!e.isIntersecting) return;
+          cena = CENAS[CENA_DA_SECAO[e.target.id]] || CENAS.padrao;
+          if (ctx && corpoGrave) corpoGrave.gain.setTargetAtTime(cena.grave, ctx.currentTime, 2);
+        });
+      }, { rootMargin: '-50% 0px -50% 0px' });
+      document.querySelectorAll('main section[id]').forEach((s) => observador.observe(s));
+      pagina.aoSair(() => observador.disconnect());
+    }
+
+    // a luz da seção muda o timbre
+    if (topo) {
+      const tom = new MutationObserver(() => {
+        if (ctx) filtro.frequency.setTargetAtTime(brilhoAtual(), ctx.currentTime, 1.2);
       });
-    }, { rootMargin: '-50% 0px -50% 0px' });
-    document.querySelectorAll('main section[id]').forEach((s) => observador.observe(s));
-  }
+      tom.observe(topo, { attributes: true, attributeFilter: ['data-tone'] });
+      pagina.aoSair(() => tom.disconnect());
+    }
+  });
 
   /* ---------- convite: depois do carregamento, o botão se apresenta uma vez por visita ---------- */
 
@@ -302,13 +321,6 @@
     fimDoCarregamento.observe(raiz, { attributes: true, attributeFilter: ['class'] });
   } else {
     setTimeout(convidar, 2500);
-  }
-
-  // a luz da seção muda o timbre
-  if (topo) {
-    new MutationObserver(() => {
-      if (ctx) filtro.frequency.setTargetAtTime(brilhoAtual(), ctx.currentTime, 1.2);
-    }).observe(topo, { attributes: true, attributeFilter: ['data-tone'] });
   }
 
   // enquanto um vídeo do YouTube estiver aberto, o som se cala

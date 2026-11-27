@@ -17,8 +17,6 @@
   const INICIO_PT = { pagina: 'index', titulo: 'Início', linha: 'A capa e as seis seções do site.', imagem: 'instante-ja-2.webp' };
 
   // as páginas traduzidas (es/, en/) trocam o título e a linha de cada seção e os rótulos da faixa
-  const LINGUA = (window.MM && window.MM.lingua) || 'pt';
-  const RAIZ = (window.MM && window.MM.raiz) || '';
   const TRADUCOES = {
     es: {
       paginas: {
@@ -49,28 +47,43 @@
       percorrer: 'Walk through the site',
     },
   };
-  const ROTULOS = TRADUCOES[LINGUA] || {
+  const ROTULOS_PT = {
     percurso: 'Percurso pelo site', seguir: 'A seguir', fim: 'Fim do percurso · voltar ao',
     anterior: 'Anterior', de: 'de', todas: 'Ver todas as seções', secoes: 'Seções', subir: 'Voltar ao topo',
     percorrer: 'Percorrer o site',
   };
-  // o Agora tem algo hoje? (os itens com data vencida somem, como em js/agenda.js)
-  const hoje = new Date().toISOString().slice(0, 10);
-  const temAgora = (window.AGENDA || []).some((item) => !item.ate || item.ate >= hoje);
-  const traduzir = (p) => {
-    const t = ROTULOS.paginas && ROTULOS.paginas[p.pagina];
-    const q = t ? { ...p, titulo: t[0], linha: t[1], linhaAgora: t[2] } : p;
-    return temAgora && q.linhaAgora ? { ...q, linha: q.linhaAgora } : q;
-  };
-  const PERCURSO = PERCURSO_PT.map(traduzir);
-  const INICIO = traduzir(INICIO_PT);
 
+  // a página aberta: a língua, os rótulos, a ordem já traduzida e onde ela está nessa ordem.
+  // Refeito a cada troca de seção, que não recarrega a página (js/continuidade.js)
+  let RAIZ = '';
+  let ROTULOS = ROTULOS_PT;
+  let PERCURSO = PERCURSO_PT;
+  let INICIO = INICIO_PT;
+  let atual = 'index';
+  let posicao = -1;
+  let PAGINA = null;
+  const total = PERCURSO_PT.length;
   const nomeDaPagina = (endereco) => (endereco.split('#')[0].split('/').pop() || 'index').replace(/\.html$/, '') || 'index';
-  const atual = nomeDaPagina(location.pathname);
-  const posicao = PERCURSO.findIndex((p) => p.pagina === atual);
-  const total = PERCURSO.length;
   const link = (p) => (p.pagina === 'index' ? 'index.html' : `${p.pagina}.html`);
   const imagem = (p) => `${RAIZ}assets/img/mural/${p.imagem}`;
+
+  function prepararPagina() {
+    const LINGUA = (window.MM && window.MM.lingua) || 'pt';
+    RAIZ = (window.MM && window.MM.raiz) || '';
+    ROTULOS = TRADUCOES[LINGUA] || ROTULOS_PT;
+    // o Agora tem algo hoje? (os itens com data vencida somem, como em js/agenda.js)
+    const hoje = new Date().toISOString().slice(0, 10);
+    const temAgora = (window.AGENDA || []).some((item) => !item.ate || item.ate >= hoje);
+    const traduzir = (p) => {
+      const t = ROTULOS.paginas && ROTULOS.paginas[p.pagina];
+      const q = t ? { ...p, titulo: t[0], linha: t[1], linhaAgora: t[2] } : p;
+      return temAgora && q.linhaAgora ? { ...q, linha: q.linhaAgora } : q;
+    };
+    PERCURSO = PERCURSO_PT.map(traduzir);
+    INICIO = traduzir(INICIO_PT);
+    atual = nomeDaPagina(location.pathname);
+    posicao = PERCURSO.findIndex((p) => p.pagina === atual);
+  }
 
   function el(tag, classe, texto) {
     const e = document.createElement(tag);
@@ -169,6 +182,7 @@
       entradas.forEach((e) => e.target.classList.toggle('is-encontro', e.isIntersecting));
     }, { rootMargin: '-38% 0px -38% 0px' });
     lista.querySelectorAll('.portas__imagem').forEach((img) => centro.observe(img));
+    PAGINA.aoSair(() => centro.disconnect());
   }
 
   function portas() {
@@ -238,8 +252,9 @@
     const botao = document.querySelector('.topo__voltar');
     if (!botao) return;
     botao.addEventListener('click', (evento) => {
-      let veioDoSite = false;
-      try { veioDoSite = Boolean(document.referrer) && new URL(document.referrer).origin === location.origin; } catch (e) { /* endereço de origem ilegível: segue o link */ }
+      // a seção anterior foi aberta nesta visita, sem recarregar (js/continuidade.js), ou a página veio do site
+      let veioDoSite = Boolean(history.state && history.state.mm);
+      try { veioDoSite = veioDoSite || (Boolean(document.referrer) && new URL(document.referrer).origin === location.origin); } catch (e) { /* endereço de origem ilegível: segue o link */ }
       if (veioDoSite && history.length > 1) {
         evento.preventDefault();
         history.back();
@@ -261,8 +276,8 @@
       const longa = document.documentElement.scrollHeight > innerHeight * 2.5;
       botao.classList.toggle('is-visivel', longa && scrollY > innerHeight * 1.2);
     };
-    addEventListener('scroll', atualizar, { passive: true });
-    addEventListener('resize', atualizar);
+    addEventListener('scroll', atualizar, { passive: true, signal: PAGINA.sinal });
+    addEventListener('resize', atualizar, { signal: PAGINA.sinal });
     atualizar();
     botao.addEventListener('click', () => {
       const reduz = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -311,17 +326,22 @@
     // um toque em qualquer outro lugar (inclusive no Índice) fecha a lista
     document.addEventListener('pointerdown', (e) => {
       if (!painel.hidden && !e.target.closest('.linguas-painel, .topo__lingua')) abrir(false);
-    });
+    }, { signal: PAGINA.sinal });
     addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && !painel.hidden) { abrir(false); botao.focus(); }
-    });
+    }, { signal: PAGINA.sinal });
   }
 
-  portas();
-  faixaSeguir();
-  indice();
-  vestir();
-  voltar();
-  subir();
-  lingua();
+  // na página aberta e de novo a cada troca de seção
+  window.MMVida.aoEntrar((pagina) => {
+    PAGINA = pagina;
+    prepararPagina();
+    portas();
+    faixaSeguir();
+    indice();
+    vestir();
+    voltar();
+    subir();
+    lingua();
+  });
 })();

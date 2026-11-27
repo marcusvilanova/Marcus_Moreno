@@ -7,15 +7,18 @@
   const ponteiroFino = matchMedia('(hover: hover) and (pointer: fine)').matches;
   const SVG = 'http://www.w3.org/2000/svg';
   // textos que o código escreve, na língua da página (window.MM vem do <head>; ver ferramentas/gerar-traducoes.py)
-  const LINGUA = (window.MM && window.MM.lingua) || 'pt';
-  const TEXTOS = {
+  const TEXTOS_POR_LINGUA = {
     pt: { fechar: 'Fechar', indice: 'Índice', youtube: 'Abrir no YouTube', assistir: 'Assistir',
           letra: ['Aumentar o tamanho da letra', 'Aumentar mais a letra', 'Aumentar mais a letra', 'Voltar ao tamanho original da letra'] },
     es: { fechar: 'Cerrar', indice: 'Índice', youtube: 'Abrir en YouTube', assistir: 'Ver',
           letra: ['Aumentar el tamaño de la letra', 'Aumentar más la letra', 'Aumentar más la letra', 'Volver al tamaño original de la letra'] },
     en: { fechar: 'Close', indice: 'Index', youtube: 'Open on YouTube', assistir: 'Watch',
           letra: ['Increase text size', 'Increase text size further', 'Increase text size further', 'Back to the original text size'] },
-  }[LINGUA] || {};
+  };
+  // a página aberta (js/continuidade.js): os textos na língua dela, o sinal que desliga os ouvintes da janela
+  // na troca de seção e onde guardar o que mais precisa ser desligado (pagina.aoSair)
+  let TEXTOS = {};
+  let PAGINA = null;
 
 
   /* ---------- topo: tom da seção e seção atual ---------- */
@@ -83,8 +86,8 @@
 
     addEventListener('scroll', () => {
       if (!agendado) { agendado = true; requestAnimationFrame(atualizar); }
-    }, { passive: true });
-    addEventListener('resize', atualizar);
+    }, { passive: true, signal: PAGINA.sinal });
+    addEventListener('resize', atualizar, { signal: PAGINA.sinal });
     atualizar();
   }
 
@@ -119,7 +122,7 @@
 
     botao.addEventListener('click', () => (aberto ? fechar() : abrir()));
     indice.addEventListener('click', (e) => { if (e.target.closest('a')) fechar(false); });
-    addEventListener('keydown', (e) => { if (e.key === 'Escape' && aberto) fechar(); });
+    addEventListener('keydown', (e) => { if (e.key === 'Escape' && aberto) fechar(); }, { signal: PAGINA.sinal });
   }
 
   /* ---------- revelações ao entrar na tela ---------- */
@@ -136,6 +139,7 @@
       });
     }, { threshold: 0, rootMargin: '0px 0px -6% 0px' }); // dispara assim que a foto aponta na tela
     alvos.forEach((el) => io.observe(el));
+    PAGINA.aoSair(() => io.disconnect());
 
     // sem mouse, a cor da foto aparece quando ela passa pelo centro da tela
     if (!ponteiroFino) {
@@ -143,6 +147,7 @@
         entradas.forEach((e) => e.target.classList.toggle('is-encontro', e.isIntersecting));
       }, { rootMargin: '-38% 0px -38% 0px' });
       document.querySelectorAll('.tinta').forEach((img) => centro.observe(img));
+      PAGINA.aoSair(() => centro.disconnect());
     }
   }
 
@@ -459,7 +464,7 @@
       titulo.textContent = alvo.dataset.titulo || '';
       linkVisor.href = enderecoYouTube(alvo);
       dialogo.showModal();
-    });
+    }, { signal: PAGINA.sinal });
 
     if (!temVisor) return;
     dialogo.querySelector('.player__fechar').addEventListener('click', () => dialogo.close());
@@ -561,10 +566,10 @@
       scrollTo({ top: Math.round(topoCaixa + alvo * percurso), behavior: 'instant' });
     });
 
-    addEventListener('scroll', pedir, { passive: true });
+    addEventListener('scroll', pedir, { passive: true, signal: PAGINA.sinal });
     faixa.addEventListener('scroll', pedir, { passive: true });
-    addEventListener('resize', aoRedimensionar);
-    MODO_LATERAL.addEventListener('change', medir);
+    addEventListener('resize', aoRedimensionar, { signal: PAGINA.sinal });
+    MODO_LATERAL.addEventListener('change', medir, { signal: PAGINA.sinal });
     faixa.querySelectorAll('img').forEach((img) => {
       if (!img.complete) img.addEventListener('load', medir, { once: true });
     });
@@ -584,13 +589,15 @@
     if (!acervo || !('IntersectionObserver' in window)) return;
     const imagens = [...acervo.querySelectorAll('img[loading="lazy"]')];
     let carregou = false;
-    new IntersectionObserver(([e]) => {
+    const perto = new IntersectionObserver(([e]) => {
       acervo.classList.toggle('is-visivel', e.isIntersecting);
       if (e.isIntersecting && !carregou) {
         carregou = true;
         imagens.forEach((img) => { img.loading = 'eager'; });
       }
-    }, { rootMargin: '60% 0px' }).observe(acervo);
+    }, { rootMargin: '60% 0px' });
+    perto.observe(acervo);
+    PAGINA.aoSair(() => perto.disconnect());
   }
 
   // a capa só começa a fundir as fotos quando aparece na tela, para abrir sempre pela primeira; fora da tela, para
@@ -598,7 +605,9 @@
     const capa = document.querySelector('.abertura');
     if (!capa || !('IntersectionObserver' in window)) return;
     capa.dataset.espera = '';
-    new IntersectionObserver(([e]) => capa.classList.toggle('is-visivel', e.isIntersecting), { threshold: 0.2 }).observe(capa);
+    const vista = new IntersectionObserver(([e]) => capa.classList.toggle('is-visivel', e.isIntersecting), { threshold: 0.2 });
+    vista.observe(capa);
+    PAGINA.aoSair(() => vista.disconnect());
   }
 
   // carregamento adiantado: as fotos são buscadas antes de chegarem à tela.
@@ -621,10 +630,13 @@
       });
     }, { rootMargin: '200% 0px' });
     porBloco.forEach((_, bloco) => perto.observe(bloco));
+    PAGINA.aoSair(() => perto.disconnect());
 
     const conexao = navigator.connection;
     if (conexao && (conexao.saveData || /2g/.test(conexao.effectiveType || ''))) return;
+    const { sinal } = PAGINA;
     function proxima() {
+      if (sinal.aborted) return; // a pessoa já foi para outra seção
       // só as fotos que existem nesta tela (as escondidas no celular ou no computador ficam de fora)
       const img = fotos.find((f) => f.loading === 'lazy' && f.getClientRects().length);
       if (!img) return;
@@ -637,7 +649,7 @@
     }
     const comecar = () => setTimeout(proxima, 2500);
     if (document.readyState === 'complete') comecar();
-    else addEventListener('load', comecar, { once: true });
+    else addEventListener('load', comecar, { once: true, signal: sinal });
   }
 
   // Aa: cada toque aumenta a letra um passo; depois do maior, volta ao tamanho de origem.
@@ -662,20 +674,24 @@
     });
   }
 
-  /* ---------- início ---------- */
+  /* ---------- início: na página aberta e de novo a cada troca de seção (js/continuidade.js) ---------- */
 
-  iniciarRolagem();
-  iniciarIndice();
-  iniciarRevelacoes();
-  iniciarRede();
-  iniciarQuadros();
-  iniciarPlayer();
-  iniciarLaterais();
-  iniciarAcervo();
-  iniciarCapa();
-  iniciarPreCarga();
-  iniciarLetra();
+  window.MMVida.aoEntrar((pagina) => {
+    PAGINA = pagina;
+    TEXTOS = TEXTOS_POR_LINGUA[(window.MM && window.MM.lingua) || 'pt'] || {};
+    iniciarRolagem();
+    iniciarIndice();
+    iniciarRevelacoes();
+    iniciarRede();
+    iniciarQuadros();
+    iniciarPlayer();
+    iniciarLaterais();
+    iniciarAcervo();
+    iniciarCapa();
+    iniciarPreCarga();
+    iniciarLetra();
 
-  const ano = document.querySelector('[data-ano]');
-  if (ano) ano.textContent = new Date().getFullYear();
+    const ano = document.querySelector('[data-ano]');
+    if (ano) ano.textContent = new Date().getFullYear();
+  });
 })();

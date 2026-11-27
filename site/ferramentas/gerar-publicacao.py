@@ -1,5 +1,5 @@
 # Gera a versão de publicação do site na pasta "publicar", ao lado da pasta "site".
-# Junta os arquivos de estilo da página inicial em um só (css/site.min.css) e os 5 de código em um só
+# Junta os arquivos de estilo da página inicial em um só (css/site.min.css) e os de código em um só
 # (js/site.min.js), tira os comentários e deixa de fora o que é só de trabalho (ferramentas, LEIA-ME,
 # PUBLICAR, abrir-site.bat e o caderno de conceito, que tem as pendências internas).
 #
@@ -19,7 +19,7 @@ MARCA = ".gerada-por-gerar-publicacao"
 
 # na ordem em que a página inicial os carrega
 CSS_DA_CAPA = ["fontes", "base", "obras", "secoes", "acervo", "laterais", "entreato", "percurso", "imersao"]
-JS_DA_CAPA = ["agenda", "main", "mouse", "som", "imersao", "percurso"]
+JS_DA_CAPA = ["continuidade", "agenda", "main", "mouse", "som", "imersao", "percurso"]
 # arquivos de estilo que outras páginas (programadores, es, en, 404) continuam usando soltos
 CSS_SOLTOS = {"fontes", "base", "programadores"}
 
@@ -97,9 +97,12 @@ def principal(com_conceito: bool) -> None:
         if "js/agenda.js" not in pagina:
             continue  # páginas que não usam o site (ex.: as de difusão) ficam como estão
         subir = "" if arquivo.parent == SITE else "../"
-        pagina = re.sub(r'  <link rel="stylesheet" href="(?:\.\./)?css/fontes\.css">\n(?:.*\n)*?  <link rel="stylesheet" href="(?:\.\./)?css/imersao\.css">\n',
+        # os estilos da página inicial viram um só: no lugar do primeiro (fontes.css) entra o site.min.css e os demais saem.
+        # O que fica entre eles no <head> (o ícone da aba, as línguas alternativas) continua na página.
+        pagina = re.sub(r'  <link rel="stylesheet" href="(?:\.\./)?css/fontes\.css">\n',
                         f'  <link rel="stylesheet" href="{subir}css/site.min.css?v={versao}">\n', pagina, count=1)
-        pagina = re.sub(r'  <script src="(?:\.\./)?js/agenda\.js" defer></script>\n(?:  <script src="(?:\.\./)?js/\w+\.js" defer></script>\n)+',
+        pagina = re.sub(r'  <link rel="stylesheet" href="(?:\.\./)?css/(?:%s)\.css">\n' % "|".join(CSS_DA_CAPA), "", pagina)
+        pagina = re.sub(r'  <script src="(?:\.\./)?js/continuidade\.js" defer></script>\n(?:  <script src="(?:\.\./)?js/\w+\.js" defer></script>\n)+',
                         f'  <script src="{subir}js/site.min.js?v={versao}" defer></script>\n', pagina, count=1)
         if not com_conceito:
             pagina = pagina.replace(' · <a href="conceito.html">Caderno de conceito</a>', "")
