@@ -250,26 +250,37 @@
 
 .dedicatorias li { border-top: 1px solid rgb(242 238 230 / 0.18); }
 .dedicatorias li:last-child { border-bottom: 1px solid rgb(242 238 230 / 0.18); }
+/* cada dança é uma linha do programa, como as seções da página inicial: a foto do vídeo, o "para" e o nome.
+   No celular, a foto fica à esquerda; no computador, o nome vem primeiro e a foto e o Assistir ficam à direita. */
 .dedicatoria {
-  display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 1.2rem;
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  column-gap: 1.1rem;
+  row-gap: 0.25rem;
+  align-items: center;
   width: 100%;
-  padding: clamp(1rem, 2.4vw, 2rem) 0;
+  padding: 1.1rem 0;
   text-align: left;
 }
-.dedicatoria__para { font-style: normal; font-size: 1.2rem; color: var(--destaque-claro); }
+.dedicatoria__para { grid-column: 2; grid-row: 1; align-self: end; font-style: normal; font-size: 1.05rem; color: var(--destaque-claro); }
 .dedicatoria__nome {
-  font-size: clamp(2.2rem, 6.4vw, 6.4rem);
-  line-height: 1;
-  letter-spacing: -0.025em;
+  grid-column: 2;
+  grid-row: 2;
+  font-size: clamp(1.45rem, 5.4vw, 1.9rem);
+  line-height: 1.1;
+  text-wrap: balance;
   transition: transform 0.8s var(--curva), color 0.3s ease;
 }
-.dedicatoria--tres .dedicatoria__nome { font-size: clamp(1.7rem, 3.6vw, 3.6rem); max-width: 18em; text-wrap: balance; }
-.dedicatoria:hover .dedicatoria__nome, .dedicatoria:focus-visible .dedicatoria__nome { transform: translateX(1.2rem); color: var(--destaque-claro); font-style: normal; }
-/* cada nome é um vídeo: um quadro do vídeo e a palavra Assistir ficam sempre à vista */
+.dedicatoria:hover .dedicatoria__nome, .dedicatoria:focus-visible .dedicatoria__nome { transform: translateX(0.4rem); color: var(--destaque-claro); font-style: normal; }
+/* cada nome é um vídeo: um quadro do vídeo e a palavra Assistir ficam sempre à vista. O grupo dos dois só existe
+   para o leitor de tela pulá-los (aria-hidden); na tela, cada um ocupa o próprio lugar na linha */
 .dedicatorias__dica { margin-bottom: 1.2rem; color: var(--destaque-claro); }
-.dedicatoria__assistir {
-  align-self: center;
-  display: inline-flex; align-items: center; gap: 0.8rem;
+.dedicatoria__assistir { display: contents; }
+.dedicatoria__assistir > span {
+  grid-column: 2;
+  grid-row: 3;
+  align-self: start;
+  margin-top: 0.3rem;
   font-family: var(--grotesca);
   font-size: var(--fs-rotulo);
   letter-spacing: 0.2em;
@@ -277,7 +288,9 @@
   color: var(--destaque-claro);
 }
 .dedicatoria__quadro {
-  width: clamp(6.5rem, 10vw, 10.5rem);
+  grid-column: 1;
+  grid-row: 1 / span 3;
+  width: 100%;
   height: auto;
   aspect-ratio: 16 / 9;
   object-fit: cover;
@@ -286,7 +299,16 @@
 .dedicatoria:hover .dedicatoria__quadro, .dedicatoria:focus-visible .dedicatoria__quadro { filter: none; transform: scale(1.04); }
 
 @media (min-width: 900px) {
-  .dedicatorias li:nth-child(even) .dedicatoria { justify-content: flex-end; text-align: right; }
+  .dedicatoria {
+    grid-template-columns: 3.2rem minmax(0, 1fr) clamp(10rem, 15vw, 16rem) 7rem;
+    column-gap: clamp(1.2rem, 2.4vw, 2.4rem);
+    row-gap: 0;
+    padding: 1.2rem 0;
+  }
+  .dedicatoria__para { grid-column: 1; grid-row: 1; align-self: center; }
+  .dedicatoria__nome { grid-column: 2; grid-row: 1; font-size: clamp(1.8rem, 2.5vw, 3rem); }
+  .dedicatoria__quadro { grid-column: 3; grid-row: 1; }
+  .dedicatoria__assistir > span { grid-column: 4; grid-row: 1; align-self: center; margin: 0; }
 }
 
 /* ---------- V · curadoria ---------- */

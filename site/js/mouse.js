@@ -102,7 +102,9 @@
       anterior = { x: e.clientX, y: e.clientY };
       mouse = anterior;
 
-      const sob = e.target instanceof Element ? e.target.closest('img.tinta') : null;
+      // o quadro de Entre-espaço fica de fora: ali o símbolo de play precisa ficar à vista (a foto ganha cor inteira, pelo CSS)
+      const sobFoto = e.target instanceof Element ? e.target.closest('img.tinta') : null;
+      const sob = sobFoto && !sobFoto.closest('.expande') ? sobFoto : null;
       if (sob !== foto) {
         soltar(foto);
         foto = sob;

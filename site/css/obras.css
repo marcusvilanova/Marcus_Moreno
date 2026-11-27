@@ -410,6 +410,39 @@
 .expande:not(.is-viva) .expande__palco:has(.obra__tela) { aspect-ratio: 2000 / 836; }
 .obra.is-tocando .expande__titulo { opacity: 0; }
 
+/* o símbolo de play no meio da foto, para mostrar que ela abre o filme: o círculo de luz das entrevistas,
+   um pouco maior. Aparece quando o quadro termina de crescer (--q) e some junto com a foto, no desfoque do fim (--fim) */
+.expande .obra__ver { position: relative; }
+.expande .obra__ver::before, .expande .obra__ver::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  pointer-events: none;
+}
+.expande .obra__ver::before {
+  width: 5.6rem;
+  height: 5.6rem;
+  margin: -2.8rem 0 0 -2.8rem;
+  border: 1px solid rgb(242 238 230 / 0.9);
+  border-radius: 50%;
+  background: rgb(15 12 10 / 0.32); /* sobre o rosto claro, o círculo não some */
+  transition: transform 0.6s var(--curva), background-color 0.4s ease;
+}
+.expande .obra__ver::after {
+  margin: -0.6rem 0 0 -0.3rem;
+  border-style: solid;
+  border-width: 0.6rem 0 0.6rem 1rem;
+  border-color: transparent transparent transparent var(--cal);
+  transition: border-color 0.4s ease;
+}
+.expande.is-viva .obra__ver::before, .expande.is-viva .obra__ver::after {
+  opacity: calc(clamp(0, (var(--q, 0) - 0.85) / 0.15, 1) * (1 - var(--fim, 0)));
+}
+.expande .obra__ver:hover::before, .expande .obra__ver:focus-visible::before { transform: scale(1.12); background-color: var(--cal); }
+.expande .obra__ver:hover::after, .expande .obra__ver:focus-visible::after { border-left-color: var(--nanquim); }
+
 @media (max-width: 899px) {
   .expande { --s0: 0.3; --cy: 62svh; }
 }
